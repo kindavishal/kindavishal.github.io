@@ -30,21 +30,17 @@ const Footer = () => {
           a: { color: `text` },
         }}
       >
-        {/* <img width="30" height="30" src="https://img.lekoarts.de/gatsby/logo_w30.png" alt="LekoArts Logo" /> */}
         {` `}
+        Inspired from
         <Link
           aria-label="Link to the theme's GitHub repository"
-          sx={{ ml: 2 }}
+          sx={{ ml: 1 }}
           href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara"
         >
-          Original Theme
+        Cara by LekoArts <span role="img" aria-label="Rocket emoji">🚀</span>
         </Link>
-        <div sx={{ mx: 1 }}>by</div>
         {` `}
-        <Link aria-label="Link to the theme author's website" href="https://www.lekoarts.de/en">
-          LekoArts <span role="img" aria-label="Rocket emoji">🚀</span>
-        </Link>
-        <div sx={{ mx: 1 }}> and remixed by kindavishal <span role="img" aria-label="Sparkles emoji">✨</span></div>
+        <div sx={{ mx: 1 }}> Remixed by kindavishal <span role="img" aria-label="Sparkles emoji">✨</span></div>
       </Flex>
     </Box>
   )
