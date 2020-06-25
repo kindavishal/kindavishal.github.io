@@ -1,17 +1,23 @@
 /** @jsx jsx */
-import { Box, Flex, Link, useColorMode, jsx } from "theme-ui"
+import { Box, Flex, Link, useColorMode, jsx } from "theme-ui";
 
 const Footer = () => {
-  const [colorMode, setColorMode] = useColorMode()
-  const isDark = colorMode === `dark`
+  const [colorMode, setColorMode] = useColorMode();
+  const isDark = colorMode === `dark`;
   const toggleColorMode = (e: any) => {
-    setColorMode(isDark ? `light` : `dark`)
-  }
+    setColorMode(isDark ? `light` : `dark`);
+  };
 
   return (
     <Box as="footer" variant="footer">
       <button
-        sx={{ variant: `buttons.toggle`, fontWeight: `semibold`, display: `block`, mx: `auto`, mb: 3 }}
+        sx={{
+          variant: `buttons.toggle`,
+          fontWeight: `semibold`,
+          display: `block`,
+          mx: `auto`,
+          mb: 3,
+        }}
         onClick={toggleColorMode}
         type="button"
         aria-label="Toggle dark mode"
@@ -30,20 +36,28 @@ const Footer = () => {
           a: { color: `text` },
         }}
       >
-        {` `}
-        Inspired from
-        <Link
-          aria-label="Link to the theme's GitHub repository"
-          sx={{ ml: 1 }}
-          href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara"
-        >
-        Cara by LekoArts <span role="img" aria-label="Rocket emoji">🚀</span>
-        </Link>
-        {` `}
-        <div sx={{ mx: 1 }}> Remixed by kindavishal <span role="img" aria-label="Sparkles emoji">✨</span></div>
+        <div>
+          Inspired from{" "}
+          <Link
+            aria-label="Link to the theme's GitHub repository"
+            href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara"
+          >
+            Cara by LekoArts{" "}
+            <span role="img" aria-label="Rocket emoji">
+              🚀
+            </span>
+          </Link>
+          <div>
+            {" "}
+            Remixed by kindavishal{" "}
+            <span role="img" aria-label="Sparkles emoji">
+              ✨
+            </span>
+          </div>
+        </div>
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
