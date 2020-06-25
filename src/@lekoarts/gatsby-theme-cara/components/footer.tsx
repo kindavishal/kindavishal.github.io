@@ -1,17 +1,23 @@
 /** @jsx jsx */
-import { Box, Flex, Link, useColorMode, jsx } from "theme-ui"
+import { Box, Flex, Link, useColorMode, jsx } from "theme-ui";
 
 const Footer = () => {
-  const [colorMode, setColorMode] = useColorMode()
-  const isDark = colorMode === `dark`
+  const [colorMode, setColorMode] = useColorMode();
+  const isDark = colorMode === `dark`;
   const toggleColorMode = (e: any) => {
-    setColorMode(isDark ? `light` : `dark`)
-  }
+    setColorMode(isDark ? `light` : `dark`);
+  };
 
   return (
     <Box as="footer" variant="footer">
       <button
-        sx={{ variant: `buttons.toggle`, fontWeight: `semibold`, display: `block`, mx: `auto`, mb: 3 }}
+        sx={{
+          variant: `buttons.toggle`,
+          fontWeight: `semibold`,
+          display: `block`,
+          mx: `auto`,
+          mb: 3,
+        }}
         onClick={toggleColorMode}
         type="button"
         aria-label="Toggle dark mode"
@@ -30,24 +36,28 @@ const Footer = () => {
           a: { color: `text` },
         }}
       >
-        {/* <img width="30" height="30" src="https://img.lekoarts.de/gatsby/logo_w30.png" alt="LekoArts Logo" /> */}
-        {` `}
-        <Link
-          aria-label="Link to the theme's GitHub repository"
-          sx={{ ml: 2 }}
-          href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara"
-        >
-          Original Theme
-        </Link>
-        <div sx={{ mx: 1 }}>by</div>
-        {` `}
-        <Link aria-label="Link to the theme author's website" href="https://www.lekoarts.de/en">
-          LekoArts <span role="img" aria-label="Rocket emoji">🚀</span>
-        </Link>
-        <div sx={{ mx: 1 }}> and remixed by kindavishal <span role="img" aria-label="Sparkles emoji">✨</span></div>
+        <div>
+          Inspired from{" "}
+          <Link
+            aria-label="Link to the theme's GitHub repository"
+            href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara"
+          >
+            Cara by LekoArts{" "}
+            <span role="img" aria-label="Rocket emoji">
+              🚀
+            </span>
+          </Link>
+          <div>
+            {" "}
+            Remixed by kindavishal{" "}
+            <span role="img" aria-label="Sparkles emoji">
+              ✨
+            </span>
+          </div>
+        </div>
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
