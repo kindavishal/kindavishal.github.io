@@ -17,6 +17,10 @@
   </a>
 </p>
 
+## 💫 Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world) [![Netlify Status](https://api.netlify.com/api/v1/badges/93c99c4b-d06c-4c2c-a8be-99ad54d5b08a/deploy-status)](https://app.netlify.com/sites/kindavishal/deploys)
+
 Playful and Colorful One-Page portfolio featuring Parallax effects and animations. Using the Gatsby Theme [`@lekoarts/gatsby-theme-cara`](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara).
 
 [**Demo Website**](https://cara.lekoarts.de)
