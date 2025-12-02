@@ -1,0 +1,904 @@
+<!-- Chosen Palette: Google Material 3 (Refined + Robust High Contrast Support) -->
+<!-- Application Structure Plan: 
+     1. Robust Theme Engine:
+        - Theme: Light / Dark
+        - Vision: Standard / High Contrast / Color Blind
+        - Logic: Vision modes now stack correctly on top of Theme modes using CSS variables and forceful overrides.
+     2. UI Consistency Audit:
+        - All corners standardized to `rounded-2xl` (containers) or `rounded-full` (buttons).
+        - No sharp edges on "Role Tabs" or "Inputs".
+     3. Interaction Design:
+        - Active states in Settings Panel now use checkmarks and clear border highlights.
+        - Click-outside logic handles modal closing gracefully.
+     4. Recruiter Optimization (FINAL):
+        - Updated Links to real profiles (kindavishal).
+        - Privacy: Email text hidden, but functionality (Copy/Mailto) preserved.
+        - Fixed "No Match" fallback link behavior to prevent page breakage.
+        - Robust Print/Resume button with fallback instructions.
+        - Footer added with navigation and social links.
+        - Experience section expanded with content from older PgM resume.
+        - RESTORED: Education, Certifications, Volunteering sections.
+        - REMOVED: AI Assistant module.
+        - DYNAMIC METRICS: Impact card now updates based on selected role.
+        - AVATAR: Footer image updated to match header.
+-->
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Career Portfolio for Vishal Das - Program Manager">
+    <title>Vishal Das - Program Manager Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 850: '#1e293b', 950: '#020617' }
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem'
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 15px rgba(59, 130, 246, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        /* Base Typography & Transitions */
+        body { font-family: 'Roboto', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
+        h1, h2, h3, .google-font { font-family: 'Google Sans', sans-serif; }
+        
+        /* Smooth Scale for Interactivity */
+        .scale-tap:active { transform: scale(0.98); }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08); }
+
+        /* Chart Container */
+        .chart-container { position: relative; width: 100%; height: 260px; }
+
+        /* Print Styles for "Download Resume" */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+            .print-break-inside { break-inside: avoid; }
+            a[href]:after { content: " (" attr(href) ")"; font-size: 0.8em; }
+        }
+
+        /* --- UI COMPONENTS STATES --- */
+
+        /* Role Buttons (Pill Shape) */
+        .role-btn {
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .role-btn[aria-selected="true"] {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            border-color: #cbd5e1;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .dark .role-btn[aria-selected="true"] {
+            background-color: #1e293b;
+            color: #f8fafc;
+            border-color: #334155;
+        }
+
+        /* Settings Buttons Active State */
+        .setting-btn { border: 2px solid transparent; }
+        .setting-btn.active {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            font-weight: 600;
+        }
+        .dark .setting-btn.active {
+            background-color: #1e3a8a;
+            border-color: #60a5fa;
+            color: #dbeafe;
+        }
+
+        /* Tool Chips */
+        .tool-chip.active {
+            background-color: #e0e7ff; border-color: #4f46e5; color: #3730a3;
+        }
+        .dark .tool-chip.active {
+            background-color: #312e81; border-color: #818cf8; color: #e0e7ff;
+        }
+
+        /* --- ACCESSIBILITY: HIGH CONTRAST ENGINE --- */
+        
+        /* Light Mode High Contrast */
+        body.high-contrast {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        /* Brute Force Overrides */
+        body.high-contrast * {
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+        body.high-contrast .bg-slate-50, 
+        body.high-contrast .bg-white,
+        body.high-contrast .bg-slate-900,
+        body.high-contrast .card-hover {
+            background-color: #ffffff !important;
+            border: 2px solid #000000 !important;
+            color: #000000 !important;
+        }
+        /* Buttons in HC */
+        body.high-contrast button, 
+        body.high-contrast .role-btn[aria-selected="true"],
+        body.high-contrast .tool-chip.active {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border: 2px solid #000000 !important;
+            font-weight: bold !important;
+        }
+        body.high-contrast .text-slate-500, 
+        body.high-contrast .text-slate-400,
+        body.high-contrast .text-blue-600 {
+            color: #000000 !important;
+        }
+
+        /* Dark Mode High Contrast */
+        html.dark body.high-contrast {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+        html.dark body.high-contrast .bg-slate-50, 
+        html.dark body.high-contrast .bg-white,
+        html.dark body.high-contrast .bg-slate-800,
+        html.dark body.high-contrast .bg-slate-900 {
+            background-color: #000000 !important;
+            border: 2px solid #ffffff !important;
+            color: #ffffff !important;
+        }
+        html.dark body.high-contrast button, 
+        html.dark body.high-contrast .role-btn[aria-selected="true"] {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border: 2px solid #ffffff !important;
+        }
+        html.dark body.high-contrast .text-slate-500, 
+        html.dark body.high-contrast .text-slate-400,
+        html.dark body.high-contrast .text-blue-400 {
+            color: #ffffff !important;
+        }
+        
+        /* Force Charts to Monochrome in HC */
+        body.high-contrast canvas { filter: grayscale(100%) contrast(200%); }
+        html.dark body.high-contrast canvas { filter: grayscale(100%) invert(100%) contrast(200%); }
+
+        /* Dialog Animation */
+        dialog[open] { animation: zoomIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; border: 2px solid #f1f5f9; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; border-color: #0f172a; }
+
+        /* Utility */
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased selection:bg-blue-200 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 flex flex-col min-h-screen">
+
+    <!-- Navbar (Floating Pill Design) -->
+    <nav class="sticky top-4 z-40 mx-auto max-w-5xl px-4 no-print w-full">
+        <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-full shadow-soft px-2 py-2 flex justify-between items-center transition-all duration-300">
+            
+            <!-- Logo/Name Area -->
+            <div class="flex items-center gap-3 pl-3">
+                <!-- Headshot with Fallback -->
+                <div class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700">
+                    <img 
+                        src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" 
+                        alt="Vishal Das Headshot" 
+                        class="w-full h-full object-cover object-top"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+                    <!-- Fallback Initials (Hidden unless error) -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">
+                        VD
+                    </div>
+                </div>
+                
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-slate-900 dark:text-white text-sm google-font">Vishal Das</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">Portfolio</span>
+                </div>
+            </div>
+
+            <!-- Lens Selector (Desktop) -->
+            <div class="hidden md:flex bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1" role="tablist">
+                <button onclick="setRole('pgm')" id="btn-pgm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500" role="tab" aria-selected="false">Strategy</button>
+                <button onclick="setRole('tpm')" id="btn-tpm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500" role="tab" aria-selected="false">Technical</button>
+                <button onclick="setRole('ux')" id="btn-ux" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500" role="tab" aria-selected="false">UX Ops</button>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-2 pr-1">
+                <!-- Download Resume (Recruiter Feature) -->
+                <button onclick="printResume()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500" title="Download as PDF">
+                    <span class="text-sm">📄</span> <span class="hidden sm:inline">Resume</span>
+                </button>
+
+                <!-- Settings Trigger -->
+                <button onclick="toggleSettingsPanel()" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm" aria-label="Display Settings">
+                    <span class="text-lg">⚙️</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Lens Selector (Below Nav) -->
+        <div class="md:hidden mt-3 flex justify-center">
+            <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl p-1.5 flex gap-1 shadow-sm w-full max-w-sm justify-between">
+                 <button onclick="setRole('pgm')" id="btn-pgm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">Strategy</button>
+                 <button onclick="setRole('tpm')" id="btn-tpm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">Technical</button>
+                 <button onclick="setRole('ux')" id="btn-ux-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">UX Ops</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Settings Dialog -->
+    <dialog id="settings-panel" class="fixed top-24 right-4 md:right-[calc(50%-20rem)] lg:right-auto lg:left-1/2 lg:-translate-x-1/2 z-50 bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 w-80 backdrop:bg-black/40 text-slate-900 dark:text-slate-100 m-0 no-print">
+        <div class="flex justify-between items-center mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <h2 class="text-lg font-bold google-font flex items-center gap-2">
+                <span>🎨</span> Appearance
+            </h2>
+            <button onclick="toggleSettingsPanel()" class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">✕</button>
+        </div>
+        
+        <!-- Theme Mode -->
+        <div class="mb-6">
+            <label class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-3 ml-1 tracking-wider">Theme</label>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="setTheme('light')" id="theme-light" class="setting-btn p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 flex flex-col items-center gap-2 text-sm transition-all">
+                    <span class="text-xl">☀️</span> <span class="font-medium">Light</span>
+                </button>
+                <button onclick="setTheme('dark')" id="theme-dark" class="setting-btn p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 flex flex-col items-center gap-2 text-sm transition-all">
+                    <span class="text-xl">🌙</span> <span class="font-medium">Dark</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Vision Preference -->
+        <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-3 ml-1 tracking-wider">Accessibility</label>
+            <div class="space-y-2">
+                <button onclick="setVision('standard')" id="vision-standard" class="setting-btn w-full text-left p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm flex items-center justify-between transition-all group">
+                    <div class="flex items-center gap-3">
+                        <span class="text-lg group-hover:scale-110 transition-transform">👁️</span> 
+                        <span class="font-medium">Standard</span>
+                    </div>
+                    <span class="check-icon hidden text-blue-500 font-bold">✓</span>
+                </button>
+                <button onclick="setVision('high-contrast')" id="vision-high-contrast" class="setting-btn w-full text-left p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm flex items-center justify-between transition-all group">
+                    <div class="flex items-center gap-3">
+                        <span class="text-lg group-hover:scale-110 transition-transform">🏁</span> 
+                        <span class="font-medium">High Contrast</span>
+                    </div>
+                    <span class="check-icon hidden text-blue-500 font-bold">✓</span>
+                </button>
+                <button onclick="setVision('color-blind')" id="vision-color-blind" class="setting-btn w-full text-left p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm flex items-center justify-between transition-all group">
+                    <div class="flex items-center gap-3">
+                        <span class="text-lg group-hover:scale-110 transition-transform">🎨</span> 
+                        <span class="font-medium">Color Blind Safe</span>
+                    </div>
+                    <span class="check-icon hidden text-blue-500 font-bold">✓</span>
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow" id="main-content">
+        
+        <!-- Hero Section (Bento Grid Style) -->
+        <header class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+            <!-- Core Info -->
+            <div class="lg:col-span-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-8 shadow-sm flex flex-col justify-center relative overflow-hidden group print-break-inside">
+                <!-- Background Decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 rounded-full blur-3xl opacity-50 -mr-16 -mt-16 pointer-events-none group-hover:scale-110 transition-transform duration-700 no-print"></div>
+                
+                <h1 class="relative text-4xl md:text-5xl font-bold text-slate-900 dark:text-white google-font tracking-tight mb-4">
+                    Program Manager <span class="text-slate-300 dark:text-slate-700 font-light">&</span><br>
+                    Developer Ecosystems
+                </h1>
+                
+                <!-- Dynamic Context Box -->
+                <div class="relative bg-slate-50 dark:bg-slate-800/50 border-l-4 border-blue-500 rounded-r-2xl p-6 transition-all duration-300">
+                    <p id="hero-desc" class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <!-- Injected via JS -->
+                    </p>
+                </div>
+
+                <!-- Contact Chips -->
+                <div class="relative flex flex-wrap gap-3 mt-8">
+                    <div class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2">
+                        📍 Bangalore
+                    </div>
+                    <!-- Email + Copy -->
+                    <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-full pl-4 pr-1 py-1 gap-2 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-colors group">
+                        <!-- Privacy: Hide raw email, open mailto -->
+                        <a href="mailto:vishal-das@outlook.com" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">
+                            Contact via Email
+                        </a>
+                        <!-- Updated Copy Button with safe fallback -->
+                        <button onclick="copyToClipboard('vishal-das@outlook.com')" class="w-7 h-7 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center text-xs shadow-sm hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-blue-500" title="Copy Address to Clipboard">
+                            📋
+                        </button>
+                    </div>
+                    <a href="https://linkedin.com/in/kindavishal" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        🔗 LinkedIn
+                    </a>
+                    <a href="https://github.com/kindavishal" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-black dark:hover:text-white rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        🐙 GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Impact Stats (Dark Card) - Now Dynamic -->
+            <div class="lg:col-span-4 bg-slate-900 dark:bg-black rounded-[2rem] p-8 text-white relative overflow-hidden flex flex-col justify-between shadow-lg border border-slate-800 print-break-inside">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[60px] opacity-20"></div>
+                
+                <div id="impact-container">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Key Impact Metrics</h2>
+                    <!-- Dynamic Metrics injected here -->
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-white/10">
+                    <div class="flex items-center gap-2 text-xs text-slate-400">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        Available for Full-time Roles
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Sidebar -->
+            <aside class="lg:col-span-4 space-y-6">
+                <!-- Skills Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-6 shadow-sm print-break-inside">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold text-slate-900 dark:text-white google-font">Skill Matrix</h3>
+                        <span id="skill-badge" class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-blue-50 text-blue-600 dark:bg-blue-900/50 dark:text-blue-300">
+                            Tech Focus
+                        </span>
+                    </div>
+                    <div class="chart-container mb-6 no-print">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Tools & Platforms</p>
+                        <div id="tool-stack" class="flex flex-wrap gap-2">
+                            <!-- Injected JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Certifications -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-6 shadow-sm print-break-inside">
+                    <h3 class="font-bold text-slate-900 dark:text-white google-font mb-4 text-sm">Education & Certifications</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex gap-4 items-start">
+                            <div class="mt-1 w-1.5 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full shrink-0" aria-hidden="true"></div>
+                            <div>
+                                <div class="font-bold text-slate-900 dark:text-white">B.Tech - Computer Science</div>
+                                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Lovely Professional University (2017-21)</div>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="mt-1 w-1.5 h-1.5 bg-blue-400 dark:bg-blue-600 rounded-full shrink-0" aria-hidden="true"></div>
+                            <div>
+                                <div class="font-bold text-slate-900 dark:text-white">Google UX Design Cert</div>
+                                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Professional Certificate</div>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="mt-1 w-1.5 h-1.5 bg-blue-400 dark:bg-blue-600 rounded-full shrink-0" aria-hidden="true"></div>
+                            <div>
+                                <div class="font-bold text-slate-900 dark:text-white">Meta Certified Community Manager</div>
+                                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Professional Certification</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Volunteering -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-6 shadow-sm print-break-inside">
+                    <h3 class="font-bold text-slate-900 dark:text-white google-font mb-4 text-sm">Volunteering</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex gap-4 items-start">
+                            <div class="mt-1 w-1.5 h-1.5 bg-emerald-400 dark:bg-emerald-600 rounded-full shrink-0" aria-hidden="true"></div>
+                            <div>
+                                <div class="font-bold text-slate-900 dark:text-white">K-Nine Animal Welfare</div>
+                                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Designed donation site raising INR 2.5M+</div>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="mt-1 w-1.5 h-1.5 bg-emerald-400 dark:bg-emerald-600 rounded-full shrink-0" aria-hidden="true"></div>
+                            <div>
+                                <div class="font-bold text-slate-900 dark:text-white">Maintainer, Gatsby</div>
+                                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Contributed React code to open source</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Timeline -->
+            <section class="lg:col-span-8">
+                <div class="flex items-center justify-between mb-6 px-2">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white google-font">Experience Timeline</h2>
+                </div>
+                
+                <div id="timeline-container" class="space-y-6">
+                    <!-- Cards via JS -->
+                </div>
+            </section>
+
+        </div>
+        
+    </main>
+
+    <!-- Updated Footer -->
+    <footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 pt-16 pb-8 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Branding -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <!-- Updated Footer Image -->
+                        <div class="relative w-8 h-8 rounded-full overflow-hidden shadow-sm border border-slate-200 dark:border-slate-700">
+                            <img 
+                                src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" 
+                                alt="Vishal Das Footer" 
+                                class="w-full h-full object-cover object-top"
+                            >
+                        </div>
+                        <span class="font-bold text-slate-900 dark:text-white google-font">Vishal Das</span>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs">
+                        Building scalable developer ecosystems and driving operational rigor for world-class engineering teams.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4">Connect</h3>
+                    <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a href="https://linkedin.com/in/kindavishal" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">LinkedIn</a></li>
+                        <li><a href="https://github.com/kindavishal" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">GitHub</a></li>
+                        <li><a href="mailto:vishal-das@outlook.com" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Email Me</a></li>
+                    </ul>
+                </div>
+
+                <!-- Actions -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4">Actions</h3>
+                    <div class="flex flex-col gap-3 items-start">
+                        <button onclick="printResume()" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2">
+                            <span>📄</span> Download Resume (PDF)
+                        </button>
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2">
+                            <span>⬆</span> Back to Top
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+                <p class="text-xs text-slate-400">
+                    &copy; 2024 Vishal Das. Crafted with Tailwind CSS.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA & CONFIG ---
+        const roles = {
+            'tpm': {
+                name: "Technical PgM",
+                desc: "Specialized in <strong>Engineering Velocity</strong>. I bridge the gap between Product and Code using automation (Apps Script), internal tooling (Buganizer/PLX), and deep ecosystem knowledge (Android/Kotlin).",
+                badge: "Technical Focus",
+                badgeColor: "bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-200",
+                radar: [95, 85, 90, 75, 70, 85], 
+                tools: ['Google Apps Script', 'Buganizer', 'PLX (Data)', 'LaunchCal', 'SQL', 'GitHub CI/CD', 'API Integration'],
+                metrics: [
+                    { value: '80%', label: 'Reduction in Reporting TAT', color: 'text-blue-400' },
+                    { value: '20+ Hrs', label: 'Manual Toil Eliminated/Week', color: 'text-emerald-400' }
+                ]
+            },
+            'pgm': {
+                name: "Program Manager",
+                desc: "Focused on <strong>Operational Rigor & Strategy</strong>. I manage complex dependency matrices across Legal, Privacy, and Engineering to ensure 'Code Yellow' free launches and build inclusive talent pipelines.",
+                badge: "Strategy Focus",
+                badgeColor: "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200",
+                radar: [60, 85, 80, 95, 80, 95],
+                tools: ['Taskflow', 'Accord', 'Looker Studio', 'Risk Management', 'Stakeholder Comms', 'Vendor Ops'],
+                metrics: [
+                    { value: '350K+', label: 'Developers Upskilled', color: 'text-emerald-400' },
+                    { value: '10+', label: 'Strategic Partnerships Scaled', color: 'text-blue-400' }
+                ]
+            },
+            'ux': {
+                name: "UX Program Manager",
+                desc: "Championing <strong>User-Centricity</strong>. I build pipelines that turn qualitative community feedback into actionable Engineering tickets, ensuring our developer tools solve real user problems.",
+                badge: "UX Ops Focus",
+                badgeColor: "bg-purple-50 text-purple-700 dark:bg-purple-900/40 dark:text-purple-200",
+                radar: [70, 80, 75, 85, 95, 90],
+                tools: ['User Insights', 'Figma', 'Accessibility', 'Feedback Loops', 'Buganizer Triage', 'Design Ops'],
+                metrics: [
+                    { value: '3x', label: 'Growth in Community Reach', color: 'text-purple-400' },
+                    { value: '50%', label: 'Increase in User Engagement', color: 'text-pink-400' }
+                ]
+            }
+        };
+
+        const experience = [
+            {
+                role: "Program Manager",
+                company: "Google",
+                vendor: "via Marketstar",
+                period: "May 2023 – Present",
+                location: "Bangalore",
+                bullets: [
+                    { text: "Designed and managed the <strong>India Edu Program</strong>, creating a strategic talent pipeline of future-ready developers leveraging Google technologies.", tags: ['pgm'], tools: ['Stakeholder Comms'] },
+                    { text: "Engineered <strong>Google Apps Script</strong> automations to sync PLX/Sheets, eliminating 20+ hours of manual toil/week.", tags: ['tpm'], tools: ['Google Apps Script', 'PLX (Data)'] },
+                    { text: "Spearheaded <strong>Inclusivity Initiatives</strong>, incorporating feedback to create equitable offerings for diverse academic institutions.", tags: ['pgm', 'ux'], tools: ['User Insights', 'Feedback Loops'] },
+                    { text: "Orchestrated <strong>LaunchCal</strong> schedules for Education initiatives, coordinating Legal/Privacy/Sec reviews.", tags: ['pgm', 'tpm'], tools: ['LaunchCal', 'Risk Management'] },
+                    { text: "Partnered with <strong>10+ Skilling Organizations</strong> to deliver workshops and expert sessions, fostering skill development at scale.", tags: ['pgm', 'community'], tools: ['Stakeholder Comms'] },
+                    { text: "Built scalable <strong>User Insights pipeline</strong> capturing feedback for Product/Eng teams.", tags: ['ux', 'pgm'], tools: ['User Insights', 'Feedback Loops'] },
+                    { text: "Technical maintainer for <strong>Google DevLibrary</strong> (GitHub), managing PRs and code health.", tags: ['tpm'], tools: ['GitHub CI/CD'] }
+                ]
+            },
+            {
+                role: "Community Manager",
+                company: "Google",
+                vendor: "via Optimum Infosys",
+                period: "May 2022 – May 2023",
+                location: "Bangalore",
+                bullets: [
+                    { text: "Established 'Voice of the Developer' pipeline, converting feedback into <strong>Buganizer</strong> hotlists.", tags: ['ux', 'tpm'], tools: ['Buganizer', 'Buganizer Triage'] },
+                    { text: "Scaled program reach by 50% vs OKRs through tiered engagement models and strategic partnerships.", tags: ['pgm', 'community'], tools: ['Stakeholder Comms'] },
+                    { text: "Designed <strong>Strategic Newsletters</strong> with a 30%+ open rate, driving 8% MoM growth in program reach.", tags: ['community', 'pgm'], tools: ['Stakeholder Comms'] },
+                    { text: "Represented Google's India Edu Program at <strong>National Skilling Events</strong>, promoting diversity and innovation.", tags: ['community'], tools: ['Public Speaking'] },
+                    { text: "Optimized procurement-to-payment workflows, reducing vendor onboarding time by 30%.", tags: ['pgm'], tools: ['Vendor Ops'] }
+                ]
+            },
+            {
+                role: "Community Manager",
+                company: "CodeChef",
+                vendor: null,
+                period: "Nov 2020 – May 2022",
+                location: "Remote",
+                bullets: [
+                    { text: "Expanded CodeChef College Chapters from 100 to 300+ institutions in one year, <strong>managing a team of five</strong>.", tags: ['pgm', 'community'], tools: ['Stakeholder Comms', 'Leadership'] },
+                    { text: "Architected 'College Offering Initiative', embedding algo curriculum in 300+ universities.", tags: ['pgm', 'community'], tools: ['Stakeholder Comms'] },
+                    { text: "Drove 3x growth in institutional partnerships via technical hackathons.", tags: ['pgm'], tools: ['Stakeholder Comms'] }
+                ]
+            }
+        ];
+
+        let currentRole = 'pgm';
+        let currentVision = 'standard';
+        let activeToolFilter = null;
+        let radarChart = null;
+
+        // --- CORE FUNCTIONS ---
+
+        function toggleSettingsPanel() {
+            const dialog = document.getElementById('settings-panel');
+            dialog.open ? dialog.close() : dialog.showModal();
+        }
+
+        // Click Outside to Close
+        document.getElementById('settings-panel').addEventListener('click', (e) => {
+            if (e.target.id === 'settings-panel') document.getElementById('settings-panel').close();
+        });
+
+        // --- NEW: ROBUST PRINT FUNCTION ---
+        function printResume() {
+            try {
+                window.print();
+            } catch (e) {
+                alert("Please use your browser's Print feature (Ctrl+P / Cmd+P) to save this portfolio as a PDF.");
+            }
+        }
+
+        function setTheme(mode) {
+            const html = document.documentElement;
+            // Visual Feedback
+            document.querySelectorAll('#theme-light, #theme-dark').forEach(b => b.classList.remove('active'));
+            document.getElementById(`theme-${mode}`).classList.add('active');
+
+            if (mode === 'dark') {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+            updateRadar(roles[currentRole].radar, roles[currentRole].badgeColor);
+        }
+
+        function setVision(mode) {
+            currentVision = mode;
+            const body = document.body;
+            body.classList.remove('high-contrast', 'color-blind-safe');
+            
+            document.querySelectorAll('#vision-standard, #vision-high-contrast, #vision-color-blind').forEach(b => {
+                b.classList.remove('active');
+                b.querySelector('.check-icon').classList.add('hidden');
+            });
+            const activeBtn = document.getElementById(`vision-${mode}`);
+            activeBtn.classList.add('active');
+            activeBtn.querySelector('.check-icon').classList.remove('hidden');
+            
+            if (mode === 'high-contrast') body.classList.add('high-contrast');
+            if (mode === 'color-blind') body.classList.add('color-blind-safe');
+            
+            localStorage.setItem('vision', mode);
+            setRole(currentRole); // Re-render with new vision settings
+        }
+
+        function setRole(roleKey) {
+            currentRole = roleKey;
+            activeToolFilter = null;
+            let config = roles[roleKey];
+
+            // 1. Navbar State
+            document.querySelectorAll('.role-btn').forEach(b => b.setAttribute('aria-selected', 'false'));
+            // Desktop
+            const dtBtn = document.getElementById(`btn-${roleKey}`);
+            if(dtBtn) dtBtn.setAttribute('aria-selected', 'true');
+            // Mobile (Match styles)
+            document.querySelectorAll('[id^="btn-"][id$="-m"]').forEach(b => {
+                 b.classList.remove('bg-white', 'shadow-sm', 'text-blue-600', 'font-bold');
+                 b.classList.add('text-slate-600');
+            });
+            const mobBtn = document.getElementById(`btn-${roleKey}-m`);
+            if(mobBtn) mobBtn.classList.add('bg-white', 'shadow-sm', 'text-blue-600', 'font-bold');
+
+            // 2. Content Injection
+            let badgeColor = config.badgeColor;
+            // CB Mode overrides
+            if (currentVision === 'color-blind') {
+                if (roleKey === 'pgm') badgeColor = "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100";
+                if (roleKey === 'ux') badgeColor = "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-100";
+            }
+
+            const heroDesc = document.getElementById('hero-desc');
+            heroDesc.innerHTML = config.desc;
+            heroDesc.parentElement.className = `relative border-l-4 p-6 rounded-r-2xl transition-all duration-300 ${badgeColor.replace('bg-', 'bg-opacity-20 ')} ${badgeColor.includes('blue') ? 'border-blue-500' : (badgeColor.includes('emerald') || badgeColor.includes('orange') ? 'border-orange-500' : 'border-purple-500')}`;
+
+            const badge = document.getElementById('skill-badge');
+            badge.textContent = config.badge;
+            badge.className = `px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${badgeColor}`;
+            
+            renderToolStack(config.tools);
+            updateRadar(config.radar, badgeColor);
+            renderMetrics(config.metrics); // NEW: Update Metrics
+            renderTimeline(roleKey);
+        }
+
+        // --- NEW: Render Dynamic Metrics ---
+        function renderMetrics(metrics) {
+            const container = document.getElementById('impact-container');
+            const metricsHTML = metrics.map(m => `
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="text-4xl font-bold ${m.color} mb-1">${m.value}</div>
+                    <div class="text-sm text-slate-300">${m.label}</div>
+                </div>
+            `).join('');
+            
+            container.innerHTML = `
+                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Key Impact Metrics</h2>
+                <div class="space-y-6">
+                    ${metricsHTML}
+                </div>
+            `;
+        }
+
+        function renderToolStack(tools) {
+            const container = document.getElementById('tool-stack');
+            container.innerHTML = tools.map(t => 
+                `<button onclick="filterByTool('${t}')" class="tool-chip px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 hover:border-blue-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap">${t}</button>`
+            ).join('');
+        }
+
+        function filterByTool(tool) {
+            activeToolFilter = (activeToolFilter === tool) ? null : tool;
+            document.querySelectorAll('.tool-chip').forEach(btn => {
+                if(btn.textContent === activeToolFilter) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+            renderTimeline(currentRole);
+        }
+
+        function renderTimeline(roleKey) {
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = '';
+
+            let globalMatchCount = 0;
+
+            experience.forEach(job => {
+                const sortedBullets = [...job.bullets].sort((a, b) => b.tags.includes(roleKey) - a.tags.includes(roleKey));
+                let hasHighlight = false;
+
+                const bulletsHTML = sortedBullets.map(b => {
+                    const isRelevant = b.tags.includes(roleKey);
+                    let isFiltered = activeToolFilter ? (b.tools && b.tools.includes(activeToolFilter)) : true;
+                    if(activeToolFilter && isFiltered) { hasHighlight = true; globalMatchCount++; }
+
+                    let opacity = (activeToolFilter && !isFiltered) ? "opacity-30" : "opacity-100";
+                    let style = isRelevant ? "text-slate-900 dark:text-slate-100 font-medium" : "text-slate-500 dark:text-slate-500 font-light text-sm";
+                    let marker = isRelevant ? `<span class="text-blue-500 text-lg leading-none">•</span>` : `<span class="text-slate-300 dark:text-slate-700 leading-none">•</span>`;
+                    
+                    if(activeToolFilter && isFiltered) style += " bg-yellow-100 dark:bg-yellow-900/50 dark:text-yellow-100 px-1 rounded";
+
+                    return `<li class="flex items-start gap-3 mb-3 ${opacity} transition-opacity">
+                        <div class="mt-1 shrink-0">${marker}</div>
+                        <div class="${style} leading-relaxed">${b.text}</div>
+                    </li>`;
+                }).join('');
+
+                let cardOpacity = (activeToolFilter && !hasHighlight) ? "opacity-40 grayscale" : "opacity-100";
+                
+                const card = document.createElement('article');
+                card.className = `bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-[2rem] shadow-sm transition-all duration-300 ${cardOpacity} print-break-inside`;
+                card.innerHTML = `
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-5 pb-5 border-b border-slate-100 dark:border-slate-800">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">${job.role}</h3>
+                            <div class="text-sm font-semibold text-slate-600 dark:text-slate-400">${job.company} <span class="font-normal opacity-70">${job.vendor ? `(${job.vendor})` : ''}</span></div>
+                        </div>
+                        <div class="mt-2 md:mt-0 px-3 py-1 bg-slate-50 dark:bg-slate-800 rounded-full text-xs font-mono text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                            ${job.period}
+                        </div>
+                    </div>
+                    <ul class="text-sm">${bulletsHTML}</ul>
+                `;
+                container.appendChild(card);
+            });
+
+            // "No Match" Logic - Robust mailto fallback
+            if (activeToolFilter && globalMatchCount === 0) {
+                const note = document.createElement('div');
+                note.className = "p-6 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] text-center shadow-sm animate-fade-in";
+                note.innerHTML = `
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-xl">🕵️</div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">
+                            Specific highlights for <strong class="text-slate-900 dark:text-white">${activeToolFilter}</strong> aren't listed in this view's summary.
+                        </p>
+                        <a href="mailto:vishal-das@outlook.com?subject=Inquiry about ${activeToolFilter} experience" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline mt-1 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full border border-blue-100 dark:border-blue-900 transition-colors">
+                            Reach out via Email →
+                        </a>
+                    </div>
+                `;
+                container.prepend(note);
+            }
+        }
+
+        function updateRadar(data, colorClass) {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            
+            let color = '#3b82f6'; // Default Blue
+            if(colorClass.includes('emerald')) color = '#10b981';
+            if(colorClass.includes('purple')) color = '#a855f7';
+            if(colorClass.includes('orange')) color = '#f97316'; 
+
+            // High Contrast Logic
+            const isHC = document.body.classList.contains('high-contrast');
+            if(isHC) color = document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000';
+
+            if(radarChart) radarChart.destroy();
+
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Automation', 'Tools', 'Release', 'Data', 'UX/Feedback', 'Comms'],
+                    datasets: [{
+                        data: data,
+                        backgroundColor: isHC ? 'transparent' : `${color}20`, // Transparent in HC
+                        borderColor: color,
+                        borderWidth: isHC ? 3 : 2,
+                        pointBackgroundColor: color,
+                        pointBorderColor: isHC ? color : '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: isHC ? color : '#e2e8f0' },
+                            grid: { color: isHC ? color : '#e2e8f0' },
+                            ticks: { display: false },
+                            pointLabels: {
+                                font: { size: 11, family: 'Roboto', weight: isHC ? 'bold' : 'normal' },
+                                color: isHC ? color : '#64748b'
+                            }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // --- NEW: ROBUST CLIPBOARD COPY ---
+        function copyToClipboard(text) {
+            // Standard "Toast" function
+            const showToast = (msg) => {
+                const toast = document.createElement('div');
+                toast.className = "fixed bottom-6 right-6 bg-slate-900 text-white px-6 py-3 rounded-full shadow-xl text-sm font-medium z-50 animate-fade-in";
+                toast.textContent = msg;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2500);
+            };
+
+            // 1. Try modern API first (best UX)
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(() => showToast('Email copied to clipboard!'))
+                    .catch(() => fallbackCopy(text)); // Fail? Go to fallback
+            } else {
+                fallbackCopy(text); // No API? Go to fallback
+            }
+
+            // 2. The Robust Fallback (execCommand)
+            function fallbackCopy(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                
+                // Ensure it's not visible but part of DOM
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+                textArea.style.top = "0";
+                document.body.appendChild(textArea);
+                
+                textArea.focus();
+                textArea.select();
+
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) showToast('Email copied to clipboard!');
+                    else prompt("Copy email manually:", text);
+                } catch (err) {
+                    prompt("Copy email manually:", text);
+                }
+
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // --- INIT ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedVision = localStorage.getItem('vision') || 'standard';
+            setTheme(savedTheme);
+            setVision(savedVision);
+            setRole('pgm');
+        });
+    </script>
+</body>
+</html>
