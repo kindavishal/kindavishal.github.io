@@ -468,8 +468,9 @@
             if (e.target.id === 'settings-panel') document.getElementById('settings-panel').close();
         });
 
+        // UPDATED: Redirect to Google Doc
         function printResume() {
-            try { window.print(); } catch (e) { alert("Please use your browser's Print feature (Ctrl+P / Cmd+P) to save this portfolio as a PDF."); }
+            window.open("https://docs.google.com/document/d/e/2PACX-1vR8_yR5vSjgB480-ZGj2AjGGBGVIGtOaxUhUI07Mxi7uy13xEOABUEZqEAMCBvRLn6zUomv6CZIV_1j/pub", "_blank");
         }
 
         function copyToClipboard(text) {
