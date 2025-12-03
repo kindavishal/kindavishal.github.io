@@ -1,22 +1,30 @@
 <!-- Chosen Palette: Google Material 3 (Refined + Robust High Contrast Support) -->
 <!-- Application Structure Plan: 
-     1. "General" Landing View (Optimized):
-        - Skill Matrix: Now reflects a "Super-Graph" (High scores across all axes).
-        - Metrics: Shows the "Greatest Hits" of your career impact.
-     2. Enhanced Navigation:
-        - Tooltips on lens buttons.
-        - Active state logic updated for 4 tabs.
-     3. Content Enrichment:
-        - Merged "Generic PgM" resume points into existing roles (Longer, CV-style descriptions).
-        - Restored Education/Volunteering sections.
-     4. Dynamic Features:
-        - Impact Metrics card updates via JS based on selected lens.
-        - Tool filtering logic preserves "No Match" fallback.
-        - METRICS GRID: Updated to "1 over 2" layout on desktop to prevent text overflow.
-        - FAVICON: Added link tag using headshot URL.
-        - NAVBAR: Refined alignment of avatar and text.
-        - CONTENT UPDATE: Specific edits for DevLibrary, CodeChef, and Hackathon growth.
-        - FOOTER UPDATE: Centered copyright text.
+     1. Robust Theme Engine:
+        - Theme: Light / Dark
+        - Vision: Standard / High Contrast / Color Blind
+        - Logic: Vision modes now stack correctly on top of Theme modes using CSS variables and forceful overrides.
+     2. UI Consistency Audit:
+        - All corners standardized to `rounded-2xl` (containers) or `rounded-full` (buttons).
+        - No sharp edges on "Role Tabs" or "Inputs".
+     3. Interaction Design:
+        - Active states in Settings Panel now use checkmarks and clear border highlights.
+        - Click-outside logic handles modal closing gracefully.
+     4. Recruiter Optimization (FINAL):
+        - Updated Links to real profiles (kindavishal).
+        - Privacy: Email text hidden, but functionality (Copy/Mailto) preserved.
+        - Fixed "No Match" fallback link behavior to prevent page breakage.
+        - Robust Print/Resume button with fallback instructions.
+        - Footer added with navigation and social links.
+        - Experience section expanded with content from older PgM resume.
+        - RESTORED: Education, Certifications, Volunteering sections.
+        - REMOVED: AI Assistant module.
+        - DYNAMIC METRICS: Impact card now updates based on selected role.
+        - AVATAR: Footer image updated to match header.
+        - LAYOUT FIX: Restored 2x2 Grid for Metrics to prevent text overflow.
+        - DATA SYNC: Updated experience bullets with latest user-provided metrics.
+        - NUMBER FORMATTING: Added dynamic "K" formatter for large numbers.
+        - IMPACT METRICS REDESIGN: Consolidated all metrics into a responsive grid/scroll view.
 -->
 
 <!DOCTYPE html>
@@ -112,6 +120,23 @@
         .dark .tool-chip.active {
             background-color: #312e81; border-color: #818cf8; color: #e0e7ff;
         }
+
+        /* Horizontal Scroll Snap for Mobile Metrics */
+        .snap-x-mandatory {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-center {
+            scroll-snap-align: center;
+        }
+        /* Hide scrollbar for clean look */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
 
         /* --- ACCESSIBILITY: HIGH CONTRAST ENGINE --- */
         body.high-contrast { background-color: #ffffff !important; color: #000000 !important; }
@@ -343,28 +368,41 @@
                     </div>
                 </div>
             </div>
-            <div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
-                <p class="text-xs text-slate-400 text-center" id="copyright-text">
-                    &copy; <span id="year"></span> Vishal Das. Crafted with Tailwind CSS & Gemini.
-                </p>
-            </div>
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center"><p class="text-xs text-slate-400 text-center" id="copyright-text">&copy; <span id="year"></span> Vishal Das. Crafted with Tailwind CSS & Gemini.</p></div>
         </div>
     </footer>
 
     <script>
         // --- DATA ---
+        function formatMetric(value) {
+            const num = parseFloat(value);
+            if (!isNaN(num)) {
+                 if (num >= 1000) {
+                    return (num / 1000) + 'K+';
+                 }
+            }
+            if (typeof value === 'string' && value.includes('000')) {
+                return value.replace('000', 'K');
+            }
+            return value;
+        }
+
         const roles = {
             'general': {
                 name: "Program Manager",
                 desc: "Strategic Program Manager with 4+ years driving operational rigor, technical velocity, and community growth for Google's developer ecosystems. Expert in bridging <strong>Engineering, Product, and User needs</strong>.",
                 badge: "General Overview",
                 badgeColor: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-                radar: [95, 95, 95, 95, 90, 100], // MAXED OUT "SUPER GRAPH"
+                radar: [95, 95, 95, 95, 90, 100], 
                 tools: ['Buganizer', 'PLX', 'Taskflow', 'Google Apps Script', 'LaunchCal', 'SQL', 'Figma', 'GitHub'],
+                // Consolidating ALL top metrics into one master list for General view
                 metrics: [
-                    { value: '350K+', label: 'Developers Upskilled', color: 'text-emerald-400' },
-                    { value: '80%', label: 'Efficiency Improvement', color: 'text-blue-400' },
-                    { value: '50%', label: 'Engagement Growth', color: 'text-purple-400' }
+                    { value: formatMetric('100000+'), label: 'Internships Generated', color: 'text-emerald-400' },
+                    { value: formatMetric('350000+'), label: 'Developers Upskilled', color: 'text-blue-400' },
+                    { value: formatMetric('1000+'), label: 'Production Apps Deployed', color: 'text-purple-400' },
+                    { value: '80%', label: 'Efficiency Improvement', color: 'text-pink-400' },
+                    { value: '50%', label: 'Engagement Growth', color: 'text-orange-400' },
+                    { value: formatMetric('6000+'), label: 'Institutional Partners', color: 'text-teal-400' }
                 ]
             },
             'tpm': {
@@ -375,9 +413,10 @@
                 radar: [95, 85, 90, 75, 70, 85], 
                 tools: ['Google Apps Script', 'Buganizer', 'PLX (Data)', 'LaunchCal', 'SQL', 'GitHub CI/CD', 'API Integration'],
                 metrics: [
-                    { value: '80%', label: 'Reduction in Reporting TAT', color: 'text-blue-400' },
+                    { value: formatMetric('60000+'), label: 'Students Built AI Projects (Gemini API)', color: 'text-blue-400' }, 
                     { value: '20+ Hrs', label: 'Manual Toil Eliminated/Week', color: 'text-emerald-400' },
-                    { value: '99%', label: 'Platform Stability', color: 'text-purple-400' }
+                    { value: '99%', label: 'Platform Stability', color: 'text-purple-400' },
+                    { value: '80%', label: 'Reduction in Reporting TAT', color: 'text-orange-400' }
                 ]
             },
             'pgm': {
@@ -388,9 +427,10 @@
                 radar: [60, 85, 80, 95, 80, 95],
                 tools: ['Taskflow', 'Accord', 'Looker Studio', 'Risk Management', 'Stakeholder Comms', 'Vendor Ops'],
                 metrics: [
-                    { value: '350K+', label: 'Developers Upskilled', color: 'text-emerald-400' },
-                    { value: '10+', label: 'Strategic Partnerships Scaled', color: 'text-blue-400' },
-                    { value: '40+', label: 'Universities Onboarded', color: 'text-pink-400' }
+                    { value: formatMetric('300000+'), label: 'Learners Trained (2024-25)', color: 'text-emerald-400' },
+                    { value: '300+', label: 'Jobs Secured in AI/Android', color: 'text-blue-400' },
+                    { value: '40+', label: 'Curriculums Upgraded to Kotlin', color: 'text-pink-400' },
+                    { value: '10+', label: 'Strategic Partnerships Scaled', color: 'text-purple-400' }
                 ]
             },
             'ux': {
@@ -403,7 +443,8 @@
                 metrics: [
                     { value: '3x', label: 'Growth in Community Reach', color: 'text-purple-400' },
                     { value: '50%', label: 'Increase in User Engagement', color: 'text-pink-400' },
-                    { value: '30%', label: 'Social Visibility Growth', color: 'text-blue-400' }
+                    { value: '30%', label: 'Social Visibility Growth', color: 'text-blue-400' },
+                    { value: '90+', label: 'NPS Score', color: 'text-emerald-400' }
                 ]
             }
         };
@@ -416,13 +457,14 @@
                 period: "May 2023 – Present",
                 location: "Bangalore",
                 bullets: [
-                    { text: "Designed and managed the <strong>India Edu Program</strong>, creating a strategic talent pipeline of future-ready developers leveraging Google technologies.", tags: ['pgm', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: "Partnered with skilling partners to train <strong>300K+ students</strong>, leading to <strong>100K+ internships</strong> and <strong>300+ job placements</strong> in Android/AI domains.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: "Enabled <strong>60K students & 1000+ faculties</strong> to deploy AI projects using <strong>Gemini API on GCP</strong> across 150 institutions.", tags: ['tpm', 'general'], tools: ['Google Apps Script', 'API Integration'] },
+                    { text: "Influenced <strong>40+ institutes</strong> to upgrade curriculum from Java to <strong>Kotlin & Compose</strong>, future-proofing student learning.", tags: ['pgm', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: "Drove the development and deployment of <strong>1000+ Android apps</strong> via student ecosystem programs.", tags: ['tpm', 'community', 'general'], tools: ['Google Play'] },
+                    { text: "<strong>Core Team Member</strong> for Google IO Connect Bengaluru (2024-25), India Community Summit (2023-25), and GDSC Graduation.", tags: ['pgm', 'community'], tools: ['Event Mgmt'] },
+                    { text: "Led leadership briefing experience for Google IO Connect 2024; co-designed India DevRel impact summary presented to <strong>Global VPs & Directors</strong>.", tags: ['pgm', 'general'], tools: ['Strategic Comms'] },
                     { text: "Engineered <strong>Google Apps Script</strong> automations to sync PLX/Sheets, eliminating 20+ hours of manual toil/week.", tags: ['tpm', 'general'], tools: ['Google Apps Script', 'PLX (Data)'] },
-                    { text: "Spearheaded <strong>Inclusivity Initiatives</strong>, incorporating feedback to create equitable offerings for diverse academic institutions.", tags: ['pgm', 'ux', 'general'], tools: ['User Insights', 'Feedback Loops'] },
-                    { text: "Owned the end-to-end launch schedule for Education initiatives, managing critical communication flows and coordinating complex review sessions with Legal, Privacy, and Security stakeholders.", tags: ['pgm', 'tpm', 'general'], tools: ['LaunchCal', 'Risk Management'] },
-                    { text: "Partnered with <strong>10+ Skilling Organizations</strong> to deliver workshops and expert sessions, fostering skill development at scale.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
-                    { text: "Built scalable <strong>User Insights pipeline</strong> capturing feedback for Product/Eng teams.", tags: ['ux', 'pgm', 'general'], tools: ['User Insights', 'Feedback Loops'] },
-                    { text: "Technical maintainer for <strong>Google DevLibrary</strong> (GitHub), managing PRs and code health.", tags: ['tpm', 'general'], tools: ['GitHub CI/CD'] }
+                    { text: "Owned the end-to-end launch schedule for Education initiatives, managing critical communication flows and coordinating reviews with Legal, Privacy, and Security stakeholders.", tags: ['pgm', 'tpm', 'general'], tools: ['LaunchCal', 'Risk Management'] },
                 ]
             },
             {
@@ -468,7 +510,6 @@
             if (e.target.id === 'settings-panel') document.getElementById('settings-panel').close();
         });
 
-        // UPDATED: Redirect to Google Doc
         function printResume() {
             window.open("https://docs.google.com/document/d/e/2PACX-1vR8_yR5vSjgB480-ZGj2AjGGBGVIGtOaxUhUI07Mxi7uy13xEOABUEZqEAMCBvRLn6zUomv6CZIV_1j/pub", "_blank");
         }
@@ -521,12 +562,10 @@
             activeToolFilter = null;
             let config = roles[roleKey];
 
-            // Navbar Update
             document.querySelectorAll('.role-btn').forEach(b => b.setAttribute('aria-selected', 'false'));
             const dtBtn = document.getElementById(`btn-${roleKey}`);
             if(dtBtn) dtBtn.setAttribute('aria-selected', 'true');
             
-            // Mobile Update
             document.querySelectorAll('[id^="btn-"][id$="-m"]').forEach(b => {
                  b.classList.remove('bg-white', 'shadow-sm', 'text-blue-600', 'font-bold');
                  b.classList.add('text-slate-600');
@@ -534,7 +573,6 @@
             const mobBtn = document.getElementById(`btn-${roleKey}-m`);
             if(mobBtn) mobBtn.classList.add('bg-white', 'shadow-sm', 'text-blue-600', 'font-bold');
 
-            // Content Update
             let badgeColor = config.badgeColor;
             if (currentVision === 'color-blind') {
                 if (roleKey === 'pgm') badgeColor = "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100";
@@ -555,28 +593,25 @@
             renderTimeline(roleKey);
         }
 
-        // --- NEW: 1 over 2 Layout Logic ---
+        // --- UPDATED: Carousel Logic for Mobile, Grid for Desktop ---
         function renderMetrics(metrics) {
             const container = document.getElementById('impact-container');
             
             let metricsHTML = '';
-            
-            // Logic for "1 over 2" layout (First metric spans full width, next two split)
-            metrics.forEach((m, index) => {
-                // If it's the first item, make it span 2 columns on desktop (sm:col-span-2)
-                const colSpanClass = (index === 0 && metrics.length === 3) ? 'sm:col-span-2' : 'sm:col-span-1';
-                
+            metrics.forEach(m => {
+                // snap-center class for mobile scroll snapping
                 metricsHTML += `
-                    <div class="${colSpanClass} p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex flex-col justify-center h-full">
-                        <div class="text-4xl font-bold ${m.color} mb-1">${m.value}</div>
+                    <div class="snap-center shrink-0 w-[85%] sm:w-auto p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex flex-col justify-center h-32 sm:h-full">
+                        <div class="text-4xl font-bold ${m.color} mb-1">${formatMetric(m.value)}</div>
                         <div class="text-sm text-slate-300 leading-snug">${m.label}</div>
                     </div>
                 `;
             });
             
             container.innerHTML = `
-                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Key Impact Metrics</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Key Impact Metrics</h2>
+                <!-- Mobile: Horizontal Scroll | Desktop: Grid -->
+                <div class="flex sm:grid sm:grid-cols-2 gap-4 overflow-x-auto sm:overflow-visible snap-x-mandatory hide-scrollbar pb-2 sm:pb-0">
                     ${metricsHTML}
                 </div>
             `;
@@ -602,7 +637,6 @@
 
             experience.forEach(job => {
                 const sortedBullets = [...job.bullets].sort((a, b) => {
-                    // If General, keep original order, else sort by relevance
                     if (roleKey === 'general') return 0;
                     return b.tags.includes(roleKey) - a.tags.includes(roleKey);
                 });
@@ -614,7 +648,6 @@
                     if(activeToolFilter && isFiltered) { hasHighlight = true; globalMatchCount++; }
 
                     let opacity = (activeToolFilter && !isFiltered) ? "opacity-30" : "opacity-100";
-                    // In General mode, everything is relevant so use standard font weight
                     let style = isRelevant ? "text-slate-900 dark:text-slate-100 font-medium" : "text-slate-500 dark:text-slate-500 font-light text-sm";
                     let marker = isRelevant ? `<span class="text-blue-500 text-lg leading-none">•</span>` : `<span class="text-slate-300 dark:text-slate-700 leading-none">•</span>`;
                     
