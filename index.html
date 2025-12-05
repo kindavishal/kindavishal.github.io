@@ -10,6 +10,7 @@
      3. Interaction Design:
         - Active states in Settings Panel now use checkmarks and clear border highlights.
         - Click-outside logic handles modal closing gracefully.
+        - GLOBAL HOVER EFFECT: All links/buttons now scale slightly on hover.
      4. Recruiter Optimization (FINAL):
         - Updated Links to real profiles (kindavishal).
         - Privacy: Email text hidden, but functionality (Copy/Mailto) preserved.
@@ -26,6 +27,9 @@
         - NUMBER FORMATTING: Added dynamic "K" formatter for large numbers.
         - IMPACT METRICS REDESIGN: Consolidated all metrics into a responsive grid/scroll view.
         - MISSING DATA FIX: Added "Educators Community" bullet to experience timeline.
+        - VISIBILITY FIX: Improved contrast for "Available for Full-time Roles" badge.
+        - BADGE PLACEMENT: Added "Available" badge to Hero section and Footer.
+        - BADGE LINK: Made "Available" badges clickable mailto links.
 -->
 
 <!DOCTYPE html>
@@ -184,18 +188,18 @@
 
             <!-- Lens Selector (Desktop) -->
             <div class="hidden md:flex bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1" role="tablist">
-                <button onclick="setRole('general')" id="btn-general" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500" role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
-                <button onclick="setRole('pgm')" id="btn-pgm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500" role="tab" aria-selected="false" title="Strategy & Operations Focus">Strategy</button>
-                <button onclick="setRole('tpm')" id="btn-tpm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500" role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
-                <button onclick="setRole('ux')" id="btn-ux" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500" role="tab" aria-selected="false" title="User Experience & Design Ops">UX Ops</button>
+                <button onclick="setRole('general')" id="btn-general" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
+                <button onclick="setRole('pgm')" id="btn-pgm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Strategy & Operations Focus">Strategy</button>
+                <button onclick="setRole('tpm')" id="btn-tpm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
+                <button onclick="setRole('ux')" id="btn-ux" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="User Experience & Design Ops">UX Ops</button>
             </div>
 
             <!-- Right Actions -->
             <div class="flex items-center gap-2 pr-1">
-                <button onclick="printResume()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500" title="Download as PDF">
+                <button onclick="printResume()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" title="Download as PDF">
                     <span class="text-sm">📄</span> <span class="hidden sm:inline">Resume</span>
                 </button>
-                <button onclick="toggleSettingsPanel()" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm" aria-label="Display Settings">
+                <button onclick="toggleSettingsPanel()" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105" aria-label="Display Settings">
                     <span class="text-lg">⚙️</span>
                 </button>
             </div>
@@ -252,14 +256,24 @@
                         <!-- Injected via JS -->
                     </p>
                 </div>
+                <!-- Availability Badge (Hero Link) -->
+                <div class="mt-6">
+                     <a href="mailto:vishal-das@outlook.com" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-xs font-semibold backdrop-blur-sm border border-emerald-200 dark:border-emerald-800 hover:scale-105 transition-transform duration-200 cursor-pointer shadow-sm hover:shadow-md">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        Available for Full-time Roles
+                    </a>
+                </div>
                 <div class="relative flex flex-wrap gap-3 mt-8">
-                    <div class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2">📍 Bangalore</div>
-                    <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-full pl-4 pr-1 py-1 gap-2 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-colors group">
+                    <div class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 hover:scale-105 transition-transform duration-200">📍 Bangalore</div>
+                    <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-full pl-4 pr-1 py-1 gap-2 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-colors group hover:scale-105 duration-200">
                         <a href="mailto:vishal-das@outlook.com" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">Contact via Email</a>
                         <button onclick="copyToClipboard('vishal-das@outlook.com')" class="w-7 h-7 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center text-xs shadow-sm hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-blue-500" title="Copy Address to Clipboard">📋</button>
                     </div>
-                    <a href="https://linkedin.com/in/kindavishal" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">🔗 LinkedIn</a>
-                    <a href="https://github.com/kindavishal" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-black dark:hover:text-white rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500">🐙 GitHub</a>
+                    <a href="https://linkedin.com/in/kindavishal" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105 duration-200">🔗 LinkedIn</a>
+                    <a href="https://github.com/kindavishal" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-black dark:hover:text-white rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 hover:scale-105 duration-200">🐙 GitHub</a>
                 </div>
             </div>
 
@@ -268,9 +282,6 @@
                 <div class="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[60px] opacity-20"></div>
                 <div id="impact-container">
                     <!-- Dynamic Metrics injected here -->
-                </div>
-                <div class="mt-6 pt-6 border-t border-white/10">
-                    <div class="flex items-center gap-2 text-xs text-slate-400"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available for Full-time Roles</div>
                 </div>
             </div>
         </header>
@@ -339,20 +350,34 @@
                 <div>
                     <h3 class="font-bold text-slate-900 dark:text-white mb-4">Connect</h3>
                     <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400">
-                        <li><a href="https://linkedin.com/in/kindavishal" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">LinkedIn</a></li>
-                        <li><a href="https://github.com/kindavishal" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">GitHub</a></li>
-                        <li><a href="mailto:vishal-das@outlook.com" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Email Me</a></li>
+                        <li><a href="https://linkedin.com/in/kindavishal" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:scale-105 inline-block">LinkedIn</a></li>
+                        <li><a href="https://github.com/kindavishal" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:scale-105 inline-block">GitHub</a></li>
+                        <li><a href="mailto:vishal-das@outlook.com" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:scale-105 inline-block">Email Me</a></li>
                     </ul>
+                    <!-- Footer Availability Badge (Link) -->
+                    <div class="mt-6">
+                        <a href="mailto:vishal-das@outlook.com" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-[10px] font-semibold backdrop-blur-sm border border-emerald-200 dark:border-emerald-800 hover:scale-105 transition-transform duration-200 cursor-pointer shadow-sm hover:shadow-md">
+                           <span class="relative flex h-1.5 w-1.5">
+                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                             <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                           </span>
+                           Available for Full-time Roles
+                       </a>
+                   </div>
                 </div>
                 <div>
                     <h3 class="font-bold text-slate-900 dark:text-white mb-4">Actions</h3>
                     <div class="flex flex-col gap-3 items-start">
-                        <button onclick="printResume()" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"><span>📄</span> Download Resume (PDF)</button>
-                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"><span>⬆</span> Back to Top</button>
+                        <button onclick="printResume()" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105"><span>📄</span> Download Resume (PDF)</button>
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105"><span>⬆</span> Back to Top</button>
                     </div>
                 </div>
             </div>
-            <div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center"><p class="text-xs text-slate-400 text-center" id="copyright-text">&copy; <span id="year"></span> Vishal Das. Crafted with Tailwind CSS & Gemini.</p></div>
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+                <p class="text-xs text-slate-400 text-center" id="copyright-text">
+                    &copy; <span id="year"></span> Vishal Das. Crafted with Tailwind CSS & Gemini.
+                </p>
+            </div>
         </div>
     </footer>
 
