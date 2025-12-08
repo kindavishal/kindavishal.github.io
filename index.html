@@ -1,24 +1,16 @@
 <!-- Chosen Palette: Google Material 3 (Refined + Robust High Contrast Support) -->
 <!-- Application Structure Plan: 
-     1. Robust Theme Engine:
-        - Theme: Light / Dark
-        - Vision: Standard / High Contrast / Color Blind
-        - Logic: Vision modes now stack correctly on top of Theme modes using CSS variables and forceful overrides.
-     2. UI Consistency Audit:
-        - All corners standardized to `rounded-2xl` (containers) or `rounded-full` (buttons).
-        - No sharp edges on "Role Tabs" or "Inputs".
-     3. Interaction Design:
-        - Active states in Settings Panel now use checkmarks and clear border highlights.
-        - Click-outside logic handles modal closing gracefully.
+     1. Robust Theme Engine: Light/Dark/Vision Modes.
+     2. UI Consistency Audit: Rounded corners, polished spacing.
+     3. Interaction Design: Hover states, active states, smooth transitions.
      4. Recruiter Optimization (FINAL):
-        - Updated Links to real profiles (kindavishal).
-        - Privacy: Email text hidden, but functionality (Copy/Mailto) preserved.
-        - Fixed "No Match" fallback link behavior to prevent page breakage.
-        - Robust Print/Resume button with fallback instructions.
-        - Footer added with navigation and social links.
-        - Experience section expanded with content from older PgM resume.
-        - RESTORED: Education, Certifications, Volunteering sections.
-        - REMOVED: AI Assistant module.
+        - Updated Links (kindavishal).
+        - Privacy-first Email (Copy/Mailto).
+        - Robust Resume Download (Redirect).
+        - Footer Navigation.
+        - Experience Section Expanded (Rich Content).
+        - RESTORED: Education, Certifications, Volunteering.
+        - REMOVED: AI Assistant.
         - DYNAMIC METRICS: Impact card now updates based on selected role.
         - AVATAR: Footer image updated to match header.
         - LAYOUT FIX: Restored 2x2 Grid for Metrics to prevent text overflow.
@@ -37,6 +29,7 @@
             - METRIC CONTEXT: Clarified labels (e.g., "Reporting TAT Reduction" instead of just "Efficiency").
             - METRIC CLARITY: Updated "Institutional Partners" to be more specific about product adoption.
         - PRIORITY SHIFT: Reordered bullets to show Technical wins first in General view.
+        - LENS CONTEXT: Added helper text to explain the "Viewing Lens" feature.
 -->
 
 <!DOCTYPE html>
@@ -174,51 +167,57 @@
 
     <!-- Navbar -->
     <nav class="sticky top-4 z-40 mx-auto max-w-5xl px-4 no-print w-full">
-        <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-full shadow-soft px-3 py-2 flex justify-between items-center transition-all duration-300">
+        <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-full shadow-soft px-3 py-2 flex flex-col items-center transition-all duration-300">
             
-            <!-- Logo/Name Area -->
-            <div class="flex items-center gap-3 pl-1">
-                <div class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700 shrink-0">
-                    <img 
-                        src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" 
-                        alt="Vishal Das Headshot" 
-                        class="w-full h-full object-cover object-top"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                    >
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">VD</div>
+            <div class="flex justify-between items-center w-full mb-2 md:mb-0">
+                <!-- Logo/Name Area -->
+                <div class="flex items-center gap-3 pl-1">
+                    <div class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700 shrink-0">
+                        <img 
+                            src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" 
+                            alt="Vishal Das Headshot" 
+                            class="w-full h-full object-cover object-top"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">VD</div>
+                    </div>
+                    <div class="flex flex-col justify-center leading-tight">
+                        <span class="font-bold text-slate-900 dark:text-white text-sm google-font">Vishal Das</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">Portfolio</span>
+                    </div>
                 </div>
-                <div class="flex flex-col justify-center leading-tight">
-                    <span class="font-bold text-slate-900 dark:text-white text-sm google-font">Vishal Das</span>
-                    <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">Portfolio</span>
+
+                <!-- Lens Selector (Desktop) -->
+                <div class="hidden md:flex flex-col items-center">
+                    <div class="bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1 flex" role="tablist">
+                        <button onclick="setRole('general')" id="btn-general" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="true" title="See my complete profile">Overview</button>
+                        <button onclick="setRole('pgm')" id="btn-pgm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Filter for Strategy & Ops experience">Strategy</button>
+                        <button onclick="setRole('tpm')" id="btn-tpm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Filter for Technical Engineering experience">Technical</button>
+                        <button onclick="setRole('ux')" id="btn-ux" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Filter for UX & Design Ops experience">UX Ops</button>
+                    </div>
+                     <span class="text-[10px] text-slate-400 mt-1">Select a role to tailor my experience highlights</span>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-2 pr-1">
+                    <button onclick="printResume()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" title="Download as PDF">
+                        <span class="text-sm">📄</span> <span class="hidden sm:inline">Resume</span>
+                    </button>
+                    <button onclick="toggleSettingsPanel()" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105" aria-label="Display Settings">
+                        <span class="text-lg">⚙️</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Lens Selector (Desktop) -->
-            <div class="hidden md:flex bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1" role="tablist">
-                <button onclick="setRole('general')" id="btn-general" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
-                <button onclick="setRole('pgm')" id="btn-pgm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Strategy & Operations Focus">Strategy</button>
-                <button onclick="setRole('tpm')" id="btn-tpm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
-                <button onclick="setRole('ux')" id="btn-ux" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="User Experience & Design Ops">UX Ops</button>
-            </div>
-
-            <!-- Right Actions -->
-            <div class="flex items-center gap-2 pr-1">
-                <button onclick="printResume()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" title="Download as PDF">
-                    <span class="text-sm">📄</span> <span class="hidden sm:inline">Resume</span>
-                </button>
-                <button onclick="toggleSettingsPanel()" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105" aria-label="Display Settings">
-                    <span class="text-lg">⚙️</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Lens Selector -->
-        <div class="md:hidden mt-3 flex justify-center">
-            <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl p-1.5 flex gap-1 shadow-sm w-full max-w-sm justify-between overflow-x-auto">
-                 <button onclick="setRole('general')" id="btn-general-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Overview</button>
-                 <button onclick="setRole('pgm')" id="btn-pgm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Strategy</button>
-                 <button onclick="setRole('tpm')" id="btn-tpm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Technical</button>
-                 <button onclick="setRole('ux')" id="btn-ux-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">UX Ops</button>
+            <!-- Mobile Lens Selector (Inside Nav for Better Layout) -->
+            <div class="md:hidden w-full flex flex-col items-center mt-2">
+                <div class="bg-slate-100 dark:bg-slate-800 rounded-2xl p-1.5 flex gap-1 shadow-sm w-full justify-between overflow-x-auto">
+                     <button onclick="setRole('general')" id="btn-general-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Overview</button>
+                     <button onclick="setRole('pgm')" id="btn-pgm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Strategy</button>
+                     <button onclick="setRole('tpm')" id="btn-tpm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Technical</button>
+                     <button onclick="setRole('ux')" id="btn-ux-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">UX Ops</button>
+                </div>
+                <span class="text-[10px] text-slate-400 mt-1">Select a role to tailor highlights</span>
             </div>
         </div>
     </nav>
@@ -482,16 +481,15 @@
                 period: "May 2023 – Present",
                 location: "Bangalore",
                 bullets: [
+                    { text: "Partnered with skilling partners to train <strong>300K+ students</strong>, leading to <strong>100K+ internships facilitated</strong> and <strong>300+ job placements</strong> in Android/AI domains.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: "Formed and nurtured a high-impact community of <strong>3.5K+ Mentors and Educators</strong>, driving technology adoption across academic institutions.", tags: ['pgm', 'community', 'general'], tools: ['Community Building'] }, 
+                    { text: "Enabled <strong>60K students & 1000+ faculties</strong> to deploy AI projects using <strong>Gemini API on GCP</strong> across 150 institutions.", tags: ['tpm', 'general'], tools: ['Google Apps Script', 'API Integration'] },
+                    { text: "Influenced <strong>40+ institutes</strong> to upgrade curriculum from Java to <strong>Kotlin & Compose</strong>, future-proofing student learning.", tags: ['pgm', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: "Drove the development and deployment of <strong>1000+ Android apps</strong> via student ecosystem programs.", tags: ['tpm', 'community', 'general'], tools: ['Google Play'] },
+                    { text: "<strong>Core Team Member</strong> for Google IO Connect Bengaluru (2024-25), India Community Summit (2023-25), and GDSC Graduation.", tags: ['pgm', 'community'], tools: ['Event Mgmt'] },
+                    { text: "Led leadership briefing experience for Google IO Connect 2024; co-designed India DevRel impact summary presented to <strong>Global VPs & Directors</strong>.", tags: ['pgm', 'general'], tools: ['Strategic Comms'] },
                     { text: `Engineered <strong>Google Apps Script</strong> automations to sync ${isGoogleMode ? 'PLX' : 'Data Platform'}/Sheets, eliminating 20+ hours of manual toil/week.`, tags: ['tpm', 'general'], tools: ['Google Apps Script', isGoogleMode ? 'PLX' : 'Data Platform'] },
                     { text: `Owned the end-to-end launch schedule for Education initiatives using ${isGoogleMode ? 'LaunchCal' : 'Release Calendars'}, managing critical communication flows and coordinating reviews with Legal, Privacy, and Security stakeholders.`, tags: ['pgm', 'tpm', 'general'], tools: [isGoogleMode ? 'LaunchCal' : 'Release Calendar', 'Risk Management'] },
-                    { text: "Technical maintainer for <strong>Google DevLibrary</strong> (GitHub), managing PRs and code health.", tags: ['tpm', 'general'], tools: ['GitHub CI/CD'] },
-                    { text: "Enabled <strong>60K students & 1000+ faculties</strong> to deploy AI projects using <strong>Gemini API on GCP</strong> across 150 institutions.", tags: ['tpm', 'general'], tools: ['Google Apps Script', 'API Integration'] },
-                    { text: "Drove the development and deployment of <strong>1000+ Android apps</strong> via student ecosystem programs.", tags: ['tpm', 'community', 'general'], tools: ['Google Play'] },
-                    { text: "Partnered with skilling partners to train <strong>300K+ students</strong>, leading to <strong>100K+ internships facilitated</strong> and <strong>300+ job placements</strong> in Android/AI domains.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
-                    { text: "Led leadership briefing experience for Google IO Connect 2024; co-designed India DevRel impact summary presented to <strong>Global VPs & Directors</strong>.", tags: ['pgm', 'general'], tools: ['Strategic Comms'] },
-                    { text: "Influenced <strong>40+ institutes</strong> to upgrade curriculum from Java to <strong>Kotlin & Compose</strong>, future-proofing student learning.", tags: ['pgm', 'general'], tools: ['Stakeholder Comms'] },
-                    { text: "Formed and nurtured a high-impact community of <strong>3.5K+ Mentors and Educators</strong>, driving technology adoption across academic institutions.", tags: ['pgm', 'community', 'general'], tools: ['Community Building'] }, 
-                    { text: "<strong>Core Team Member</strong> for Google IO Connect Bengaluru (2024-25), India Community Summit (2023-25), and GDSC Graduation.", tags: ['pgm', 'community'], tools: ['Event Mgmt'] },
                 ]
             },
             {
@@ -501,11 +499,11 @@
                 period: "May 2022 – May 2023",
                 location: "Bangalore",
                 bullets: [
-                    { text: `Established developer feedback pipeline for DevLibrary, converting feedback into <strong>${isGoogleMode ? 'Buganizer' : 'Issue Tracker'}</strong> hotlists.`, tags: ['ux', 'tpm', 'general'], tools: [isGoogleMode ? 'Buganizer' : 'Issue Tracking'] },
-                    { text: "Scaled program reach by 50% vs OKRs through tiered engagement models and strategic partnerships.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: `Established developer feedback pipeline for DevLibrary, converting feedback into actionable <strong>${isGoogleMode ? 'Buganizer' : 'Issue Tracker'}</strong> hotlists for Engineering.`, tags: ['ux', 'tpm', 'general'], tools: [isGoogleMode ? 'Buganizer' : 'Issue Tracking'] },
+                    { text: "Scaled program reach by 50% (from 200K to 300K learners) vs OKRs through tiered engagement models and strategic partnerships.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Designed <strong>Strategic Newsletters</strong> with a 30%+ open rate, driving 8% MoM growth in program reach.", tags: ['community', 'pgm', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Represented Google's India Edu Program at <strong>National Skilling Events</strong>, promoting diversity and innovation.", tags: ['community', 'general'], tools: ['Public Speaking'] },
-                    { text: "Optimized procurement-to-payment workflows, reducing vendor onboarding time by 30%.", tags: ['pgm', 'general'], tools: ['Vendor Ops'] },
+                    { text: `Optimized procurement-to-payment workflows using ${isGoogleMode ? 'Taskflow' : 'Workflow Tools'}, reducing vendor onboarding time by 30%.`, tags: ['pgm', 'general'], tools: ['Vendor Ops'] },
                     { text: "Created content and managed social media strategies to boost program visibility by 30% YoY.", tags: ['pgm', 'general', 'community'], tools: ['Social Media'] }
                 ]
             },
