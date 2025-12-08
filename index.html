@@ -22,14 +22,10 @@
         - BADGE PLACEMENT: Added "Available" badge to Hero section and Footer.
         - BADGE LINK: Made "Available" badges clickable mailto links.
         - IMAGE FIX: Updated header and footer images to use the correct LinkedIn URL.
-        - FEEDBACK INCORPORATED:
-            - Contextualized metrics ("Facilitated" vs "Generated").
-            - Translated internal jargon (Buganizer -> Issue Tracking) for default view.
-            - Added ?mode=google URL parameter logic to toggle internal jargon version.
-            - METRIC CONTEXT: Clarified labels (e.g., "Reporting TAT Reduction" instead of just "Efficiency").
-            - METRIC CLARITY: Updated "Institutional Partners" to be more specific about product adoption.
-        - PRIORITY SHIFT: Reordered bullets to show Technical wins first in General view.
-        - LENS CONTEXT: Added helper text to explain the "Viewing Lens" feature.
+        - GOOGLE MODE FIX: 
+            - Logic checks localStorage OR URL param.
+            - Footer button toggles state and reloads.
+            - Added visual indicator in Navbar when active.
 -->
 
 <!DOCTYPE html>
@@ -37,10 +33,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive Career Portfolio for Vishal Das - Program Manager">
+    
+    <!-- SEO & Link Preview Tags -->
     <title>Vishal Das - Program Manager Portfolio</title>
-    <!-- Favicon using headshot -->
+    <meta name="description" content="Strategic Program Manager with 4+ years of experience driving operational rigor, technical velocity, and community growth for Google's developer ecosystems.">
+    <meta name="author" content="Vishal Das">
+    <meta name="keywords" content="Program Manager, TPM, Developer Ecosystem, Google, Android, Kotlin, Community Manager, Strategy, Operations">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vishal-das-portfolio.web.app/">
+    <meta property="og:title" content="Vishal Das - Program Manager Portfolio">
+    <meta property="og:description" content="Bridging Engineering, Product, and Strategy. Explore my work in building scalable developer ecosystems.">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vishal-das-portfolio.web.app/">
+    <meta property="twitter:title" content="Vishal Das - Program Manager Portfolio">
+    <meta property="twitter:description" content="Strategic Program Manager driving operational rigor and community growth.">
+    <meta property="twitter:image" content="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w">
+
+    <!-- Favicon -->
     <link rel="icon" href="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" type="image/jpeg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -167,57 +183,56 @@
 
     <!-- Navbar -->
     <nav class="sticky top-4 z-40 mx-auto max-w-5xl px-4 no-print w-full">
-        <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-full shadow-soft px-3 py-2 flex flex-col items-center transition-all duration-300">
+        <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-full shadow-soft px-3 py-2 flex justify-between items-center transition-all duration-300">
             
-            <div class="flex justify-between items-center w-full mb-2 md:mb-0">
-                <!-- Logo/Name Area -->
-                <div class="flex items-center gap-3 pl-1">
-                    <div class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700 shrink-0">
-                        <img 
-                            src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" 
-                            alt="Vishal Das Headshot" 
-                            class="w-full h-full object-cover object-top"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                        >
-                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">VD</div>
-                    </div>
-                    <div class="flex flex-col justify-center leading-tight">
-                        <span class="font-bold text-slate-900 dark:text-white text-sm google-font">Vishal Das</span>
-                        <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">Portfolio</span>
-                    </div>
+            <!-- Logo/Name Area -->
+            <div class="flex items-center gap-3 pl-1">
+                <div class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700 shrink-0">
+                    <img 
+                        src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" 
+                        alt="Vishal Das Headshot" 
+                        class="w-full h-full object-cover object-top"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">VD</div>
                 </div>
-
-                <!-- Lens Selector (Desktop) -->
-                <div class="hidden md:flex flex-col items-center">
-                    <div class="bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1 flex" role="tablist">
-                        <button onclick="setRole('general')" id="btn-general" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="true" title="See my complete profile">Overview</button>
-                        <button onclick="setRole('pgm')" id="btn-pgm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Filter for Strategy & Ops experience">Strategy</button>
-                        <button onclick="setRole('tpm')" id="btn-tpm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Filter for Technical Engineering experience">Technical</button>
-                        <button onclick="setRole('ux')" id="btn-ux" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Filter for UX & Design Ops experience">UX Ops</button>
-                    </div>
-                     <span class="text-[10px] text-slate-400 mt-1">Select a role to tailor my experience highlights</span>
-                </div>
-
-                <!-- Right Actions -->
-                <div class="flex items-center gap-2 pr-1">
-                    <button onclick="printResume()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" title="Download as PDF">
-                        <span class="text-sm">📄</span> <span class="hidden sm:inline">Resume</span>
-                    </button>
-                    <button onclick="toggleSettingsPanel()" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105" aria-label="Display Settings">
-                        <span class="text-lg">⚙️</span>
-                    </button>
+                <div class="flex flex-col justify-center leading-tight">
+                    <span class="font-bold text-slate-900 dark:text-white text-sm google-font">Vishal Das</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">Portfolio</span>
                 </div>
             </div>
 
-            <!-- Mobile Lens Selector (Inside Nav for Better Layout) -->
-            <div class="md:hidden w-full flex flex-col items-center mt-2">
-                <div class="bg-slate-100 dark:bg-slate-800 rounded-2xl p-1.5 flex gap-1 shadow-sm w-full justify-between overflow-x-auto">
-                     <button onclick="setRole('general')" id="btn-general-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Overview</button>
-                     <button onclick="setRole('pgm')" id="btn-pgm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Strategy</button>
-                     <button onclick="setRole('tpm')" id="btn-tpm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Technical</button>
-                     <button onclick="setRole('ux')" id="btn-ux-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">UX Ops</button>
+            <!-- Lens Selector (Desktop) -->
+            <div class="hidden md:flex bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1" role="tablist">
+                <button onclick="setRole('general')" id="btn-general" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
+                <button onclick="setRole('pgm')" id="btn-pgm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Strategy & Operations Focus">Strategy</button>
+                <button onclick="setRole('tpm')" id="btn-tpm" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
+                <button onclick="setRole('ux')" id="btn-ux" class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" role="tab" aria-selected="false" title="User Experience & Design Ops">UX Ops</button>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-2 pr-1">
+                <!-- Google Mode Indicator (Desktop) -->
+                <div id="gmode-indicator-desktop" class="hidden px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-[10px] font-bold rounded-full border border-blue-200 dark:border-blue-800 mr-1 animate-fade-in">
+                    G-Mode ON
                 </div>
-                <span class="text-[10px] text-slate-400 mt-1">Select a role to tailor highlights</span>
+
+                <button onclick="printResume()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105" title="Download as PDF">
+                    <span class="text-sm">📄</span> <span class="hidden sm:inline">Resume</span>
+                </button>
+                <button onclick="toggleSettingsPanel()" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105" aria-label="Display Settings">
+                    <span class="text-lg">⚙️</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Lens Selector -->
+        <div class="md:hidden mt-3 flex justify-center">
+            <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl p-1.5 flex gap-1 shadow-sm w-full max-w-sm justify-between overflow-x-auto">
+                 <button onclick="setRole('general')" id="btn-general-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Overview</button>
+                 <button onclick="setRole('pgm')" id="btn-pgm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Strategy</button>
+                 <button onclick="setRole('tpm')" id="btn-tpm-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Technical</button>
+                 <button onclick="setRole('ux')" id="btn-ux-m" class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">UX Ops</button>
             </div>
         </div>
     </nav>
@@ -376,6 +391,7 @@
                     <div class="flex flex-col gap-3 items-start">
                         <button onclick="printResume()" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105"><span>📄</span> Download Resume (PDF)</button>
                         <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105"><span>⬆</span> Back to Top</button>
+                        <button onclick="toggleGoogleMode()" id="google-mode-btn" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105"><span>🔍</span> Enable Google Mode</button>
                     </div>
                 </div>
             </div>
@@ -404,7 +420,8 @@
 
         // --- NEW: GOOGLE MODE TOGGLE ---
         const urlParams = new URLSearchParams(window.location.search);
-        const isGoogleMode = urlParams.get('mode') === 'google';
+        // Check URL OR LocalStorage
+        const isGoogleMode = urlParams.get('mode') === 'google' || localStorage.getItem('googleMode') === 'true';
 
         // --- DATA DICTIONARY ---
         const genericTools = ['Issue Tracking', 'Data Platform', 'Workflow Tool', 'Google Apps Script', 'Release Calendar', 'SQL', 'Figma', 'GitHub'];
@@ -500,7 +517,7 @@
                 location: "Bangalore",
                 bullets: [
                     { text: `Established developer feedback pipeline for DevLibrary, converting feedback into actionable <strong>${isGoogleMode ? 'Buganizer' : 'Issue Tracker'}</strong> hotlists for Engineering.`, tags: ['ux', 'tpm', 'general'], tools: [isGoogleMode ? 'Buganizer' : 'Issue Tracking'] },
-                    { text: "Scaled program reach by 50% (from 200K to 300K learners) vs OKRs through tiered engagement models and strategic partnerships.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: "Scaled program reach by 50% vs OKRs through tiered engagement models and strategic partnerships.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Designed <strong>Strategic Newsletters</strong> with a 30%+ open rate, driving 8% MoM growth in program reach.", tags: ['community', 'pgm', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Represented Google's India Edu Program at <strong>National Skilling Events</strong>, promoting diversity and innovation.", tags: ['community', 'general'], tools: ['Public Speaking'] },
                     { text: `Optimized procurement-to-payment workflows using ${isGoogleMode ? 'Taskflow' : 'Workflow Tools'}, reducing vendor onboarding time by 30%.`, tags: ['pgm', 'general'], tools: ['Vendor Ops'] },
@@ -538,6 +555,18 @@
         function printResume() {
             // UPDATED: Redirect to Google Doc
             window.open("https://docs.google.com/document/d/e/2PACX-1vR8_yR5vSjgB480-ZGj2AjGGBGVIGtOaxUhUI07Mxi7uy13xEOABUEZqEAMCBvRLn6zUomv6CZIV_1j/pub", "_blank");
+        }
+
+        function toggleGoogleMode() {
+            if (isGoogleMode) {
+                localStorage.removeItem('googleMode');
+                 const url = new URL(window.location);
+                 url.searchParams.delete('mode');
+                 window.history.replaceState({}, '', url);
+            } else {
+                localStorage.setItem('googleMode', 'true');
+            }
+            location.reload();
         }
 
         function copyToClipboard(text) {
@@ -753,6 +782,16 @@
         window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             const savedVision = localStorage.getItem('vision') || 'standard';
+            
+            // Check for persistent Google Mode
+            const btn = document.getElementById('google-mode-btn');
+            const indicator = document.getElementById('gmode-indicator-desktop');
+            if (isGoogleMode) {
+                btn.innerHTML = '<span>✅</span> Google Mode Active';
+                btn.classList.add('text-blue-600', 'font-bold');
+                if(indicator) indicator.classList.remove('hidden');
+            }
+
             setTheme(savedTheme);
             setVision(savedVision);
             setRole('general'); // Default
