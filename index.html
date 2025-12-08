@@ -10,7 +10,6 @@
      3. Interaction Design:
         - Active states in Settings Panel now use checkmarks and clear border highlights.
         - Click-outside logic handles modal closing gracefully.
-        - GLOBAL HOVER EFFECT: All links/buttons now scale slightly on hover.
      4. Recruiter Optimization (FINAL):
         - Updated Links to real profiles (kindavishal).
         - Privacy: Email text hidden, but functionality (Copy/Mailto) preserved.
@@ -30,6 +29,14 @@
         - VISIBILITY FIX: Improved contrast for "Available for Full-time Roles" badge.
         - BADGE PLACEMENT: Added "Available" badge to Hero section and Footer.
         - BADGE LINK: Made "Available" badges clickable mailto links.
+        - IMAGE FIX: Updated header and footer images to use the correct LinkedIn URL.
+        - FEEDBACK INCORPORATED:
+            - Contextualized metrics ("Facilitated" vs "Generated").
+            - Translated internal jargon (Buganizer -> Issue Tracking) for default view.
+            - Added ?mode=google URL parameter logic to toggle internal jargon version.
+            - METRIC CONTEXT: Clarified labels (e.g., "Reporting TAT Reduction" instead of just "Efficiency").
+            - METRIC CLARITY: Updated "Institutional Partners" to be more specific about product adoption.
+        - PRIORITY SHIFT: Reordered bullets to show Technical wins first in General view.
 -->
 
 <!DOCTYPE html>
@@ -396,49 +403,59 @@
             return value;
         }
 
+        // --- NEW: GOOGLE MODE TOGGLE ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const isGoogleMode = urlParams.get('mode') === 'google';
+
+        // --- DATA DICTIONARY ---
+        const genericTools = ['Issue Tracking', 'Data Platform', 'Workflow Tool', 'Google Apps Script', 'Release Calendar', 'SQL', 'Figma', 'GitHub'];
+        const googleTools = ['Buganizer', 'PLX', 'Taskflow', 'Google Apps Script', 'LaunchCal', 'SQL', 'Figma', 'GitHub'];
+        
+        const genericMetrics = [
+            { value: formatMetric('100000+'), label: 'Internships Facilitated via Partners', color: 'text-emerald-400', title: 'Driving talent pipelines via skilling programs' }, 
+            { value: formatMetric('350000+'), label: 'Developers Trained', color: 'text-blue-400', title: 'Upskilling through workshops and online courses' },
+            { value: formatMetric('1000+'), label: 'Apps Deployed via Program', color: 'text-purple-400', title: 'Real-world application deployment by students' },
+            { value: '80%', label: 'Reporting TAT Reduction', color: 'text-pink-400', title: 'Efficiency gain through automated dashboards' },
+            { value: '50%', label: 'Growth in Active Community Engagement', color: 'text-orange-400', title: 'Year-over-Year increase in developer participation' },
+            { value: formatMetric('6000+'), label: 'Partner Institutions Adopting Google Tech', color: 'text-teal-400', title: 'Institutions that integrated Android/AI curriculum via my programs.' }
+        ];
+
         const roles = {
             'general': {
                 name: "Program Manager",
-                desc: "Strategic Program Manager with 4+ years driving operational rigor, technical velocity, and community growth for Google's developer ecosystems. Expert in bridging <strong>Engineering, Product, and User needs</strong>.",
+                desc: "Strategic Program Manager with 4+ years driving operational rigor, technical velocity, and community growth for global technology platforms. Expert in bridging <strong>Engineering, Product, and User needs</strong>.",
                 badge: "General Overview",
                 badgeColor: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-                radar: [95, 95, 95, 95, 90, 100], // MAXED OUT "SUPER GRAPH"
-                tools: ['Buganizer', 'PLX', 'Taskflow', 'Google Apps Script', 'LaunchCal', 'SQL', 'Figma', 'GitHub'],
-                metrics: [
-                    { value: formatMetric('100000+'), label: 'Internships Generated', color: 'text-emerald-400' },
-                    { value: formatMetric('350000+'), label: 'Developers Upskilled', color: 'text-blue-400' },
-                    { value: formatMetric('1000+'), label: 'Production Apps Deployed', color: 'text-purple-400' },
-                    { value: '80%', label: 'Efficiency Improvement', color: 'text-pink-400' },
-                    { value: '50%', label: 'Engagement Growth', color: 'text-orange-400' },
-                    { value: formatMetric('6000+'), label: 'Institutional Partners', color: 'text-teal-400' }
-                ]
+                radar: [95, 95, 95, 95, 90, 100], 
+                tools: isGoogleMode ? googleTools : genericTools,
+                metrics: genericMetrics
             },
             'tpm': {
                 name: "Technical PgM",
-                desc: "Specialized in <strong>Engineering Velocity</strong>. I bridge the gap between Product and Code using automation (Apps Script), internal tooling (Buganizer/PLX), and deep ecosystem knowledge (Android/Kotlin).",
+                desc: "Specialized in <strong>Engineering Velocity</strong>. I bridge the gap between Product and Code using automation (Apps Script), internal tooling, and deep ecosystem knowledge.",
                 badge: "Technical Focus",
                 badgeColor: "bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-200",
                 radar: [95, 85, 90, 75, 70, 85], 
-                tools: ['Google Apps Script', 'Buganizer', 'PLX (Data)', 'LaunchCal', 'SQL', 'GitHub CI/CD', 'API Integration'],
+                tools: isGoogleMode ? ['Google Apps Script', 'Buganizer', 'PLX', 'LaunchCal', 'SQL', 'GitHub CI/CD', 'API Integration'] : ['Google Apps Script', 'Issue Tracking', 'Data Platform', 'Release Calendar', 'SQL', 'GitHub CI/CD', 'API Integration'],
                 metrics: [
-                    { value: formatMetric('60000+'), label: 'Students Built AI Projects (Gemini API)', color: 'text-blue-400' }, 
-                    { value: '20+ Hrs', label: 'Manual Toil Eliminated/Week', color: 'text-emerald-400' },
-                    { value: '99%', label: 'Platform Stability', color: 'text-purple-400' },
-                    { value: '80%', label: 'Reduction in Reporting TAT', color: 'text-orange-400' }
+                    { value: formatMetric('60000+'), label: 'Students using Gemini API', color: 'text-blue-400', title: 'Adoption of Gemini API in student projects' }, 
+                    { value: '20+ Hrs', label: 'Manual Toil Automated/Week', color: 'text-emerald-400', title: 'Time saved through process automation' },
+                    { value: '99%', label: 'Platform Stability', color: 'text-purple-400', title: 'Uptime maintained through proactive monitoring' },
+                    { value: '80%', label: 'Faster Reporting Cycles', color: 'text-orange-400', title: 'Reduction in time-to-insight for stakeholders' }
                 ]
             },
             'pgm': {
                 name: "Program Manager",
-                desc: "Focused on <strong>Operational Rigor & Strategy</strong>. I manage complex dependency matrices across Legal, Privacy, and Engineering to ensure 'Code Yellow' free launches and build inclusive talent pipelines.",
+                desc: "Focused on <strong>Operational Rigor & Strategy</strong>. I manage complex dependency matrices across Legal, Privacy, and Engineering to ensure smooth releases and build inclusive talent pipelines.",
                 badge: "Strategy Focus",
                 badgeColor: "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200",
                 radar: [60, 85, 80, 95, 80, 95],
-                tools: ['Taskflow', 'Accord', 'Looker Studio', 'Risk Management', 'Stakeholder Comms', 'Vendor Ops'],
+                tools: isGoogleMode ? ['Taskflow', 'Accord', 'Looker Studio', 'Risk Management', 'Stakeholder Comms', 'Vendor Ops'] : ['Workflow Tool', 'Accord', 'Looker Studio', 'Risk Management', 'Stakeholder Comms', 'Vendor Ops'],
                 metrics: [
-                    { value: formatMetric('300000+'), label: 'Learners Trained (2024-25)', color: 'text-emerald-400' },
-                    { value: formatMetric('3500+'), label: 'Educators & Mentors Managed', color: 'text-blue-400' },
-                    { value: '40+', label: 'Curriculums Upgraded to Kotlin', color: 'text-pink-400' },
-                    { value: '10+', label: 'Strategic Partnerships Scaled', color: 'text-purple-400' }
+                    { value: formatMetric('300000+'), label: 'Learners Upskilled', color: 'text-emerald-400', title: 'Total learners impacted by training programs' },
+                    { value: formatMetric('3500+'), label: 'Mentors Managed', color: 'text-blue-400', title: 'Community leaders nurtured to drive local impact' },
+                    { value: '40+', label: 'Curriculums Modernized', color: 'text-pink-400', title: 'Institutions upgrading to Kotlin/Compose' },
+                    { value: '10+', label: 'Strategic Partnerships', color: 'text-purple-400', title: 'Key alliances formed to scale impact' }
                 ]
             },
             'ux': {
@@ -447,12 +464,12 @@
                 badge: "UX Ops Focus",
                 badgeColor: "bg-purple-50 text-purple-700 dark:bg-purple-900/40 dark:text-purple-200",
                 radar: [70, 80, 75, 85, 95, 90],
-                tools: ['User Insights', 'Figma', 'Accessibility', 'Feedback Loops', 'Buganizer Triage', 'Design Ops'],
+                tools: ['User Insights', 'Figma', 'Accessibility', 'Feedback Loops', isGoogleMode ? 'Buganizer' : 'Issue Tracking', 'Design Ops'],
                 metrics: [
-                    { value: '3x', label: 'Growth in Community Reach', color: 'text-purple-400' },
-                    { value: '50%', label: 'Increase in User Engagement', color: 'text-pink-400' },
-                    { value: '30%', label: 'Social Visibility Growth', color: 'text-blue-400' },
-                    { value: '90+', label: 'NPS Score', color: 'text-emerald-400' }
+                    { value: '3x', label: 'Growth in Community Reach', color: 'text-purple-400', title: 'Expansion of user base through targeted initiatives' },
+                    { value: '50%', label: 'Increase in Engagement', color: 'text-pink-400', title: 'Boost in active participation metrics' },
+                    { value: '30%', label: 'Brand Visibility Growth', color: 'text-blue-400', title: 'Increase in social media impressions and reach' },
+                    { value: '90+', label: 'NPS Score', color: 'text-emerald-400', title: 'High user satisfaction with delivered programs' }
                 ]
             }
         };
@@ -465,15 +482,16 @@
                 period: "May 2023 – Present",
                 location: "Bangalore",
                 bullets: [
-                    { text: "Partnered with skilling partners to train <strong>300K+ students</strong>, leading to <strong>100K+ internships</strong> and <strong>300+ job placements</strong> in Android/AI domains.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
-                    { text: "Formed and nurtured a high-impact community of <strong>3.5K+ Mentors and Educators</strong>, driving technology adoption across academic institutions.", tags: ['pgm', 'community', 'general'], tools: ['Community Building'] }, // NEW
+                    { text: `Engineered <strong>Google Apps Script</strong> automations to sync ${isGoogleMode ? 'PLX' : 'Data Platform'}/Sheets, eliminating 20+ hours of manual toil/week.`, tags: ['tpm', 'general'], tools: ['Google Apps Script', isGoogleMode ? 'PLX' : 'Data Platform'] },
+                    { text: `Owned the end-to-end launch schedule for Education initiatives using ${isGoogleMode ? 'LaunchCal' : 'Release Calendars'}, managing critical communication flows and coordinating reviews with Legal, Privacy, and Security stakeholders.`, tags: ['pgm', 'tpm', 'general'], tools: [isGoogleMode ? 'LaunchCal' : 'Release Calendar', 'Risk Management'] },
+                    { text: "Technical maintainer for <strong>Google DevLibrary</strong> (GitHub), managing PRs and code health.", tags: ['tpm', 'general'], tools: ['GitHub CI/CD'] },
                     { text: "Enabled <strong>60K students & 1000+ faculties</strong> to deploy AI projects using <strong>Gemini API on GCP</strong> across 150 institutions.", tags: ['tpm', 'general'], tools: ['Google Apps Script', 'API Integration'] },
-                    { text: "Influenced <strong>40+ institutes</strong> to upgrade curriculum from Java to <strong>Kotlin & Compose</strong>, future-proofing student learning.", tags: ['pgm', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Drove the development and deployment of <strong>1000+ Android apps</strong> via student ecosystem programs.", tags: ['tpm', 'community', 'general'], tools: ['Google Play'] },
-                    { text: "<strong>Core Team Member</strong> for Google IO Connect Bengaluru (2024-25), India Community Summit (2023-25), and GDSC Graduation.", tags: ['pgm', 'community'], tools: ['Event Mgmt'] },
+                    { text: "Partnered with skilling partners to train <strong>300K+ students</strong>, leading to <strong>100K+ internships facilitated</strong> and <strong>300+ job placements</strong> in Android/AI domains.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Led leadership briefing experience for Google IO Connect 2024; co-designed India DevRel impact summary presented to <strong>Global VPs & Directors</strong>.", tags: ['pgm', 'general'], tools: ['Strategic Comms'] },
-                    { text: "Engineered <strong>Google Apps Script</strong> automations to sync PLX/Sheets, eliminating 20+ hours of manual toil/week.", tags: ['tpm', 'general'], tools: ['Google Apps Script', 'PLX (Data)'] },
-                    { text: "Owned the end-to-end launch schedule for Education initiatives, managing critical communication flows and coordinating reviews with Legal, Privacy, and Security stakeholders.", tags: ['pgm', 'tpm', 'general'], tools: ['LaunchCal', 'Risk Management'] },
+                    { text: "Influenced <strong>40+ institutes</strong> to upgrade curriculum from Java to <strong>Kotlin & Compose</strong>, future-proofing student learning.", tags: ['pgm', 'general'], tools: ['Stakeholder Comms'] },
+                    { text: "Formed and nurtured a high-impact community of <strong>3.5K+ Mentors and Educators</strong>, driving technology adoption across academic institutions.", tags: ['pgm', 'community', 'general'], tools: ['Community Building'] }, 
+                    { text: "<strong>Core Team Member</strong> for Google IO Connect Bengaluru (2024-25), India Community Summit (2023-25), and GDSC Graduation.", tags: ['pgm', 'community'], tools: ['Event Mgmt'] },
                 ]
             },
             {
@@ -483,7 +501,7 @@
                 period: "May 2022 – May 2023",
                 location: "Bangalore",
                 bullets: [
-                    { text: "Established developer feedback pipeline for DevLibrary, converting feedback into <strong>Buganizer</strong> hotlists.", tags: ['ux', 'tpm', 'general'], tools: ['Buganizer', 'Buganizer Triage'] },
+                    { text: `Established developer feedback pipeline for DevLibrary, converting feedback into <strong>${isGoogleMode ? 'Buganizer' : 'Issue Tracker'}</strong> hotlists.`, tags: ['ux', 'tpm', 'general'], tools: [isGoogleMode ? 'Buganizer' : 'Issue Tracking'] },
                     { text: "Scaled program reach by 50% vs OKRs through tiered engagement models and strategic partnerships.", tags: ['pgm', 'community', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Designed <strong>Strategic Newsletters</strong> with a 30%+ open rate, driving 8% MoM growth in program reach.", tags: ['community', 'pgm', 'general'], tools: ['Stakeholder Comms'] },
                     { text: "Represented Google's India Edu Program at <strong>National Skilling Events</strong>, promoting diversity and innovation.", tags: ['community', 'general'], tools: ['Public Speaking'] },
@@ -618,7 +636,7 @@
                 const colSpanClass = (index === 0 && metrics.length === 3) ? 'sm:col-span-2' : 'sm:col-span-1';
                 
                 metricsHTML += `
-                    <div class="${colSpanClass} p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex flex-col justify-center h-full">
+                    <div class="${colSpanClass} p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex flex-col justify-center h-full" title="${m.title || ''}">
                         <div class="text-4xl font-bold ${m.color} mb-1">${formatMetric(m.value)}</div>
                         <div class="text-sm text-slate-300 leading-snug">${m.label}</div>
                     </div>
