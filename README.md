@@ -1,15 +1,38 @@
-# Vishal's Portfolio
+# Vishal Das - Program Manager Portfolio
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/0a51d0e9-f611-4dd8-887f-fc1889e68540/deploy-status)](https://app.netlify.com/sites/kindavishal/deploys)
+A dynamic, single-page personal portfolio website designed to showcase my experience as a Strategic Program Manager. 
 
-Vishal's personal website running on Gatsby, React, and Node.js.
+## Overview
 
-**Note**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being cloned and deployed. As such, I do not provide support or guidance for doing that. I recommend checking out the various [Gatsby Starters](gatsbyjs.org/starters/) to set up a blog, personal website or an existing theme created for that purpose. I have used [Cara by LekoArts](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara) theme for my website, I recommend following the steps on their GitHub if you wish to use the theme.
+This repository hosts the source code for my personal portfolio which has been completely rebuilt as a lightweight, static web application. It transitions away from the previous Gatsby/React architecture to a highly optimized, vanilla HTML/JS/CSS solution using Tailwind CSS.
+
+**Live Site:** [vishal-das-portfolio.web.app](https://vishal-das-portfolio.web.app/) (or equivalent URL)
+
+## Key Features
+
+- **Role-Based Lenses**: Interactive toggle to filter content for different audiences:
+    - **Overview**: A balanced view of all experience.
+    - **Technical**: Highlights engineering velocity, automation, and platform stability.
+    - **Operations**: Focuses on strategy, stakeholder management, and program rigor.
+- **"Google Mode"**: A unique feature that toggles terminology between generic industry terms (e.g., "Issue Tracking") and internal Google lingo (e.g., "Buganizer").
+- **Interactive Metrics**: "Key Impact Metrics" dashboard where clicking a metric highlights the relevant proof point in the experience timeline.
+- **Accessibility & Themes**:
+    - Full Dark/Light mode support.
+    - Specialized accessibility modes: High Contrast and Color Blind Safe.
+    - Screen-reader friendly architecture.
+- **Print Optimization**: content automatically reformats for a clean, resume-style PDF export when printing the page.
+
+## Tech Stack
+
+- **Core**: Semantic HTML5, Vanilla JavaScript (ES6+).
+- **Styling**: Tailwind CSS (via CDN) for rapid, utility-first styling.
+- **Visualization**: Chart.js for the skills radar chart.
+- **Fonts**: Roboto and Google Sans.
+
+## Disclaimer
+
+**Note**: The source for this site was created for my own personal use and is not intended to be a template or theme for others. While you are welcome to view the source code for inspiration, it was not written to be cloned or deployed by others. I do not provide support, guidance, or maintenance for forks of this project.
 
 ## Author
 
-- [Vishal Das](https://kindavishal.js.org)
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+- **Vishal Das** - [LinkedIn](https://linkedin.com/in/kindavishal) | [GitHub](https://github.com/kindavishal)
