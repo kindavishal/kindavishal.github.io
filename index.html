@@ -73,6 +73,12 @@
         href="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w"
         type="image/jpeg">
 
+    <!-- Performance Hints -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://media.licdn.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -93,7 +99,7 @@
             }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
 
@@ -365,7 +371,7 @@
                 <div
                     class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700 shrink-0">
                     <img src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w"
-                        alt="Vishal Das Headshot" class="w-full h-full object-cover object-top"
+                        alt="Vishal Das Headshot" class="w-full h-full object-cover object-top" fetchpriority="high"
                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div
                         class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">
@@ -689,7 +695,7 @@
                         <div
                             class="relative w-8 h-8 rounded-full overflow-hidden shadow-sm border border-slate-200 dark:border-slate-700">
                             <img src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w"
-                                alt="Vishal Das Footer" class="w-full h-full object-cover object-top">
+                                alt="Vishal Das Footer" class="w-full h-full object-cover object-top" loading="lazy">
                         </div>
                         <span class="font-bold text-slate-900 dark:text-white google-font">Vishal Das</span>
                     </div>
