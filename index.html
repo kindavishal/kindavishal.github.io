@@ -406,7 +406,7 @@
                     G-Mode ON
                 </div>
 
-                <div class="relative" onmouseenter="showHireDropdown('hire-dropdown-nav')"
+                <div class="relative z-50" onmouseenter="showHireDropdown('hire-dropdown-nav')"
                     onmouseleave="hideHireDropdown('hire-dropdown-nav')">
                     <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav')" aria-haspopup="true"
                         aria-expanded="false"
@@ -514,7 +514,7 @@
                 </div>
                 <h1
                     class="relative text-4xl md:text-5xl font-bold text-slate-900 dark:text-white google-font tracking-tight mb-4">
-                    Program Manager <span class="text-slate-300 dark:text-slate-700 font-light">&</span><br>
+                    Technical Program Manager <span class="text-slate-300 dark:text-slate-700 font-light">for</span><br>
                     Developer Ecosystems
                 </h1>
                 <div
@@ -906,24 +906,43 @@
             if (e.target.id === 'settings-panel') document.getElementById('settings-panel').close();
         });
 
+        let dropdownTimers = {};
+
         // --- HIRE ME DROPDOWN ---
         function toggleHireDropdown(dropdownId) {
             const dropdown = document.getElementById(dropdownId);
+            // Fix for Desktop: If user is hovering (which opens it via CSS/JS onmouseenter), 
+            // clicking shouldn't close it immediately.
+            const btnId = dropdownId === 'hire-dropdown-nav' ? 'hire-btn-nav' : 'hire-btn-footer';
+            const btn = document.getElementById(btnId);
+
+            // Check if we are in a hover state
+            const container = btn.parentElement;
+            if (container.matches(':hover') && !dropdown.classList.contains('hidden')) {
+                return;
+            }
+
             if (dropdown.classList.contains('hidden')) {
                 showHireDropdown(dropdownId);
             } else {
-                hideHireDropdown(dropdownId);
+                hideHireDropdown(dropdownId, true); // Immediate close on click
             }
         }
 
         function showHireDropdown(dropdownId) {
+            // Clear any pending close timer for this dropdown
+            if (dropdownTimers[dropdownId]) {
+                clearTimeout(dropdownTimers[dropdownId]);
+                dropdownTimers[dropdownId] = null;
+            }
+
             const dropdown = document.getElementById(dropdownId);
             const btnId = dropdownId === 'hire-dropdown-nav' ? 'hire-btn-nav' : 'hire-btn-footer';
             const btn = document.getElementById(btnId);
 
             // Close others
             ['hire-dropdown-nav', 'hire-dropdown-footer'].forEach(id => {
-                if (id !== dropdownId) hideHireDropdown(id);
+                if (id !== dropdownId) hideHireDropdown(id, true);
             });
 
             if (btn) btn.setAttribute('aria-expanded', 'true');
@@ -935,19 +954,29 @@
             }, 10);
         }
 
-        function hideHireDropdown(dropdownId) {
+        function hideHireDropdown(dropdownId, immediate = false) {
             const dropdown = document.getElementById(dropdownId);
             const btnId = dropdownId === 'hire-dropdown-nav' ? 'hire-btn-nav' : 'hire-btn-footer';
             const btn = document.getElementById(btnId);
 
             if (!dropdown) return; // Safety check
 
-            if (btn) btn.setAttribute('aria-expanded', 'false');
-            dropdown.classList.remove('opacity-100', 'scale-100');
-            dropdown.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                dropdown.classList.add('hidden');
-            }, 200);
+            const doHide = () => {
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                dropdown.classList.remove('opacity-100', 'scale-100');
+                dropdown.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    dropdown.classList.add('hidden');
+                }, 200);
+            };
+
+            if (immediate) {
+                if (dropdownTimers[dropdownId]) clearTimeout(dropdownTimers[dropdownId]);
+                doHide();
+            } else {
+                // Add grace period for hover gap
+                dropdownTimers[dropdownId] = setTimeout(doHide, 300);
+            }
         }
 
         // Close dropdown when clicking outside
