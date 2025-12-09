@@ -6,7 +6,7 @@ A dynamic, single-page personal portfolio website designed to showcase my experi
 
 This repository hosts the source code for my personal portfolio which has been completely rebuilt as a lightweight, static web application. It transitions away from the previous Gatsby/React architecture to a highly optimized, vanilla HTML/JS/CSS solution using Tailwind CSS.
 
-**Live Site:** [vishal-das-portfolio.web.app](https://vishal-das-portfolio.web.app/) (or equivalent URL)
+**Live Site:** [kindavishal.js.org](https://kindavishal.js.org/)
 
 ## Key Features
 
