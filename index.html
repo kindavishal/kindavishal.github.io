@@ -402,7 +402,8 @@
 
                 <div class="relative" onmouseenter="showHireDropdown('hire-dropdown-nav')"
                     onmouseleave="hideHireDropdown('hire-dropdown-nav')">
-                    <button id="hire-btn-nav"
+                    <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav')" aria-haspopup="true"
+                        aria-expanded="false"
                         class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-slate-500 hover:scale-105 shadow-md"
                         title="Hire Me">
                         <span class="text-sm">🤝</span> <span class="hidden sm:inline">Hire Me</span>
@@ -421,10 +422,10 @@
                         </a>
                     </div>
                 </div>
-                <button onclick="toggleSettingsPanel()"
+                <button onclick="toggleSettingsPanel()" id="settings-trigger-btn"
                     class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105"
-                    aria-label="Display Settings">
-                    <span class="text-lg" aria-hidden="true">⚙️</span>
+                    aria-label="Customize Appearance">
+                    <span class="text-lg" aria-hidden="true">☀️</span>
                 </button>
             </div>
         </div>
@@ -445,7 +446,7 @@
 
     <!-- Settings Dialog -->
     <dialog id="settings-panel"
-        class="fixed top-24 right-4 md:right-[calc(50%-20rem)] lg:right-auto lg:left-1/2 lg:-translate-x-1/2 z-50 bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 w-80 backdrop:bg-black/40 text-slate-900 dark:text-slate-100 m-0 no-print">
+        class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 w-80 backdrop:bg-black/40 text-slate-900 dark:text-slate-100 m-auto no-print">
         <div class="flex justify-between items-center mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
             <h2 class="text-lg font-bold google-font flex items-center gap-2"><span>🎨</span> Appearance</h2>
             <button onclick="toggleSettingsPanel()"
@@ -582,7 +583,9 @@
                         <span id="skill-badge"
                             class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-blue-50 text-blue-600 dark:bg-blue-900/50 dark:text-blue-300">General</span>
                     </div>
-                    <div class="chart-container mb-2 no-print"><canvas id="skillsChart"></canvas></div>
+                    <div class="chart-container mb-2 no-print"><canvas id="skillsChart" role="img"
+                            aria-label="Radar chart showing skill proficiency: 95% in Automation, 95% in Tools, 95% in Release Management, 95% in Data, 90% in UX, and 100% in Communication"></canvas>
+                    </div>
                     <p id="skill-summary"
                         class="text-xs text-center text-slate-500 dark:text-slate-400 italic mb-6 min-h-[1.5em] transition-all duration-300">
                     </p>
@@ -724,7 +727,8 @@
                     <div class="flex flex-col gap-3 items-start">
                         <div class="relative" onmouseenter="showHireDropdown('hire-dropdown-footer')"
                             onmouseleave="hideHireDropdown('hire-dropdown-footer')">
-                            <button id="hire-btn-footer"
+                            <button id="hire-btn-footer" onclick="toggleHireDropdown('hire-dropdown-footer')"
+                                aria-haspopup="true" aria-expanded="false"
                                 class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105">
                                 <span>🤝</span> Hire Me
                             </button>
@@ -897,13 +901,26 @@
         });
 
         // --- HIRE ME DROPDOWN ---
+        function toggleHireDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            if (dropdown.classList.contains('hidden')) {
+                showHireDropdown(dropdownId);
+            } else {
+                hideHireDropdown(dropdownId);
+            }
+        }
+
         function showHireDropdown(dropdownId) {
             const dropdown = document.getElementById(dropdownId);
+            const btnId = dropdownId === 'hire-dropdown-nav' ? 'hire-btn-nav' : 'hire-btn-footer';
+            const btn = document.getElementById(btnId);
+
             // Close others
             ['hire-dropdown-nav', 'hire-dropdown-footer'].forEach(id => {
                 if (id !== dropdownId) hideHireDropdown(id);
             });
 
+            if (btn) btn.setAttribute('aria-expanded', 'true');
             dropdown.classList.remove('hidden');
             // Small delay to allow transition
             setTimeout(() => {
@@ -914,8 +931,12 @@
 
         function hideHireDropdown(dropdownId) {
             const dropdown = document.getElementById(dropdownId);
+            const btnId = dropdownId === 'hire-dropdown-nav' ? 'hire-btn-nav' : 'hire-btn-footer';
+            const btn = document.getElementById(btnId);
+
             if (!dropdown) return; // Safety check
 
+            if (btn) btn.setAttribute('aria-expanded', 'false');
             dropdown.classList.remove('opacity-100', 'scale-100');
             dropdown.classList.add('opacity-0', 'scale-95');
             setTimeout(() => {
@@ -1033,6 +1054,11 @@
             const html = document.documentElement;
             document.querySelectorAll('#theme-light, #theme-dark').forEach(b => b.classList.remove('active'));
             document.getElementById(`theme-${mode}`).classList.add('active');
+
+            // Dynamic Icon
+            const btn = document.getElementById('settings-trigger-btn');
+            if (btn) btn.innerHTML = mode === 'dark' ? '<span class="text-lg">🌙</span>' : '<span class="text-lg">☀️</span>';
+
             if (mode === 'dark') { html.classList.add('dark'); localStorage.setItem('theme', 'dark'); }
             else { html.classList.remove('dark'); localStorage.setItem('theme', 'light'); }
             updateRadar(roles[currentRole].radar, roles[currentRole].badgeColor);
