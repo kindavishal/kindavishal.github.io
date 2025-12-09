@@ -52,7 +52,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vishal-das-portfolio.web.app/">
+    <meta property="og:url" content="https://kindavishal.js.org">
     <meta property="og:title" content="Vishal Das - Program Manager Portfolio">
     <meta property="og:description"
         content="Bridging Engineering, Product, and Strategy. Explore my work in building scalable developer ecosystems.">
@@ -61,7 +61,7 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://vishal-das-portfolio.web.app/">
+    <meta property="twitter:url" content="https://kindavishal.js.org">
     <meta property="twitter:title" content="Vishal Das - Program Manager Portfolio">
     <meta property="twitter:description"
         content="Strategic Program Manager driving operational rigor and community growth.">
@@ -99,7 +99,7 @@
 
         /* Base Typography & Transitions */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Google Sans', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -400,11 +400,27 @@
                     G-Mode ON
                 </div>
 
-                <button onclick="printResume()"
-                    class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
-                    title="Download as PDF">
-                    <span class="text-sm">📄</span> <span class="hidden sm:inline">Resume</span>
-                </button>
+                <div class="relative" onmouseenter="showHireDropdown('hire-dropdown-nav')"
+                    onmouseleave="hideHireDropdown('hire-dropdown-nav')">
+                    <button id="hire-btn-nav"
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-slate-500 hover:scale-105 shadow-md"
+                        title="Hire Me">
+                        <span class="text-sm">🤝</span> <span class="hidden sm:inline">Hire Me</span>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div id="hire-dropdown-nav"
+                        class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50 origin-top-right transform transition-all duration-200 opacity-0 scale-95">
+                        <a href="https://docs.google.com/document/d/e/2PACX-1vR8_yR5vSjgB480-ZGj2AjGGBGVIGtOaxUhUI07Mxi7uy13xEOABUEZqEAMCBvRLn6zUomv6CZIV_1j/pub"
+                            target="_blank"
+                            class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <span class="text-lg">📄</span> Download Resume
+                        </a>
+                        <a href="mailto:vishal-das@outlook.com"
+                            class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <span class="text-lg">📧</span> Reach Out
+                        </a>
+                    </div>
+                </div>
                 <button onclick="toggleSettingsPanel()"
                     class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105"
                     aria-label="Display Settings">
@@ -515,7 +531,7 @@
                 <div class="relative flex flex-wrap gap-3 mt-8">
                     <div
                         class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2 hover:scale-105 transition-transform duration-200">
-                        📍 Bangalore</div>
+                        📍 Bangalore / Remote, Global</div>
                     <div
                         class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-full pl-4 pr-1 py-1 gap-2 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-colors group hover:scale-105 duration-200">
                         <a href="mailto:vishal-das@outlook.com"
@@ -706,9 +722,26 @@
                 <div>
                     <h3 class="font-bold text-slate-900 dark:text-white mb-4">Actions</h3>
                     <div class="flex flex-col gap-3 items-start">
-                        <button onclick="printResume()"
-                            class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105"><span>📄</span>
-                            Download Resume (PDF)</button>
+                        <div class="relative" onmouseenter="showHireDropdown('hire-dropdown-footer')"
+                            onmouseleave="hideHireDropdown('hire-dropdown-footer')">
+                            <button id="hire-btn-footer"
+                                class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105">
+                                <span>🤝</span> Hire Me
+                            </button>
+                            <!-- Dropdown Menu (Upwards) -->
+                            <div id="hire-dropdown-footer"
+                                class="hidden absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50 origin-bottom-left transform transition-all duration-200 opacity-0 scale-95">
+                                <a href="https://docs.google.com/document/d/e/2PACX-1vR8_yR5vSjgB480-ZGj2AjGGBGVIGtOaxUhUI07Mxi7uy13xEOABUEZqEAMCBvRLn6zUomv6CZIV_1j/pub"
+                                    target="_blank"
+                                    class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="text-lg">📄</span> Download Resume
+                                </a>
+                                <a href="mailto:vishal-das@outlook.com"
+                                    class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="text-lg">📧</span> Reach Out
+                                </a>
+                            </div>
+                        </div>
                         <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
                             class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105"><span>⬆</span>
                             Back to Top</button>
@@ -863,10 +896,55 @@
             if (e.target.id === 'settings-panel') document.getElementById('settings-panel').close();
         });
 
-        function printResume() {
-            // UPDATED: Redirect to Google Doc
-            window.open("https://docs.google.com/document/d/e/2PACX-1vR8_yR5vSjgB480-ZGj2AjGGBGVIGtOaxUhUI07Mxi7uy13xEOABUEZqEAMCBvRLn6zUomv6CZIV_1j/pub", "_blank");
+        // --- HIRE ME DROPDOWN ---
+        function showHireDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            // Close others
+            ['hire-dropdown-nav', 'hire-dropdown-footer'].forEach(id => {
+                if (id !== dropdownId) hideHireDropdown(id);
+            });
+
+            dropdown.classList.remove('hidden');
+            // Small delay to allow transition
+            setTimeout(() => {
+                dropdown.classList.remove('opacity-0', 'scale-95');
+                dropdown.classList.add('opacity-100', 'scale-100');
+            }, 10);
         }
+
+        function hideHireDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return; // Safety check
+
+            dropdown.classList.remove('opacity-100', 'scale-100');
+            dropdown.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                dropdown.classList.add('hidden');
+            }, 200);
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const dropdowns = [
+                { menu: 'hire-dropdown-nav', btn: 'hire-btn-nav' },
+                { menu: 'hire-dropdown-footer', btn: 'hire-btn-footer' }
+            ];
+
+            dropdowns.forEach(item => {
+                const dropdown = document.getElementById(item.menu);
+                const btn = document.getElementById(item.btn);
+
+                if (dropdown && !dropdown.classList.contains('hidden') && !dropdown.contains(e.target) && (!btn || !btn.contains(e.target))) {
+                    dropdown.classList.remove('opacity-100', 'scale-100');
+                    dropdown.classList.add('opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        dropdown.classList.add('hidden');
+                    }, 200);
+                }
+            });
+        });
+
+
 
         function toggleGoogleMode() {
             if (isGoogleMode) {
