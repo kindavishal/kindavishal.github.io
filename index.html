@@ -411,8 +411,8 @@
                     <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav')" aria-haspopup="true"
                         aria-expanded="false"
                         class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-slate-500 hover:scale-105 shadow-md"
-                        title="Hire Me">
-                        <span class="text-sm">🤝</span> <span class="hidden sm:inline">Hire Me</span>
+                        title="Get in touch">
+                        <span class="text-sm">🤝</span> <span class="hidden sm:inline">Get in touch</span>
                     </button>
                     <!-- Dropdown Menu -->
                     <div id="hire-dropdown-nav"
@@ -424,15 +424,59 @@
                         </a>
                         <a href="mailto:vishal-das@outlook.com"
                             class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                            <span class="text-lg">📧</span> Reach Out
+                            <span class="text-lg">📧</span> Email me
                         </a>
                     </div>
                 </div>
-                <button onclick="toggleSettingsPanel()" id="settings-trigger-btn"
-                    class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105"
-                    aria-label="Customize Appearance">
-                    <span class="text-lg" aria-hidden="true">☀️</span>
-                </button>
+                <!-- Settings Dropdown -->
+                <div class="relative z-50 pointer-events-auto" onmouseenter="showSettingsDropdown()"
+                    onmouseleave="hideSettingsDropdown()">
+                    <button id="settings-trigger-btn" onclick="toggleSettingsDropdown()" aria-haspopup="true"
+                        aria-expanded="false"
+                        class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 scale-tap shadow-sm hover:scale-105"
+                        aria-label="Customize Appearance">
+                        <span class="text-lg" aria-hidden="true">☀️</span>
+                    </button>
+                    <!-- Settings Dropdown Menu -->
+                    <div id="settings-dropdown"
+                        class="hidden absolute right-0 mt-2 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden origin-top-right transform transition-all duration-200 opacity-0 scale-95">
+                        <div class="p-4 border-b border-slate-100 dark:border-slate-800">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 block">Theme</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="setTheme('light')" id="theme-light"
+                                    class="setting-btn px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center justify-center gap-2 transition-all">
+                                    <span>☀️</span> Light
+                                </button>
+                                <button onclick="setTheme('dark')" id="theme-dark"
+                                    class="setting-btn px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center justify-center gap-2 transition-all">
+                                    <span>🌙</span> Dark
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50/50 dark:bg-slate-800/20">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 block">Accessibility</span>
+                            <div class="space-y-1">
+                                <button onclick="setVision('standard')" id="vision-standard"
+                                    class="setting-btn w-full text-left px-3 py-2 rounded-xl hover:bg-blue-50 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center justify-between transition-colors">
+                                    <span>👁️ Standard</span>
+                                    <span class="check-icon hidden text-blue-500 font-bold">✓</span>
+                                </button>
+                                <button onclick="setVision('high-contrast')" id="vision-high-contrast"
+                                    class="setting-btn w-full text-left px-3 py-2 rounded-xl hover:bg-blue-50 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center justify-between transition-colors">
+                                    <span>🏁 High Contrast</span>
+                                    <span class="check-icon hidden text-blue-500 font-bold">✓</span>
+                                </button>
+                                <button onclick="setVision('color-blind')" id="vision-color-blind"
+                                    class="setting-btn w-full text-left px-3 py-2 rounded-xl hover:bg-blue-50 dark:hover:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center justify-between transition-colors">
+                                    <span>🎨 Color Blind Safe</span>
+                                    <span class="check-icon hidden text-blue-500 font-bold">✓</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -450,54 +494,7 @@
         </div>
     </nav>
 
-    <!-- Settings Dialog -->
-    <dialog id="settings-panel"
-        class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 w-80 backdrop:bg-black/40 text-slate-900 dark:text-slate-100 m-auto no-print">
-        <div class="flex justify-between items-center mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
-            <h2 class="text-lg font-bold google-font flex items-center gap-2"><span>🎨</span> Appearance</h2>
-            <button onclick="toggleSettingsPanel()"
-                class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105">✕</button>
-        </div>
-        <div class="mb-6">
-            <label
-                class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-3 ml-1 tracking-wider">Theme</label>
-            <div class="grid grid-cols-2 gap-3">
-                <button onclick="setTheme('light')" id="theme-light"
-                    class="setting-btn p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 flex flex-col items-center gap-2 text-sm transition-all hover:scale-105"><span
-                        class="text-xl">☀️</span> <span class="font-medium">Light</span></button>
-                <button onclick="setTheme('dark')" id="theme-dark"
-                    class="setting-btn p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 flex flex-col items-center gap-2 text-sm transition-all hover:scale-105"><span
-                        class="text-xl">🌙</span> <span class="font-medium">Dark</span></button>
-            </div>
-        </div>
-        <div>
-            <label
-                class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-3 ml-1 tracking-wider">Accessibility</label>
-            <div class="space-y-2">
-                <button onclick="setVision('standard')" id="vision-standard"
-                    class="setting-btn w-full text-left p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm flex items-center justify-between transition-all group hover:scale-105">
-                    <div class="flex items-center gap-3"><span
-                            class="text-lg group-hover:scale-110 transition-transform">👁️</span> <span
-                            class="font-medium">Standard</span></div><span
-                        class="check-icon hidden text-blue-500 font-bold">✓</span>
-                </button>
-                <button onclick="setVision('high-contrast')" id="vision-high-contrast"
-                    class="setting-btn w-full text-left p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm flex items-center justify-between transition-all group hover:scale-105">
-                    <div class="flex items-center gap-3"><span
-                            class="text-lg group-hover:scale-110 transition-transform">🏁</span> <span
-                            class="font-medium">High Contrast</span></div><span
-                        class="check-icon hidden text-blue-500 font-bold">✓</span>
-                </button>
-                <button onclick="setVision('color-blind')" id="vision-color-blind"
-                    class="setting-btn w-full text-left p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm flex items-center justify-between transition-all group hover:scale-105">
-                    <div class="flex items-center gap-3"><span
-                            class="text-lg group-hover:scale-110 transition-transform">🎨</span> <span
-                            class="font-medium">Color Blind Safe</span></div><span
-                        class="check-icon hidden text-blue-500 font-bold">✓</span>
-                </button>
-            </div>
-        </div>
-    </dialog>
+    <!-- Settings Dialog Removed in favor of Dropdown -->
 
     <!-- Main Content -->
     <!-- Main Content -->
@@ -736,7 +733,7 @@
                             <button id="hire-btn-footer" onclick="toggleHireDropdown('hire-dropdown-footer')"
                                 aria-haspopup="true" aria-expanded="false"
                                 class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 hover:scale-105">
-                                <span>🤝</span> Hire Me
+                                <span>🤝</span> Get in touch
                             </button>
                             <!-- Dropdown Menu (Upwards) -->
                             <div id="hire-dropdown-footer"
@@ -748,7 +745,7 @@
                                 </a>
                                 <a href="mailto:vishal-das@outlook.com"
                                     class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                                    <span class="text-lg">📧</span> Reach Out
+                                    <span class="text-lg">📧</span> Email me
                                 </a>
                             </div>
                         </div>
@@ -898,17 +895,63 @@
         let activeToolFilter = null;
         let radarChart = null;
 
-        function toggleSettingsPanel() {
-            const dialog = document.getElementById('settings-panel');
-            dialog.open ? dialog.close() : dialog.showModal();
+        // Settings Dropdown Logic
+        let settingsTimer = null;
+
+        function toggleSettingsDropdown() {
+            const dropdown = document.getElementById('settings-dropdown');
+            const btn = document.getElementById('settings-trigger-btn');
+            const container = btn.parentElement;
+
+            // If hovering and open, don't close on click
+            if (container.matches(':hover') && !dropdown.classList.contains('hidden')) return;
+
+            if (dropdown.classList.contains('hidden')) {
+                showSettingsDropdown();
+            } else {
+                hideSettingsDropdown(true);
+            }
         }
-        document.getElementById('settings-panel').addEventListener('click', (e) => {
-            if (e.target.id === 'settings-panel') document.getElementById('settings-panel').close();
-        });
+
+        function showSettingsDropdown() {
+            if (settingsTimer) { clearTimeout(settingsTimer); settingsTimer = null; }
+            // Close other dropdowns
+            hideHireDropdown('hire-dropdown-nav', true);
+            hideHireDropdown('hire-dropdown-footer', true);
+
+            const dropdown = document.getElementById('settings-dropdown');
+            const btn = document.getElementById('settings-trigger-btn');
+
+            btn.setAttribute('aria-expanded', 'true');
+            dropdown.classList.remove('hidden');
+            setTimeout(() => {
+                dropdown.classList.remove('opacity-0', 'scale-95');
+                dropdown.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        }
+
+        function hideSettingsDropdown(immediate = false) {
+            const dropdown = document.getElementById('settings-dropdown');
+            const btn = document.getElementById('settings-trigger-btn');
+
+            const doHide = () => {
+                btn.setAttribute('aria-expanded', 'false');
+                dropdown.classList.remove('opacity-100', 'scale-100');
+                dropdown.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => dropdown.classList.add('hidden'), 200);
+            };
+
+            if (immediate) {
+                if (settingsTimer) clearTimeout(settingsTimer);
+                doHide();
+            } else {
+                settingsTimer = setTimeout(doHide, 300);
+            }
+        }
 
         let dropdownTimers = {};
 
-        // --- HIRE ME DROPDOWN ---
+        // --- Get in touch DROPDOWN ---
         function toggleHireDropdown(dropdownId) {
             const dropdown = document.getElementById(dropdownId);
             // Fix for Desktop: If user is hovering (which opens it via CSS/JS onmouseenter), 
@@ -983,7 +1026,8 @@
         document.addEventListener('click', (e) => {
             const dropdowns = [
                 { menu: 'hire-dropdown-nav', btn: 'hire-btn-nav' },
-                { menu: 'hire-dropdown-footer', btn: 'hire-btn-footer' }
+                { menu: 'hire-dropdown-footer', btn: 'hire-btn-footer' },
+                { menu: 'settings-dropdown', btn: 'settings-trigger-btn' }
             ];
 
             dropdowns.forEach(item => {
@@ -1199,7 +1243,7 @@
             if (activeToolFilter && globalMatchCount === 0) {
                 const note = document.createElement('div');
                 note.className = "p-6 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] text-center shadow-sm animate-fade-in";
-                note.innerHTML = `<div class="flex flex-col items-center gap-2"><div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-xl">🕵️</div><p class="text-slate-600 dark:text-slate-400 text-sm">Specific highlights for <strong class="text-slate-900 dark:text-white">${activeToolFilter}</strong> aren't listed in this view.</p><a href="mailto:vishal-das@outlook.com?subject=Inquiry about ${activeToolFilter} experience" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline mt-1 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full border border-blue-100 dark:border-blue-900 transition-colors">Reach out via Email →</a></div>`;
+                note.innerHTML = `<div class="flex flex-col items-center gap-2"><div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-xl">🕵️</div><p class="text-slate-600 dark:text-slate-400 text-sm">Specific highlights for <strong class="text-slate-900 dark:text-white">${activeToolFilter}</strong> aren't listed in this view.</p><a href="mailto:vishal-das@outlook.com?subject=Inquiry about ${activeToolFilter} experience" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline mt-1 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full border border-blue-100 dark:border-blue-900 transition-colors">Email me via Email →</a></div>`;
                 container.prepend(note);
             }
         }
