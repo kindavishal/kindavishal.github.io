@@ -378,7 +378,7 @@
 </head>
 
 <body
-    class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased selection:bg-blue-200 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 flex flex-col min-h-screen">
+    class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300 pb-32 md:pb-0 text-slate-800 dark:text-slate-200 antialiased selection:bg-blue-200 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 flex flex-col min-h-screen">
 
     <!-- Navbar -->
     <nav id="main-nav" class="sticky top-4 z-40 mx-auto max-w-5xl px-4 no-print w-full transition-all duration-300">
@@ -428,7 +428,7 @@
                     G-Mode ON
                 </div>
 
-                <div class="relative z-50" onmouseenter="showHireDropdown('hire-dropdown-nav')"
+                <div class="relative z-50 hidden md:block" onmouseenter="showHireDropdown('hire-dropdown-nav')"
                     onmouseleave="hideHireDropdown('hire-dropdown-nav')">
                     <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav')" aria-haspopup="true"
                         aria-expanded="false"
@@ -502,23 +502,7 @@
             </div>
         </div>
 
-        <!-- Mobile Lens Selector -->
-        <div class="md:hidden mt-3 flex flex-col items-center">
-            <div
-                class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl p-2 w-full max-w-sm flex flex-col items-center gap-2 shadow-sm">
-                <div class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 text-center">Select
-                    Context Lens</div>
-                <div
-                    class="flex gap-1 w-full justify-between overflow-x-auto bg-slate-50 dark:bg-slate-800/50 rounded-xl p-1">
-                    <button onclick="setRole('general')" id="btn-general-m"
-                        class="role-btn flex-1 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Overview</button>
-                    <button onclick="setRole('tpm')" id="btn-tpm-m"
-                        class="role-btn flex-1 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Technical</button>
-                    <button onclick="setRole('ops')" id="btn-ops-m"
-                        class="role-btn flex-1 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Operations</button>
-                </div>
-            </div>
-        </div>
+
     </nav>
 
     <!-- Settings Dialog Removed in favor of Dropdown -->
@@ -983,12 +967,15 @@
             const dropdown = document.getElementById(dropdownId);
             // Fix for Desktop: If user is hovering (which opens it via CSS/JS onmouseenter), 
             // clicking shouldn't close it immediately.
-            const btnId = dropdownId === 'hire-dropdown-nav' ? 'hire-btn-nav' : 'hire-btn-footer';
+            let btnId = 'hire-btn-footer';
+            if (dropdownId === 'hire-dropdown-nav') btnId = 'hire-btn-nav';
+            if (dropdownId === 'hire-dropdown-fab') btnId = 'hire-btn-fab';
             const btn = document.getElementById(btnId);
 
-            // Check if we are in a hover state
+            // Check if we are in a hover state (Only for desktop buttons)
             const container = btn.parentElement;
-            if (container.matches(':hover') && !dropdown.classList.contains('hidden')) {
+            // Skip hover check for FAB (mobile)
+            if (dropdownId !== 'hire-dropdown-fab' && container.matches(':hover') && !dropdown.classList.contains('hidden')) {
                 return;
             }
 
@@ -1193,17 +1180,31 @@
             currentRole = roleKey;
             activeToolFilter = null;
             let config = roles[roleKey];
+            let badgeColor = config.badgeColor;
             document.querySelectorAll('.role-btn').forEach(b => b.setAttribute('aria-selected', 'false'));
             const dtBtn = document.getElementById(`btn-${roleKey}`);
             if (dtBtn) dtBtn.setAttribute('aria-selected', 'true');
             document.querySelectorAll('[id^="btn-"][id$="-m"]').forEach(b => {
                 b.classList.remove('bg-white', 'shadow-sm', 'text-blue-600', 'font-bold');
-                b.classList.add('text-slate-600');
+                b.classList.add('text-slate-600', 'dark:text-slate-400');
             });
-            const mobBtn = document.getElementById(`btn-${roleKey}-m`);
-            if (mobBtn) mobBtn.classList.add('bg-white', 'shadow-sm', 'text-blue-600', 'font-bold');
+            const mBtn = document.getElementById(`btn-${roleKey}-m`);
+            if (mBtn) {
+                mBtn.classList.add('bg-white', 'shadow-sm', 'text-blue-600', 'font-bold');
+                mBtn.classList.remove('text-slate-600', 'dark:text-slate-400');
+            }
 
-            let badgeColor = config.badgeColor;
+            // Bottom Nav Active State
+            document.querySelectorAll('.role-nav-btn').forEach(b => {
+                b.classList.remove('text-blue-600', 'dark:text-blue-400', 'bg-blue-50', 'dark:bg-blue-900/20');
+                b.classList.add('text-slate-500', 'dark:text-slate-400');
+            });
+            const navBtn = document.getElementById(`btn-nav-${roleKey}`);
+            if (navBtn) {
+                navBtn.classList.add('text-blue-600', 'dark:text-blue-400', 'bg-blue-50', 'dark:bg-blue-900/20');
+                navBtn.classList.remove('text-slate-500', 'dark:text-slate-400');
+            }
+
             const heroDesc = document.getElementById('hero-desc');
             heroDesc.innerHTML = config.desc;
             heroDesc.parentElement.className = `relative border-l-4 p-6 rounded-r-2xl transition-all duration-300 ${badgeColor.replace('bg-', 'bg-opacity-20 ')} ${badgeColor.includes('blue') ? 'border-blue-500' : (badgeColor.includes('emerald') || badgeColor.includes('orange') ? 'border-orange-500' : (badgeColor.includes('purple') || badgeColor.includes('teal') ? 'border-purple-500' : 'border-slate-400'))}`;
@@ -1342,8 +1343,65 @@
                     navInner.classList.remove('rounded-none', 'border-b', 'shadow-md');
                 }
             });
+
+            // Click Outside Listener for Mobile FAB
+            document.addEventListener('click', (event) => {
+                const fabDropdown = document.getElementById('hire-dropdown-fab');
+                const fabBtn = document.getElementById('hire-btn-fab');
+
+                // If dropdown is open (not hidden)
+                if (fabDropdown && !fabDropdown.classList.contains('hidden')) {
+                    // Check if click was outside the dropdown and the button
+                    if (!fabDropdown.contains(event.target) && !fabBtn.contains(event.target)) {
+                        hideHireDropdown('hire-dropdown-fab', true);
+                    }
+                }
+            });
         });
     </script>
+    <!-- Mobile Bottom Navigation -->
+    <!-- Mobile Bottom Navigation -->
+    <div
+        class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div class="pt-2 text-[10px] text-center font-bold uppercase text-slate-400 dark:text-slate-500 tracking-wider">
+            Select Context Lens</div>
+        <div class="flex justify-around items-center p-2 pb-3">
+            <button onclick="setRole('general')" id="btn-nav-general"
+                class="role-nav-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 transition-all w-full mx-1">
+                Overview
+            </button>
+            <button onclick="setRole('tpm')" id="btn-nav-tpm"
+                class="role-nav-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 transition-all w-full mx-1">
+                Technical
+            </button>
+            <button onclick="setRole('ops')" id="btn-nav-ops"
+                class="role-nav-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 transition-all w-full mx-1">
+                Operations
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Floating Action Button (FAB) -->
+    <div class="md:hidden fixed bottom-28 right-4 z-50">
+        <!-- FAB Dropdown -->
+        <div id="hire-dropdown-fab"
+            class="hidden absolute bottom-16 right-0 w-48 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 py-2 origin-bottom-right transform transition-all duration-200 opacity-0 scale-95">
+            <a href="https://docs.google.com/document/d/e/2PACX-1vR8_yR5vSjgB480-ZGj2AjGGBGVIGtOaxUhUI07Mxi7uy13xEOABUEZqEAMCBvRLn6zUomv6CZIV_1j/pub"
+                target="_blank"
+                class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                <span class="text-xl">📄</span> Download Resume
+            </a>
+            <a href="mailto:vishal-das@outlook.com"
+                class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                <span class="text-xl">📧</span> Email me
+            </a>
+        </div>
+
+        <button id="hire-btn-fab" onclick="toggleHireDropdown('hire-dropdown-fab')"
+            class="w-14 h-14 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full shadow-glow flex items-center justify-center transition-transform active:scale-90 hover:scale-105">
+            <span class="text-2xl">🤝</span>
+        </button>
+    </div>
 </body>
 
 </html>
