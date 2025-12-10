@@ -80,7 +80,26 @@
     <link rel="preconnect" href="https://media.licdn.com">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // Apply theme immediately to prevent flash
+        (function () {
+            try {
+                let savedTheme = localStorage.getItem('theme');
+                if (!savedTheme) {
+                    const hour = new Date().getHours();
+                    savedTheme = (hour >= 18 || hour < 6) ? 'dark' : 'light';
+                }
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (e) {
+                console.error('Theme detection failed', e);
+            }
+        })();
+
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -1129,7 +1148,7 @@
             }
         }
 
-        function setTheme(mode) {
+        function setTheme(mode, save = true) {
             const html = document.documentElement;
             document.querySelectorAll('#theme-light, #theme-dark').forEach(b => b.classList.remove('active'));
             document.getElementById(`theme-${mode}`).classList.add('active');
@@ -1138,8 +1157,13 @@
             const btn = document.getElementById('settings-trigger-btn');
             if (btn) btn.innerHTML = mode === 'dark' ? '<span class="text-lg">🌙</span>' : '<span class="text-lg">☀️</span>';
 
-            if (mode === 'dark') { html.classList.add('dark'); localStorage.setItem('theme', 'dark'); }
-            else { html.classList.remove('dark'); localStorage.setItem('theme', 'light'); }
+            if (mode === 'dark') {
+                html.classList.add('dark');
+                if (save) localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                if (save) localStorage.setItem('theme', 'light');
+            }
             updateRadar(roles[currentRole].radar, roles[currentRole].badgeColor);
         }
 
@@ -1269,7 +1293,12 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            // Theme validation on load (UI sync)
+            let savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) {
+                const hour = new Date().getHours();
+                savedTheme = (hour >= 18 || hour < 6) ? 'dark' : 'light';
+            }
             const savedVision = localStorage.getItem('vision') || 'standard';
             // Google Mode Indicator
             const btn = document.getElementById('google-mode-btn');
@@ -1278,7 +1307,7 @@
                 if (btn) { btn.innerHTML = '<span>✅</span> Google Mode Active (Switch back)'; btn.classList.add('text-blue-600', 'font-bold'); }
                 if (indicator) indicator.classList.remove('hidden');
             }
-            setTheme(savedTheme);
+            setTheme(savedTheme, false);
             setVision(savedVision);
             setRole('general'); // Default
             document.getElementById('year').textContent = new Date().getFullYear();
