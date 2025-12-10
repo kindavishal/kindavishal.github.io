@@ -404,22 +404,20 @@
             </div>
 
             <!-- Lens Selector (Desktop) -->
-            <div class="hidden md:flex items-center gap-2">
-                <span
-                    class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 hidden lg:inline-block">Select
+            <div class="hidden md:flex bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1 items-center"
+                role="tablist">
+                <span class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 pl-3 pr-1">Select
                     Context Lens:</span>
-                <div class="bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1 flex" role="tablist">
-                    <button onclick="setRole('general')" id="btn-general"
-                        class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
-                        role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
-                    <button onclick="setRole('tpm')" id="btn-tpm"
-                        class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
-                        role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
-                    <button onclick="setRole('ops')" id="btn-ops"
-                        class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
-                        role="tab" aria-selected="false"
-                        title="Operations, Strategy & User Experience Focus">Operations</button>
-                </div>
+                <button onclick="setRole('general')" id="btn-general"
+                    class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
+                    role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
+                <button onclick="setRole('tpm')" id="btn-tpm"
+                    class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
+                    role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
+                <button onclick="setRole('ops')" id="btn-ops"
+                    class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
+                    role="tab" aria-selected="false"
+                    title="Operations, Strategy & User Experience Focus">Operations</button>
             </div>
 
             <!-- Right Actions -->
@@ -506,16 +504,19 @@
 
         <!-- Mobile Lens Selector -->
         <div class="md:hidden mt-3 flex flex-col items-center">
-            <div class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 text-center mb-1">Select
-                Context Lens</div>
             <div
-                class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl p-1.5 flex gap-1 shadow-sm w-full max-w-sm justify-between overflow-x-auto">
-                <button onclick="setRole('general')" id="btn-general-m"
-                    class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Overview</button>
-                <button onclick="setRole('tpm')" id="btn-tpm-m"
-                    class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Technical</button>
-                <button onclick="setRole('ops')" id="btn-ops-m"
-                    class="role-btn flex-1 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Operations</button>
+                class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl p-2 w-full max-w-sm flex flex-col items-center gap-2 shadow-sm">
+                <div class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 text-center">Select
+                    Context Lens</div>
+                <div
+                    class="flex gap-1 w-full justify-between overflow-x-auto bg-slate-50 dark:bg-slate-800/50 rounded-xl p-1">
+                    <button onclick="setRole('general')" id="btn-general-m"
+                        class="role-btn flex-1 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Overview</button>
+                    <button onclick="setRole('tpm')" id="btn-tpm-m"
+                        class="role-btn flex-1 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Technical</button>
+                    <button onclick="setRole('ops')" id="btn-ops-m"
+                        class="role-btn flex-1 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 whitespace-nowrap px-2">Operations</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -1188,6 +1189,7 @@
         }
 
         function setRole(roleKey) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             currentRole = roleKey;
             activeToolFilter = null;
             let config = roles[roleKey];
