@@ -381,8 +381,8 @@
     class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased selection:bg-blue-200 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <nav class="sticky top-4 z-40 mx-auto max-w-5xl px-4 no-print w-full">
-        <div
+    <nav id="main-nav" class="sticky top-4 z-40 mx-auto max-w-5xl px-4 no-print w-full transition-all duration-300">
+        <div id="nav-inner"
             class="relative z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-full shadow-soft px-3 py-2 flex justify-between items-center transition-all duration-300">
 
             <!-- Logo/Name Area -->
@@ -404,17 +404,22 @@
             </div>
 
             <!-- Lens Selector (Desktop) -->
-            <div class="hidden md:flex bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1" role="tablist">
-                <button onclick="setRole('general')" id="btn-general"
-                    class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
-                    role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
-                <button onclick="setRole('tpm')" id="btn-tpm"
-                    class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
-                    role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
-                <button onclick="setRole('ops')" id="btn-ops"
-                    class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
-                    role="tab" aria-selected="false"
-                    title="Operations, Strategy & User Experience Focus">Operations</button>
+            <div class="hidden md:flex items-center gap-2">
+                <span
+                    class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 hidden lg:inline-block">Select
+                    Context Lens:</span>
+                <div class="bg-slate-100 dark:bg-slate-800 rounded-full p-1 gap-1 flex" role="tablist">
+                    <button onclick="setRole('general')" id="btn-general"
+                        class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
+                        role="tab" aria-selected="true" title="Full Overview of Experience">Overview</button>
+                    <button onclick="setRole('tpm')" id="btn-tpm"
+                        class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
+                        role="tab" aria-selected="false" title="Engineering & Technical Focus">Technical</button>
+                    <button onclick="setRole('ops')" id="btn-ops"
+                        class="role-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 hover:scale-105"
+                        role="tab" aria-selected="false"
+                        title="Operations, Strategy & User Experience Focus">Operations</button>
+                </div>
             </div>
 
             <!-- Right Actions -->
@@ -500,7 +505,9 @@
         </div>
 
         <!-- Mobile Lens Selector -->
-        <div class="md:hidden mt-3 flex justify-center">
+        <div class="md:hidden mt-3 flex flex-col items-center">
+            <div class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 text-center mb-1">Select
+                Context Lens</div>
             <div
                 class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl p-1.5 flex gap-1 shadow-sm w-full max-w-sm justify-between overflow-x-auto">
                 <button onclick="setRole('general')" id="btn-general-m"
@@ -1311,6 +1318,28 @@
             setVision(savedVision);
             setRole('general'); // Default
             document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Scroll Logic for Navbar
+            const nav = document.getElementById('main-nav');
+            const navInner = document.getElementById('nav-inner');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    // Scrolled state
+                    nav.classList.remove('top-4', 'max-w-5xl', 'px-4', 'rounded-full');
+                    nav.classList.add('top-0', 'max-w-full', 'px-0');
+
+                    navInner.classList.remove('rounded-full', 'border');
+                    navInner.classList.add('rounded-none', 'border-b', 'shadow-md');
+                } else {
+                    // Top state
+                    nav.classList.add('top-4', 'max-w-5xl', 'px-4', 'rounded-full');
+                    nav.classList.remove('top-0', 'max-w-full', 'px-0');
+
+                    navInner.classList.add('rounded-full', 'border');
+                    navInner.classList.remove('rounded-none', 'border-b', 'shadow-md');
+                }
+            });
         });
     </script>
 </body>
