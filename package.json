@@ -1,0 +1,23 @@
+{
+  "name": "kindavishal.github.io",
+  "version": "1.0.0",
+  "description": "A dynamic, single-page personal portfolio website designed to showcase my experience as a Strategic Program Manager.",
+  "main": "index.js",
+  "scripts": {
+    "build": "html-minifier-terser src/index.html -o index.html --collapse-whitespace --remove-comments --minify-css true --minify-js true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kindavishal/kindavishal.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kindavishal/kindavishal.github.io/issues"
+  },
+  "homepage": "https://github.com/kindavishal/kindavishal.github.io#readme",
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
