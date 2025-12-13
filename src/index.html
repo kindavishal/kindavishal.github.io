@@ -185,7 +185,7 @@
 
                 <!-- Get in touch Dropdown -->
                 <div class="relative z-50 hidden sm:block">
-                    <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav')"
+                    <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav', event)"
                         onmouseenter="showHireDropdown('hire-dropdown-nav')"
                         onmouseleave="hideHireDropdown('hire-dropdown-nav')" aria-haspopup="true" aria-expanded="false"
                         class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-gray-900 text-xs font-bold transition-all hover:scale-105 shadow-md">
@@ -978,7 +978,7 @@
                 </a>
             </div>
 
-            <button id="hire-btn-mobile" onclick="toggleHireDropdown('hire-dropdown-mobile')"
+            <button id="hire-btn-mobile" onclick="toggleHireDropdown('hire-dropdown-mobile', event)"
                 class="flex items-center justify-center w-14 h-14 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-lg hover:scale-105 transition-transform">
                 <span class="material-symbols-outlined text-2xl">waving_hand</span>
             </button>
@@ -1045,7 +1045,8 @@
         }
 
         // Dropdown Logic
-        window.toggleHireDropdown = function (id) {
+        window.toggleHireDropdown = function (id, event) {
+            if (event) event.stopPropagation();
             const dropdown = document.getElementById(id);
             const allDropdowns = document.querySelectorAll('[id^="hire-dropdown"]');
 
