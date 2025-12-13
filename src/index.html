@@ -976,12 +976,14 @@
                 </a>
             </div>
 
-            <button onclick="toggleHireDropdown('hire-dropdown-mobile')"
+            <button id="hire-btn-mobile" onclick="toggleHireDropdown('hire-dropdown-mobile')"
                 class="flex items-center justify-center w-14 h-14 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-lg hover:scale-105 transition-transform">
                 <span class="material-symbols-outlined text-2xl">waving_hand</span>
             </button>
         </div>
     </div>
+
+
     <script>
         // --- GLOBAL FUNCTION DEFINITIONS ---
 
@@ -1064,13 +1066,15 @@
                     dropdown.classList.add('opacity-100', 'scale-100');
                 }, 10);
             } else {
-                // If it's already open, DO NOTHING on click (prevents flicker when hover has already opened it)
-                // We rely on mouseleave (desktop) or clicking outside (mobile/desktop) to close it.
-                // This fixes the "click twice" issue where the first click would close the hover-opened dropdown.
+                // If it's already open, we toggle it closed (standard mobile behavior)
+                // But we check if it was just opened by hover to prevent "flash close" if necessary.
+                // However, since we disable hover on touch devices (below), we can safely toggle here.
 
-                // Forcing it to stay open aka "Open Only" button behavior
-                dropdown.classList.remove('opacity-0', 'scale-95');
-                dropdown.classList.add('opacity-100', 'scale-100');
+                dropdown.classList.remove('opacity-100', 'scale-100');
+                dropdown.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    dropdown.classList.add('hidden');
+                }, 200);
             }
         }
 
@@ -1078,6 +1082,10 @@
         const hireDropdownTimers = {};
 
         window.showHireDropdown = function (id) {
+            // Disable hover open on devices without hover capability (touch) to prevent conflict with click
+            if (window.matchMedia && !window.matchMedia('(hover: hover)').matches) {
+                return;
+            }
             clearTimeout(hireDropdownTimers[id]);
             const dropdown = document.getElementById(id);
             dropdown.classList.remove('hidden');
