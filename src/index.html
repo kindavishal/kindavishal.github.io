@@ -155,8 +155,7 @@
             <div class="flex items-center gap-3 pl-1">
                 <div
                     class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 shrink-0 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-                    <img alt="Avatar" class="w-full h-full object-cover"
-                        src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w"
+                    <img alt="Avatar" class="w-full h-full object-cover object-top" src="./profile.jpg"
                         onerror='this.style.display="none",this.nextElementSibling.style.display="flex"' />
                     <div
                         class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">
@@ -184,7 +183,7 @@
                 </button>
 
                 <!-- Get in touch Dropdown -->
-                <div class="relative z-50">
+                <div class="relative z-50 hidden sm:block">
                     <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav')"
                         onmouseenter="showHireDropdown('hire-dropdown-nav')"
                         onmouseleave="hideHireDropdown('hire-dropdown-nav')" aria-haspopup="true" aria-expanded="false"
@@ -893,8 +892,7 @@
                     <div class="flex items-center gap-2">
                         <div
                             class="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 overflow-hidden flex items-center justify-center">
-                            <img alt="Avatar" class="w-full h-full object-cover"
-                                src="https://media.licdn.com/dms/image/v2/D5603AQEhu6StDIBY-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701749665110?e=1766016000&v=beta&t=1vDg4W355ClZEGCkugRto2QbTtBSyFf81yP6M9BQC9w" />
+                            <img alt="Avatar" class="w-full h-full object-cover object-top" src="./profile.jpg" />
                         </div>
                         <span class="font-bold text-gray-900 dark:text-white">Vishal Das</span>
                     </div>
@@ -961,6 +959,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Floating Action Button (FAB) -->
+    <div class="fixed bottom-6 right-6 z-50 sm:hidden">
+        <div class="relative">
+            <!-- Mobile Dropdown -->
+            <div id="hire-dropdown-mobile"
+                class="hidden absolute bottom-full right-0 mb-4 w-48 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 origin-bottom-right transform transition-all duration-200 opacity-0 scale-95 dropdown-animate">
+                <a href="/resume" target="_blank"
+                    class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <span class="text-lg">📄</span> Resume
+                </a>
+                <a href="mailto:vishal-das@outlook.com"
+                    class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <span class="text-lg">📧</span> Email me
+                </a>
+            </div>
+
+            <button onclick="toggleHireDropdown('hire-dropdown-mobile')"
+                class="flex items-center justify-center w-14 h-14 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-lg hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-2xl">waving_hand</span>
+            </button>
+        </div>
+    </div>
     <script>
         // --- GLOBAL FUNCTION DEFINITIONS ---
 
@@ -1043,11 +1064,13 @@
                     dropdown.classList.add('opacity-100', 'scale-100');
                 }, 10);
             } else {
-                dropdown.classList.remove('opacity-100', 'scale-100');
-                dropdown.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => {
-                    dropdown.classList.add('hidden');
-                }, 200);
+                // If it's already open, DO NOTHING on click (prevents flicker when hover has already opened it)
+                // We rely on mouseleave (desktop) or clicking outside (mobile/desktop) to close it.
+                // This fixes the "click twice" issue where the first click would close the hover-opened dropdown.
+
+                // Forcing it to stay open aka "Open Only" button behavior
+                dropdown.classList.remove('opacity-0', 'scale-95');
+                dropdown.classList.add('opacity-100', 'scale-100');
             }
         }
 
@@ -1117,8 +1140,9 @@
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Init Theme from LocalStorage
-            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            // Init Theme from LocalStorage - DEFAULTS TO LIGHT if no preference found
+            // Removed system preference check to avoid unexpected dark mode during day if OS is dark
+            if (localStorage.getItem('theme') === 'dark') {
                 document.documentElement.classList.add('dark');
             } else {
                 document.documentElement.classList.remove('dark');
