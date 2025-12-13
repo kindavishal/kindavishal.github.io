@@ -31,117 +31,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#6366f1", // Indigo 500
-                        "background-light": "#F8FAFC", // Slate 50 or similar very light gray
-                        "background-dark": "#0A0A0A", // Near black
-                        "surface-light": "#FFFFFF",
-                        "surface-dark": "#1A1A1A", // Dark gray for surfaces
-                        "accent-green": "#10B981",
-                        "accent-orange": "#F59E0B",
-                        "accent-purple": "#8B5CF6",
-                        "text-light": "#1F2937", // Darker gray for text
-                        "text-dark": "#E5E7EB", // Lighter gray for text
-                    },
-                    fontFamily: {
-                        display: ["Playfair Display", "serif"],
-                        sans: ["Inter", "sans-serif"],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.5rem",
-                        'xl': '0.75rem',
-                        '2xl': '1rem',
-                        '3xl': '1.5rem',
-                    },
-                },
-            },
-        };
-    </script>
-    <style type="text/tailwindcss">
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-light);
-            background-color: var(--background-light);
-        }
-        .dark body {
-            color: var(--text-dark);
-            background-color: var(--background-dark);
-        }
-        .chapter-heading {
-            font-family: 'Playfair Display', serif;
-        }
-        .narrative-section {
-            @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24;
-        }
-        .section-break {
-            @apply w-full my-16 md:my-24 h-px bg-gray-200 dark:bg-gray-700 max-w-4xl mx-auto;
-        }
-        .experience-card {
-            @apply bg-surface-light dark:bg-surface-dark rounded-3xl p-6 lg:p-12 border border-gray-200 dark:border-gray-800 shadow-xl relative overflow-hidden transition-all duration-300;
-        }
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, visibility;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: none;
-        }
-        /* Ported Styles from index.html */
-        .scale-tap:active { transform: scale(0.98); }
-        .role-btn { border: 1px solid transparent; transition: all 0.2s ease; }
-        .role-btn:hover { @apply bg-gray-100 dark:bg-gray-800; transform: scale(1.05); }
-        .setting-btn { border: 2px solid transparent; }
-        .setting-btn.active { @apply border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300; }
-        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .dropdown-animate { animation: zoomIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    <link href="/src/output.css" rel="stylesheet" />
+    <link rel="icon" type="image/jpeg" href="/assets/profile.jpg">
+    <link rel="canonical" href="https://kindavishal.js.org" />
 
-    </style>
-    <style>
-        @keyframes highlight-pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
-            }
 
-            50% {
-                transform: scale(1.02);
-                box-shadow: 0 0 10px 4px rgba(245, 158, 11, 0.3);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
-            }
-        }
-
-        .highlight-proof {
-            animation: highlight-pulse 4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 0.25rem;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5);
-            /* Amber border */
-            @apply font-bold text-gray-900 bg-amber-300 dark:text-white dark:bg-amber-700;
-        }
-
-        .dark .highlight-proof {
-            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.7);
-        }
-
-        .metric-card-interactive {
-            cursor: pointer;
-            @apply transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95;
-        }
-    </style>
 </head>
 
 <body
@@ -155,8 +49,8 @@
             <div class="flex items-center gap-3 pl-1">
                 <div
                     class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 shrink-0 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-                    <img alt="Avatar" class="w-full h-full object-cover scale-150 translate-y-1"
-                        style="object-position: 50% 20%;" src="/assets/profile.jpg"
+                    <img alt="Vishal Das Profile Picture" class="w-full h-full object-cover scale-150 translate-y-1"
+                        style="object-position: 50% 20%;" src="/assets/profile.jpg" width="160" height="160"
                         onerror='this.style.display="none",this.nextElementSibling.style.display="flex"' />
                     <div
                         class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">
@@ -311,6 +205,7 @@
                 </div>
                 <span class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">2023 - 2025</span>
             </div>
+            <h3 class="sr-only">Google Program Manager Experience</h3>
             <h2
                 class="chapter-heading text-3xl md:text-6xl font-extrabold text-gray-900 dark:text-white mt-4 mb-8 leading-tight">
                 Orchestrating Developer Ecosystems in India: From Product Adoption to Up-skilling
@@ -524,6 +419,7 @@
                 class="chapter-heading text-3xl md:text-6xl font-extrabold text-gray-900 dark:text-white mt-4 mb-8 leading-tight">
                 Building Bridges: From Community Insights to Engineering Action
             </h2>
+            <h3 class="sr-only">Community Manager Experience</h3>
             <p class="text-xl text-gray-700 dark:text-gray-300 mb-10 leading-relaxed max-w-3xl">
                 In my previous role as Community Manager at Google (via Optimum Infosys), I focused on translating
                 community needs into actionable engineering insights and scaling program reach through strategic
@@ -672,6 +568,7 @@
                 class="chapter-heading text-3xl md:text-6xl font-extrabold text-gray-900 dark:text-white mt-4 mb-8 leading-tight">
                 Pioneering Educational Growth &amp; Institutional Partnerships at CodeChef
             </h2>
+            <h3 class="sr-only">CodeChef Experience</h3>
             <p class="text-xl text-gray-700 dark:text-gray-300 mb-10 leading-relaxed max-w-3xl">
                 At CodeChef, I laid the groundwork for large-scale educational initiatives, driving exponential growth
                 in institutional partnerships and community chapters, solidifying my foundational experience in program
