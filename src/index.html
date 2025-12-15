@@ -65,40 +65,41 @@
 
             <!-- Right Actions -->
             <div class="flex items-center gap-2 pr-1">
-                <!-- Google Mode Indicator -->
-                <div id="gmode-indicator"
-                    class="hidden px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-[10px] font-bold rounded-full border border-blue-200 dark:border-blue-800 mr-1 animate-pulse">
-                    G-Mode ON
-                </div>
-                <!-- Theme Toggle Button -->
-                <button onclick="toggleTheme()"
-                    class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 flex items-center justify-center transition-colors scale-tap shadow-sm text-gray-600 dark:text-yellow-400">
-                    <span class="material-symbols-outlined text-lg block dark:hidden">dark_mode</span>
-                    <span class="material-symbols-outlined text-lg hidden dark:block">light_mode</span>
-                </button>
-
-                <!-- Get in touch Dropdown -->
-                <div class="relative z-50 hidden sm:block">
-                    <button id="hire-btn-nav" onclick="toggleHireDropdown('hire-dropdown-nav', event)"
-                        onmouseenter="showHireDropdown('hire-dropdown-nav')"
-                        onmouseleave="hideHireDropdown('hire-dropdown-nav')" aria-haspopup="true" aria-expanded="false"
-                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-gray-900 text-xs font-bold transition-all hover:scale-105 shadow-md">
-                        <span class="material-symbols-outlined text-sm">waving_hand</span>
-                        <span class="hidden sm:inline">Get in touch</span>
-                    </button>
-                    <!-- Dropdown Menu -->
-                    <div id="hire-dropdown-nav" onmouseenter="showHireDropdown('hire-dropdown-nav')"
-                        onmouseleave="hideHireDropdown('hire-dropdown-nav')"
-                        class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 origin-top-right transform transition-all duration-200 opacity-0 scale-95 dropdown-animate">
-                        <a href="/resume" target="_blank"
-                            class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                            <span class="text-lg">📄</span> Resume
-                        </a>
-                        <a href="mailto:vishal-das@outlook.com"
-                            class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                            <span class="text-lg">📧</span> Email me
-                        </a>
+                <div class="flex items-center gap-2 pr-1">
+                    <!-- Google Mode Indicator -->
+                    <div id="gmode-indicator"
+                        class="hidden px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-[10px] font-bold rounded-full border border-blue-200 dark:border-blue-800 mr-1 animate-pulse">
+                        G-Mode ON
                     </div>
+
+                    <!-- Resume Button -->
+                    <a href="/resume" target="_blank"
+                        class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 text-xs font-bold transition-all hover:scale-105 shadow-sm">
+                        <span class="material-symbols-outlined text-sm">description</span>
+                        <span class="hidden sm:inline">Resume</span>
+                    </a>
+
+                    <!-- Email Button -->
+                    <a href="mailto:vishal-das@outlook.com"
+                        class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 text-xs font-bold transition-all hover:scale-105 shadow-sm">
+                        <span class="material-symbols-outlined text-sm">mail</span>
+                        <span class="hidden sm:inline">Email</span>
+                    </a>
+
+                    <a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" rel="noopener noreferrer"
+                        class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 text-xs font-bold transition-all hover:scale-105 shadow-sm">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg"
+                            alt="Google Calendar" class="w-4 h-4" />
+                        <span class="hidden sm:inline">Book Chat</span>
+                    </a>
+
+                    <!-- Theme Toggle Button -->
+                    <button onclick="toggleTheme()"
+                        class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 flex items-center justify-center transition-colors scale-tap shadow-sm text-gray-600 dark:text-yellow-400">
+                        <span class="material-symbols-outlined text-lg block dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined text-lg hidden dark:block">light_mode</span>
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -119,12 +120,6 @@
                     large-scale technical adoption strategies.
                 </p>
                 <div class="flex flex-wrap justify-center items-center gap-4 mt-8">
-                    <a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 shadow-sm transition-all duration-200 bg-white hover:bg-gray-50 hover:shadow-md text-gray-700 font-medium hover:scale-105">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg"
-                            alt="Google Calendar" class="w-6 h-6" />
-                        Book a 1:1 Intro
-                    </a>
                     <a href="mailto:vishal-das@outlook.com"
                         class="inline-flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full text-xs font-bold transition-all hover:scale-105 shadow-md hover:shadow-lg">
                         <span class="relative flex h-2.5 w-2.5 mr-1">
@@ -943,27 +938,42 @@
         </div>
     </footer>
 
-    <!-- Mobile Floating Action Button (FAB) -->
-    <div class="fixed bottom-6 right-6 z-50 sm:hidden">
-        <div class="relative">
-            <!-- Mobile Dropdown -->
-            <div id="hire-dropdown-mobile"
-                class="hidden absolute bottom-full right-0 mb-4 w-48 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 origin-bottom-right transform transition-all duration-200 opacity-0 scale-95 dropdown-animate">
-                <a href="/resume" target="_blank"
-                    class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                    <span class="text-lg">📄</span> Resume
-                </a>
-                <a href="mailto:vishal-das@outlook.com"
-                    class="flex items-center gap-3 px-4 py-2 text-xs font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                    <span class="text-lg">📧</span> Email me
-                </a>
-            </div>
+    <!-- Floating Action Buttons Stack -->
+    <div id="fab-container" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group">
 
-            <button id="hire-btn-mobile" onclick="toggleHireDropdown('hire-dropdown-mobile', event)"
-                class="flex items-center justify-center w-14 h-14 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-lg hover:scale-105 transition-transform">
-                <span class="material-symbols-outlined text-2xl">waving_hand</span>
-            </button>
+        <!-- Menu Items (Hidden by default, shown on group-hover for desktop) -->
+        <div id="fab-menu"
+            class="flex flex-col gap-3 items-end transition-all duration-300 transform translate-y-4 opacity-0 invisible md:group-hover:opacity-100 md:group-hover:visible md:group-hover:translate-y-0">
+
+            <!-- Resume FAB -->
+            <a href="/resume" target="_blank"
+                class="flex items-center justify-center gap-2 w-auto h-12 px-5 rounded-full bg-white text-gray-700 border border-gray-200 shadow-lg hover:scale-105 transition-transform active:scale-95">
+                <span class="font-bold text-xs">Resume</span>
+                <span class="material-symbols-outlined text-xl">description</span>
+            </a>
+
+            <!-- Email FAB -->
+            <a href="mailto:vishal-das@outlook.com"
+                class="flex items-center justify-center gap-2 w-auto h-12 px-5 rounded-full bg-white text-gray-700 border border-gray-200 shadow-lg hover:scale-105 transition-transform active:scale-95">
+                <span class="font-bold text-xs">Email</span>
+                <span class="material-symbols-outlined text-xl">mail</span>
+            </a>
+
+            <!-- Book Chat FAB -->
+            <a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-auto h-12 px-5 rounded-full bg-white text-gray-700 border border-gray-200 shadow-lg hover:scale-105 transition-transform active:scale-95">
+                <span class="font-bold text-xs">Book Chat</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg"
+                    alt="Google Calendar" class="w-5 h-5" />
+            </a>
         </div>
+
+        <!-- Main Toggle Button -->
+        <button id="fab-toggle-btn" onclick="toggleFab()"
+            class="flex items-center justify-center w-14 h-14 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-xl transition-all duration-300 hover:scale-105 active:scale-95">
+            <span id="fab-icon"
+                class="material-symbols-outlined text-3xl transition-transform duration-300 md:group-hover:rotate-45">add</span>
+        </button>
     </div>
 
 
@@ -1258,15 +1268,41 @@
                 setGoogleMode(true);
             }
         });
+
+
+        // FAB Toggle Logic
+        window.toggleFab = function () {
+            const menu = document.getElementById('fab-menu');
+            const icon = document.getElementById('fab-icon');
+            const isClosed = menu.classList.contains('invisible');
+
+            if (isClosed) {
+                // Open
+                menu.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                menu.classList.add('opacity-100', 'visible', 'translate-y-0');
+                icon.classList.add('rotate-45');
+            } else {
+                // Close
+                menu.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                icon.classList.remove('rotate-45');
+            }
+        };
+
+        // Close FAB when clicking outside
+        document.addEventListener('click', (e) => {
+            const container = document.getElementById('fab-container');
+            if (container && !container.contains(e.target)) {
+                const menu = document.getElementById('fab-menu');
+                // Only close if manually opened (checking if 'invisible' was removed)
+                if (menu && !menu.classList.contains('invisible')) {
+                    toggleFab();
+                }
+            }
+        });
     </script>
 
-    <!-- Persistent Book Meeting FAB -->
-    <a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" rel="noopener noreferrer" class="fixed bottom-24 md:bottom-6 right-6 z-50 flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 shadow-xl transition-all duration-300 hover:scale-105 active:scale-95
-              w-14 h-14 rounded-full md:w-auto md:h-auto md:px-6 md:py-3 md:rounded-full">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg"
-            alt="Google Calendar" class="w-6 h-6" />
-        <span class="hidden md:inline font-medium">Book Chat</span>
-    </a>
+
 </body>
 
 </html>
