@@ -14,7 +14,7 @@ This repository hosts the source code for my personal portfolio which has been c
     - **Overview**: A balanced view of all experience.
     - **Technical**: Highlights engineering velocity, automation, and platform stability.
     - **Operations**: Focuses on strategy, stakeholder management, and program rigor.
-- **"Google Mode"**: A unique feature that toggles terminology between generic industry terms (e.g., "Issue Tracking") and internal Google lingo (e.g., "Buganizer").
+- **"Google Mode"**: A unique feature that toggles terminology between generic industry terms (e.g., "Issue Tracking") and internal Google lingo (e.g., "Buganizer"). Enhanced with auto-scroll and interactive toast notifications.
 - **Interactive Metrics**: "Key Impact Metrics" dashboard where clicking a metric highlights the relevant proof point in the experience timeline.
 - **Accessibility & Themes**:
     - Full Dark/Light mode support.
@@ -25,9 +25,15 @@ This repository hosts the source code for my personal portfolio which has been c
 ## Tech Stack
 
 - **Core**: Semantic HTML5, Vanilla JavaScript (ES6+).
-- **Styling**: Tailwind CSS (via CDN) for rapid, utility-first styling.
+- **Styling**: Tailwind CSS (CLI) for optimized, utility-first styling.
 - **Visualization**: Chart.js for the skills radar chart.
-- **Fonts**: Roboto and Google Sans.
+- **Fonts**: Inter and Playfair Display.
+
+## Development
+
+- `npm start`: Start local static server.
+- `npm run dev`: Start Tailwind CLI in watch mode.
+- `npm run build`: Build production assets.
 
 ## Disclaimer
 
