@@ -67,8 +67,8 @@
             <div class="flex items-center gap-2 pr-1">
                 <div class="flex items-center gap-2 pr-1">
                     <!-- Google Mode Indicator -->
-                    <div id="gmode-indicator"
-                        class="hidden px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-[10px] font-bold rounded-full border border-blue-200 dark:border-blue-800 mr-1 animate-pulse">
+                    <div id="gmode-indicator" onclick="toggleGoogleMode()"
+                        class="hidden px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-[10px] font-bold rounded-full border border-blue-200 dark:border-blue-800 mr-1 animate-pulse cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         G-Mode ON
                     </div>
 
@@ -632,11 +632,9 @@
             <div class="flex flex-col items-center mb-6">
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-full mb-4">
-                    <img src="https://avatars.githubusercontent.com/u/11960354?s=200&v=4" alt="CodeChef"
-                        class="w-4 h-4 rounded-full" />
+                    <img src="/assets/codechef.png" alt="CodeChef" class="w-4 h-4 rounded-full" />
                     <span class="text-gray-300 dark:text-gray-600">•</span>
-                    <img src="https://avatars.githubusercontent.com/u/25562199?s=200&v=4" alt="Unacademy"
-                        class="w-4 h-4 rounded-full" />
+                    <img src="/assets/unacademy.png" alt="Unacademy" class="w-4 h-4 rounded-full" />
                     <span class="text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider">Community
                         Manager @ CodeChef • Unacademy</span>
                 </div>
@@ -794,8 +792,12 @@
                         <li class="flex items-start gap-3">
                             <span class="mt-1 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
                             <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">Google UX Design Professional
-                                    Certificate</h4>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200"><a
+                                        href="https://www.coursera.org/account/accomplishments/professional-cert/X8YTJUABV8CT"
+                                        target="_blank"
+                                        class="hover:underline hover:text-primary transition-colors">Google UX Design
+                                        Professional
+                                        Certificate</a></h4>
                                 <p class="text-xs text-gray-500 dark:text-gray-400">Expertise in user-centered design
                                     principles.</p>
                             </div>
@@ -803,8 +805,12 @@
                         <li class="flex items-start gap-3">
                             <span class="mt-1 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
                             <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">Meta Certified Community
-                                    Manager</h4>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200"><a
+                                        href="https://www.credly.com/badges/fa536e5e-3acd-40f8-9c54-a3479c8cc4a2"
+                                        target="_blank"
+                                        class="hover:underline hover:text-primary transition-colors">Meta Certified
+                                        Community
+                                        Manager</a></h4>
                                 <p class="text-xs text-gray-500 dark:text-gray-400">Validated skills in community
                                     strategy and growth.</p>
                             </div>
@@ -819,7 +825,10 @@
                         <li class="flex items-start gap-3">
                             <span class="mt-1 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
                             <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">K-Nine Animal Welfare</h4>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200"><a
+                                        href="https://www.knine.ngo/" target="_blank"
+                                        class="hover:underline hover:text-green-500 transition-colors">K-Nine Animal
+                                        Welfare</a></h4>
                                 <p class="text-xs text-gray-500 dark:text-gray-400">Designed donation site, raising
                                     <strong class="text-gray-900 dark:text-white">INR 2.5M+</strong>, demonstrating
                                     real-world design impact.
@@ -911,7 +920,7 @@
                         </li>
                         <li>
                             <button onclick="toggleGoogleMode()" id="google-mode-btn"
-                                class="flex items-center gap-2 hover:text-primary transition-colors hover:scale-105 text-left">
+                                class="flex items-center gap-2 hover:text-primary transition-colors hover:scale-105 text-left cursor-pointer">
                                 <span class="material-symbols-outlined text-sm text-gray-400">search</span> Googler?
                             </button>
                         </li>
@@ -981,6 +990,37 @@
         // --- GLOBAL FUNCTION DEFINITIONS ---
 
         // Script for highlighting metrics
+        // Custom smooth scroll function
+        const smoothScroll = (target, duration, callback) => {
+            const targetPosition = target;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
+
+            const animation = (currentTime) => {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                } else {
+                    if (callback) callback();
+                }
+            };
+
+            // Easing function: easeInOutQuad
+            const ease = (t, b, c, d) => {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            };
+
+            requestAnimationFrame(animation);
+        };
+
+        // Script for highlighting metrics
         function highlightProof(id) {
             const el = document.getElementById(id);
             if (el) {
@@ -988,32 +1028,6 @@
                 const elementRect = el.getBoundingClientRect();
                 const absoluteElementTop = elementRect.top + window.pageYOffset;
                 const targetPosition = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
-
-                // Custom smooth scroll function
-                const smoothScroll = (target, duration) => {
-                    const targetPosition = target;
-                    const startPosition = window.pageYOffset;
-                    const distance = targetPosition - startPosition;
-                    let startTime = null;
-
-                    const animation = (currentTime) => {
-                        if (startTime === null) startTime = currentTime;
-                        const timeElapsed = currentTime - startTime;
-                        const run = ease(timeElapsed, startPosition, distance, duration);
-                        window.scrollTo(0, run);
-                        if (timeElapsed < duration) requestAnimationFrame(animation);
-                    };
-
-                    // Easing function: easeInOutQuad
-                    const ease = (t, b, c, d) => {
-                        t /= d / 2;
-                        if (t < 1) return c / 2 * t * t + b;
-                        t--;
-                        return -c / 2 * (t * (t - 2) - 1) + b;
-                    };
-
-                    requestAnimationFrame(animation);
-                };
 
                 // Execute scroll with custom duration (e.g., 1500ms) for a natural feel
                 smoothScroll(targetPosition, 1500);
@@ -1028,16 +1042,13 @@
 
         let toastTimeout;
 
-        function showThemeToast(mode) {
+        function showToast(message, icon, isDark) {
             // Remove existing toast if any
             dismissToast();
 
             const toast = document.createElement('div');
             toast.id = 'theme-toast';
-            toast.className = `fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[100] flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl transition-all duration-500 opacity-0 translate-y-4 border ${mode === 'dark' ? 'bg-white/90 text-gray-900 border-gray-200' : 'bg-gray-900/90 text-white border-gray-700'} backdrop-blur-md`;
-
-            const icon = mode === 'dark' ? 'dark_mode' : 'light_mode';
-            const message = `Auto-switched to ${mode === 'dark' ? 'Dark' : 'Light'} mode based on time.`;
+            toast.className = `fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[100] flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl transition-all duration-500 opacity-0 translate-y-4 border ${isDark ? 'bg-white/90 text-gray-900 border-gray-200' : 'bg-gray-900/90 text-white border-gray-700'} backdrop-blur-md`;
 
             toast.innerHTML = `
                 <span class="material-symbols-outlined text-xl">${icon}</span>
@@ -1056,6 +1067,13 @@
 
             // Auto-dismiss
             toastTimeout = setTimeout(dismissToast, 2000);
+        }
+
+        function showThemeToast(mode) {
+            const isDark = mode === 'dark';
+            const icon = isDark ? 'dark_mode' : 'light_mode';
+            const message = `Auto-switched to ${isDark ? 'Dark' : 'Light'} mode based on time.`;
+            showToast(message, icon, isDark);
         }
 
         function dismissToast() {
@@ -1179,7 +1197,7 @@
         // Google Mode Logic
         const gModeKey = 'googleMode';
 
-        window.setGoogleMode = function (enable) {
+        window.setGoogleMode = function (enable, silent = false) {
             const spans = document.querySelectorAll('[data-gmode]');
             const gModeIndicator = document.getElementById('gmode-indicator');
             const gModeBtn = document.getElementById('google-mode-btn');
@@ -1188,6 +1206,14 @@
                 localStorage.setItem(gModeKey, 'true');
                 if (gModeIndicator) gModeIndicator.classList.remove('hidden');
                 if (gModeBtn) gModeBtn.innerHTML = '<span class="material-symbols-outlined text-sm text-green-500">check_circle</span> Google Mode Active';
+
+                if (!silent) {
+                    const isDark = document.documentElement.classList.contains('dark');
+                    // Scroll first, then show toast
+                    smoothScroll(0, 1000, () => {
+                        showToast('Googler Mode Enabled: Internal metrics visible', 'check_circle', isDark);
+                    });
+                }
 
                 spans.forEach(span => {
                     if (!span.dataset.original) {
@@ -1200,6 +1226,14 @@
                 localStorage.setItem(gModeKey, 'false');
                 if (gModeIndicator) gModeIndicator.classList.add('hidden');
                 if (gModeBtn) gModeBtn.innerHTML = '<span class="material-symbols-outlined text-sm text-gray-400">search</span> Googler?';
+
+                // Show disabled toast if not silent
+                if (!silent) {
+                    const isDark = document.documentElement.classList.contains('dark');
+                    smoothScroll(0, 1000, () => {
+                        showToast('Googler Mode Disabled', 'visibility_off', isDark);
+                    });
+                }
 
                 spans.forEach(span => {
                     if (span.dataset.original) {
@@ -1263,9 +1297,9 @@
             // Init Google Mode
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('mode') === 'google') {
-                setGoogleMode(true);
+                setGoogleMode(true, true);
             } else if (localStorage.getItem(gModeKey) === 'true') {
-                setGoogleMode(true);
+                setGoogleMode(true, true);
             }
         });
 
