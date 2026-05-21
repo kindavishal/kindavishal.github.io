@@ -7,7 +7,7 @@
     "start": "http-server . -p 8080 -c-1",
     "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "build:css": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify",
-    "build": "npm run build:css && html-minifier-terser src/index.html -o index.html --collapse-whitespace --remove-comments --minify-css true --minify-js true"
+    "build": "npm run build:css && for f in $(find src -name '*.html'); do d=$(dirname \"${f#src/}\"); mkdir -p \"$d\"; html-minifier-terser \"$f\" -o \"${f#src/}\" --collapse-whitespace --remove-comments --minify-css true --minify-js true; done"
   },
   "repository": {
     "type": "git",

@@ -19,6 +19,7 @@ module.exports = {
             fontFamily: {
                 display: ["Playfair Display", "serif"],
                 sans: ["Inter", "sans-serif"],
+                mono: ["JetBrains Mono", "monospace"],
             },
             borderRadius: {
                 'xl': '0.75rem',
@@ -46,6 +47,19 @@ module.exports = {
             },
         },
     },
+    safelist: [
+        'bg-white/90',
+        'bg-gray-900/90',
+        'backdrop-blur-md',
+        'z-[100]',
+        'translate-y-4',
+        'opacity-0',
+        'invisible',
+        'visible',
+        'translate-y-0',
+        'opacity-100',
+        'rotate-45',
+    ],
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/forms'),
