@@ -1,1 +1,265 @@
-<!DOCTYPE html><html lang="en" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TubeMonitor: vibe-coding internal tools as a non-engineer — Vishal Das</title><meta name="description" content="The build story, the AI Studio orchestration approach, and what worked vs. what didn't."><meta name="author" content="Vishal Das"><meta property="og:type" content="article"><meta property="og:url" content="https://kindavishal.js.org/writing/tubemonitor-vibe-coding"><meta property="og:title" content="TubeMonitor: vibe-coding internal tools as a non-engineer — Vishal Das"><meta property="og:description" content="The build story, the AI Studio orchestration approach, and what worked vs. what didn't."><meta property="og:image" content="https://kindavishal.js.org/assets/preview-card.png"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="TubeMonitor: vibe-coding internal tools as a non-engineer — Vishal Das"><meta property="twitter:description" content="The build story, the AI Studio orchestration approach, and what worked vs. what didn't."><meta property="twitter:image" content="https://kindavishal.js.org/assets/preview-card.png"><link rel="icon" type="image/x-icon" href="/assets/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/src/output.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer="defer"></script><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" onload='this.onload=null,this.rel="stylesheet"'><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"></noscript><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"></noscript><style>body{background-color:#0f172a;color:#f8fafc}.glass-card{background:#fff;border:1px solid #e2e8f0;box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}.dark .glass-card{background:rgba(30,41,59,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);box-shadow:none}</style></head><body class="antialiased selection:bg-blue-500 selection:text-white bg-slate-50 text-slate-900 dark:bg-[#0f172a] dark:text-[#f8fafc]"><nav class="fixed w-full z-50 glass-card border-b border-slate-700/50" aria-label="Main navigation"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16"><div class="flex items-center gap-3 pl-1"><a href="/" class="flex items-center gap-3" aria-label="Vishal Das — Home"><div class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 shrink-0 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center"><img alt="Vishal Das" class="w-full h-full object-cover scale-150 translate-y-1" style="object-position:50% 20%" src="/assets/profile.jpg" width="160" height="160" onerror='this.style.display="none",this.nextElementSibling.style.display="flex"'><div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">VD</div></div><div class="flex flex-col justify-center leading-none"><span class="font-bold text-gray-900 dark:text-white text-sm">Vishal Das</span><span class="text-[10px] uppercase tracking-wider font-bold text-gray-500 dark:text-gray-400">Portfolio</span></div></a></div><div class="hidden md:flex items-center gap-1"><a href="/" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Home</a> <a href="/work-with-me" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Work with me</a> <a href="/now" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Now</a> <a href="/writing" class="px-3 py-2 text-xs font-semibold text-blue-500 dark:text-blue-400 rounded-lg">Writing</a> <span class="w-px h-5 bg-slate-200 dark:bg-slate-700 mx-1"></span> <a href="/resume" target="_blank" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Resume</a> <button onclick="toggleTheme()" class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 flex items-center justify-center transition-colors shadow-sm text-gray-600 dark:text-yellow-400 ml-1" aria-label="Toggle dark mode"><span class="material-symbols-outlined text-lg block dark:hidden">dark_mode</span><span class="material-symbols-outlined text-lg hidden dark:block">light_mode</span></button></div><div class="flex md:hidden items-center gap-2"><button onclick="toggleTheme()" class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm text-gray-600 dark:text-yellow-400" aria-label="Toggle dark mode"><span class="material-symbols-outlined text-lg block dark:hidden">dark_mode</span><span class="material-symbols-outlined text-lg hidden dark:block">light_mode</span></button> <button onclick="toggleMobileNav()" class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm text-gray-600 dark:text-gray-300" aria-label="Open navigation menu" aria-expanded="false" id="mobile-nav-btn"><span class="material-symbols-outlined text-lg" id="mobile-nav-icon">menu</span></button></div></div></div><div id="mobile-nav-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"><div class="px-4 py-3 space-y-1"><a href="/" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Home</a><a href="/work-with-me" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Work with me</a><a href="/now" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Now</a><a href="/writing" class="block px-3 py-2 text-sm font-semibold text-blue-500 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 rounded-lg" aria-current="page">Writing</a><a href="/resume" target="_blank" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Resume ↗</a><a href="mailto:vishal-das@outlook.com" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Email</a><a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Book a chat ↗</a></div></div></nav><article class="pt-28 pb-20"><div class="max-w-[680px] mx-auto px-5 sm:px-6"><a href="/writing" class="inline-flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors mb-8"><i class="fa-solid fa-arrow-left text-xs"></i> Back to writing</a><header class="mb-10"><h1 class="text-3xl sm:text-4xl font-bold mb-3 text-slate-900 dark:text-white tracking-tight leading-tight">TubeMonitor: vibe-coding internal tools as a non-engineer</h1><div class="flex items-center gap-3 text-sm text-slate-500 dark:text-slate-400"><span class="font-mono">May 2026</span> <span>·</span> <span class="font-mono bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">~5 min read</span></div></header><div class="text-base text-slate-600 dark:text-slate-400 leading-[1.7]"><p class="italic text-slate-500 dark:text-slate-300">Coming soon — drop me a <a href="mailto:vishal-das@outlook.com" class="text-blue-500 hover:text-blue-400 font-semibold transition-colors">note</a> if you'd like to be notified when this is published.</p></div><div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700"><a href="/writing" class="inline-flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors"><i class="fa-solid fa-arrow-left text-xs"></i> Back to writing</a></div></div></article><footer class="bg-slate-200 dark:bg-slate-900 border-t border-slate-300 dark:border-slate-800 py-10"><div class="max-w-4xl mx-auto px-4 text-center"><div class="flex justify-center gap-6 mb-6"><a href="mailto:vishal-das@outlook.com" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="Email"><i class="fa-solid fa-envelope"></i></a><a href="https://linkedin.com/in/kindavishal" target="_blank" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a><a href="https://github.com/kindavishal" target="_blank" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="GitHub"><i class="fa-brands fa-github"></i></a><a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="Book a chat"><i class="fa-regular fa-calendar-check"></i></a></div><p class="text-xs text-slate-500 dark:text-slate-400">&copy; 2026 Vishal Das — built with care</p></div></footer><script>let toastTimeout;function showToast(t,e,o){dismissToast();const s=document.createElement("div");s.id="theme-toast",s.className=`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[100] flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl transition-all duration-500 opacity-0 translate-y-4 border ${o?"bg-white/90 text-gray-900 border-gray-200":"bg-gray-900/90 text-white border-gray-700"} backdrop-blur-md`,s.innerHTML=`<span class="material-symbols-outlined text-xl">${e}</span><span class="text-sm font-medium pr-2">${t}</span>`,document.body.appendChild(s),requestAnimationFrame(()=>{s.classList.remove("opacity-0","translate-y-4")}),toastTimeout=setTimeout(dismissToast,2e3)}function showThemeToast(t){const e="dark"===t;showToast(`Auto-switched to ${e?"Dark":"Light"} mode.`,e?"dark_mode":"light_mode",e)}function dismissToast(){const t=document.getElementById("theme-toast");t&&(t.classList.add("opacity-0","translate-y-4"),setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},500)),toastTimeout&&clearTimeout(toastTimeout)}function enforceTimeBasedTheme(){const t=localStorage.getItem("theme");if(t)return void document.documentElement.classList.toggle("dark","dark"===t);const e=(new Date).getHours(),o=e>=18||e<7;o?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),o&&showThemeToast("dark")}function toggleTheme(){const t=document.documentElement;t.classList.contains("dark")?(t.classList.remove("dark"),localStorage.setItem("theme","light"),showToast("Switched to Light Mode","light_mode",!1)):(t.classList.add("dark"),localStorage.setItem("theme","dark"),showToast("Switched to Dark Mode","dark_mode",!0))}function toggleMobileNav(){const t=document.getElementById("mobile-nav-menu"),e=document.getElementById("mobile-nav-btn"),o=document.getElementById("mobile-nav-icon"),s=t.classList.contains("hidden");t.classList.toggle("hidden"),e.setAttribute("aria-expanded",s),o.textContent=s?"close":"menu"}document.addEventListener("DOMContentLoaded",()=>{enforceTimeBasedTheme()})</script></body></html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TubeMonitor: vibe-coding internal tools as a non-engineer — Vishal Das</title>
+  <meta name="description" content="The build story, the AI Studio orchestration approach, and what worked vs. what didn't.">
+  <meta name="author" content="Vishal Das">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/tubemonitor-vibe-coding">
+  <meta property="og:title" content="TubeMonitor: vibe-coding internal tools as a non-engineer — Vishal Das">
+  <meta property="og:description" content="The build story, the AI Studio orchestration approach, and what worked vs. what didn't.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/preview-card.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="TubeMonitor: vibe-coding internal tools as a non-engineer — Vishal Das">
+  <meta property="twitter:description" content="The build story, the AI Studio orchestration approach, and what worked vs. what didn't.">
+  <meta property="twitter:image" content="https://kindavishal.js.org/assets/preview-card.png">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TubeMonitor: vibe-coding internal tools as a non-engineer",
+    "description": "The build story, the AI Studio orchestration approach, and what worked vs. what didn't.",
+    "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
+    "publisher": { "@type": "Person", "name": "Vishal Das" },
+    "datePublished": "2026-05-01",
+    "url": "https://kindavishal.js.org/writing/tubemonitor-vibe-coding"
+  }</script>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/src/output.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" onload='this.onload=null,this.rel="stylesheet"'>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" onload='this.onload=null,this.rel="stylesheet"'>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"></noscript>
+  <style>
+    body { background-color: #0f172a; color: #f8fafc }
+    .glass-card { background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,.05) }
+    .dark .glass-card { background: rgba(30,41,59,.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); box-shadow: none }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white bg-slate-50 text-slate-900 dark:bg-[#0f172a] dark:text-[#f8fafc]">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-card border-b border-slate-700/50" aria-label="Main navigation">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3 pl-1">
+          <a href="/" class="flex items-center gap-3" aria-label="Vishal Das — Home">
+            <div class="relative w-10 h-10 rounded-full overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 shrink-0 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+              <img alt="Vishal Das" class="w-full h-full object-cover scale-150 translate-y-1" style="object-position:50% 20%" src="/assets/profile.jpg" width="160" height="160" onerror='this.style.display="none",this.nextElementSibling.style.display="flex"'>
+              <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 hidden items-center justify-center text-white font-bold text-xs">VD</div>
+            </div>
+            <div class="flex flex-col justify-center leading-none">
+              <span class="font-bold text-gray-900 dark:text-white text-sm">Vishal Das</span>
+              <span class="text-[10px] uppercase tracking-wider font-bold text-gray-500 dark:text-gray-400">Portfolio</span>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="/" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Home</a>
+          <a href="/work-with-me" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Work with me</a>
+          <a href="/now" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Now</a>
+          <a href="/writing" class="px-3 py-2 text-xs font-semibold text-blue-500 dark:text-blue-400 rounded-lg">Writing</a>
+          <span class="w-px h-5 bg-slate-200 dark:bg-slate-700 mx-1"></span>
+          <a href="/resume" target="_blank" class="px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg">Resume</a>
+          <button onclick="toggleTheme()" class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 flex items-center justify-center transition-colors shadow-sm text-gray-600 dark:text-yellow-400 ml-1" aria-label="Toggle dark mode">
+            <span class="material-symbols-outlined text-lg block dark:hidden">dark_mode</span>
+            <span class="material-symbols-outlined text-lg hidden dark:block">light_mode</span>
+          </button>
+        </div>
+        <div class="flex md:hidden items-center gap-2">
+          <button onclick="toggleTheme()" class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm text-gray-600 dark:text-yellow-400" aria-label="Toggle dark mode">
+            <span class="material-symbols-outlined text-lg block dark:hidden">dark_mode</span>
+            <span class="material-symbols-outlined text-lg hidden dark:block">light_mode</span>
+          </button>
+          <button onclick="toggleMobileNav()" class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm text-gray-600 dark:text-gray-300" aria-label="Open navigation menu" aria-expanded="false" id="mobile-nav-btn">
+            <span class="material-symbols-outlined text-lg" id="mobile-nav-icon">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-nav-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+      <div class="px-4 py-3 space-y-1">
+        <a href="/" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Home</a>
+        <a href="/work-with-me" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Work with me</a>
+        <a href="/now" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Now</a>
+        <a href="/writing" class="block px-3 py-2 text-sm font-semibold text-blue-500 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 rounded-lg" aria-current="page">Writing</a>
+        <a href="/resume" target="_blank" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Resume ↗</a>
+        <a href="mailto:vishal-das@outlook.com" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Email</a>
+        <a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" class="block px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Book a chat ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ARTICLE -->
+  <article class="pt-28 pb-20">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-6">
+
+      <a href="/writing" class="inline-flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors mb-8">
+        <i class="fa-solid fa-arrow-left text-xs"></i> Back to writing
+      </a>
+
+      <header class="mb-10">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-3 text-slate-900 dark:text-white tracking-tight leading-tight">TubeMonitor: vibe-coding internal tools as a non-engineer</h1>
+        <div class="flex items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+          <time datetime="2026-05-01" class="font-mono">May 2026</time>
+          <span>·</span>
+          <span class="font-mono bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">~5 min read</span>
+        </div>
+      </header>
+
+      <div class="text-base text-slate-600 dark:text-slate-400 leading-[1.7]">
+
+        <p class="mb-4">In early 2026, Firecrawl's YouTube tracking was broken. Not completely — the existing third-party tool was logging data. But it was under-counting creators in our network by a meaningful margin, missing spillover views on untagged videos, and producing weekly reports that didn't answer the questions the team actually had.</p>
+
+        <p class="mb-4">I needed to either fix the tool or replace it. I replaced it. This is the build story.</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3">The data problem</h2>
+
+        <p class="mb-4">The third-party tool tracked what it was configured to track: direct referral links and tagged video URLs. What it missed was everything else — organic mentions, untagged tutorials, competitor comparisons that mentioned Firecrawl in passing, and audience spillover from creator social posts linking to untracked videos.</p>
+
+        <p class="mb-4">When I was reporting creator program results, I was systematically under-counting reach. That's a data integrity problem, not a dashboard problem. You can't fix it with a better chart; you need better data collection.</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3">Why build instead of buy</h2>
+
+        <p class="mb-4">I looked at other YouTube analytics platforms. The enterprise options were expensive and still wouldn't surface organic mentions without a custom feed. The lightweight options lacked the API depth to track across the creator network the way I needed.</p>
+
+        <p class="mb-4">The other factor: Firecrawl is a web scraping tool. I had API access to a scraper that could pull structured data from YouTube pages at scale. Buying a third-party YouTube analytics tool when Firecrawl is the product felt like buying a hammer while standing in a hardware store.</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3">The build approach: orchestrating AI Studio</h2>
+
+        <p class="mb-4">I'm not an engineer. I can read code well enough to understand what it's doing and debug output against expected behavior. I can't write production-grade systems from scratch. What I can do is scope a problem precisely, describe system architecture in enough detail that the spec is unambiguous, and hold the output to a standard.</p>
+
+        <p class="mb-4">That turned out to be exactly what building with Google AI Studio required. I treated it like a PM directs an engineering team: write the spec, review the output against requirements, identify failure modes specifically (not generically), and iterate.</p>
+
+        <p class="mb-4">The key discipline was in the spec. Every component started with a written description of: what data comes in, what the component does, what state it produces, and what failure looks like. When the generated code had bugs, I described the observed behavior versus the expected behavior — not the code — and asked for a fix. That constraint kept the iteration loops short.</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3">The stack</h2>
+
+        <div class="my-6 p-5 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+          <p class="font-semibold text-slate-900 dark:text-white text-sm mb-3">TubeMonitor tech stack</p>
+          <ul class="space-y-2 list-none text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500 shrink-0 mt-1">▸</span>
+              <span><span class="font-mono bg-slate-200 dark:bg-slate-700 px-1.5 rounded text-slate-700 dark:text-slate-300">Next.js</span> — frontend dashboard, server-rendered for performance</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500 shrink-0 mt-1">▸</span>
+              <span><span class="font-mono bg-slate-200 dark:bg-slate-700 px-1.5 rounded text-slate-700 dark:text-slate-300">Supabase</span> — data storage and queries (Postgres, no separate backend to maintain)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500 shrink-0 mt-1">▸</span>
+              <span><span class="font-mono bg-slate-200 dark:bg-slate-700 px-1.5 rounded text-slate-700 dark:text-slate-300">Vercel</span> — deployment with instant preview builds for testing iterations</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500 shrink-0 mt-1">▸</span>
+              <span><span class="font-mono bg-slate-200 dark:bg-slate-700 px-1.5 rounded text-slate-700 dark:text-slate-300">Firecrawl</span> — the data layer; pulls video metadata, view counts, and engagement signals</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="mb-4">Stack choices were all made for the same reason: minimal setup, no infrastructure to maintain, and fast iteration cycles. Supabase gave me a Postgres database with a clean API and no backend layer to manage. Vercel gave me preview deploys so I could test changes against real data before shipping them. Firecrawl gave me the scraping primitives without building a crawler from scratch.</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3">What TubeMonitor tracks</h2>
+
+        <ul class="space-y-2 list-none mb-6">
+          <li class="flex items-start gap-2"><span class="text-blue-500 shrink-0 mt-1">▸</span><span><strong class="text-slate-800 dark:text-slate-200">View performance</strong> — weekly and cumulative views across every creator in the ambassador network</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 shrink-0 mt-1">▸</span><span><strong class="text-slate-800 dark:text-slate-200">Spillover</strong> — organic views from videos not formally tagged in the program (the metric the third-party tool missed entirely)</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 shrink-0 mt-1">▸</span><span><strong class="text-slate-800 dark:text-slate-200">Engagement signals</strong> — comments, likes, and shares relative to view count as a proxy for content quality</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 shrink-0 mt-1">▸</span><span><strong class="text-slate-800 dark:text-slate-200">Competitive share of voice</strong> — where Firecrawl appears relative to competitors on the same creator's channel</span></li>
+        </ul>
+
+        <p class="mb-4">The share-of-voice module is the most strategically useful surface. It tells you not just how many views our content is getting, but whether a creator's audience is spending more time with our content or a competitor's — which is actually the question that matters for program investment decisions.</p>
+
+        <p class="mb-4">The app went from spec to deployed and in use across teams in one week. It replaced the third-party tool the same week it shipped. Marketing, partnerships, and the founders now use it for weekly reporting.</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3">What worked and what didn't</h2>
+
+        <p class="mb-4"><strong class="text-slate-800 dark:text-slate-200">What worked: writing the spec first.</strong> The most important hour of this build was the session where I listed every question the dashboard needed to answer before writing a single line of code. That list became the acceptance criteria for each component and the test suite for each iteration.</p>
+
+        <p class="mb-4"><strong class="text-slate-800 dark:text-slate-200">What worked: being specific about failures.</strong> When AI-generated code broke, the quality of the fix depended entirely on the quality of the bug description. "It's not working" produced bad fixes. "The view count for creator X shows 0 after the scrape cycle completes, but the Supabase table shows the correct row was inserted — the query is filtering on the wrong field" produced correct ones.</p>
+
+        <p class="mb-4"><strong class="text-slate-800 dark:text-slate-200">What didn't work: my first assumption about data freshness.</strong> I built the scrape cycle to run daily, which was too infrequent when monitoring active creator campaigns. During launch weeks I needed near-real-time data. I switched to on-demand scraping with a cache layer — scrape on request, serve from cache if data is less than two hours old.</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3">The broader point</h2>
+
+        <p class="mb-4">The gap between "operator who can describe a system" and "operator who can ship a working internal tool" used to be months of learning to code. It's now a few days of disciplined AI-orchestrated building — if you can write a precise spec and hold the output to a real standard.</p>
+
+        <p class="mb-4">That's a one-way door. Operators who figure this out early accumulate compounding leverage. Those who wait for engineering bandwidth don't.</p>
+
+        <p class="mb-4">I'm not a production engineer. I don't ship customer-facing code. But for internal tools — dashboards, data pipelines, reporting surfaces — the constraint is no longer technical skill. It's problem definition.</p>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-4">
+        <a href="/writing" class="inline-flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back to writing
+        </a>
+        <div class="flex gap-4 text-sm text-slate-500 dark:text-slate-400">
+          <a href="/writing/12-step-community-framework" class="hover:text-blue-500 transition-colors">Next: 12-step framework →</a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-200 dark:bg-slate-900 border-t border-slate-300 dark:border-slate-800 py-10">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="flex justify-center gap-6 mb-6">
+        <a href="mailto:vishal-das@outlook.com" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/kindavishal" target="_blank" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/kindavishal" target="_blank" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://calendar.app.google/Z76F9aiL8LbuaMvs9" target="_blank" class="text-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition" aria-label="Book a chat"><i class="fa-regular fa-calendar-check"></i></a>
+      </div>
+      <p class="text-xs text-slate-500 dark:text-slate-400">&copy; 2026 Vishal Das — built with care</p>
+    </div>
+  </footer>
+
+  <script>
+    let toastTimeout;
+    function showToast(t, e, o) {
+      dismissToast();
+      const s = document.createElement("div");
+      s.id = "theme-toast";
+      s.className = `fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[100] flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl transition-all duration-500 opacity-0 translate-y-4 border ${o ? "bg-white/90 text-gray-900 border-gray-200" : "bg-gray-900/90 text-white border-gray-700"} backdrop-blur-md`;
+      s.innerHTML = `<span class="material-symbols-outlined text-xl">${e}</span><span class="text-sm font-medium pr-2">${t}</span>`;
+      document.body.appendChild(s);
+      requestAnimationFrame(() => { s.classList.remove("opacity-0", "translate-y-4") });
+      toastTimeout = setTimeout(dismissToast, 2000);
+    }
+    function showThemeToast(t) {
+      const e = "dark" === t;
+      showToast(`Auto-switched to ${e ? "Dark" : "Light"} mode.`, e ? "dark_mode" : "light_mode", e);
+    }
+    function dismissToast() {
+      const t = document.getElementById("theme-toast");
+      t && (t.classList.add("opacity-0", "translate-y-4"), setTimeout(() => { t.parentNode && t.parentNode.removeChild(t) }, 500));
+      toastTimeout && clearTimeout(toastTimeout);
+    }
+    function enforceTimeBasedTheme() {
+      const t = localStorage.getItem("theme");
+      if (t) return void document.documentElement.classList.toggle("dark", "dark" === t);
+      const e = (new Date).getHours(), o = e >= 18 || e < 7;
+      o ? document.documentElement.classList.add("dark") : document.documentElement.classList.remove("dark");
+      o && showThemeToast("dark");
+    }
+    function toggleTheme() {
+      const t = document.documentElement;
+      t.classList.contains("dark")
+        ? (t.classList.remove("dark"), localStorage.setItem("theme", "light"), showToast("Switched to Light Mode", "light_mode", false))
+        : (t.classList.add("dark"), localStorage.setItem("theme", "dark"), showToast("Switched to Dark Mode", "dark_mode", true));
+    }
+    function toggleMobileNav() {
+      const t = document.getElementById("mobile-nav-menu"), e = document.getElementById("mobile-nav-btn"), o = document.getElementById("mobile-nav-icon"), s = t.classList.contains("hidden");
+      t.classList.toggle("hidden");
+      e.setAttribute("aria-expanded", s);
+      o.textContent = s ? "close" : "menu";
+    }
+    document.addEventListener("DOMContentLoaded", () => { enforceTimeBasedTheme() });
+  </script>
+</body>
+</html>
