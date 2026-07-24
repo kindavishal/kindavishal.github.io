@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How I designed the Firecrawl ambassador tier system — Vishal Das</title>
-  <meta name="description" content="A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.">
+  <title>The operator-builder gap is closing faster than you think — Vishal Das</title>
+  <meta name="description" content="Non-engineers who can write a precise spec can now ship internal tools in days. What that means for PgMs, community managers, and ops people.">
   <meta name="author" content="Vishal Das">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system">
-  <meta property="og:title" content="How I designed the Firecrawl ambassador tier system — Vishal Das">
-  <meta property="og:description" content="A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.">
-  <meta property="og:image" content="https://kindavishal.js.org/assets/preview-card.png">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/operator-builder-gap">
+  <meta property="og:title" content="The operator-builder gap is closing faster than you think — Vishal Das">
+  <meta property="og:description" content="Non-engineers who can write a precise spec can now ship internal tools in days. What that means for PgMs, community managers, and ops people.">
+  <meta property="og:image" content="https://kindavishal.me/assets/preview-card.png">
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="How I designed the Firecrawl ambassador tier system — Vishal Das">
-  <meta property="twitter:description" content="A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.">
-  <meta property="twitter:image" content="https://kindavishal.js.org/assets/preview-card.png">
+  <meta property="twitter:title" content="The operator-builder gap is closing faster than you think — Vishal Das">
+  <meta property="twitter:description" content="Non-engineers who can write a precise spec can now ship internal tools in days. What that means for PgMs, community managers, and ops people.">
+  <meta property="twitter:image" content="https://kindavishal.me/assets/preview-card.png">
   <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "How I designed the Firecrawl ambassador tier system",
-    "description": "A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.",
+    "headline": "The operator-builder gap is closing faster than you think",
+    "description": "Non-engineers who can write a precise spec can now ship internal tools in days. What that means for PgMs, community managers, and ops people.",
     "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
     "publisher": { "@type": "Person", "name": "Vishal Das" },
-    "datePublished": "2026-05-01",
-    "url": "https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system"
+    "datePublished": "2026-06-15",
+    "url": "https://kindavishal.js.org/writing/operator-builder-gap"
   }</script>
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -149,79 +149,57 @@ a:hover{color:#D97706}
     </a>
 
     <header class="article-header reveal">
-      <h1 class="article-title">How I designed the Firecrawl ambassador tier system</h1>
+      <h1 class="article-title">The operator-builder gap is closing faster than you think</h1>
       <div class="article-meta">
-        <span class="article-date">May 2026</span>
-        <span class="article-readtime">~6 min read</span>
+        <span class="article-date">Jun 2026</span>
+        <span class="article-readtime">~5 min read</span>
       </div>
     </header>
 
     <div class="article-body reveal">
-<p>When I joined Firecrawl post-Series A, the company had no creator program. There were a handful of creators making content organically, a few intro emails sitting unanswered, and zero structure for what "working with creators" actually meant. My job was to build the whole thing from scratch.</p>
+<p>For most of my career, there was a clear line between people who identify problems and people who build solutions. I was on the operator side — I could describe exactly what a dashboard needed to show, write a detailed spec, and explain the business logic behind every field. But I couldn't build the dashboard myself. That required an engineer, a sprint slot, and usually a few weeks of waiting.</p>
 
-<p>This is the design playbook I ran to get from zero to ten ambassadors in four weeks — and four times the referral volume in the months that followed.</p>
+<p>That line is blurring. Not gone — blurring. And the implications for people in programme management, community management, and ops roles are worth thinking about seriously.</p>
 
-<h2>The problem with most creator programs</h2>
+<h2>What changed</h2>
 
-<p>Most creator programs fail not because the company lacks good creators — they fail because the program never defines what it's selecting for. You end up with vague application criteria, inconsistent outreach, and a roster of "ambassadors" who don't know what they're supposed to do or why they were chosen.</p>
+<p>AI coding tools crossed a threshold sometime in 2025 where a non-engineer with a precise spec could ship a working internal tool in days instead of months. Not a prototype — a working tool that other people on the team actually use.</p>
 
-<p>The design problem I was solving wasn't "how do we get creators to mention Firecrawl." It was: how do we build a program with real classification criteria, real economics, and real incentive alignment — one that gets stronger as it scales instead of harder to manage?</p>
+<p>The key phrase is "precise spec." The tools don't remove the need for clear thinking about what you're building. They remove the need to translate that clear thinking into code yourself. If you can describe what data comes in, what the system does with it, what state it produces, and what failure looks like — you can build it.</p>
 
-<h2>The five-tier structure</h2>
+<p>This isn't theoretical for me. I built TubeMonitor — a Next.js + Supabase analytics dashboard that tracks YouTube creator performance across Firecrawl's ambassador network — by orchestrating AI Studio like a PM directs an engineering team. It replaced a third-party tool the same week it shipped and is now used daily across marketing, partnerships, and the founding team.</p>
 
-<p>I designed five tiers, each with explicit entry criteria. Not gut-feel criteria — measurable ones: subscriber count, view velocity, technical depth of existing content, and demonstrated integration quality.</p>
+<h2>The skill that transfers</h2>
 
-<p>The tier structure serves two purposes. First, it gives a consistent way to classify inbound applicants without making a judgment call each time. Second, it signals to creators exactly what they need to do to move up — which means the program incentivises improvement without you having to ask for it.</p>
+<p>Here's what I've noticed: the people who are good at this aren't the ones who learned the most about coding. They're the ones who were already good at writing specs, defining requirements, and thinking in systems. The same skills that make a good programme manager — decomposing a problem, defining acceptance criteria, identifying edge cases — are exactly what make AI-assisted building work.</p>
 
-<p>The upper tiers required demonstrated technical integration with Firecrawl's API, not just a mention in a video. To qualify, you needed to build something with the product and document it on camera. If you had an audience but no integration depth, you could still enter at a lower tier and work your way up. The structure preserved quality at the top without blocking early-stage creators from participating.</p>
+<p>The bottleneck was never thinking. It was translation. You had to translate your understanding of the problem into code, which required a skillset most operators didn't have. AI tooling removed the translation step, which means the thinking is now the whole game.</p>
 
-<p>Written criteria also made the hard conversations easier. When a creator didn't meet the bar, I had a document to point to — not a judgment call to defend.</p>
+<p>If you're a PgM or community manager who writes good PRDs, clear briefs, and specific bug reports — you're closer to shipping your own tools than you realise.</p>
 
-<h2>The economics: milestone-based, not performance-based</h2>
+<h2>What this doesn't mean</h2>
 
-<p>The most important design decision was milestone-based payouts over per-view or per-signup payouts.</p>
+<p>I want to be precise about the scope of this claim, because the discourse around "everyone can code now" tends to overcorrect.</p>
 
-<p>Per-view payouts optimize for views. Per-signup payouts optimize for conversion spam. Neither is what I wanted. I wanted creators building durable, discoverable content — tutorials that answer real technical questions, rank on YouTube search, and compound over time. You can't build that on an incentive that rewards upload volume or thumbnail CTR.</p>
+<p><strong>This doesn't mean operators should build customer-facing products.</strong> I don't ship customer-facing code. The things I build are internal tools — dashboards, data pipelines, reporting surfaces. The quality bar for internal tools is different from production software, and the failure modes are less costly. Knowing the boundary matters.</p>
 
-<p>The milestone structure ran from <span class="mono">$625</span> to <span class="mono">$11,250</span> per milestone, graduated across tiers. Each milestone was tied to a deliverable — the integration video, the follow-up tutorial, the deep-dive — plus a minimum performance threshold. Hitting the threshold without the deliverable didn't trigger the payout.</p>
+<p><strong>This doesn't mean engineering is less valuable.</strong> The tools I build solve narrow, well-defined problems. Production systems, scalability, security, reliability — these require engineering depth that AI-assisted building doesn't give you. An operator who ships a Supabase dashboard is not an engineer any more than someone who writes a good email is a novelist.</p>
 
-<div class="callout">
-  <p class="callout-title">Program economics at a glance</p>
-  <ul>
-    <li>Milestone range: $625–$11,250 per milestone, graduated by tier</li>
-    <li>Streak system: consecutive completions earn progressively higher payouts</li>
-    <li>Each milestone: content deliverable + minimum performance threshold</li>
-    <li>Payout trigger: manual review against criteria, not automated on hit-count</li>
-  </ul>
-</div>
+<p><strong>This doesn't mean you can skip the hard thinking.</strong> The most common failure mode I've seen when operators try AI-assisted building is: they describe the solution instead of the problem. "Build me a dashboard with these charts" produces worse output than "Here's the question the team needs answered every Monday, here's where the data lives, and here's what a correct answer looks like." The AI is good at building. You still have to be good at defining.</p>
 
-<p>On top of the base milestone structure, I layered a streak system — consecutive milestone completions earned progressively higher payouts. The goal was retention, not acquisition. Signing an ambassador is cheap. Keeping one producing quality content for six months is the actual work.</p>
+<h2>The compounding advantage</h2>
 
-<h2>The ops stack</h2>
+<p>The operators who figure this out early don't just ship one tool. They build a habit of identifying gaps and filling them, which compounds over time. At Google, I automated 20+ hours per week of manual work with Apps Script. At Firecrawl, I shipped TubeMonitor. Each time, the tool I built made the rest of my work better — more time for strategy, better data for decisions, less manual reporting.</p>
 
-<p>The full pipeline runs on <span class="mono">Typeform → Notion → Slack</span> with no enterprise SaaS overhead. Typeform handles intake. Notion is the source of truth for every ambassador: tier, milestone status, payout history, content links. Slack is where live updates go and where the creator-facing community exists.</p>
+<p>The operators who don't figure it out wait for engineering bandwidth. That wait is real — engineering teams are always oversubscribed, and internal tooling rarely wins the prioritisation fight against customer-facing features. So the operator sits with a broken workflow for months, doing things manually, losing hours each week to work a tool could handle.</p>
 
-<p>I also built TubeMonitor — a custom Next.js + Supabase app on Firecrawl's own scraping primitives — to track view performance, spillover, engagement signals, and competitive share of voice across the creator network. That's a separate post, but the point is: don't rely on third-party YouTube analytics tools when you're building on a scraping product.</p>
+<p>Over a career, the difference between these two paths is enormous. One person ships tools, accumulates leverage, and spends their time on judgement work. The other person stays stuck in manual execution, constrained by someone else's roadmap.</p>
 
-<h2>Recruitment: 10 in 4 weeks</h2>
+<h2>Where to start</h2>
 
-<p>I sourced the first cohort manually. No public launch, no "apply here" announcement blast. I identified creators who had already mentioned Firecrawl or adjacent tools, assessed their technical depth from existing content, and sent short, direct outreach that was specific to something they'd already built.</p>
+<p>If you're an operator thinking about trying this, start with the smallest, most annoying manual task in your week. Not the ambitious dashboard idea — the thing you do every Monday that takes an hour and could be a script. Write down what it does in plain language: what inputs it takes, what it produces, what "correct" looks like. Then try building it with an AI coding tool.</p>
 
-<p>Ten creators across five tiers in four weeks. One early integration drove 60K views in week one. That result was the proof-of-concept I needed to show the team that the structure worked — and it demonstrated what differentiated this from a basic affiliate link program: a creator who genuinely understood the product produced content that ranked, converted, and compounded.</p>
-
-<h2>Results</h2>
-
-<p>Creator-attributed referrals went from 1.7K to 7.2K weekly — a 4x increase. The growth wasn't from more creators. It was from better-quality content by well-briefed creators who actually understood what they were integrating. Volume without quality would have flatlined the referral numbers and produced content nobody watched past the first minute.</p>
-
-<h2>What I'd do differently</h2>
-
-<p>Two things, both operational.</p>
-
-<p><strong>Automate milestone review earlier.</strong> When you have tight criteria, every payout requires a judgment call. I reviewed each milestone ad hoc — workable at ten ambassadors, a bottleneck at scale. I'd build a structured review template populated with TubeMonitor data from week one instead of retrofitting it after the first scaling friction.</p>
-
-<p><strong>Front-load the creator brief.</strong> The first cohort produced lower-quality drafts because the brief wasn't specific enough about what a good integration looked like. We iterated on it over three feedback cycles. That cost two weeks I could have recovered upfront.</p>
-
-<p>The brief is the most important artefact in the program. It's the difference between a creator who produces a tutorial worth watching and one who produces a feature mention nobody clicks. Write it before you recruit anyone.</p>
+<p>You'll learn more about your own ability to spec problems clearly from that one exercise than from any course. And if it works, you'll have an extra hour every week for the rest of the year. That's the pitch.</p>
     </div>
 
     <div class="article-bottom">
@@ -229,7 +207,6 @@ a:hover{color:#D97706}
         <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to writing
       </a>
-      <a href="/writing/tubemonitor-vibe-coding" class="article-nav-link">Next: TubeMonitor →</a>
     </div>
   </div>
 </article>
