@@ -167,7 +167,7 @@ a:hover{color:#D97706}
 /* BLOG */
 .blog{padding:80px 0;background:#F0EDE8}
 .blog-inner{max-width:1320px;margin:0 auto;padding:0 64px}
-.blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px}
 .blog-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.04);transition:all .3s ease}
 .blog-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-4px)}
 .blog-card-img{height:180px;display:flex;align-items:center;justify-content:center;padding:32px}
@@ -273,7 +273,7 @@ a:hover{color:#D97706}
 <!-- Nav -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
+    <a href="/" class="nav-logo">
       <div class="nav-logo-icon"><span>V</span></div>
       <span class="nav-logo-name">Vishal Das</span>
     </a>
@@ -281,7 +281,7 @@ a:hover{color:#D97706}
       <a href="#what-i-do">What I Do</a>
       <a href="#work">Work</a>
       <a href="#career">Experience</a>
-      <a href="#writing">Writing</a>
+      <a href="/writing">Writing</a>
       <div class="nav-btns">
         <a href="#resume" class="btn-outline">Resume ↓</a>
         <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
@@ -298,7 +298,7 @@ a:hover{color:#D97706}
   <a href="#what-i-do" onclick="closeMenu()">What I Do</a>
   <a href="#work" onclick="closeMenu()">Work</a>
   <a href="#career" onclick="closeMenu()">Experience</a>
-  <a href="#writing" onclick="closeMenu()">Writing</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
   <a href="#endorsements" onclick="closeMenu()">Endorsements</a>
   <div class="nav-btns">
     <a href="#resume" class="btn-outline" onclick="closeMenu()">Resume ↓</a>
@@ -604,22 +604,33 @@ a:hover{color:#D97706}
     <span class="section-label reveal">Writing</span>
     <h2 class="section-title reveal">Things I'm thinking about</h2>
     <div class="blog-grid">
-      <div class="blog-card reveal reveal-delay-1">
-        <div class="blog-card-img amber"><span>Coming Soon</span></div>
+      <a href="/writing/big-company-to-startup" class="blog-card reveal reveal-delay-1" style="text-decoration:none;color:inherit">
+        <div class="blog-card-img amber"><span>Jul 2026</span></div>
         <div class="blog-card-body">
-          <span class="blog-cat">Programs</span>
-          <h3>What 200K learners taught me about scaling education programs</h3>
-          <p>Why the hardest part isn't the curriculum — it's the operations.</p>
+          <span class="blog-cat">Career</span>
+          <h3>What changes when you move from a big company to a Series A startup</h3>
+          <p>After nearly four years at Google, I joined a 20-person AI startup. Here's what actually changed — and what didn't.</p>
         </div>
-      </div>
-      <div class="blog-card reveal reveal-delay-2">
-        <div class="blog-card-img dark"><span>Coming Soon</span></div>
+      </a>
+      <a href="/writing/unsexy-side-of-devrel" class="blog-card reveal reveal-delay-2" style="text-decoration:none;color:inherit">
+        <div class="blog-card-img dark"><span>Jul 2026</span></div>
         <div class="blog-card-body">
-          <span class="blog-cat">Operations</span>
-          <h3>The invisible rails: why great programs are built on boring infrastructure</h3>
-          <p>Financial pipelines, vendor workflows, and the unglamorous work that makes community growth possible.</p>
+          <span class="blog-cat">DevRel</span>
+          <h3>The unsexy side of developer relations nobody talks about</h3>
+          <p>DevRel isn't conference talks and swag. It's MOUs, compliance reviews, vendor management, and spreadsheets that keep 300+ partnerships alive.</p>
         </div>
-      </div>
+      </a>
+      <a href="/writing/managing-300-partnerships" class="blog-card reveal reveal-delay-3" style="text-decoration:none;color:inherit">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)"><span style="color:#fff;font-family:'Literata',serif;font-size:22px;font-weight:500">Jun 2026</span></div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Partnerships</span>
+          <h3>Five things I learned managing 300+ institutional partnerships</h3>
+          <p>Practical lessons from scaling Google's India developer ecosystem — on partner negotiations, documentation, and what actually holds at scale.</p>
+        </div>
+      </a>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:40px">
+      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">View all writing <span style="font-size:18px">→</span></a>
     </div>
   </div>
 </section>

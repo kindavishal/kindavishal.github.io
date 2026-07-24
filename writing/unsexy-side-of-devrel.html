@@ -3,33 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How I designed the Firecrawl ambassador tier system — Vishal Das</title>
-  <meta name="description" content="A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.">
+  <title>The unsexy side of developer relations nobody talks about — Vishal Das</title>
+  <meta name="description" content="DevRel isn't conference talks and swag. It's MOUs, compliance reviews, vendor management, and spreadsheets that keep 300+ partnerships alive.">
   <meta name="author" content="Vishal Das">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system">
-  <meta property="og:title" content="How I designed the Firecrawl ambassador tier system — Vishal Das">
-  <meta property="og:description" content="A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/unsexy-side-of-devrel">
+  <meta property="og:title" content="The unsexy side of developer relations nobody talks about — Vishal Das">
+  <meta property="og:description" content="DevRel isn't conference talks and swag. It's MOUs, compliance reviews, vendor management, and spreadsheets that keep 300+ partnerships alive.">
   <meta property="og:image" content="https://kindavishal.js.org/assets/preview-card.png">
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="How I designed the Firecrawl ambassador tier system — Vishal Das">
-  <meta property="twitter:description" content="A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.">
+  <meta property="twitter:title" content="The unsexy side of developer relations nobody talks about — Vishal Das">
+  <meta property="twitter:description" content="DevRel isn't conference talks and swag. It's MOUs, compliance reviews, vendor management, and spreadsheets that keep 300+ partnerships alive.">
   <meta property="twitter:image" content="https://kindavishal.js.org/assets/preview-card.png">
   <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "How I designed the Firecrawl ambassador tier system",
-    "description": "A breakdown of the five-tier structure, milestone economics, and what I'd do differently the second time around.",
+    "headline": "The unsexy side of developer relations nobody talks about",
+    "description": "DevRel isn't conference talks and swag. It's MOUs, compliance reviews, vendor management, and spreadsheets that keep 300+ partnerships alive.",
     "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
     "publisher": { "@type": "Person", "name": "Vishal Das" },
-    "datePublished": "2026-05-01",
-    "url": "https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system"
+    "datePublished": "2026-07-01",
+    "url": "https://kindavishal.js.org/writing/unsexy-side-of-devrel"
   }</script>
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
-<style>
+  <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -107,7 +107,7 @@ a:hover{color:#D97706}
 .article-title{font-size:28px}
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }
-</style>
+  </style>
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -149,79 +149,61 @@ a:hover{color:#D97706}
     </a>
 
     <header class="article-header reveal">
-      <h1 class="article-title">How I designed the Firecrawl ambassador tier system</h1>
+      <h1 class="article-title">The unsexy side of developer relations nobody talks about</h1>
       <div class="article-meta">
-        <span class="article-date">May 2026</span>
-        <span class="article-readtime">~6 min read</span>
+        <span class="article-date">Jul 2026</span>
+        <span class="article-readtime">~5 min read</span>
       </div>
     </header>
 
     <div class="article-body reveal">
-<p>When I joined Firecrawl post-Series A, the company had no creator program. There were a handful of creators making content organically, a few intro emails sitting unanswered, and zero structure for what "working with creators" actually meant. My job was to build the whole thing from scratch.</p>
+        <p>If you follow DevRel discourse online, you'd think the job is mostly giving talks, writing blog posts, and hanging out in Discord servers. Those are real parts of it. But across two companies and roughly four years of ecosystem work, I'd estimate about 70% of my time was spent on things nobody posts about on LinkedIn.</p>
 
-<p>This is the design playbook I ran to get from zero to ten ambassadors in four weeks — and four times the referral volume in the months that followed.</p>
+        <p>This is about that 70%.</p>
 
-<h2>The problem with most creator programs</h2>
+        <h2>Spreadsheets that keep partnerships alive</h2>
 
-<p>Most creator programs fail not because the company lacks good creators — they fail because the program never defines what it's selecting for. You end up with vague application criteria, inconsistent outreach, and a roster of "ambassadors" who don't know what they're supposed to do or why they were chosen.</p>
+        <p>At Google, I managed 300+ institutional partnerships and 300+ active MOUs. Each partnership had its own timeline, its own stakeholders, its own compliance requirements, and its own set of things that could go wrong. Tracking all of this required spreadsheets — not elegant dashboards, not purpose-built CRMs — spreadsheets. Google Sheets with conditional formatting, linked tabs, and Apps Script automations I wrote myself to pull data from different sources.</p>
 
-<p>The design problem I was solving wasn't "how do we get creators to mention Firecrawl." It was: how do we build a program with real classification criteria, real economics, and real incentive alignment — one that gets stronger as it scales instead of harder to manage?</p>
+        <p>The romance of DevRel ends the moment you need to reconcile partner data across three systems, figure out which of 150 institutions hasn't submitted their quarterly report, and send follow-up emails that are firm enough to get a response without burning a relationship you spent six months building.</p>
 
-<h2>The five-tier structure</h2>
+        <p>Nobody teaches you this. You learn it by having 40 things slip through the cracks in your first quarter and deciding you never want that feeling again.</p>
 
-<p>I designed five tiers, each with explicit entry criteria. Not gut-feel criteria — measurable ones: subscriber count, view velocity, technical depth of existing content, and demonstrated integration quality.</p>
+        <h2>Compliance and legal reviews</h2>
 
-<p>The tier structure serves two purposes. First, it gives a consistent way to classify inbound applicants without making a judgment call each time. Second, it signals to creators exactly what they need to do to move up — which means the program incentivises improvement without you having to ask for it.</p>
+        <p>Some of the programs I worked on at Google involved child-safety skilling with government partners. Zero compliance incidents across the entire programme. That outcome didn't happen because we were lucky. It happened because of review processes that were thorough to the point of being tedious — document review, stakeholder sign-off chains, privacy impact assessments, and a lot of reading policies that were written for lawyers, not programme managers.</p>
 
-<p>The upper tiers required demonstrated technical integration with Firecrawl's API, not just a mention in a video. To qualify, you needed to build something with the product and document it on camera. If you had an audience but no integration depth, you could still enter at a lower tier and work your way up. The structure preserved quality at the top without blocking early-stage creators from participating.</p>
+        <p>Compliance work is the most invisible high-stakes work in DevRel. When it goes well, nobody notices. When it goes wrong, it's a crisis that puts the entire programme at risk. The skill isn't being good at compliance — it's building habits that make compliance the default instead of an afterthought.</p>
 
-<p>Written criteria also made the hard conversations easier. When a creator didn't meet the bar, I had a document to point to — not a judgment call to defend.</p>
+        <h2>Vendor and agency management</h2>
 
-<h2>The economics: milestone-based, not performance-based</h2>
+        <p>At Firecrawl, I manage an external Reddit agency. At Google, I worked with multiple vendors across different programme tracks. Agency management is its own skill set that overlaps with DevRel but isn't part of any DevRel job description I've seen.</p>
 
-<p>The most important design decision was milestone-based payouts over per-view or per-signup payouts.</p>
+        <p>You need to set expectations clearly enough that the agency delivers without constant oversight, but review output closely enough to catch when quality drops. You need to give feedback that's specific enough to be actionable without micromanaging the execution. And you need to do all of this while maintaining a relationship that's professional enough to get good work out of people who have other clients competing for their attention.</p>
 
-<p>Per-view payouts optimize for views. Per-signup payouts optimize for conversion spam. Neither is what I wanted. I wanted creators building durable, discoverable content — tutorials that answer real technical questions, rank on YouTube search, and compound over time. You can't build that on an incentive that rewards upload volume or thumbnail CTR.</p>
+        <p>The number of community and DevRel people I've met who have never managed an external vendor is surprisingly high. It's a gap, because as programmes scale, you can't do everything in-house.</p>
 
-<p>The milestone structure ran from <span class="mono">$625</span> to <span class="mono">$11,250</span> per milestone, graduated across tiers. Each milestone was tied to a deliverable — the integration video, the follow-up tutorial, the deep-dive — plus a minimum performance threshold. Hitting the threshold without the deliverable didn't trigger the payout.</p>
+        <h2>The follow-up email you send for the fourth time</h2>
 
-<div class="callout">
-  <p class="callout-title">Program economics at a glance</p>
-  <ul>
-    <li>Milestone range: $625–$11,250 per milestone, graduated by tier</li>
-    <li>Streak system: consecutive completions earn progressively higher payouts</li>
-    <li>Each milestone: content deliverable + minimum performance threshold</li>
-    <li>Payout trigger: manual review against criteria, not automated on hit-count</li>
-  </ul>
-</div>
+        <p>Institutional partnerships move slowly. A university department head takes two weeks to respond to an email. A government partner needs internal approval that takes a month. A creator you're trying to onboard ghosts you twice before responding on the third attempt.</p>
 
-<p>On top of the base milestone structure, I layered a streak system — consecutive milestone completions earned progressively higher payouts. The goal was retention, not acquisition. Signing an ambassador is cheap. Keeping one producing quality content for six months is the actual work.</p>
+        <p>The patience required for this work is fundamentally different from the "move fast" energy that DevRel content tends to celebrate. It's not about urgency — it's about persistence without annoyance. Knowing when to follow up, how to phrase it so it doesn't sound desperate, and when to stop trying are skills that only come from doing the work repeatedly.</p>
 
-<h2>The ops stack</h2>
+        <p>I've sent hundreds of follow-up emails. The best ones are short, reference something specific the other person said, and make it easy to say yes. The worst ones are long, explain too much context, and ask the recipient to do too many things at once. This sounds obvious, but when you're managing 50 open conversations at once, the temptation to write a comprehensive email instead of a clear one is real.</p>
 
-<p>The full pipeline runs on <span class="mono">Typeform → Notion → Slack</span> with no enterprise SaaS overhead. Typeform handles intake. Notion is the source of truth for every ambassador: tier, milestone status, payout history, content links. Slack is where live updates go and where the creator-facing community exists.</p>
+        <h2>Automating the boring parts</h2>
 
-<p>I also built TubeMonitor — a custom Next.js + Supabase app on Firecrawl's own scraping primitives — to track view performance, spillover, engagement signals, and competitive share of voice across the creator network. That's a separate post, but the point is: don't rely on third-party YouTube analytics tools when you're building on a scraping product.</p>
+        <p>The single highest-leverage thing I did at Google was automating roughly 20 hours per week of manual work with Apps Script. Status update emails, data aggregation from partner submissions, report generation, milestone tracking — all of it was manual when I started, and most of it was automated by the time I left.</p>
 
-<h2>Recruitment: 10 in 4 weeks</h2>
+        <p>Nobody told me to do this. It wasn't in my OKRs. I did it because the alternative was spending a full day each week on work that a script could do in minutes, and I'd rather spend that time on things that actually required human judgement.</p>
 
-<p>I sourced the first cohort manually. No public launch, no "apply here" announcement blast. I identified creators who had already mentioned Firecrawl or adjacent tools, assessed their technical depth from existing content, and sent short, direct outreach that was specific to something they'd already built.</p>
+        <p>This is the unsexy side of DevRel that compounds the most. Every hour you automate is an hour you get back every week, permanently. Over four years, those Apps Script automations probably saved more than 4,000 hours of manual work across the team. Nobody talks about this because "I wrote a Google Apps Script that sends automated status emails" doesn't make a good conference talk. But it's some of the most impactful work I did.</p>
 
-<p>Ten creators across five tiers in four weeks. One early integration drove 60K views in week one. That result was the proof-of-concept I needed to show the team that the structure worked — and it demonstrated what differentiated this from a basic affiliate link program: a creator who genuinely understood the product produced content that ranked, converted, and compounded.</p>
+        <h2>Why this matters</h2>
 
-<h2>Results</h2>
+        <p>If you're considering a career in DevRel, community management, or programme management, know that the job is mostly operational. The visible parts — the talks, the content, the community events — are the top 30%. The bottom 70% is tracking, follow-ups, compliance, vendor management, and process automation. The people who last in these roles are the ones who find satisfaction in the operational work, not the ones who tolerate it while waiting for the next conference.</p>
 
-<p>Creator-attributed referrals went from 1.7K to 7.2K weekly — a 4x increase. The growth wasn't from more creators. It was from better-quality content by well-briefed creators who actually understood what they were integrating. Volume without quality would have flatlined the referral numbers and produced content nobody watched past the first minute.</p>
-
-<h2>What I'd do differently</h2>
-
-<p>Two things, both operational.</p>
-
-<p><strong>Automate milestone review earlier.</strong> When you have tight criteria, every payout requires a judgment call. I reviewed each milestone ad hoc — workable at ten ambassadors, a bottleneck at scale. I'd build a structured review template populated with TubeMonitor data from week one instead of retrofitting it after the first scaling friction.</p>
-
-<p><strong>Front-load the creator brief.</strong> The first cohort produced lower-quality drafts because the brief wasn't specific enough about what a good integration looked like. We iterated on it over three feedback cycles. That cost two weeks I could have recovered upfront.</p>
-
-<p>The brief is the most important artefact in the program. It's the difference between a creator who produces a tutorial worth watching and one who produces a feature mention nobody clicks. Write it before you recruit anyone.</p>
+        <p>If spreadsheets bore you, this might not be your field. If spreadsheets bore you but you build automations to avoid them, you'll do very well.</p>
     </div>
 
     <div class="article-bottom">
@@ -229,7 +211,6 @@ a:hover{color:#D97706}
         <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to writing
       </a>
-      <a href="/writing/tubemonitor-vibe-coding" class="article-nav-link">Next: TubeMonitor →</a>
     </div>
   </div>
 </article>
