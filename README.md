@@ -1,44 +1,25 @@
 # Vishal Das - Developer Community Manager & Program Manager Portfolio
 
-A dynamic, single-page personal portfolio website designed to showcase my experience as a Developer Community Manager & Program Manager. 
-
-## Overview
-
-This repository hosts the source code for my personal portfolio which has been completely rebuilt as a lightweight, static web application. It transitions away from the previous Gatsby/React architecture to a highly optimized, vanilla HTML/JS/CSS solution using Tailwind CSS.
+A lightweight, static portfolio website showcasing my experience as a Developer Community Manager & Program Manager.
 
 **Live Site:** [kindavishal.js.org](https://kindavishal.js.org/)
 
-## Key Features
-
-- **Role-Based Lenses**: Interactive toggle to filter content for different audiences:
-    - **Overview**: A balanced view of all experience.
-    - **Technical**: Highlights engineering velocity, automation, and platform stability.
-    - **Operations**: Focuses on strategy, stakeholder management, and program rigor.
-- **"Google Mode"**: A unique feature that toggles terminology between generic industry terms (e.g., "Issue Tracking") and internal Google lingo (e.g., "Buganizer"). Enhanced with auto-scroll and interactive toast notifications.
-- **Interactive Metrics**: "Key Impact Metrics" dashboard where clicking a metric highlights the relevant proof point in the experience timeline.
-- **Accessibility & Themes**:
-    - Full Dark/Light mode support.
-    - Specialized accessibility modes: High Contrast and Color Blind Safe.
-    - Screen-reader friendly architecture.
-- **Print Optimization**: content automatically reformats for a clean, resume-style PDF export when printing the page.
-
 ## Tech Stack
 
-- **Core**: Semantic HTML5, Vanilla JavaScript (ES6+).
-- **Styling**: Tailwind CSS (CLI) for optimized, utility-first styling.
-- **Visualization**: Chart.js for the skills radar chart.
-- **Fonts**: Inter and Playfair Display.
+- **Core**: Semantic HTML5, Vanilla JavaScript (ES6+)
+- **Styling**: Tailwind CSS (CLI), utility-first with custom design system
+- **Fonts**: Space Grotesk, Literata
 
 ## Development
 
-- `npm start`: Start local static server.
-- `npm run dev`: Start Tailwind CLI in watch mode.
-- `npm run build`: Build production assets.
+- `npm start`: Start local static server on port 8080
+- `npm run dev`: Start Tailwind CLI in watch mode
+- `npm run build:css`: Build and minify Tailwind output
 
 ## Disclaimer
 
-**Note**: The source for this site was created for my own personal use and is not intended to be a template or theme for others. While you are welcome to view the source code for inspiration, it was not written to be cloned or deployed by others. I do not provide support, guidance, or maintenance for forks of this project.
+The source for this site was created for my own personal use and is not intended to be a template or theme for others. While you are welcome to view the source code for inspiration, it was not written to be cloned or deployed by others.
 
 ## Author
 
-- **Vishal Das** - [LinkedIn](https://linkedin.com/in/kindavishal) | [GitHub](https://github.com/kindavishal)
+**Vishal Das** - [LinkedIn](https://linkedin.com/in/kindavishal) | [GitHub](https://github.com/kindavishal)
