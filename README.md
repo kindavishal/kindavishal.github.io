@@ -1,6 +1,6 @@
-# Vishal Das - Program Manager Portfolio
+# Vishal Das - Developer Community Manager & Program Manager Portfolio
 
-A dynamic, single-page personal portfolio website designed to showcase my experience as a Strategic Program Manager. 
+A dynamic, single-page personal portfolio website designed to showcase my experience as a Developer Community Manager & Program Manager. 
 
 ## Overview
 

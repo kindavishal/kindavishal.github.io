@@ -1,7 +1,7 @@
 {
   "name": "kindavishal.github.io",
   "version": "1.0.0",
-  "description": "A dynamic, single-page personal portfolio website designed to showcase my experience as a Strategic Program Manager.",
+  "description": "A dynamic, single-page personal portfolio website designed to showcase my experience as a Developer Community Manager & Program Manager.",
   "main": "index.js",
   "scripts": {
     "start": "http-server . -p 8080 -c-1",
