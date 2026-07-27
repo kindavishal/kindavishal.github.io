@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.{html,js}"],
+    // Only these two pages still use Tailwind; the rest ship self-contained inline CSS.
+    content: ["./now.html", "./work-with-me.html"],
     darkMode: 'class',
     theme: {
         extend: {

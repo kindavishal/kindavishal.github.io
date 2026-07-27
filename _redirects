@@ -1,1 +1,12 @@
 /resume   https://docs.google.com/document/d/e/2PACX-1vS5il5Ac2vc5606ACVm3YnOFXpCi7u4Py-HXB0bkUrBQGCiAnsTa4IUczZuZb4L3NVTaXU7BOCjge-W/pub  301
+
+# Posts pulled back for revision. 302 (not 301) so browsers and crawlers
+# don't cache these permanently — the original URLs are meant to return.
+/writing/big-company-to-startup           /writing  302
+/writing/unsexy-side-of-devrel            /writing  302
+/writing/community-is-not-a-cost-center   /writing  302
+/writing/operator-builder-gap             /writing  302
+/writing/managing-300-partnerships        /writing  302
+/writing/firecrawl-ambassador-tier-system /writing  302
+/writing/tubemonitor-vibe-coding          /writing  302
+/writing/12-step-community-framework      /writing  302
