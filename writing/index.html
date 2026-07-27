@@ -24,7 +24,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+main{flex:1 0 auto}
+.footer{flex-shrink:0}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 a:hover{color:#D97706}
@@ -150,6 +152,9 @@ a:hover{color:#D97706}
       <p class="reveal" style="color: #78716C; margin-top: 24px; font-style: italic;">
         I'm currently revising a series of essays about lessons learned scaling programs at Google and Firecrawl. Check back soon.
       </p>
+      <div class="reveal reveal-delay-1" style="margin-top:32px">
+        <a href="/" class="btn-primary">← Back to home</a>
+      </div>
 
     </div>
   </div>
