@@ -7,28 +7,31 @@ A lightweight, static portfolio website showcasing my experience as a Developer 
 ## Tech Stack
 
 - **Core**: Semantic HTML5, Vanilla JavaScript (ES6+)
+- **Styling**: a self-contained inline `<style>` block per page — no framework, no build step
 - **Fonts**: Space Grotesk, Literata
-- **Styling**: two systems, mid-migration —
-  - `index.html` and `writing/*` use a self-contained inline `<style>` design (no Tailwind)
-  - `now.html` and `work-with-me.html` still use Tailwind via `src/output.css`
 
 ## Project structure
 
-HTML is edited directly at the repo root — that is the deployed source. There is no
-HTML build step, and Netlify serves the repo as-is (no CI, no build command).
+HTML is edited directly and is the deployed source. **There is no build step** — Netlify
+serves the repo as-is (no CI, no build command), so what is committed is what ships.
 
-`src/` holds **only** the Tailwind stylesheet:
+```
+index.html          the homepage
+writing/index.html  the writing index
+drafts/             unpublished pieces — not linked, noindex, disallowed in robots.txt
+assets/             images and icons
+_redirects          Netlify redirects for retired URLs
+```
 
-- `src/input.css` — Tailwind source
-- `src/output.css` — generated; loaded at runtime by `now.html` and `work-with-me.html`
-
-Do not delete `src/output.css` — those two pages lose all styling without it.
+Each page carries its own CSS inline. There is no shared stylesheet, so a change to
+shared furniture (nav, footer, buttons) has to be applied to each page that uses it.
 
 ## Development
 
-- `npm start`: Start local static server on port 8080
-- `npm run dev`: Start Tailwind CLI in watch mode
-- `npm run build`: Build and minify Tailwind output (alias of `build:css`)
+- `npm start`: Start a local static server on port 8080
+
+The only dependency is `http-server`, used for local preview. Nothing is required to build
+or deploy.
 
 ## Disclaimer
 

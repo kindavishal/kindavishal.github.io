@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vishal Das | Developer Community Manager & Program Manager</title>
-<meta name="description" content="Developer Community Manager & Program Manager. Currently at Firecrawl building the creator ecosystem, previously at Google scaling developer programs across India.">
+<meta name="description" content="Developer Community & Program Manager. I build profitable developer communities that people want to be in — and the attribution layer that proves what they returned.">
 <meta name="author" content="Vishal Das">
 <meta name="keywords" content="Developer Community Manager, Program Manager, Firecrawl, Developer Ecosystems, Community Strategy, Google, AI Infrastructure">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kindavishal.js.org">
 <meta property="og:site_name" content="Vishal Das">
 <meta property="og:title" content="Vishal Das — Developer Community Manager & Program Manager">
-<meta property="og:description" content="Developer Community Manager & Program Manager. Currently at Firecrawl, previously at Google. I build developer ecosystems and make sure programs land.">
+<meta property="og:description" content="Developer Community & Program Manager. I build profitable developer communities that people want to be in — and the attribution layer that proves what they returned.">
 <meta property="og:image" content="https://kindavishal.js.org/assets/preview-card.png">
 <meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/preview-card.png">
 <meta property="og:image:type" content="image/png">
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://kindavishal.js.org">
 <meta name="twitter:title" content="Vishal Das — Developer Community Manager & Program Manager">
-<meta name="twitter:description" content="Developer Community Manager & Program Manager. Currently at Firecrawl, previously at Google. I build developer ecosystems and make sure programs land.">
+<meta name="twitter:description" content="Developer Community & Program Manager. I build profitable developer communities that people want to be in — and the attribution layer that proves what they returned.">
 <meta name="twitter:image" content="https://kindavishal.js.org/assets/preview-card.png">
 <meta name="twitter:image:alt" content="Vishal Das — Developer Community Manager & Program Manager">
 <link rel="icon" type="image/png" href="assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
@@ -34,8 +34,8 @@
   "@type": "Person",
   "name": "Vishal Das",
   "jobTitle": "Developer Community Manager & Program Manager",
-  "worksFor": { "@type": "Organization", "name": "Firecrawl" },
   "alumniOf": [
+    { "@type": "Organization", "name": "Firecrawl" },
     { "@type": "Organization", "name": "Google" },
     { "@type": "Organization", "name": "Lovely Professional University" }
   ],
@@ -103,6 +103,7 @@ a:hover{color:#D97706}
 /* SECTION HEADERS */
 .section-label{font-size:12px;font-weight:600;color:#D97706;text-transform:uppercase;letter-spacing:2px}
 .section-title{font-family:'Literata',serif;font-size:36px;margin:12px 0 16px;letter-spacing:-0.5px}
+.section-desc{font-size:15px;line-height:1.7;color:#78716C;margin:0 0 8px}
 
 /* WHAT I DO */
 .what-i-do{padding:80px 0;background:#1C1917;color:#F8F6F2}
@@ -132,8 +133,8 @@ a:hover{color:#D97706}
 .work-card-result-val{font-size:16px;font-weight:600;color:#1C1917;line-height:1.5}
 
 /* CAREER */
-.career{padding:80px 0;background:#F0EDE8}
-.career-inner{max-width:1320px;margin:0 auto;padding:0 64px}
+.career,.member-value{padding:80px 0;background:#F0EDE8}
+.career-inner,.member-value-inner{max-width:1320px;margin:0 auto;padding:0 64px}
 .career-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
 .career-card{background:#fff;border-radius:16px;padding:36px;border:1px solid rgba(0,0,0,0.04);transition:all .3s ease}
 .career-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-2px)}
@@ -141,6 +142,23 @@ a:hover{color:#D97706}
 .career-card h3{font-family:'Literata',serif;font-size:24px;margin:0 0 4px}
 .career-card .role{font-size:14px;font-weight:600;color:#D97706;margin:0 0 12px}
 .career-card p{font-size:14px;line-height:1.7;color:#57534E;margin:0}
+.career-card.next{background:transparent;border:1.5px dashed #E0B980;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.career-card.next:hover{border-color:#D97706;background:rgba(217,119,6,0.04);box-shadow:none}
+.career-card.next .career-date{background:transparent;border:1px solid #E0B980}
+.career-card.next h3{color:#1C1917}
+.career-card.next .next-cta{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:600;color:#D97706}
+.career-card.next:hover .next-cta{gap:10px}
+
+/* HERO CREDENTIALS + PROOF STRIP */
+.hero-creds{margin-top:24px;font-size:13px;color:#78716C;font-weight:500}
+.hero-creds b{color:#1C1917;font-weight:600}
+.hero-proof{display:flex;gap:28px;flex-wrap:wrap;margin-top:20px;padding-top:24px;border-top:1px solid rgba(0,0,0,0.07)}
+.hero-proof div{display:flex;flex-direction:column}
+.hero-proof b{font-family:'Literata',serif;font-size:24px;font-weight:600;color:#1C1917;letter-spacing:-0.5px}
+.hero-proof span{font-size:12px;color:#78716C;font-weight:500}
+
+/* MEMBER VALUE */
+.mv-num{font-family:'Literata',serif;font-size:40px;line-height:1;color:#D97706;letter-spacing:-1px;margin-bottom:10px}
 
 /* SKILLS */
 .skills{padding:80px 64px;max-width:1320px;margin:0 auto}
@@ -174,6 +192,7 @@ a:hover{color:#D97706}
 .blog{padding:80px 0;background:#F0EDE8}
 .blog-inner{max-width:1320px;margin:0 auto;padding:0 64px}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px}
+.blog-grid>:only-child{max-width:420px;margin:0 auto;width:100%}
 .blog-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.04);transition:all .3s ease}
 .blog-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-4px)}
 .blog-card-img{height:180px;display:flex;align-items:center;justify-content:center;padding:32px}
@@ -185,16 +204,6 @@ a:hover{color:#D97706}
 .blog-card-body h3{font-size:18px;margin:8px 0;color:#1C1917;line-height:1.4}
 .blog-card-body p{font-size:14px;color:#78716C;line-height:1.6;margin:0}
 
-/* RESUME */
-.resume{padding:80px 64px;max-width:1320px;margin:0 auto}
-.resume-desc{font-size:15px;color:#78716C;margin:0 0 32px}
-.resume-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.resume-card{display:flex;flex-direction:column;align-items:center;gap:12px;padding:28px 20px;background:#F0EDE8;border-radius:14px;border:1px solid transparent;cursor:pointer;transition:all .2s;text-align:center}
-.resume-card:hover{border-color:#D97706;background:#FFFBEB;transform:translateY(-2px)}
-.resume-card-icon{font-size:28px}
-.resume-card-title{font-size:14px;font-weight:600;color:#1C1917}
-.resume-card-sub{font-size:12px;color:#78716C}
-.resume-card-dl{font-size:12px;color:#D97706;font-weight:600}
 
 /* CTA */
 .cta{padding:100px 64px;text-align:center;background:#1C1917}
@@ -228,7 +237,11 @@ a:hover{color:#D97706}
   .nav-inner{padding:0 32px}
   .hero{padding:100px 32px 60px;grid-template-columns:1fr;gap:40px}
   .hero-photo{width:100%;max-width:400px;height:400px;margin:0 auto}
-  .what-i-do-inner,.career-inner,.side-projects-inner,.blog-inner{padding:0 32px}
+  .hero-ctas{justify-content:center}
+  .hero-creds{text-align:center}
+  .hero-sub,.hero-detail{max-width:none}
+  .what-i-do .section-title,.what-i-do-desc{max-width:none}
+  .what-i-do-inner,.career-inner,.member-value-inner,.side-projects-inner,.blog-inner{padding:0 32px}
   .what-i-do-grid{grid-template-columns:1fr}
   .work{padding:80px 32px}
   .work-card{grid-template-columns:1fr}
@@ -240,8 +253,6 @@ a:hover{color:#D97706}
   .endorsements{padding:80px 32px}
   .endorse-grid{grid-template-columns:1fr}
   .blog-grid{grid-template-columns:1fr}
-  .resume{padding:80px 32px}
-  .resume-grid{grid-template-columns:repeat(2,1fr)}
   .cta{padding:80px 32px}
   .cta h2{font-size:36px}
   .footer{padding:24px 32px}
@@ -257,15 +268,13 @@ a:hover{color:#D97706}
   .hero-photo{height:350px;max-width:100%}
   .hero-ctas{flex-direction:column;align-items:stretch}
   .hero-ctas a{text-align:center}
-  .what-i-do-inner,.career-inner,.side-projects-inner,.blog-inner{padding:0 20px}
-  .what-i-do,.career,.side-projects,.blog{padding:60px 0}
+  .what-i-do-inner,.career-inner,.member-value-inner,.side-projects-inner,.blog-inner{padding:0 20px}
+  .what-i-do,.career,.member-value,.side-projects,.blog{padding:60px 0}
   .section-title{font-size:28px}
   .work{padding:60px 20px}
   .skills{padding:60px 20px}
   .skills-grid{grid-template-columns:1fr}
   .endorsements{padding:60px 20px}
-  .resume{padding:60px 20px}
-  .resume-grid{grid-template-columns:1fr}
   .cta{padding:60px 20px}
   .cta h2{font-size:30px}
   .cta-btns{flex-direction:column;align-items:stretch}
@@ -284,12 +293,12 @@ a:hover{color:#D97706}
       <span class="nav-logo-name">Vishal Das</span>
     </a>
     <div class="nav-links">
-      <a href="#what-i-do">What I Do</a>
+      <a href="#what-i-do">How I Work</a>
       <a href="#work">Work</a>
       <a href="#career">Experience</a>
       <a href="/writing">Writing</a>
       <div class="nav-btns">
-        <a href="#resume" class="btn-outline">Request Resume</a>
+        <a href="#contact" class="btn-outline">Request Resume</a>
         <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
       </div>
     </div>
@@ -301,13 +310,13 @@ a:hover{color:#D97706}
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#what-i-do" onclick="closeMenu()">What I Do</a>
+  <a href="#what-i-do" onclick="closeMenu()">How I Work</a>
   <a href="#work" onclick="closeMenu()">Work</a>
   <a href="#career" onclick="closeMenu()">Experience</a>
   <a href="/writing" onclick="closeMenu()">Writing</a>
   <a href="#endorsements" onclick="closeMenu()">Endorsements</a>
   <div class="nav-btns">
-    <a href="#resume" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
     <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
   </div>
 </div>
@@ -319,13 +328,14 @@ a:hover{color:#D97706}
       <div class="hero-badge-dot"></div>
       <span>Open for full-time roles</span>
     </div>
-    <h1>I build developer communities and make programs <em>actually ship</em>.</h1>
-    <p class="hero-sub">I grow developer ecosystems, design community programs, and manage the cross-functional work that makes them run at scale.</p>
-    <p class="hero-detail">Currently at Firecrawl, where I'm building the creator and partner ecosystem from scratch. Previously at Google, scaling developer programs across India.</p>
+    <h1>I build <em>profitable</em> developer communities that people actually want to be in.</h1>
+    <p class="hero-sub">Community work is often hard to measure. I build the layer that makes it measurable. The same numbers that show what developers gained also show what the business got back.</p>
+    <p class="hero-detail">Most recently built the creator and community function at Firecrawl, where creator-attributed referrals grew 4x (1.7K → 7.2K weekly). Before that at Google, built a profitable 300+ partner ecosystem and a 3,500-person mentor network across India that supported the professional growth of 150K+ early-career developers.</p>
     <div class="hero-ctas">
       <a href="#work" class="btn-dark">See what I've done ↓</a>
-      <a href="#resume" class="btn-link">or request my resume →</a>
+      <a href="#contact" class="btn-link">or request my resume →</a>
     </div>
+    <p class="hero-creds">Trained <b>GitHub Campus Expert</b> &amp; <b>Meta Certified Community Manager</b></p>
   </div>
   <div>
     <div class="hero-photo">
@@ -337,30 +347,30 @@ a:hover{color:#D97706}
 <!-- What I Actually Do -->
 <section class="what-i-do" id="what-i-do">
   <div class="what-i-do-inner">
-    <span class="section-label reveal">What I Actually Do</span>
-    <h2 class="section-title reveal">Think of me as the person between the idea and the execution.</h2>
-    <p class="what-i-do-desc reveal">Companies hire developer community managers and program managers when things are too complex for one team to handle alone. I'm the one who builds the community, figures out the plan, aligns everyone, and makes sure nothing falls through the cracks.</p>
+    <span class="section-label reveal">How I Work</span>
+    <h2 class="section-title reveal">Community is not a cost center. Here's the why.</h2>
+    <p class="what-i-do-desc reveal">Two questions are hard to answer in most community work. What did a member actually get out of this? And what did the company get back? I build programs where both are answerable, backed by data, and come from the same system.</p>
     <div class="what-i-do-grid">
       <div class="wid-card reveal reveal-delay-1">
         <div class="wid-card-icon">
-          <svg width="24" height="24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+          <svg width="24" height="24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <h3>I turn chaos into a plan</h3>
-        <p>When a project involves multiple teams, vendors, and timelines, I define the strategy, set up governance, and make sure everyone knows what's happening and when.</p>
+        <h3>What do members actually get?</h3>
+        <p>People join for different reasons. Some want to learn, some want an audience, some want recognition for work they already do. I design rewards around what members actually value — early access, mentorship, visibility, and real support for their growth. I also make sure what the program gives back is worth what it costs, so it keeps running instead of ending with a budget cycle.</p>
       </div>
       <div class="wid-card reveal reveal-delay-2">
         <div class="wid-card-icon">
           <svg width="24" height="24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         </div>
-        <h3>I build systems, not spreadsheets</h3>
-        <p>I automate the boring stuff — partner onboarding, vendor payments, reporting pipelines — so teams can focus on the work that matters instead of chasing status updates.</p>
+        <h3>What about the attribution layer?</h3>
+        <p>Showing what community work returned usually needs engineering time, and that time is hard to come by on any team. I build it myself — that's the edge I bring from an engineering background. At Google I automated the data collection and reporting, which made the program's impact visible and took manual work off my plate. At Firecrawl I shipped affiliate tracking down to each partner, and the team used it to decide payouts.</p>
       </div>
       <div class="wid-card reveal reveal-delay-3">
         <div class="wid-card-icon">
-          <svg width="24" height="24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <svg width="24" height="24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
         </div>
-        <h3>I grow things that need growing</h3>
-        <p>Whether it's a developer community, an education platform, or an adoption program — I figure out what's blocking growth and systematically remove those barriers.</p>
+        <h3>Both sides read the same numbers</h3>
+        <p>This is a habit I've built over a decade — across independent communities, GitHub, CodeChef, Google, and Firecrawl. The numbers that show what developers gained are the same numbers that show leadership what the program returned, so member value and business returns stop being two separate arguments. And communities that feel unfair or unsafe stop growing. Clear rules and good moderation aren't extras. They're what keeps the numbers going up.</p>
       </div>
     </div>
   </div>
@@ -375,42 +385,28 @@ a:hover{color:#D97706}
       <div class="work-card-body">
         <div class="work-card-tags">
           <span class="tag-amber">Firecrawl</span>
-          <span class="tag-gray">AI Infrastructure</span>
+          <span class="tag-gray">Attribution</span>
         </div>
-        <h3>Building a partner ecosystem from zero at a Series A AI startup</h3>
-        <p>Firecrawl had no partner program. I designed the full stack — Ambassador, Firestarter, Affiliate, and Student tiers — recruited 10 creator partners in 4 weeks, and built the attribution infrastructure to track partner ROI at the individual level.</p>
+        <h3>Building the attribution layer that made partner ROI measurable at the individual level</h3>
+        <p>Nothing tracked which partners were actually bringing in signups. I built that tracking from scratch. The same system now works out what each partner gets paid and what the program returned. One system, both answers.</p>
       </div>
       <div class="work-card-result">
-        <div class="work-card-result-label">Growth</div>
-        <div class="work-card-result-val">Partner-attributed referrals grew 4x (1.7K → 7.2K weekly)</div>
+        <div class="work-card-result-label">Result</div>
+        <div class="work-card-result-val">What the team now uses to decide every partner payout</div>
       </div>
     </div>
     <div class="work-card reveal">
       <div class="work-card-body">
         <div class="work-card-tags">
           <span class="tag-amber">Firecrawl</span>
-          <span class="tag-gray">Revenue</span>
+          <span class="tag-gray">AI Infrastructure</span>
         </div>
-        <h3>Building affiliate attribution from scratch to prove partner ROI</h3>
-        <p>No system existed to track which partners were actually driving signups. I built the affiliate attribution infrastructure end-to-end — now the system of record for partner performance, payouts, and program decisions.</p>
+        <h3>Building a partner ecosystem from zero at a Series A AI startup</h3>
+        <p>Firecrawl had no partner program. I built the four programs — Ambassador, Firestarter, Affiliate, and Student. I signed 10 creator partners in 4 weeks. Then I built the tracking to show what each one was worth.</p>
       </div>
       <div class="work-card-result">
-        <div class="work-card-result-label">Result</div>
-        <div class="work-card-result-val">System of record for all partner ROI decisions</div>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="work-card-body">
-        <div class="work-card-tags">
-          <span class="tag-amber">Google</span>
-          <span class="tag-gray">AI / ML</span>
-        </div>
-        <h3>Getting developers to actually adopt Gemini API</h3>
-        <p>Google had a powerful AI product. My job was to figure out which partners to prioritize, design the workshop program, and get developers from "interested" to "building with it." I segmented partners by maturity level and tailored the approach for each — depth for advanced teams, breadth for newer ones.</p>
-      </div>
-      <div class="work-card-result">
-        <div class="work-card-result-label">Result</div>
-        <div class="work-card-result-val">Drove significant API adoption growth in a single quarter</div>
+        <div class="work-card-result-label">Growth</div>
+        <div class="work-card-result-val">Creator-attributed referrals grew 4x (1.7K → 7.2K weekly)</div>
       </div>
     </div>
     <div class="work-card reveal">
@@ -420,7 +416,7 @@ a:hover{color:#D97706}
           <span class="tag-gray">Education</span>
         </div>
         <h3>Scaling a cloud skills program across 200+ Indian colleges</h3>
-        <p>The challenge: get cloud computing skills into hundreds of colleges with wildly different levels of infrastructure and faculty readiness. I built the engagement playbook, negotiated with institutions, and designed a tiered rollout that prioritized high-impact partnerships while nurturing lagging ones.</p>
+        <p>The challenge: get cloud skills into hundreds of colleges with very different setups and staff readiness. I wrote the playbook and negotiated with each institution. Then I designed a rollout that backed the strongest partnerships first while bringing the slower ones along.</p>
       </div>
       <div class="work-card-result">
         <div class="work-card-result-label">Scale</div>
@@ -431,10 +427,24 @@ a:hover{color:#D97706}
       <div class="work-card-body">
         <div class="work-card-tags">
           <span class="tag-amber">Google</span>
-          <span class="tag-gray">Compliance</span>
+          <span class="tag-gray">AI / ML</span>
         </div>
-        <h3>Rolling out brand safety rules without breaking developer velocity</h3>
-        <p>New brand safety guidelines had to be implemented across all partner programs — but do it wrong and you slow everyone down. I coordinated between Legal, Product, and DevRel, translated rigid policy into practical guardrails, and ran the rollout across partners at different compliance readiness levels.</p>
+        <h3>Getting developers to actually adopt Gemini API</h3>
+        <p>Google had a powerful AI product. My job was to get developers from "interested" to "building with it." I picked which partners to start with and designed the workshop program. Then I split partners by how far along they were — depth for advanced teams, breadth for newer ones.</p>
+      </div>
+      <div class="work-card-result">
+        <div class="work-card-result-label">Result</div>
+        <div class="work-card-result-val">60K+ Gemini API developer adoptions</div>
+      </div>
+    </div>
+    <div class="work-card reveal">
+      <div class="work-card-body">
+        <div class="work-card-tags">
+          <span class="tag-amber">Google</span>
+          <span class="tag-gray">Trust &amp; Safety</span>
+        </div>
+        <h3>Keeping a partner ecosystem safe without breaking developer velocity</h3>
+        <p>New safety rules had to reach every partner program — protecting members without grinding everything to a halt. I worked between Legal, Product, and DevRel to turn strict policy into rules partners could actually follow. Then I rolled it out across partners at very different levels of readiness. Communities that stop feeling safe stop growing.</p>
       </div>
       <div class="work-card-result">
         <div class="work-card-result-label">Result</div>
@@ -447,7 +457,7 @@ a:hover{color:#D97706}
           <span class="tag-gray">Internal Tooling</span>
         </div>
         <h3>Automating away 40 hours of weekly busywork</h3>
-        <p>Partner onboarding was a manual nightmare — forms, approvals, data entry. I built Apps Script workflows that automated the entire pipeline, created self-serve dashboards using BigQuery and Looker Studio, and freed the team to focus on program strategy instead of operational toil.</p>
+        <p>Partner onboarding was a manual nightmare — forms, approvals, data entry. I built Apps Script workflows that automated the whole thing. I added dashboards in BigQuery and Looker Studio so people could check things themselves. The team got their week back.</p>
       </div>
       <div class="work-card-result">
         <div class="work-card-result-label">Savings</div>
@@ -462,12 +472,13 @@ a:hover{color:#D97706}
   <div class="career-inner">
     <span class="section-label reveal">Career</span>
     <h2 class="section-title reveal">Where I've done this</h2>
+    <p class="section-desc reveal">The same approach at every scale — from communities I started myself back in 2018, to a 3,500-person mentor network at Google, to building a creator programme from zero at a Series A startup.</p>
     <div class="career-grid">
       <div class="career-card reveal reveal-delay-1">
-        <span class="career-date">May 2026 – Present</span>
+        <span class="career-date">May 2026 – Jun 2026</span>
         <h3>Firecrawl</h3>
         <p class="role">Creator &amp; Community Lead</p>
-        <p>Series A web-data infrastructure company for AI. Designed and launched partner/creator ecosystem from zero — built Ambassador, Firestarter, Affiliate, and Student programs. Grew partner-attributed referrals 4x (1.7K → 7.2K weekly). Built affiliate attribution infrastructure as system of record for partner ROI.</p>
+        <p>Series A web-data company for AI. Built the partner and creator programs from zero — Ambassador, Firestarter, Affiliate, and Student. Grew creator-attributed referrals 4x (1.7K → 7.2K weekly). Built the affiliate tracking the team now uses to decide payouts.</p>
       </div>
       <div class="career-card reveal reveal-delay-2">
         <span class="career-date">May 2022 – Dec 2025</span>
@@ -478,9 +489,16 @@ a:hover{color:#D97706}
       <div class="career-card reveal reveal-delay-2">
         <span class="career-date">Nov 2020 – May 2022</span>
         <h3>CodeChef</h3>
-        <p class="role">Partnerships Lead</p>
-        <p>Built institutional partner network from 100 to 300+ organizations in 12 months.</p>
+        <p class="role">Community Manager</p>
+        <p>Grew the college partner network from 100 to over 300. Ran workshops and online campaigns, and set up a Discord community for each one under the CodeChef Colleges program. Signed MoUs that made CodeChef the default platform for coding and competitive programming in class.</p>
       </div>
+      <a href="#contact" class="career-card next reveal reveal-delay-2">
+        <span class="career-date">Next</span>
+        <h3>Your org here</h3>
+        <p class="role">Developer Community &amp; Program Manager</p>
+        <p>This card is empty on purpose. If you're growing a developer community and want it to pay for itself, I'd like to hear about it.</p>
+        <span class="next-cta">Let's talk <span>&rarr;</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -491,7 +509,7 @@ a:hover{color:#D97706}
   <h2 class="section-title reveal">What I work with</h2>
   <div class="skills-grid">
     <div class="skill-group reveal reveal-delay-1">
-      <div class="skill-group-title">Running Programs</div>
+      <div class="skill-group-title">Core Skills</div>
       <ul>
         <li>Stakeholder alignment</li>
         <li>Risk management</li>
@@ -499,22 +517,27 @@ a:hover{color:#D97706}
         <li>Cross-functional leadership</li>
         <li>Launch planning</li>
         <li>Partner onboarding frameworks</li>
+        <li>Affiliate attribution</li>
+        <li>Reward &amp; payout design</li>
         <li>KPI design</li>
       </ul>
     </div>
     <div class="skill-group reveal reveal-delay-1">
-      <div class="skill-group-title">Building Tools</div>
+      <div class="skill-group-title">Tech I Build With</div>
       <ul>
         <li>Python</li>
-        <li>SQL / BigQuery</li>
+        <li>SQL</li>
+        <li>JavaScript</li>
         <li>Google Apps Script</li>
+        <li>BigQuery</li>
         <li>Looker Studio</li>
         <li>GitHub Actions</li>
-        <li>Next.js / Supabase</li>
+        <li>Next.js</li>
+        <li>Supabase</li>
       </ul>
     </div>
     <div class="skill-group reveal reveal-delay-2">
-      <div class="skill-group-title">Managing Work</div>
+      <div class="skill-group-title">Program Management</div>
       <ul>
         <li>Jira / Asana</li>
         <li>Buganizer</li>
@@ -543,24 +566,34 @@ a:hover{color:#D97706}
     <h2 class="section-title reveal">Things I care about</h2>
     <div class="sp-grid">
       <div class="sp-card reveal reveal-delay-1">
-        <h3>TubeMonitor</h3>
-        <p>Built TubeMonitor (Next.js + Supabase) — internal tool tracking partner/creator performance and competitive share-of-voice.</p>
-        <span class="sp-tags">Next.js · Supabase · Internal Tools</span>
+        <h3>Mozilla Punjab — Community Lead</h3>
+        <p>Started and still lead an open source community built around inclusion and togetherness. This is where I learned how communities actually work, long before it was my job.</p>
+        <span class="sp-tags">Since 2018 · Open Source · Community</span>
       </div>
       <div class="sp-card reveal reveal-delay-1">
+        <h3>GitHub Campus Expert</h3>
+        <p>Trained through GitHub's eight-week programme, then spent two and a half years helping student leaders champion open source at their colleges.</p>
+        <span class="sp-tags">2019–2021 · GitHub · Student Communities</span>
+      </div>
+      <div class="sp-card reveal reveal-delay-2">
+        <h3>Mozilla Rep</h3>
+        <p>Mobilised and supported regional Mozilla communities, running hands-on workshops to promote open web standards.</p>
+        <span class="sp-tags">2020–2022 · Community · Open Web</span>
+      </div>
+      <div class="sp-card reveal reveal-delay-2">
+        <h3>Gatsby Maintainer</h3>
+        <p>Helped keep the Gatsby project running for two years — reviewing React contributions and improving docs so newcomers could land their first PR.</p>
+        <span class="sp-tags">2019–2021 · Open Source · React</span>
+      </div>
+      <div class="sp-card reveal reveal-delay-3">
         <h3>Knine.ngo</h3>
         <p>Built a full-stack donation platform for animal welfare. Raised INR 2.5M+ for rescue operations.</p>
         <span class="sp-tags">Full Stack · Impact</span>
       </div>
-      <div class="sp-card reveal reveal-delay-2">
-        <h3>Gatsby JS Maintainer</h3>
-        <p>Open source contributor — reviewed React code and improved documentation for the community.</p>
-        <span class="sp-tags">Open Source · React</span>
-      </div>
       <div class="sp-card reveal reveal-delay-3">
-        <h3>Mozilla Rep</h3>
-        <p>Organized regional communities to promote Open Web Standards through hands-on workshops. (2020–2023)</p>
-        <span class="sp-tags">Community · DevRel</span>
+        <h3>TubeMonitor</h3>
+        <p>Built TubeMonitor (Next.js + Supabase) — an internal tool tracking creator performance and competitive share-of-voice.</p>
+        <span class="sp-tags">Next.js · Supabase · Internal Tools</span>
       </div>
     </div>
   </div>
@@ -569,7 +602,7 @@ a:hover{color:#D97706}
 <!-- Endorsements -->
 <section class="endorsements" id="endorsements">
   <span class="section-label reveal">What people say</span>
-  <h2 class="section-title reveal">Don't take my word for it.</h2>
+  <h2 class="section-title reveal">How I am to work with.</h2>
   <div class="endorse-grid">
     <a href="https://www.linkedin.com/in/kindavishal/details/recommendations/" target="_blank" rel="noopener" class="endorse-card reveal reveal-delay-1">
       <div class="endorse-quote">"</div>
@@ -595,30 +628,9 @@ a:hover{color:#D97706}
         <p class="endorse-role">Senior PM Lead, Unacademy</p>
       </div>
     </a>
-    <a href="https://www.linkedin.com/in/kindavishal/details/recommendations/" target="_blank" rel="noopener" class="endorse-card reveal reveal-delay-1">
-      <div class="endorse-quote">"</div>
-      <p>Vishal is an amazing person to work with, and has exceptional communication skills. His ability to work around communities amazes me... an incredible asset to any team he joins.</p>
-      <div>
-        <p class="endorse-name">Srishti Nema</p>
-        <p class="endorse-role">Software Engineer II, Twilio</p>
-      </div>
-    </a>
-    <a href="https://www.linkedin.com/in/kindavishal/details/recommendations/" target="_blank" rel="noopener" class="endorse-card reveal reveal-delay-2">
-      <div class="endorse-quote">"</div>
-      <p>A team player with leadership qualities where he focuses on carrying everyone on the team along with him... You can't ask for a better teammate.</p>
-      <div>
-        <p class="endorse-name">Anshuman D</p>
-        <p class="endorse-role">Threat Research & Hunting</p>
-      </div>
-    </a>
-    <a href="https://www.linkedin.com/in/kindavishal/details/recommendations/" target="_blank" rel="noopener" class="endorse-card reveal reveal-delay-3">
-      <div class="endorse-quote">"</div>
-      <p>Vishal is exemplary at the work he is assigned with and is extremely reliable... I can vouch for Vishal and give my sincere assurance that he will be resourceful.</p>
-      <div>
-        <p class="endorse-name">Somraj Saha</p>
-        <p class="endorse-role">Founder, Weburz</p>
-      </div>
-    </a>
+  </div>
+  <div class="reveal" style="text-align:center;margin-top:40px">
+    <a href="https://www.linkedin.com/in/kindavishal/details/recommendations/" target="_blank" rel="noopener" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">View all recommendations on LinkedIn <span style="font-size:18px">→</span></a>
   </div>
 </section>
 
@@ -643,38 +655,13 @@ a:hover{color:#D97706}
   </div>
 </section>
 
-<!-- Resume -->
-<section class="resume" id="resume">
-  <span class="section-label reveal">Resume</span>
-  <h2 class="section-title reveal">I tailor my resume to your role</h2>
-  <p class="resume-desc reveal">Send me the job description and I'll share a resume matched to what you're hiring for.</p>
-  <div class="resume-grid" style="grid-template-columns:repeat(2,1fr);max-width:560px;margin:0 auto">
-    <a href="mailto:kindavishal.work@gmail.com?subject=Resume%20Request&body=Hi%20Vishal%2C%0A%0AI'd%20like%20to%20see%20your%20resume%20for%20this%20role%3A%0A%0A%5BPaste%20JD%20or%20link%20here%5D" class="resume-card reveal reveal-delay-1">
-      <div class="resume-card-icon">
-        <svg width="28" height="28" fill="none" stroke="#D97706" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </div>
-      <div class="resume-card-title">Send me the JD</div>
-      <div class="resume-card-sub">I'll reply with a tailored resume</div>
-      <span class="resume-card-dl">Email me →</span>
-    </a>
-    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="resume-card reveal reveal-delay-1">
-      <div class="resume-card-icon">
-        <svg width="28" height="28" fill="none" stroke="#D97706" stroke-width="1.5"><rect x="3" y="4" width="22" height="20" rx="3"/><line x1="3" y1="10" x2="25" y2="10"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="19" y1="2" x2="19" y2="6"/></svg>
-      </div>
-      <div class="resume-card-title">Book a quick chat</div>
-      <div class="resume-card-sub">15 min — let's talk about the role</div>
-      <span class="resume-card-dl">Schedule →</span>
-    </a>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta" id="contact">
   <div class="cta-inner">
-    <h2 class="reveal">Need someone who can<br>ship the hard stuff?</h2>
-    <p class="reveal">I'm looking for Developer Community Manager and Program Manager roles. But even if you're not hiring — I'm always up for a good conversation about building developer ecosystems.</p>
+    <h2 class="reveal">Need a community developers love that also pays for itself?</h2>
+    <p class="reveal">I'm looking for Developer Community Manager and Program Manager roles. Send me the job description and I'll reply with a resume matched to what you're hiring for. And if you're not hiring, I'm always up for a good conversation about building developer communities.</p>
     <div class="cta-btns reveal">
-      <a href="mailto:kindavishal.work@gmail.com" class="btn-amber">Send an Email</a>
+      <a href="mailto:kindavishal.work@gmail.com?subject=Resume%20Request&body=Hi%20Vishal%2C%0A%0AI'd%20like%20to%20see%20your%20resume%20for%20this%20role%3A%0A%0A%5BPaste%20JD%20or%20link%20here%5D" class="btn-amber">Send me the JD</a>
       <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-ghost">Book a 15-min Chat</a>
       <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener" class="btn-ghost">Connect on LinkedIn</a>
     </div>
