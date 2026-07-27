@@ -2,12 +2,8 @@
   "name": "kindavishal.github.io",
   "version": "1.0.0",
   "description": "A dynamic, single-page personal portfolio website designed to showcase my experience as a Developer Community Manager & Program Manager.",
-  "main": "index.js",
   "scripts": {
-    "start": "http-server . -p 8080 -c-1",
-    "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "build:css": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify",
-    "build": "npm run build:css"
+    "start": "http-server . -p 8080 -c-1"
   },
   "repository": {
     "type": "git",
@@ -21,12 +17,6 @@
   },
   "homepage": "https://github.com/kindavishal/kindavishal.github.io#readme",
   "devDependencies": {
-    "@tailwindcss/container-queries": "^0.1.1",
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.19",
-    "autoprefixer": "^10.4.22",
-    "http-server": "^14.1.1",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.16"
+    "http-server": "^14.1.1"
   }
 }
