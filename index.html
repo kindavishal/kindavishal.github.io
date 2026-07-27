@@ -142,6 +142,12 @@ a:hover{color:#D97706}
 .career-card h3{font-family:'Literata',serif;font-size:24px;margin:0 0 4px}
 .career-card .role{font-size:14px;font-weight:600;color:#D97706;margin:0 0 12px}
 .career-card p{font-size:14px;line-height:1.7;color:#57534E;margin:0}
+.career-card.next{background:transparent;border:1.5px dashed #E0B980;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.career-card.next:hover{border-color:#D97706;background:rgba(217,119,6,0.04);box-shadow:none}
+.career-card.next .career-date{background:transparent;border:1px solid #E0B980}
+.career-card.next h3{color:#1C1917}
+.career-card.next .next-cta{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:600;color:#D97706}
+.career-card.next:hover .next-cta{gap:10px}
 
 /* HERO CREDENTIALS + PROOF STRIP */
 .hero-creds{margin-top:24px;font-size:13px;color:#78716C;font-weight:500}
@@ -486,6 +492,13 @@ a:hover{color:#D97706}
         <p class="role">Community Manager</p>
         <p>Grew the college partner network from 100 to over 300. Ran workshops and online campaigns, and set up a Discord community for each one under the CodeChef Colleges program. Signed MoUs that made CodeChef the default platform for coding and competitive programming in class.</p>
       </div>
+      <a href="#contact" class="career-card next reveal reveal-delay-2">
+        <span class="career-date">Next</span>
+        <h3>Your org here</h3>
+        <p class="role">Developer Community &amp; Program Manager</p>
+        <p>This card is empty on purpose. If you're growing a developer community and want it to pay for itself, I'd like to hear about it.</p>
+        <span class="next-cta">Let's talk <span>&rarr;</span></span>
+      </a>
     </div>
   </div>
 </section>
