@@ -307,8 +307,8 @@ a:hover{color:#D97706}
       <a href="#career">Experience</a>
       <a href="/writing">Writing</a>
       <div class="nav-btns">
-        <a href="#contact" class="btn-outline">Request Resume</a>
-        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+        <a href="#contact" class="btn-outline" onclick="gtag('event','request_resume_click',{location:'nav'})">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','book_a_chat_click',{location:'nav'})">Book a Chat →</a>
       </div>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
@@ -325,8 +325,8 @@ a:hover{color:#D97706}
   <a href="/writing" onclick="closeMenu()">Writing</a>
   <a href="#endorsements" onclick="closeMenu()">Endorsements</a>
   <div class="nav-btns">
-    <a href="#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
-    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+    <a href="#contact" class="btn-outline" onclick="closeMenu(); gtag('event','request_resume_click',{location:'nav_mobile'})">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','book_a_chat_click',{location:'nav_mobile'})">Book a Chat →</a>
   </div>
 </div>
 
@@ -670,9 +670,9 @@ a:hover{color:#D97706}
     <h2 class="reveal">Need a community developers love that also pays for itself?</h2>
     <p class="reveal">I'm looking for Developer Community Manager and Program Manager roles. Send me the job description and I'll reply with a resume matched to what you're hiring for. And if you're not hiring, I'm always up for a good conversation about building developer communities.</p>
     <div class="cta-btns reveal">
-      <a href="mailto:kindavishal.work@gmail.com?subject=Resume%20Request&body=Hi%20Vishal%2C%0A%0AI'd%20like%20to%20see%20your%20resume%20for%20this%20role%3A%0A%0A%5BPaste%20JD%20or%20link%20here%5D" class="btn-amber">Send me the JD</a>
-      <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-ghost">Book a 15-min Chat</a>
-      <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener" class="btn-ghost">Connect on LinkedIn</a>
+      <a href="mailto:kindavishal.work@gmail.com?subject=Resume%20Request&body=Hi%20Vishal%2C%0A%0AI'd%20like%20to%20see%20your%20resume%20for%20this%20role%3A%0A%0A%5BPaste%20JD%20or%20link%20here%5D" class="btn-amber" onclick="gtag('event','send_jd_click')">Send me the JD</a>
+      <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-ghost" onclick="gtag('event','book_a_chat_click',{location:'cta'})">Book a 15-min Chat</a>
+      <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener" class="btn-ghost" onclick="gtag('event','linkedin_click',{location:'cta'})">Connect on LinkedIn</a>
     </div>
   </div>
 </section>
@@ -681,8 +681,8 @@ a:hover{color:#D97706}
 <footer class="footer">
   <span>&copy; 2026 Vishal Das</span>
   <div class="footer-links">
-    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener" onclick="gtag('event','github_click',{location:'footer'})">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener" onclick="gtag('event','linkedin_click',{location:'footer'})">LinkedIn</a>
   </div>
 </footer>
 
