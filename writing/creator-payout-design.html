@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRM34FM9F4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HRM34FM9F4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why I paid creators for the video, not the views — Vishal Das</title>
+  <meta name="description" content="Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.">
+  <meta name="author" content="Vishal Das">
+  <link rel="canonical" href="https://kindavishal.js.org/writing/creator-payout-design">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/creator-payout-design">
+  <meta property="og:site_name" content="Vishal Das Portfolio">
+  <meta property="og:title" content="Why I paid creators for the video, not the views — Vishal Das">
+  <meta property="og:description" content="Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/og/creator-payout-design.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/creator-payout-design.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Why I paid creators for the video, not the views">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kindavishal.js.org/writing/creator-payout-design">
+  <meta name="twitter:title" content="Why I paid creators for the video, not the views — Vishal Das">
+  <meta name="twitter:description" content="Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.">
+  <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/creator-payout-design.png">
+  <meta name="twitter:image:alt" content="Why I paid creators for the video, not the views">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why I paid creators for the video, not the views",
+    "description": "Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.",
+    "image": "https://kindavishal.js.org/assets/og/creator-payout-design.png",
+    "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
+    "publisher": { "@type": "Person", "name": "Vishal Das" },
+    "datePublished": "2026-06-30",
+    "dateModified": "2026-06-30",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindavishal.js.org/writing/creator-payout-design" },
+    "url": "https://kindavishal.js.org/writing/creator-payout-design"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Should you pay ambassadors commission or a flat fee?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most ambassador guides recommend commission because you only pay for results. For developer tools I would use a flat fee per deliverable instead. Commission assumes the creator controls the conversion, and they do not — developer buying cycles are long, signups often go untracked, and your pricing page decides much of the outcome. Put the upside in a revenue share on top rather than in the base rate." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is wrong with paying creators per view?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It rewards whatever gets views, which is not the same as whatever explains your product well. Creators respond by chasing titles and thumbnails, because that is what the money asks for. You end up paying most for the content that teaches least." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is wrong with paying per signup?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It invites conversion spam. The fastest way to drive signups is rarely a careful tutorial, so you get pressure tactics and audience burn. It also punishes creators for a conversion rate they do not control, since your pricing page and onboarding decide most of it." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a milestone points system for creators?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every piece of content is worth a fixed number of points based on how deep it goes. A full dedicated video is worth twice an integration. Passing mentions are worth nothing. Points add up over the life of the partnership and unlock bonuses at set totals, so the reward is for staying rather than for any single upload." }
+      },
+      {
+        "@type": "Question",
+        "name": "How should you define creator content types?",
+        "acceptedAnswer": { "@type": "Answer", "text": "By screen time and by whether your product is the subject. A dedicated piece is where the product is the reason the content exists. An integration is where it does a real job inside a larger build and gets meaningful screen time. A mention is a credit with something shown on screen. Write the definitions down before you sign anyone." }
+      }
+    ]
+  }</script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+a:hover{color:#D97706}
+::selection{background:#D97706;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:#1C1917;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon span{color:#D97706;font-family:'Literata',serif;font-weight:700;font-size:16px}
+.nav-logo-name{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:500;color:#78716C}
+.nav-links a{cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:#1C1917}
+.nav-links a.active{color:#D97706;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.btn-outline{border:1.5px solid #E7E5E0;color:#1C1917;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#D97706;color:#D97706}
+.btn-primary{background:#D97706;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#B45309;color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#1C1917;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(248,246,242,0.98);backdrop-filter:blur(16px);z-index:99;flex-direction:column;padding:32px;gap:8px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:500;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#1C1917}
+.mobile-menu .nav-btns{flex-direction:column;gap:12px;margin-top:24px}
+.mobile-menu .nav-btns a{text-align:center;padding:14px 24px}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.footer{padding:24px 64px;background:#1C1917;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#78716C}
+.footer-links{display:flex;gap:20px}
+.footer a{color:#78716C;transition:color .2s}
+.footer a:hover{color:#D97706}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.05s}
+.reveal-delay-2{transition-delay:0.1s}
+.reveal-delay-3{transition-delay:0.15s}
+.reveal-delay-4{transition-delay:0.2s}
+.article-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#D97706;font-weight:600;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#B45309}
+.back-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.article-header{margin-bottom:40px}
+.article-title{font-family:'Literata',serif;font-size:36px;line-height:1.15;letter-spacing:-0.5px;margin:0 0 16px;color:#1C1917}
+.article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article-date{font-size:13px;font-weight:600;color:#D97706;background:#FEF3C7;padding:4px 12px;border-radius:6px;display:inline-block}
+.article-readtime{font-size:13px;color:#78716C}
+.article-body{font-size:16px;line-height:1.8;color:#44403C}
+.article-body h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:40px 0 16px;letter-spacing:-0.3px;line-height:1.3}
+.article-body h3{font-size:18px;font-weight:600;color:#1C1917;margin:32px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body li::marker{color:#D97706}
+.article-body strong{color:#1C1917;font-weight:600}
+.article-body a{color:#D97706;font-weight:500;border-bottom:1px solid rgba(217,119,6,0.3)}
+.article-body a:hover{border-bottom-color:#D97706}
+.article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
+.article-body blockquote p:last-child{margin-bottom:0}
+.callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
+.callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.callout ul,.callout ol{margin:0;padding-left:20px}
+.callout li{margin-bottom:6px;font-size:14px;line-height:1.6;color:#44403C}
+.callout li::marker{color:#D97706}
+.callout p:last-child{margin-bottom:0}
+.mono{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body code{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body pre{background:#1C1917;color:#F8F6F2;padding:20px 24px;border-radius:12px;overflow-x:auto;margin:0 0 24px;font-size:14px;line-height:1.6}
+.article-body pre code{background:none;padding:0;color:inherit;font-size:14px}
+.table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(0,0,0,0.08);border-radius:12px}
+.article-body table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+.article-body th{text-align:left;font-weight:600;color:#1C1917;background:#F0EDE8;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);white-space:nowrap}
+.article-body td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.05);vertical-align:top;line-height:1.6}
+.article-body tr:last-child td{border-bottom:none}
+.faq{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px}
+.faq h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:0 0 24px;letter-spacing:-0.3px}
+.faq-item{margin-bottom:24px}
+.faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
+.faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.article-nav-link{font-size:14px;color:#D97706;font-weight:600;transition:color .2s;display:inline-block;padding:6px 0}
+.article-nav-link:hover{color:#B45309}
+.article-bottom>a:last-child{text-align:right}
+@media(max-width:1024px){
+.nav-inner{padding:0 32px}
+.footer{padding:24px 32px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.nav-inner{padding:0 20px}
+.article-wrap{padding:88px 20px 60px}
+.article-title{font-size:28px}
+.article-bottom{gap:12px}
+.article-nav-link{font-size:13px}
+.footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><span>V</span></div>
+      <span class="nav-logo-name">Vishal Das</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing" class="active">Writing</a>
+      <div class="nav-btns">
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <div class="nav-btns">
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+  </div>
+</div>
+<article>
+  <div class="article-wrap">
+    <a href="/writing" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to writing
+    </a>
+
+    <header class="article-header reveal">
+      <h1 class="article-title">Why I paid creators for the video, not the views</h1>
+      <div class="article-meta">
+        <span class="article-date">June 2026</span>
+        <span class="article-readtime">~5 min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+<p>Almost every guide to paying ambassadors lands in the same place: commission is the most ROI-friendly model, because you only pay for results. It sounds unarguable. You pay for outcomes, the creator carries the risk, nobody wastes money on content that goes nowhere.</p>
+<p>I think it&#39;s wrong for developer tools, and I built the opposite.</p>
+<p>There are two obvious ways to pay a creator, and both of them quietly ruin the content.</p>
+<p><strong>Pay per view</strong> and you&#39;re paying for reach you already priced into their tier. Creators respond by chasing titles and thumbnails, because that&#39;s what the money is asking for. You end up paying most for the content that teaches least.</p>
+<p><strong>Pay per signup or commission</strong> and you invite conversion spam. The fastest route to a signup is rarely a careful tutorial.</p>
+<p>So I did neither. Flat fee per piece of content, set by tier, agreed before anyone starts.</p>
+<h2>Why &quot;only pay for results&quot; backfires here</h2>
+<p>The commission argument assumes the creator controls the result. For a consumer product bought on impulse, roughly true. For a developer tool, not close.</p>
+<p>A developer watches a tutorial, doesn&#39;t sign up, and comes back nine weeks later when they hit the problem it solves. Or they sign up on a work email through a link nobody tracked. Or the tutorial does its job and the signup dies on your pricing page. None of that is the creator&#39;s doing, and all of it lands on their invoice.</p>
+<p>So good creators price in the risk and ask for more, or pass. The ones who accept are the ones who most need the money — not the same people as the ones who explain your API well.</p>
+<p>There&#39;s a second cost. Commission makes you a variable expense in someone&#39;s month, and anyone with a full pipeline schedules guaranteed work first. You end up last in the queue while believing you built an efficient program.</p>
+<h2>Pay for the thing you actually want</h2>
+<p>The point of a creator program isn&#39;t views this week. It&#39;s content that answers a real technical question, ranks on search, and keeps working a year later.</p>
+<p>You get that by paying a known amount for defined work, then getting out of the way. A flat fee also makes income predictable, which is the difference between someone who fits you into their schedule and someone who plans around you.</p>
+<p>Put the upside somewhere it can&#39;t distort the content — for us, a revenue share on referrals, sitting on top of everything else.</p>
+<h2>Three content types, defined tightly</h2>
+<p>A flat fee only works if both sides agree what was bought. That means writing down the content types before you sign anyone.</p>
+<p>We used three.</p>
+<p><strong>Dedicated.</strong> The product is the subject. It&#39;s in the title, it&#39;s the reason the piece exists, and it holds most of the screen time. &quot;How to scrape any website with X.&quot;</p>
+<p><strong>Integration.</strong> The product does a real job inside a larger build. It isn&#39;t the subject — the project is — but it gets meaningful screen time doing actual work. &quot;I built a RAG app with X, Y and Z&quot;, where your tool handles one real step.</p>
+<p><strong>Mention.</strong> A credit inside something they were making anyway. Short, and it has to <em>show</em> something — the API call, the output, the node in the workflow. Saying the name without showing anything doesn&#39;t count.</p>
+<p>That last rule matters more than it looks. Mentions are the format that performs best, because they don&#39;t feel like ads. They&#39;re also the easiest to fake. Requiring a few seconds of something real on screen is what keeps the format honest.</p>
+<div class="callout">
+<p class="callout-title">The payout rules, in short</p>
+<ul>
+<li>Flat fee per piece of content, set by tier, agreed upfront.</li>
+<li>Three content types, priced separately by depth.</li>
+<li>Points accumulate on top: a dedicated piece is worth twice an integration.</li>
+<li>Mentions pay a fee but earn no points — they don't signal commitment.</li>
+<li>A revenue share on referrals sits on top of all of it, so upside stays uncapped.</li>
+</ul>
+</div><h2>Points on top, for staying</h2>
+<p>The flat fee pays for a piece of work. It does nothing to reward someone for still being here in month six.</p>
+<p>So points sit on top. Every piece of content is worth a fixed number based on depth — a dedicated video is worth twice an integration, and a passing mention is worth zero. Points add up for the life of the partnership and unlock bonuses at set totals.</p>
+<p>Two details make it work.</p>
+<p><strong>Bonuses scale with the creator&#39;s own rate</strong>, not a flat cash amount. A bonus that feels meaningful to a small channel is a rounding error to a large one. Expressing it as a share of what they already earn keeps it meaningful at every size.</p>
+<p><strong>The ladder doesn&#39;t end.</strong> After the top milestone, the bonus repeats on a fixed interval, forever. A ladder with a final rung tells your best creators that the program is done rewarding them, right at the point they&#39;ve become most valuable.</p>
+<h2>Why mentions earn nothing</h2>
+<p>This is the rule people push back on hardest, and it&#39;s the one I&#39;d keep.</p>
+<p>Mentions get paid — they&#39;re real work and they perform well. They just don&#39;t move you up the ladder. The ladder is for commitment, and a mention inside something you were making anyway isn&#39;t a commitment. If mentions earned points, the cheapest path to every bonus would be a stream of one-liners, and the deep content the program exists for would stop getting made.</p>
+<p>Pay for everything. Only count what you want more of.</p>
+<h2>What I got wrong</h2>
+<p>The brief. The first cohort turned in weaker drafts because I hadn&#39;t been specific enough about what a good integration looked like. We fixed it over three rounds of feedback. That cost two weeks I could have saved by writing it properly upfront.</p>
+<p>The brief is the most important artefact in the program. It&#39;s the difference between a creator who makes a tutorial worth watching and one who makes a feature mention nobody clicks. Write it before you recruit anyone.</p>
+<p>Paying well gets people in. It doesn&#39;t keep them — that&#39;s a separate design problem, and the usual answer to it is backwards. I wrote about that in <a href="/writing/creator-streak-system">the streak system that never punishes creators</a>.</p>
+    </div>
+
+      <section class="faq">
+        <h2>Questions people ask</h2>
+        <div class="faq-item">
+          <p class="faq-q">Should you pay ambassadors commission or a flat fee?</p>
+          <p class="faq-a">Most ambassador guides recommend commission because you only pay for results. For developer tools I would use a flat fee per deliverable instead. Commission assumes the creator controls the conversion, and they do not — developer buying cycles are long, signups often go untracked, and your pricing page decides much of the outcome. Put the upside in a revenue share on top rather than in the base rate.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is wrong with paying creators per view?</p>
+          <p class="faq-a">It rewards whatever gets views, which is not the same as whatever explains your product well. Creators respond by chasing titles and thumbnails, because that is what the money asks for. You end up paying most for the content that teaches least.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is wrong with paying per signup?</p>
+          <p class="faq-a">It invites conversion spam. The fastest way to drive signups is rarely a careful tutorial, so you get pressure tactics and audience burn. It also punishes creators for a conversion rate they do not control, since your pricing page and onboarding decide most of it.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is a milestone points system for creators?</p>
+          <p class="faq-a">Every piece of content is worth a fixed number of points based on how deep it goes. A full dedicated video is worth twice an integration. Passing mentions are worth nothing. Points add up over the life of the partnership and unlock bonuses at set totals, so the reward is for staying rather than for any single upload.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How should you define creator content types?</p>
+          <p class="faq-a">By screen time and by whether your product is the subject. A dedicated piece is where the product is the reason the content exists. An integration is where it does a real job inside a larger build and gets meaningful screen time. A mention is a credit with something shown on screen. Write the definitions down before you sign anyone.</p>
+        </div>
+      </section>
+
+    <div class="article-bottom">
+      <a href="/writing/firecrawl-ambassador-tier-system" class="article-nav-link">&larr; Prev: The tier system</a>
+      <a href="/writing/creator-streak-system" class="article-nav-link">Next: The streak system →</a>
+    </div>
+  </div>
+</article>
+<footer class="footer">
+  <span>&copy; 2026 Vishal Das</span>
+  <div class="footer-links">
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('active',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',function(){if(window.innerWidth>768)closeMenu()});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}
+  });
+// threshold 0, not 0.1: an element taller than the viewport can never reach a
+// ratio of 0.1, which would leave it stuck at opacity 0 forever.
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>

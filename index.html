@@ -16,6 +16,7 @@
 <meta name="description" content="Developer Community & Program Manager. I build profitable developer communities that people want to be in — and the attribution layer that proves what they returned.">
 <meta name="author" content="Vishal Das">
 <meta name="keywords" content="Developer Community Manager, Program Manager, Firecrawl, Developer Ecosystems, Community Strategy, Google, AI Infrastructure">
+<link rel="canonical" href="https://kindavishal.js.org/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kindavishal.js.org">
 <meta property="og:site_name" content="Vishal Das">
@@ -34,6 +35,7 @@
 <meta name="twitter:image" content="https://kindavishal.js.org/assets/preview-card.png">
 <meta name="twitter:image:alt" content="Vishal Das — Developer Community Manager & Program Manager">
 <link rel="icon" type="image/png" href="assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
@@ -43,6 +45,16 @@
   "@type": "Person",
   "name": "Vishal Das",
   "jobTitle": "Developer Community Manager & Program Manager",
+  "description": "Builds developer community and creator programs, and the attribution layer that measures what they return to the business.",
+  "knowsAbout": [
+    "Developer community programs",
+    "Developer relations attribution",
+    "Creator and ambassador program design",
+    "Affiliate attribution for developer tools",
+    "Partner ecosystem management",
+    "Google Apps Script automation",
+    "Looker Studio reporting"
+  ],
   "alumniOf": [
     { "@type": "Organization", "name": "Firecrawl" },
     { "@type": "Organization", "name": "Google" },
@@ -58,6 +70,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+/* Nav is fixed at 68px. Without this, anchor jumps land section headings
+   underneath it — mobile section padding (60px) is shorter than the nav. */
+section[id]{scroll-margin-top:24px}
 body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
@@ -140,7 +155,7 @@ a:hover{color:#D97706}
 .work-card-result{background:#FFFBEB;display:flex;flex-direction:column;justify-content:center;padding:36px;border-left:3px solid #D97706}
 .work-card-result-label{font-size:12px;font-weight:600;color:#D97706;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
 .work-card-result-val{font-size:16px;font-weight:600;color:#1C1917;line-height:1.5}
-.work-card-result-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:600;color:#D97706}
+.work-card-result-link{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 0;font-size:13px;font-weight:600;color:#D97706}
 .work-card-result-link:hover{gap:10px}
 .work-card-result-link span{transition:transform .2s ease}
 
@@ -315,7 +330,7 @@ a.sp-card:hover h3::after{opacity:1}
       <a href="#what-i-do">How I Work</a>
       <a href="#work">Work</a>
       <a href="#career">Experience</a>
-      <a href="/writing">Writing</a>
+      <a href="#writing">Writing</a>
       <div class="nav-btns">
         <a href="#contact" class="btn-outline" onclick="gtag('event','request_resume_click',{location:'nav'})">Request Resume</a>
         <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','book_a_chat_click',{location:'nav'})">Book a Chat →</a>
@@ -332,7 +347,7 @@ a.sp-card:hover h3::after{opacity:1}
   <a href="#what-i-do" onclick="closeMenu()">How I Work</a>
   <a href="#work" onclick="closeMenu()">Work</a>
   <a href="#career" onclick="closeMenu()">Experience</a>
-  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <a href="#writing" onclick="closeMenu()">Writing</a>
   <a href="#endorsements" onclick="closeMenu()">Endorsements</a>
   <div class="nav-btns">
     <a href="#contact" class="btn-outline" onclick="closeMenu(); gtag('event','request_resume_click',{location:'nav_mobile'})">Request Resume</a>
@@ -412,6 +427,7 @@ a.sp-card:hover h3::after{opacity:1}
       <div class="work-card-result">
         <div class="work-card-result-label">Result</div>
         <div class="work-card-result-val">What the team now uses to decide every partner payout</div>
+        <a href="/writing/community-attribution-layer" class="work-card-result-link" onclick="gtag('event','writing_click',{location:'work_card',post:'community-attribution-layer'})">How I did it <span>&rarr;</span></a>
       </div>
     </div>
     <div class="work-card reveal">
@@ -426,6 +442,7 @@ a.sp-card:hover h3::after{opacity:1}
       <div class="work-card-result">
         <div class="work-card-result-label">Growth</div>
         <div class="work-card-result-val">Creator-attributed referrals grew 4x (1.7K → 7.2K weekly)</div>
+        <a href="/writing/firecrawl-ambassador-tier-system" class="work-card-result-link" onclick="gtag('event','writing_click',{location:'work_card',post:'firecrawl-ambassador-tier-system'})">How I did it <span>&rarr;</span></a>
       </div>
     </div>
     <div class="work-card reveal">
@@ -496,6 +513,7 @@ a.sp-card:hover h3::after{opacity:1}
       <div class="work-card-result">
         <div class="work-card-result-label">Savings</div>
         <div class="work-card-result-val">~40 engineering hours reclaimed every week</div>
+        <a href="/writing/apps-script-partner-automation" class="work-card-result-link" onclick="gtag('event','writing_click',{location:'work_card',post:'apps-script-partner-automation'})">How I did it <span>&rarr;</span></a>
       </div>
     </div>
     <div class="work-card reveal">
@@ -696,19 +714,39 @@ a.sp-card:hover h3::after{opacity:1}
 <section class="blog" id="writing">
   <div class="blog-inner">
     <span class="section-label reveal">Writing</span>
-    <h2 class="section-title reveal">Things I'm thinking about</h2>
+    <h2 class="section-title reveal">How the work actually got built</h2>
     <div class="blog-grid">
-      <div class="blog-card reveal reveal-delay-1" style="cursor:default">
-        <div class="blog-card-img amber"><span>Coming Soon</span></div>
+<!-- BUILD:blog-cards -->
+      <a href="/writing/firecrawl-ambassador-tier-system" class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-img amber"><span>1.7K → 7.2K weekly</span></div>
         <div class="blog-card-body">
-          <span class="blog-cat">Writing</span>
-          <h3>Essays on Developer Ecosystems, Communities, and Building</h3>
-          <p>I'm currently revising a series of essays about lessons learned scaling programs at Google and Firecrawl. Check back soon.</p>
+          <span class="blog-cat">Creator programs</span>
+          <h3>How I designed a five-tier ambassador program that 4x'd creator referrals</h3>
+          <p>A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.</p>
         </div>
-      </div>
+      </a>
+      <a href="/writing/creator-payout-design" class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-img dark"><span>Flat fee + points</span></div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Creator programs</span>
+          <h3>Why I paid creators for the video, not the views</h3>
+          <p>Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.</p>
+        </div>
+      </a>
+      <a href="/writing/community-attribution-layer" class="blog-card reveal reveal-delay-3">
+        <div class="blog-card-img amber"><span>Apps Script → Looker Studio</span></div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Attribution</span>
+          <h3>How to prove what your developer community returned, without engineering help</h3>
+          <p>A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.</p>
+        </div>
+      </a>
+      <!-- /BUILD:blog-cards -->
     </div>
     <div class="reveal" style="text-align:center;margin-top:40px">
-      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">View all writing <span style="font-size:18px">→</span></a>
+<!-- BUILD:writing-cta -->
+      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">Read all 8 pieces <span style="font-size:18px">→</span></a>
+      <!-- /BUILD:writing-cta -->
     </div>
   </div>
 </section>
@@ -767,7 +805,7 @@ var revealObserver=new IntersectionObserver(function(entries){
       revealObserver.unobserve(entry.target);
     }
   });
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
 reveals.forEach(function(el){revealObserver.observe(el)});
 
 // Smooth scroll for anchor links

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRM34FM9F4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HRM34FM9F4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How I designed a five-tier ambassador program that 4x'd creator referrals — Vishal Das</title>
+  <meta name="description" content="A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.">
+  <meta name="author" content="Vishal Das">
+  <link rel="canonical" href="https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system">
+  <meta property="og:site_name" content="Vishal Das Portfolio">
+  <meta property="og:title" content="How I designed a five-tier ambassador program that 4x'd creator referrals — Vishal Das">
+  <meta property="og:description" content="A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/og/firecrawl-ambassador-tier-system.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/firecrawl-ambassador-tier-system.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="How I designed a five-tier ambassador program that 4x'd creator referrals">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system">
+  <meta name="twitter:title" content="How I designed a five-tier ambassador program that 4x'd creator referrals — Vishal Das">
+  <meta name="twitter:description" content="A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.">
+  <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/firecrawl-ambassador-tier-system.png">
+  <meta name="twitter:image:alt" content="How I designed a five-tier ambassador program that 4x'd creator referrals">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How I designed a five-tier ambassador program that 4x'd creator referrals",
+    "description": "A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.",
+    "image": "https://kindavishal.js.org/assets/og/firecrawl-ambassador-tier-system.png",
+    "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
+    "publisher": { "@type": "Person", "name": "Vishal Das" },
+    "datePublished": "2026-06-17",
+    "dateModified": "2026-06-17",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system" },
+    "url": "https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What should decide a creator's tier?",
+        "acceptedAnswer": { "@type": "Answer", "text": "One number, measured the same way for everyone. At Firecrawl it was a rolling three-month average of YouTube views. Not follower count, and not lifetime views. Reach is the only thing a tier should measure, because how deep a creator goes belongs in what you pay per piece, not in the tier itself." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why use a rolling average instead of follower count?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Follower count tells you how many people signed up once. A rolling three-month average tells you how many people are watching now. A big channel that has gone quiet and a smaller channel that is climbing will look identical on followers and very different on a rolling average. You are buying attention, so measure attention." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many tiers should a developer ambassador program have?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Five worked for us. It was enough to tell an early creator apart from an established one without making people slow to sort. The number matters less than whether the entry rule is written down and measurable. Two tiers with a real rule beat six tiers assigned on instinct." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a developer ambassador program different from a brand ambassador program?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most brand ambassador advice is written for consumer products, where reach is the whole job. In DevRel the audience is technical, so depth counts separately from reach — a creator who has actually built with the API is worth more than a larger channel that only mentions it. That is why tier and content type are priced as two different things." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you recruit the first cohort?",
+        "acceptedAnswer": { "@type": "Answer", "text": "By hand, with no public launch. Find creators who already mention your product or tools next to it, check their depth from what they have already made, and send short outreach about something specific they built. It is slower per creator than an open application and it sets the quality bar for everyone who applies later." }
+      }
+    ]
+  }</script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+a:hover{color:#D97706}
+::selection{background:#D97706;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:#1C1917;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon span{color:#D97706;font-family:'Literata',serif;font-weight:700;font-size:16px}
+.nav-logo-name{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:500;color:#78716C}
+.nav-links a{cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:#1C1917}
+.nav-links a.active{color:#D97706;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.btn-outline{border:1.5px solid #E7E5E0;color:#1C1917;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#D97706;color:#D97706}
+.btn-primary{background:#D97706;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#B45309;color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#1C1917;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(248,246,242,0.98);backdrop-filter:blur(16px);z-index:99;flex-direction:column;padding:32px;gap:8px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:500;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#1C1917}
+.mobile-menu .nav-btns{flex-direction:column;gap:12px;margin-top:24px}
+.mobile-menu .nav-btns a{text-align:center;padding:14px 24px}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.footer{padding:24px 64px;background:#1C1917;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#78716C}
+.footer-links{display:flex;gap:20px}
+.footer a{color:#78716C;transition:color .2s}
+.footer a:hover{color:#D97706}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.05s}
+.reveal-delay-2{transition-delay:0.1s}
+.reveal-delay-3{transition-delay:0.15s}
+.reveal-delay-4{transition-delay:0.2s}
+.article-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#D97706;font-weight:600;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#B45309}
+.back-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.article-header{margin-bottom:40px}
+.article-title{font-family:'Literata',serif;font-size:36px;line-height:1.15;letter-spacing:-0.5px;margin:0 0 16px;color:#1C1917}
+.article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article-date{font-size:13px;font-weight:600;color:#D97706;background:#FEF3C7;padding:4px 12px;border-radius:6px;display:inline-block}
+.article-readtime{font-size:13px;color:#78716C}
+.article-body{font-size:16px;line-height:1.8;color:#44403C}
+.article-body h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:40px 0 16px;letter-spacing:-0.3px;line-height:1.3}
+.article-body h3{font-size:18px;font-weight:600;color:#1C1917;margin:32px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body li::marker{color:#D97706}
+.article-body strong{color:#1C1917;font-weight:600}
+.article-body a{color:#D97706;font-weight:500;border-bottom:1px solid rgba(217,119,6,0.3)}
+.article-body a:hover{border-bottom-color:#D97706}
+.article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
+.article-body blockquote p:last-child{margin-bottom:0}
+.callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
+.callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.callout ul,.callout ol{margin:0;padding-left:20px}
+.callout li{margin-bottom:6px;font-size:14px;line-height:1.6;color:#44403C}
+.callout li::marker{color:#D97706}
+.callout p:last-child{margin-bottom:0}
+.mono{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body code{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body pre{background:#1C1917;color:#F8F6F2;padding:20px 24px;border-radius:12px;overflow-x:auto;margin:0 0 24px;font-size:14px;line-height:1.6}
+.article-body pre code{background:none;padding:0;color:inherit;font-size:14px}
+.table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(0,0,0,0.08);border-radius:12px}
+.article-body table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+.article-body th{text-align:left;font-weight:600;color:#1C1917;background:#F0EDE8;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);white-space:nowrap}
+.article-body td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.05);vertical-align:top;line-height:1.6}
+.article-body tr:last-child td{border-bottom:none}
+.faq{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px}
+.faq h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:0 0 24px;letter-spacing:-0.3px}
+.faq-item{margin-bottom:24px}
+.faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
+.faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.article-nav-link{font-size:14px;color:#D97706;font-weight:600;transition:color .2s;display:inline-block;padding:6px 0}
+.article-nav-link:hover{color:#B45309}
+.article-bottom>a:last-child{text-align:right}
+@media(max-width:1024px){
+.nav-inner{padding:0 32px}
+.footer{padding:24px 32px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.nav-inner{padding:0 20px}
+.article-wrap{padding:88px 20px 60px}
+.article-title{font-size:28px}
+.article-bottom{gap:12px}
+.article-nav-link{font-size:13px}
+.footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><span>V</span></div>
+      <span class="nav-logo-name">Vishal Das</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing" class="active">Writing</a>
+      <div class="nav-btns">
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <div class="nav-btns">
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+  </div>
+</div>
+<article>
+  <div class="article-wrap">
+    <a href="/writing" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to writing
+    </a>
+
+    <header class="article-header reveal">
+      <h1 class="article-title">How I designed a five-tier ambassador program that 4x'd creator referrals</h1>
+      <div class="article-meta">
+        <span class="article-date">June 2026</span>
+        <span class="article-readtime">~4 min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+<p>When I joined Firecrawl post-Series A, the company had no creator program. A few creators were making content on their own. A few intro emails were sitting unanswered. There was no structure for what &quot;working with creators&quot; even meant.</p>
+<p>Four weeks later there were ten ambassadors across five tiers. In the months after, creator-attributed referrals went from 1.7K to 7.2K weekly.</p>
+<p>The design decision that made the rest of it work was small and boring. <strong>Tier is set by one number, and that number is a rolling three-month average of views.</strong> Not follower count. Not lifetime views. Everything else in the program hangs off that.</p>
+<h2>Why most creator programs fail</h2>
+<p>Not for lack of good creators. They fail because the program never says what it&#39;s picking for.</p>
+<p>You get vague entry criteria, patchy outreach, and a roster of &quot;ambassadors&quot; who don&#39;t know what they&#39;re meant to do or why they were picked. The program gets harder to run with every person you add, because every call is a fresh judgment call.</p>
+<p>So the question wasn&#39;t &quot;how do we get creators to mention Firecrawl&quot;. It was: how do we build something that gets <em>stronger</em> as it grows instead of heavier?</p>
+<h2>Separate reach from depth</h2>
+<p>Here&#39;s the mistake I see most often. Teams try to rank creators on one blended score — audience, plus technical skill, plus how good their last video was — and end up with a number nobody can explain or defend.</p>
+<p>We split it in two.</p>
+<p><strong>Tier measures reach, and nothing else.</strong> How many people will see this. One metric, same rule for everyone, no interpretation.</p>
+<p><strong>What you make measures depth.</strong> A full video where the product is the subject is worth more than a walk-on appearance in someone else&#39;s build, which is worth more than a passing mention. Same creator, three different rates, depending on what they actually made.</p>
+<p>Two axes instead of one. It sounds like a small thing. It removes almost every argument you would otherwise have, because a creator can see exactly which lever they&#39;re pulling.</p>
+<h2>Why the rolling average</h2>
+<p>Follower count tells you how many people signed up once, possibly years ago. A rolling three-month average tells you how many people are watching now.</p>
+<p>Those two numbers come apart fast. A large channel that has gone quiet and a smaller channel that is climbing look nearly identical on followers, and nothing alike on a rolling average. You&#39;re buying attention, so measure attention.</p>
+<p>It also fixes the direction of the conversation. Under a lifetime metric, a creator&#39;s number can only ever go up, so the tier drifts away from reality and you eventually have to claw it back. Under a rolling metric the number moves both ways on its own, and nobody feels punished when it does. Growth shows up on its own too — a creator whose numbers have climbed can ask for a review, and the answer is a lookup rather than a negotiation.</p>
+<div class="callout">
+<p class="callout-title">The tier rules, in short</p>
+<ul>
+<li>One metric sets tier: a rolling three-month average of views.</li>
+<li>Not follower count, not lifetime views.</li>
+<li>Five tiers, each with a written entry range.</li>
+<li>What you make is priced separately, so depth never gets mixed into tier.</li>
+<li>Tier reviews happen on request, on a fixed cycle — never as a surprise.</li>
+</ul>
+</div><p>The written range is the part people skip. It&#39;s also the part that makes the hard conversations easy. When someone doesn&#39;t meet the bar, you point at a rule instead of defending a judgment.</p>
+<h2>Ten in four weeks, by hand</h2>
+<p>No launch post. No &quot;apply here&quot; blast.</p>
+<p>I found creators who had already mentioned Firecrawl or tools next to it. I checked their depth from what they&#39;d already made, then sent short outreach about one specific thing they&#39;d built.</p>
+<p>Ten creators across five tiers in four weeks. One early integration did 60K views in its first week.</p>
+<p>An open application would have been faster and worse. The first cohort sets the bar everyone after them gets measured against, and it sets the tone of the community they&#39;re joining. Picking ten people by hand is a two-week cost that pays back for a year.</p>
+<p>The whole thing ran on Typeform, Notion and Slack. No enterprise SaaS. Typeform for intake, Notion as the source of truth for tier and milestone status, Slack for updates and the creator channel. The only custom piece was <a href="/writing/tubemonitor-vibe-coding">TubeMonitor</a>, the tracking tool I had to build myself.</p>
+<h2>What the numbers did</h2>
+<p>Creator-attributed referrals went from 1.7K to 7.2K weekly. A 4x increase.</p>
+<p>The growth didn&#39;t come from adding more creators. It came from better content by well-briefed creators who understood what they were building with. Volume without quality would have flattened the numbers and produced videos nobody watched past the first minute.</p>
+<p>That difference matters when you report upward. &quot;We signed 40 ambassadors&quot; is an activity number. &quot;Referrals went 4x on ten ambassadors&quot; is a result. Only one of those survives a budget review.</p>
+<p>Tier is only half the design though. What you pay per piece of content, and what you pay to keep someone around, are separate problems — and getting the first one wrong quietly ruins the content. That&#39;s <a href="/writing/creator-payout-design">why I paid creators for the video, not the views</a>.</p>
+    </div>
+
+      <section class="faq">
+        <h2>Questions people ask</h2>
+        <div class="faq-item">
+          <p class="faq-q">What should decide a creator's tier?</p>
+          <p class="faq-a">One number, measured the same way for everyone. At Firecrawl it was a rolling three-month average of YouTube views. Not follower count, and not lifetime views. Reach is the only thing a tier should measure, because how deep a creator goes belongs in what you pay per piece, not in the tier itself.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why use a rolling average instead of follower count?</p>
+          <p class="faq-a">Follower count tells you how many people signed up once. A rolling three-month average tells you how many people are watching now. A big channel that has gone quiet and a smaller channel that is climbing will look identical on followers and very different on a rolling average. You are buying attention, so measure attention.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How many tiers should a developer ambassador program have?</p>
+          <p class="faq-a">Five worked for us. It was enough to tell an early creator apart from an established one without making people slow to sort. The number matters less than whether the entry rule is written down and measurable. Two tiers with a real rule beat six tiers assigned on instinct.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How is a developer ambassador program different from a brand ambassador program?</p>
+          <p class="faq-a">Most brand ambassador advice is written for consumer products, where reach is the whole job. In DevRel the audience is technical, so depth counts separately from reach — a creator who has actually built with the API is worth more than a larger channel that only mentions it. That is why tier and content type are priced as two different things.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How do you recruit the first cohort?</p>
+          <p class="faq-a">By hand, with no public launch. Find creators who already mention your product or tools next to it, check their depth from what they have already made, and send short outreach about something specific they built. It is slower per creator than an open application and it sets the quality bar for everyone who applies later.</p>
+        </div>
+      </section>
+
+    <div class="article-bottom">
+      <a href="/writing/apps-script-partner-automation" class="article-nav-link">&larr; Prev: Automating the busywork</a>
+      <a href="/writing/creator-payout-design" class="article-nav-link">Next: Paying for the video →</a>
+    </div>
+  </div>
+</article>
+<footer class="footer">
+  <span>&copy; 2026 Vishal Das</span>
+  <div class="footer-links">
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('active',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',function(){if(window.innerWidth>768)closeMenu()});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}
+  });
+// threshold 0, not 0.1: an element taller than the viewport can never reach a
+// ratio of 0.1, which would leave it stuck at opacity 0 forever.
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>
