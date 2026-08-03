@@ -70,6 +70,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+/* Nav is fixed at 68px. Without this, anchor jumps land section headings
+   underneath it — mobile section padding (60px) is shorter than the nav. */
+section[id]{scroll-margin-top:24px}
 body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
@@ -327,7 +330,7 @@ a.sp-card:hover h3::after{opacity:1}
       <a href="#what-i-do">How I Work</a>
       <a href="#work">Work</a>
       <a href="#career">Experience</a>
-      <a href="/writing">Writing</a>
+      <a href="#writing">Writing</a>
       <div class="nav-btns">
         <a href="#contact" class="btn-outline" onclick="gtag('event','request_resume_click',{location:'nav'})">Request Resume</a>
         <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','book_a_chat_click',{location:'nav'})">Book a Chat →</a>
@@ -344,7 +347,7 @@ a.sp-card:hover h3::after{opacity:1}
   <a href="#what-i-do" onclick="closeMenu()">How I Work</a>
   <a href="#work" onclick="closeMenu()">Work</a>
   <a href="#career" onclick="closeMenu()">Experience</a>
-  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <a href="#writing" onclick="closeMenu()">Writing</a>
   <a href="#endorsements" onclick="closeMenu()">Endorsements</a>
   <div class="nav-btns">
     <a href="#contact" class="btn-outline" onclick="closeMenu(); gtag('event','request_resume_click',{location:'nav_mobile'})">Request Resume</a>
@@ -708,7 +711,7 @@ a.sp-card:hover h3::after{opacity:1}
 <section class="blog" id="writing">
   <div class="blog-inner">
     <span class="section-label reveal">Writing</span>
-    <h2 class="section-title reveal">Things I'm thinking about</h2>
+    <h2 class="section-title reveal">How the work actually got built</h2>
     <div class="blog-grid">
 <!-- BUILD:blog-cards -->
       <a href="/writing/firecrawl-ambassador-tier-system" class="blog-card reveal reveal-delay-1">
@@ -746,7 +749,9 @@ a.sp-card:hover h3::after{opacity:1}
       <!-- /BUILD:blog-cards -->
     </div>
     <div class="reveal" style="text-align:center;margin-top:40px">
-      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">View all writing <span style="font-size:18px">→</span></a>
+<!-- BUILD:writing-cta -->
+      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">Read all 5 pieces <span style="font-size:18px">→</span></a>
+      <!-- /BUILD:writing-cta -->
     </div>
   </div>
 </section>

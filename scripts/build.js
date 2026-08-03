@@ -412,7 +412,25 @@ function injectHomepage(posts) {
       </div>`;
 
   const re = new RegExp(`${START}[\\s\\S]*?${END}`);
-  fs.writeFileSync(file, html.replace(re, `${START}\n${body}\n      ${END}`));
+  html = html.replace(re, `${START}\n${body}\n      ${END}`);
+
+  // Say how many posts are behind the link, so the section reads as a preview
+  // of something bigger rather than the whole list.
+  const CTA_START = '<!-- BUILD:writing-cta -->';
+  const CTA_END = '<!-- /BUILD:writing-cta -->';
+  if (html.includes(CTA_START) && html.includes(CTA_END)) {
+    const label = posts.length > HOMEPAGE_CARDS
+      ? `Read all ${posts.length} pieces`
+      : 'View all writing';
+    const cta = `      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">${label} <span style="font-size:18px">→</span></a>`;
+    html = html.replace(
+      new RegExp(`${CTA_START}[\\s\\S]*?${CTA_END}`),
+      `${CTA_START}\n${cta}\n      ${CTA_END}`);
+  } else {
+    warnings.push('index.html has no BUILD:writing-cta markers — link text not updated');
+  }
+
+  fs.writeFileSync(file, html);
 }
 
 /* ---------- OG images ---------- */
