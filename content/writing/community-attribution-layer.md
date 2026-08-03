@@ -3,7 +3,7 @@ title: "How to prove what your developer community returned, without engineering
 slug: community-attribution-layer
 description: "The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer."
 date: "2026-07-22"
-featured: 4
+featured: 5
 homepage: 3
 category: "Attribution"
 cardLabel: "Apps Script → Looker Studio"

@@ -85,4 +85,4 @@ Tight criteria mean every bonus needs a judgment call. I did each one by hand. T
 
 The lesson generalises. Any rule you enforce by reading things yourself is a rule that stops working at about the point the program starts succeeding. Write the rule so it can be checked, then check it the slow way until the volume forces your hand — but know in advance where that line is.
 
-None of this works if you can't see what any of it returned. The measurement side is a separate build, and I did that one myself too: [how to prove what your developer community returned](/writing/community-attribution-layer).
+None of this works if you can't see what any of it returned. The tracking the whole programme ran on was a tool I had to build myself, in a week, without being able to write it: [shipping TubeMonitor](/writing/tubemonitor-vibe-coding).

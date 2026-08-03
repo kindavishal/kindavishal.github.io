@@ -3,7 +3,7 @@ title: "The community metrics that survive a budget review"
 slug: community-metrics-budget-review
 description: "Counts are inputs, not results. What to claim when someone is deciding whether your programme continues — and what attribution still can't tell you."
 date: "2026-08-01"
-featured: 5
+featured: 6
 category: "Attribution"
 cardLabel: "Inputs vs results"
 shortTitle: "Metrics that survive"

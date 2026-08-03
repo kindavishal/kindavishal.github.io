@@ -16,7 +16,6 @@ http://kindavishal.netlify.app/*   https://kindavishal.js.org/:splat  301!
 # Being rebuilt at the same URLs. 302 so nothing caches the detour — delete
 # each line as its post ships. Netlify serves a real file ahead of a rule
 # anyway, but leaving stale rules around invites confusion.
-/writing/tubemonitor-vibe-coding          /writing  302
 /writing/12-step-community-framework      /writing  302
 
 # Retired pages. 302 so the URLs stay reclaimable.

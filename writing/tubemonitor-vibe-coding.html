@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRM34FM9F4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HRM34FM9F4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I can't write production code. I shipped the internal tool in a week anyway. — Vishal Das</title>
+  <meta name="description" content="The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.">
+  <meta name="author" content="Vishal Das">
+  <link rel="canonical" href="https://kindavishal.js.org/writing/tubemonitor-vibe-coding">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/tubemonitor-vibe-coding">
+  <meta property="og:site_name" content="Vishal Das Portfolio">
+  <meta property="og:title" content="I can't write production code. I shipped the internal tool in a week anyway. — Vishal Das">
+  <meta property="og:description" content="The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/og/tubemonitor-vibe-coding.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/tubemonitor-vibe-coding.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="I can't write production code. I shipped the internal tool in a week anyway.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kindavishal.js.org/writing/tubemonitor-vibe-coding">
+  <meta name="twitter:title" content="I can't write production code. I shipped the internal tool in a week anyway. — Vishal Das">
+  <meta name="twitter:description" content="The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.">
+  <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/tubemonitor-vibe-coding.png">
+  <meta name="twitter:image:alt" content="I can't write production code. I shipped the internal tool in a week anyway.">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "I can't write production code. I shipped the internal tool in a week anyway.",
+    "description": "The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.",
+    "image": "https://kindavishal.js.org/assets/og/tubemonitor-vibe-coding.png",
+    "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
+    "publisher": { "@type": "Person", "name": "Vishal Das" },
+    "datePublished": "2026-07-16",
+    "dateModified": "2026-07-16",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindavishal.js.org/writing/tubemonitor-vibe-coding" },
+    "url": "https://kindavishal.js.org/writing/tubemonitor-vibe-coding"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a non-engineer build an internal tool with AI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For internal tools — dashboards, data pipelines, reporting surfaces — yes. The limit is no longer whether you can write the code. It is whether you can define the problem precisely enough that the output can be checked. Customer-facing production systems are a different question and still need an engineer." }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes AI-generated code actually work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A written spec per component, and specific bug reports. Say what data comes in, what the component does, what state it produces, and what failure looks like. When something breaks, describe the observed behaviour against the expected behaviour rather than guessing at the code. Vague reports get vague fixes." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should you build or buy internal analytics?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Buy when the tool measures something standard and you have no special access to the data. Build when the thing you need is missing from every option and you already have the means to collect it. We were missing organic mentions no vendor could see, and we owned a scraper, so building was the shorter path." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is competitive share of voice for creator programs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It measures where your product shows up relative to competitors on the same creator's channel. Not just how many views your content gets, but whether that audience is spending more time with your content or someone else's. It is the number that actually informs where to put program budget." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build an internal dashboard this way?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TubeMonitor went from spec to deployed and in use across teams in one week. Most of the value came from the hour spent listing every question the dashboard had to answer before any code existed. That list became the acceptance criteria." }
+      }
+    ]
+  }</script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+a:hover{color:#D97706}
+::selection{background:#D97706;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:#1C1917;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon span{color:#D97706;font-family:'Literata',serif;font-weight:700;font-size:16px}
+.nav-logo-name{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:500;color:#78716C}
+.nav-links a{cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:#1C1917}
+.nav-links a.active{color:#D97706;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.btn-outline{border:1.5px solid #E7E5E0;color:#1C1917;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#D97706;color:#D97706}
+.btn-primary{background:#D97706;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#B45309;color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#1C1917;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(248,246,242,0.98);backdrop-filter:blur(16px);z-index:99;flex-direction:column;padding:32px;gap:8px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:500;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#1C1917}
+.mobile-menu .nav-btns{flex-direction:column;gap:12px;margin-top:24px}
+.mobile-menu .nav-btns a{text-align:center;padding:14px 24px}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.footer{padding:24px 64px;background:#1C1917;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#78716C}
+.footer-links{display:flex;gap:20px}
+.footer a{color:#78716C;transition:color .2s}
+.footer a:hover{color:#D97706}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.05s}
+.reveal-delay-2{transition-delay:0.1s}
+.reveal-delay-3{transition-delay:0.15s}
+.reveal-delay-4{transition-delay:0.2s}
+.article-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#D97706;font-weight:600;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#B45309}
+.back-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.article-header{margin-bottom:40px}
+.article-title{font-family:'Literata',serif;font-size:36px;line-height:1.15;letter-spacing:-0.5px;margin:0 0 16px;color:#1C1917}
+.article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article-date{font-size:13px;font-weight:600;color:#D97706;background:#FEF3C7;padding:4px 12px;border-radius:6px;display:inline-block}
+.article-readtime{font-size:13px;color:#78716C}
+.article-body{font-size:16px;line-height:1.8;color:#44403C}
+.article-body h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:40px 0 16px;letter-spacing:-0.3px;line-height:1.3}
+.article-body h3{font-size:18px;font-weight:600;color:#1C1917;margin:32px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body li::marker{color:#D97706}
+.article-body strong{color:#1C1917;font-weight:600}
+.article-body a{color:#D97706;font-weight:500;border-bottom:1px solid rgba(217,119,6,0.3)}
+.article-body a:hover{border-bottom-color:#D97706}
+.article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
+.article-body blockquote p:last-child{margin-bottom:0}
+.callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
+.callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.callout ul,.callout ol{margin:0;padding-left:20px}
+.callout li{margin-bottom:6px;font-size:14px;line-height:1.6;color:#44403C}
+.callout li::marker{color:#D97706}
+.callout p:last-child{margin-bottom:0}
+.mono{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body code{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body pre{background:#1C1917;color:#F8F6F2;padding:20px 24px;border-radius:12px;overflow-x:auto;margin:0 0 24px;font-size:14px;line-height:1.6}
+.article-body pre code{background:none;padding:0;color:inherit;font-size:14px}
+.table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(0,0,0,0.08);border-radius:12px}
+.article-body table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+.article-body th{text-align:left;font-weight:600;color:#1C1917;background:#F0EDE8;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);white-space:nowrap}
+.article-body td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.05);vertical-align:top;line-height:1.6}
+.article-body tr:last-child td{border-bottom:none}
+.faq{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px}
+.faq h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:0 0 24px;letter-spacing:-0.3px}
+.faq-item{margin-bottom:24px}
+.faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
+.faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.article-nav-link{font-size:14px;color:#D97706;font-weight:600;transition:color .2s}
+.article-nav-link:hover{color:#B45309}
+@media(max-width:1024px){
+.nav-inner{padding:0 32px}
+.footer{padding:24px 32px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.nav-inner{padding:0 20px}
+.article-wrap{padding:88px 20px 60px}
+.article-title{font-size:28px}
+.footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><span>V</span></div>
+      <span class="nav-logo-name">Vishal Das</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing" class="active">Writing</a>
+      <div class="nav-btns">
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <div class="nav-btns">
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+  </div>
+</div>
+<article>
+  <div class="article-wrap">
+    <a href="/writing" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to writing
+    </a>
+
+    <header class="article-header reveal">
+      <h1 class="article-title">I can't write production code. I shipped the internal tool in a week anyway.</h1>
+      <div class="article-meta">
+        <span class="article-date">July 2026</span>
+        <span class="article-readtime">~5 min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+<p>At Firecrawl, our YouTube tracking was broken. Not completely — the third-party tool was logging data. But it was under-counting creators in our network, missing views on untagged videos, and producing weekly reports that didn&#39;t answer the questions the team actually had.</p>
+<p>I could fix the tool or replace it. I replaced it, in a week.</p>
+<p>I&#39;m not an engineer. I can read code well enough to understand what it does and check output against what I expected. I can&#39;t write production systems. <strong>That turned out not to be the binding constraint — defining the problem was.</strong></p>
+<h2>The data problem</h2>
+<p>The third-party tool tracked what it was set up to track: direct referral links and tagged video URLs.</p>
+<p>What it missed was everything else. Organic mentions. Untagged tutorials. Competitor comparisons where Firecrawl came up in passing. Views that came from a creator&#39;s social post pointing at a video nobody had tagged.</p>
+<p>So when I reported creator program results, I was under-counting reach every single week. That&#39;s a data collection problem, not a dashboard problem. You cannot fix it with a better chart.</p>
+<h2>Why build instead of buy</h2>
+<p>I looked at other YouTube analytics platforms. The enterprise ones were expensive and still couldn&#39;t surface organic mentions without a custom feed. The cheap ones didn&#39;t have the API depth to track a whole creator network.</p>
+<p>Then there was the obvious thing. Firecrawl is a web scraping tool. I had access to a scraper that could pull structured data from YouTube pages at scale. Buying a third-party YouTube analytics tool when Firecrawl is the product felt like buying a hammer while standing in a hardware store.</p>
+<p>The general rule: buy when the thing is standard and you have no special access to the data. Build when what you need is missing everywhere and you already hold the means to collect it.</p>
+<h2>The spec is the work</h2>
+<p>I treated it the way a PM directs an engineering team. Write the spec, check the output against it, name the failures precisely, iterate.</p>
+<p>Every component started with four written lines.</p>
+<div class="callout">
+<p class="callout-title">The four lines every component needed</p>
+<ol>
+<li>What data comes in.</li>
+<li>What the component does to it.</li>
+<li>What state it produces.</li>
+<li>What failure looks like.</li>
+</ol>
+</div><p>That fourth line is the one people skip, and it&#39;s the one that makes the rest checkable. If you haven&#39;t said what broken looks like, you can&#39;t tell whether the thing works — you can only tell whether it runs.</p>
+<p>The most important hour of the build was the session before any code existed, where I listed every question the dashboard had to answer. That list became the acceptance criteria for each component and the test for each round of changes.</p>
+<h2>How do you debug code you didn&#39;t write?</h2>
+<p>By describing behaviour, not code.</p>
+<p>This was the single biggest difference in output quality, and it&#39;s the part I&#39;d teach first.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>A bad bug report</th>
+<th>A good one</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;It&#39;s not working.&quot;</td>
+<td>&quot;The view count for creator X shows 0 after the scrape cycle finishes.&quot;</td>
+</tr>
+<tr>
+<td>&quot;Fix the query.&quot;</td>
+<td>&quot;The Supabase table has the correct row inserted, so the write is fine.&quot;</td>
+</tr>
+<tr>
+<td>&quot;Something&#39;s wrong with the data.&quot;</td>
+<td>&quot;The read is filtering on the wrong field.&quot;</td>
+</tr>
+</tbody></table></div>
+<p>The left column produces confident, wrong fixes. The right column produces correct ones, because it separates what you observed from what you assumed. You don&#39;t need to know how to fix it. You need to know exactly what happened and exactly what you expected instead.</p>
+<p>That skill isn&#39;t new, either. It&#39;s the same thing that makes a good bug report to a real engineer.</p>
+<h2>The stack</h2>
+<p>Next.js for the dashboard. Supabase for storage, so there was no backend to maintain. Vercel for deploys with previews, so I could test against real data before shipping. Firecrawl as the data layer, pulling video metadata, view counts and engagement signals.</p>
+<p>Every choice was made for the same reason: nothing to set up, nothing to maintain, fast loops.</p>
+<p>What it tracks: view performance across the network, <strong>spillover</strong> from videos never formally tagged — the thing the old tool missed entirely — engagement relative to views as a rough quality signal, and competitive share of voice.</p>
+<p>Share of voice is the most useful surface. It tells you not just how many views our content got, but whether a creator&#39;s audience is spending more time with us or with a competitor. That&#39;s the question that actually decides where program budget goes.</p>
+<p>It shipped in a week and replaced the third-party tool the same week. Marketing, partnerships and the founders used it for weekly reporting.</p>
+<h2>What I got wrong</h2>
+<p>Data freshness. I built the scrape cycle to run daily, which is fine most of the time and useless during a launch week, when you want to see what&#39;s happening now. I switched to scraping on request with a cache — pull fresh data if what&#39;s stored is more than two hours old.</p>
+<p>I should have asked &quot;how stale can this be?&quot; in the spec. It&#39;s the same kind of question as &quot;what does failure look like&quot;, and I&#39;d left it out.</p>
+<h2>The part worth arguing about</h2>
+<p>The gap between an operator who can describe a system and an operator who can ship one used to be months of learning to code. It&#39;s now a few days, if you can write a precise spec and hold the output to a real standard.</p>
+<p>I don&#39;t think that&#39;s a small change. Operators who get this now will spend the next few years shipping the tools they need instead of waiting in a queue for engineering time. Everyone else keeps waiting.</p>
+<p>I still don&#39;t ship customer-facing code, and I&#39;m not going to. But for internal tools, the limit stopped being technical skill a while ago. It&#39;s problem definition, and that was always the job.</p>
+<p>Tracking one network is one thing. The general pattern — connecting any community action to a business result — is <a href="/writing/community-attribution-layer">the attribution layer</a>.</p>
+    </div>
+
+      <section class="faq">
+        <h2>Questions people ask</h2>
+        <div class="faq-item">
+          <p class="faq-q">Can a non-engineer build an internal tool with AI?</p>
+          <p class="faq-a">For internal tools — dashboards, data pipelines, reporting surfaces — yes. The limit is no longer whether you can write the code. It is whether you can define the problem precisely enough that the output can be checked. Customer-facing production systems are a different question and still need an engineer.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What makes AI-generated code actually work?</p>
+          <p class="faq-a">A written spec per component, and specific bug reports. Say what data comes in, what the component does, what state it produces, and what failure looks like. When something breaks, describe the observed behaviour against the expected behaviour rather than guessing at the code. Vague reports get vague fixes.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Should you build or buy internal analytics?</p>
+          <p class="faq-a">Buy when the tool measures something standard and you have no special access to the data. Build when the thing you need is missing from every option and you already have the means to collect it. We were missing organic mentions no vendor could see, and we owned a scraper, so building was the shorter path.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is competitive share of voice for creator programs?</p>
+          <p class="faq-a">It measures where your product shows up relative to competitors on the same creator's channel. Not just how many views your content gets, but whether that audience is spending more time with your content or someone else's. It is the number that actually informs where to put program budget.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How long does it take to build an internal dashboard this way?</p>
+          <p class="faq-a">TubeMonitor went from spec to deployed and in use across teams in one week. Most of the value came from the hour spent listing every question the dashboard had to answer before any code existed. That list became the acceptance criteria.</p>
+        </div>
+      </section>
+
+    <div class="article-bottom">
+      <a href="/writing" class="back-link" style="margin:0">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to writing
+      </a>
+      <a href="/writing/community-attribution-layer" class="article-nav-link">Next: The attribution layer →</a>
+    </div>
+  </div>
+</article>
+<footer class="footer">
+  <span>&copy; 2026 Vishal Das</span>
+  <div class="footer-links">
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('active',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',function(){if(window.innerWidth>768)closeMenu()});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}
+  });
+// threshold 0, not 0.1: an element taller than the viewport can never reach a
+// ratio of 0.1, which would leave it stuck at opacity 0 forever.
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>

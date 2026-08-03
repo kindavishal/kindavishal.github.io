@@ -22,6 +22,13 @@
       <description>The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.</description>
     </item>
     <item>
+      <title>I can't write production code. I shipped the internal tool in a week anyway.</title>
+      <link>https://kindavishal.js.org/writing/tubemonitor-vibe-coding</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/tubemonitor-vibe-coding</guid>
+      <pubDate>Thu, 16 Jul 2026 09:00:00 GMT</pubDate>
+      <description>The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.</description>
+    </item>
+    <item>
       <title>The streak system that never punishes creators</title>
       <link>https://kindavishal.js.org/writing/creator-streak-system</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/creator-streak-system</guid>

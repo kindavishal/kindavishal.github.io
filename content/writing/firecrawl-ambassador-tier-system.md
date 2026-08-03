@@ -76,7 +76,7 @@ Ten creators across five tiers in four weeks. One early integration did 60K view
 
 An open application would have been faster and worse. The first cohort sets the bar everyone after them gets measured against, and it sets the tone of the community they're joining. Picking ten people by hand is a two-week cost that pays back for a year.
 
-The whole thing ran on Typeform, Notion and Slack. No enterprise SaaS. Typeform for intake, Notion as the source of truth for tier and milestone status, Slack for updates and the creator channel.
+The whole thing ran on Typeform, Notion and Slack. No enterprise SaaS. Typeform for intake, Notion as the source of truth for tier and milestone status, Slack for updates and the creator channel. The only custom piece was [TubeMonitor](/writing/tubemonitor-vibe-coding), the tracking tool I had to build myself.
 
 ## What the numbers did
 
