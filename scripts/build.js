@@ -203,6 +203,13 @@ ${post.faq.map((f) => `        <div class="faq-item">
     ? `<a href="/writing/${post.next.slug}" class="article-nav-link">Next: ${esc(post.next.shortTitle || post.next.title)} →</a>`
     : `<a href="/#contact" class="article-nav-link">Work with me →</a>`;
 
+  // "Back to writing" already sits at the top of the article, so the bottom-left
+  // slot carries the previous post instead. Empty span on the first post so the
+  // next link stays right-aligned under space-between.
+  const prevLink = post.prev
+    ? `<a href="/writing/${post.prev.slug}" class="article-nav-link">&larr; Prev: ${esc(post.prev.shortTitle || post.prev.title)}</a>`
+    : `<span></span>`;
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -246,10 +253,7 @@ ${renderBody(post.body)}
     </div>
 ${faqHtml}
     <div class="article-bottom">
-      <a href="/writing" class="back-link" style="margin:0">
-        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Back to writing
-      </a>
+      ${prevLink}
       ${nextLink}
     </div>
   </div>
@@ -262,11 +266,15 @@ ${P.scripts()}
 }
 
 function renderIndex(posts) {
-  const desc = 'Long-form pieces on developer community programs, creator economics, and program management.';
+  const desc = 'Teardowns of the developer community, DevRel and creator programs I have built — in the order I built them.';
+
+  // Numbered so the run of dates reads as a deliberate sequence rather than a
+  // stale reverse-chronological list. Drop the number if ORDER goes to 'date'.
+  const num = (i) => (ORDER === 'featured' ? `${String(i + 1).padStart(2, '0')} · ` : '');
 
   const list = posts.length
     ? posts.map((p, i) => `      <a href="/writing/${p.slug}" class="article-item reveal${i < 4 ? ` reveal-delay-${i + 1}` : ''}">
-        <p class="article-item-date">${esc(p.dateDisplay)} · ~${p.readtime} min read</p>
+        <p class="article-item-date">${num(i)}${esc(p.dateDisplay)} · ~${p.readtime} min read</p>
         <h2 class="article-item-title">${esc(p.title)}</h2>
         <p class="article-item-desc">${esc(p.description)}</p>
       </a>`).join('\n')
@@ -362,7 +370,7 @@ ${urls.map((u) => `  <url>
 }
 
 function renderFeed(posts) {
-  const desc = 'Long-form pieces on developer community programs, creator economics, and program management.';
+  const desc = 'Teardowns of the developer community, DevRel and creator programs I have built — in the order I built them.';
   const built = posts.length ? rfc822(posts[0].date) : new Date().toUTCString();
 
   return `<?xml version="1.0" encoding="UTF-8"?>

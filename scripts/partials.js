@@ -145,9 +145,10 @@ const ARTICLE_CSS = `.article-wrap{max-width:680px;margin:0 auto;padding:120px 2
 .faq-item{margin-bottom:24px}
 .faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
 .faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
-.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.article-nav-link{font-size:14px;color:#D97706;font-weight:600;transition:color .2s}
-.article-nav-link:hover{color:#B45309}`;
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.article-nav-link{font-size:14px;color:#D97706;font-weight:600;transition:color .2s;display:inline-block;padding:6px 0}
+.article-nav-link:hover{color:#B45309}
+.article-bottom>a:last-child{text-align:right}`;
 
 const ARTICLE_RESPONSIVE = `@media(max-width:768px){
 .nav-links{display:none}
@@ -155,6 +156,8 @@ const ARTICLE_RESPONSIVE = `@media(max-width:768px){
 .nav-inner{padding:0 20px}
 .article-wrap{padding:88px 20px 60px}
 .article-title{font-size:28px}
+.article-bottom{gap:12px}
+.article-nav-link{font-size:13px}
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }`;
 
