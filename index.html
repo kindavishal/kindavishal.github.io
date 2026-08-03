@@ -140,6 +140,9 @@ a:hover{color:#D97706}
 .work-card-result{background:#FFFBEB;display:flex;flex-direction:column;justify-content:center;padding:36px;border-left:3px solid #D97706}
 .work-card-result-label{font-size:12px;font-weight:600;color:#D97706;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
 .work-card-result-val{font-size:16px;font-weight:600;color:#1C1917;line-height:1.5}
+.work-card-result-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:600;color:#D97706}
+.work-card-result-link:hover{gap:10px}
+.work-card-result-link span{transition:transform .2s ease}
 
 /* CAREER */
 .career,.member-value{padding:80px 0;background:#F0EDE8}
@@ -450,6 +453,21 @@ a:hover{color:#D97706}
       <div class="work-card-body">
         <div class="work-card-tags">
           <span class="tag-amber">Google</span>
+          <span class="tag-gray">Open Source</span>
+        </div>
+        <h3>Doubling Google's Dev Library</h3>
+        <p>Dev Library is Google's public showcase of what developers build with its products. I ran its publishing pipeline — triaging issues, keeping CI/CD green, and coordinating between the vendor content team and engineering to get submissions live. In 19 months the library nearly doubled: the Cloud collection tripled, Android grew 137%, and the Maps section launched from zero. 358 developers got their first byline on a Google property, and 41% came back to publish again.</p>
+      </div>
+      <div class="work-card-result">
+        <div class="work-card-result-label">Growth</div>
+        <div class="work-card-result-val">Library grew +96%; 358 new developer contributors, 41% repeat rate</div>
+        <a href="https://devlibrary.withgoogle.com" target="_blank" rel="noopener" class="work-card-result-link" onclick="gtag('event','devlibrary_click',{location:'work_card'})">View Dev Library <span>&rarr;</span></a>
+      </div>
+    </div>
+    <div class="work-card reveal">
+      <div class="work-card-body">
+        <div class="work-card-tags">
+          <span class="tag-amber">Google</span>
           <span class="tag-gray">Trust &amp; Safety</span>
         </div>
         <h3>Keeping a partner ecosystem safe without breaking developer velocity</h3>
@@ -493,7 +511,7 @@ a:hover{color:#D97706}
         <span class="career-date">May 2022 – Dec 2025</span>
         <h3>Google</h3>
         <p class="role">Developer Community &amp; Program Manager</p>
-        <p>Built and scaled a 300+ partner ecosystem across India, drove 70K+ Vertex AI activations and 60K+ Gemini API developer adoptions. Designed engagement strategy, exceeded quarterly OKRs by 50%, and piloted a new revenue channel (Google Workspace for Education) through the partner network.</p>
+        <p>Built and scaled a 300+ partner ecosystem across India, drove 70K+ Vertex AI activations and 60K+ Gemini API developer adoptions. Designed engagement strategy, exceeded quarterly OKRs by 50%, and piloted a new revenue channel (Google Workspace for Education) through the partner network. Also served as a technical maintainer of Google Dev Library, running the publishing pipeline that nearly doubled the platform's library.</p>
       </div>
       <div class="career-card reveal reveal-delay-2">
         <span class="career-date">Nov 2020 – May 2022</span>
