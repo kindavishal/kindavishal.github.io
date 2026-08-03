@@ -13,26 +13,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How to prove what your developer community returned, without engineering help — Vishal Das</title>
-  <meta name="description" content="The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.">
+  <meta name="description" content="A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.">
   <meta name="author" content="Vishal Das">
   <link rel="canonical" href="https://kindavishal.js.org/writing/community-attribution-layer">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://kindavishal.js.org/writing/community-attribution-layer">
   <meta property="og:site_name" content="Vishal Das Portfolio">
   <meta property="og:title" content="How to prove what your developer community returned, without engineering help — Vishal Das">
-  <meta property="og:description" content="The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.">
+  <meta property="og:description" content="A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.">
   <meta property="og:image" content="https://kindavishal.js.org/assets/og/community-attribution-layer.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/community-attribution-layer.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="How to prove what your developer community returned, without engineering help">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://kindavishal.js.org/writing/community-attribution-layer">
   <meta name="twitter:title" content="How to prove what your developer community returned, without engineering help — Vishal Das">
-  <meta name="twitter:description" content="The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.">
+  <meta name="twitter:description" content="A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.">
   <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/community-attribution-layer.png">
   <meta name="twitter:image:alt" content="How to prove what your developer community returned, without engineering help">
   <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "How to prove what your developer community returned, without engineering help",
-    "description": "The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.",
+    "description": "A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.",
     "image": "https://kindavishal.js.org/assets/og/community-attribution-layer.png",
     "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
     "publisher": { "@type": "Person", "name": "Vishal Das" },
@@ -52,12 +52,17 @@
       },
       {
         "@type": "Question",
-        "name": "Can you build community attribution without engineering support?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that community teams rarely get engineering time, so the work has to be doable by the person who needs it." }
+        "name": "How do you measure DevRel ROI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Trace a business result back to a named community source, one person at a time. Most DevRel measurement advice stops at naming metric categories — reach, engagement, qualified leads. The gap is the data model underneath. Without a schema that links an event to a person to an outcome, the categories stay a list of things you cannot actually produce." }
       },
       {
         "@type": "Question",
-        "name": "Why do most community teams fail to show ROI?",
+        "name": "Can you build DevRel attribution without engineering support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that developer relations and community teams rarely get engineering time, so the work has to be doable by the person who needs it." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do most community and DevRel teams fail to show ROI?",
         "acceptedAnswer": { "@type": "Answer", "text": "Attribution needs engineering time, and community teams are rarely first in line for it. So the reporting gets done by hand. That makes it slow, different every month, and impossible to check. Nobody quite trusts it, and the programme gets cut on instinct instead of evidence." }
       },
       {
@@ -231,6 +236,7 @@ a:hover{color:#D97706}
 <p>What did a member actually get out of this? And what did the company get back?</p>
 <p>Most community teams can&#39;t answer either one with evidence. They answer the first with testimonials and the second with activity counts — events run, messages sent, members joined. Both are real. Neither is a return.</p>
 <p><strong>An attribution layer is what connects a community action to a business result, one person at a time.</strong> That&#39;s it. It isn&#39;t a dashboard. It isn&#39;t a metrics framework. It&#39;s a data model, plus a job that keeps it up to date.</p>
+<p>Most writing on DevRel measurement stops one step short of this. It tells you which metric categories matter — reach, engagement, qualified leads — and leaves you to work out where the numbers come from. The categories were never the hard part.</p>
 <p>I&#39;ve built one three times. At Google it turned manual reporting into something the programme could actually see itself in. At Firecrawl it tracked affiliate performance down to each partner, and the team used it to decide payouts. Here&#39;s the pattern.</p>
 <h2>Why this never gets built</h2>
 <p>Not because it&#39;s hard. Because of where you sit in the queue.</p>
@@ -306,11 +312,15 @@ a:hover{color:#D97706}
           <p class="faq-a">It is what connects a community action to a business result, one person at a time. It answers two questions from the same data: what a member got out of the community, and what the company got back. Without it, community reporting is a list of activities instead of a record of what came back.</p>
         </div>
         <div class="faq-item">
-          <p class="faq-q">Can you build community attribution without engineering support?</p>
-          <p class="faq-a">Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that community teams rarely get engineering time, so the work has to be doable by the person who needs it.</p>
+          <p class="faq-q">How do you measure DevRel ROI?</p>
+          <p class="faq-a">Trace a business result back to a named community source, one person at a time. Most DevRel measurement advice stops at naming metric categories — reach, engagement, qualified leads. The gap is the data model underneath. Without a schema that links an event to a person to an outcome, the categories stay a list of things you cannot actually produce.</p>
         </div>
         <div class="faq-item">
-          <p class="faq-q">Why do most community teams fail to show ROI?</p>
+          <p class="faq-q">Can you build DevRel attribution without engineering support?</p>
+          <p class="faq-a">Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that developer relations and community teams rarely get engineering time, so the work has to be doable by the person who needs it.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why do most community and DevRel teams fail to show ROI?</p>
           <p class="faq-a">Attribution needs engineering time, and community teams are rarely first in line for it. So the reporting gets done by hand. That makes it slow, different every month, and impossible to check. Nobody quite trusts it, and the programme gets cut on instinct instead of evidence.</p>
         </div>
         <div class="faq-item">

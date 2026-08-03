@@ -5,21 +5,28 @@
     <link>https://kindavishal.js.org/writing</link>
     <description>Long-form pieces on developer community programs, creator economics, and program management.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Aug 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://kindavishal.js.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Your creator program is training the models that recommend you</title>
+      <link>https://kindavishal.js.org/writing/share-of-model-creator-content</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/share-of-model-creator-content</guid>
+      <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Share of voice used to mean where you show up on a channel. Now it also means whether an AI names you when a developer asks what to use. Here's how I'd track it.</description>
+    </item>
     <item>
       <title>The community metrics that survive a budget review</title>
       <link>https://kindavishal.js.org/writing/community-metrics-budget-review</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/community-metrics-budget-review</guid>
       <pubDate>Sat, 01 Aug 2026 09:00:00 GMT</pubDate>
-      <description>Counts are inputs, not results. What to claim when someone is deciding whether your programme continues — and what attribution still can't tell you.</description>
+      <description>Which DevRel and community metrics hold up when someone is deciding whether your programme continues — and what attribution still can't tell you.</description>
     </item>
     <item>
       <title>How to prove what your developer community returned, without engineering help</title>
       <link>https://kindavishal.js.org/writing/community-attribution-layer</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/community-attribution-layer</guid>
       <pubDate>Wed, 22 Jul 2026 09:00:00 GMT</pubDate>
-      <description>The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.</description>
+      <description>A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.</description>
     </item>
     <item>
       <title>I can't write production code. I shipped the internal tool in a week anyway.</title>
@@ -47,7 +54,7 @@
       <link>https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</guid>
       <pubDate>Wed, 17 Jun 2026 09:00:00 GMT</pubDate>
-      <description>Why tier is set by one number, why that number is a rolling average, and how ten creators in four weeks turned into a 4x lift in referrals.</description>
+      <description>A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.</description>
     </item>
   </channel>
 </rss>

@@ -1,7 +1,7 @@
 ---
 title: "How to prove what your developer community returned, without engineering help"
 slug: community-attribution-layer
-description: "The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer."
+description: "A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required."
 date: "2026-07-22"
 featured: 5
 homepage: 3
@@ -11,9 +11,11 @@ shortTitle: "The attribution layer"
 faq:
   - q: "What is a community attribution layer?"
     a: "It is what connects a community action to a business result, one person at a time. It answers two questions from the same data: what a member got out of the community, and what the company got back. Without it, community reporting is a list of activities instead of a record of what came back."
-  - q: "Can you build community attribution without engineering support?"
-    a: "Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that community teams rarely get engineering time, so the work has to be doable by the person who needs it."
-  - q: "Why do most community teams fail to show ROI?"
+  - q: "How do you measure DevRel ROI?"
+    a: "Trace a business result back to a named community source, one person at a time. Most DevRel measurement advice stops at naming metric categories — reach, engagement, qualified leads. The gap is the data model underneath. Without a schema that links an event to a person to an outcome, the categories stay a list of things you cannot actually produce."
+  - q: "Can you build DevRel attribution without engineering support?"
+    a: "Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that developer relations and community teams rarely get engineering time, so the work has to be doable by the person who needs it."
+  - q: "Why do most community and DevRel teams fail to show ROI?"
     a: "Attribution needs engineering time, and community teams are rarely first in line for it. So the reporting gets done by hand. That makes it slow, different every month, and impossible to check. Nobody quite trusts it, and the programme gets cut on instinct instead of evidence."
   - q: "How detailed does attribution need to be?"
     a: "Detailed enough to make a decision with. If the decision is which partners to pay, it has to go down to a single partner. Channel-level numbers are enough to report with and not enough to act on."
@@ -28,6 +30,8 @@ What did a member actually get out of this? And what did the company get back?
 Most community teams can't answer either one with evidence. They answer the first with testimonials and the second with activity counts — events run, messages sent, members joined. Both are real. Neither is a return.
 
 **An attribution layer is what connects a community action to a business result, one person at a time.** That's it. It isn't a dashboard. It isn't a metrics framework. It's a data model, plus a job that keeps it up to date.
+
+Most writing on DevRel measurement stops one step short of this. It tells you which metric categories matter — reach, engagement, qualified leads — and leaves you to work out where the numbers come from. The categories were never the hard part.
 
 I've built one three times. At Google it turned manual reporting into something the programme could actually see itself in. At Firecrawl it tracked affiliate performance down to each partner, and the team used it to decide payouts. Here's the pattern.
 

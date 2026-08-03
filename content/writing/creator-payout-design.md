@@ -9,6 +9,8 @@ category: "Creator programs"
 cardLabel: "Flat fee + points"
 shortTitle: "Paying for the video"
 faq:
+  - q: "Should you pay ambassadors commission or a flat fee?"
+    a: "Most ambassador guides recommend commission because you only pay for results. For developer tools I would use a flat fee per deliverable instead. Commission assumes the creator controls the conversion, and they do not — developer buying cycles are long, signups often go untracked, and your pricing page decides much of the outcome. Put the upside in a revenue share on top rather than in the base rate."
   - q: "What is wrong with paying creators per view?"
     a: "It rewards whatever gets views, which is not the same as whatever explains your product well. Creators respond by chasing titles and thumbnails, because that is what the money asks for. You end up paying most for the content that teaches least."
   - q: "What is wrong with paying per signup?"
@@ -19,21 +21,35 @@ faq:
     a: "By screen time and by whether your product is the subject. A dedicated piece is where the product is the reason the content exists. An integration is where it does a real job inside a larger build and gets meaningful screen time. A mention is a credit with something shown on screen. Write the definitions down before you sign anyone."
 ---
 
+Almost every guide to paying ambassadors lands in the same place: commission is the most ROI-friendly model, because you only pay for results. It sounds unarguable. You pay for outcomes, the creator carries the risk, nobody wastes money on content that goes nowhere.
+
+I think it's wrong for developer tools, and I built the opposite.
+
 There are two obvious ways to pay a creator, and both of them quietly ruin the content.
 
 **Pay per view** and you're paying for reach you already priced into their tier. Creators respond by chasing titles and thumbnails, because that's what the money is asking for. You end up paying most for the content that teaches least.
 
-**Pay per signup** and you invite conversion spam. The fastest route to a signup is rarely a careful tutorial. You also punish creators for a conversion rate they don't control — your pricing page and your onboarding decide most of it, not their video.
+**Pay per signup or commission** and you invite conversion spam. The fastest route to a signup is rarely a careful tutorial.
 
 So I did neither. Flat fee per piece of content, set by tier, agreed before anyone starts.
+
+## Why "only pay for results" backfires here
+
+The commission argument assumes the creator controls the result. For a consumer product bought on impulse, roughly true. For a developer tool, not close.
+
+A developer watches a tutorial, doesn't sign up, and comes back nine weeks later when they hit the problem it solves. Or they sign up on a work email through a link nobody tracked. Or the tutorial does its job and the signup dies on your pricing page. None of that is the creator's doing, and all of it lands on their invoice.
+
+So good creators price in the risk and ask for more, or pass. The ones who accept are the ones who most need the money — not the same people as the ones who explain your API well.
+
+There's a second cost. Commission makes you a variable expense in someone's month, and anyone with a full pipeline schedules guaranteed work first. You end up last in the queue while believing you built an efficient program.
 
 ## Pay for the thing you actually want
 
 The point of a creator program isn't views this week. It's content that answers a real technical question, ranks on search, and keeps working a year later.
 
-You can't get that from a reward that pays for upload volume or click-through rate. You get it by paying a known amount for a defined piece of work, then getting out of the way.
+You get that by paying a known amount for defined work, then getting out of the way. A flat fee also makes income predictable, which is the difference between someone who fits you into their schedule and someone who plans around you.
 
-A flat fee also does something underrated. It makes the creator's income predictable, which is the difference between someone who fits you into their schedule and someone who plans around you. Predictable beats theoretically-larger for almost everyone.
+Put the upside somewhere it can't distort the content — for us, a revenue share on referrals, sitting on top of everything else.
 
 ## Three content types, defined tightly
 
