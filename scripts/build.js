@@ -27,8 +27,9 @@ const P = require('./partials');
 // date-ordered regardless, because that is what feed readers expect.
 const ORDER = 'featured'; // 'featured' | 'date'
 
-// How many post cards the homepage shows. The grid fits 4 across at 1320px.
-const HOMEPAGE_CARDS = 4;
+// How many post cards the homepage shows. Three reads better than four — the
+// cards get room to breathe instead of sitting at the grid's 280px minimum.
+const HOMEPAGE_CARDS = 3;
 
 const ROOT = path.join(__dirname, '..');
 const CONTENT = path.join(ROOT, 'content', 'writing');
