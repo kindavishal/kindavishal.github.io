@@ -186,9 +186,16 @@ a:hover{color:#D97706}
 .sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
 .sp-card{background:#fff;border-radius:14px;padding:32px;border:1px solid rgba(0,0,0,0.04);transition:all .3s ease}
 .sp-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-4px)}
-.sp-card h3{font-size:18px;font-weight:600;margin:0 0 8px}
+.sp-card h3{font-size:18px;font-weight:600;margin:0 0 8px;color:#1C1917;transition:color .2s ease}
 .sp-card p{font-size:14px;color:#57534E;line-height:1.6;margin:0 0 16px}
 .sp-card .sp-tags{font-size:12px;color:#D97706;font-weight:600}
+a.sp-card{display:block}
+a.sp-card:hover{border-color:rgba(217,119,6,0.2)}
+a.sp-card:hover h3{color:#D97706}
+a.sp-card h3::after{content:'\2197';font-size:14px;margin-left:6px;color:#D97706;opacity:.55;transition:opacity .2s ease}
+a.sp-card:hover h3::after{opacity:1}
+.sp-note{font-size:15px;color:#57534E;line-height:1.7;margin-top:16px;max-width:720px}
+.sp-note strong{color:#1C1917;font-weight:600}
 
 /* ENDORSEMENTS */
 .endorsements{padding:100px 64px;max-width:1320px;margin:0 auto}
@@ -375,7 +382,7 @@ a:hover{color:#D97706}
           <svg width="24" height="24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         </div>
         <h3>What about the attribution layer?</h3>
-        <p>Showing what community work returned usually needs engineering time, and that time is hard to come by on any team. I build it myself — that's the edge I bring from an engineering background. At Google I automated the data collection and reporting, which made the program's impact visible and took manual work off my plate. At Firecrawl I shipped affiliate tracking down to each partner, and the team used it to decide payouts.</p>
+        <p>Showing what community work returned usually needs engineering time, and that time is hard to come by on any team. So I build it myself — Apps Script automations to collect the data, Looker Studio dashboards to make it readable. At Google that turned manual reporting into something the program could actually see itself in. At Firecrawl I shipped affiliate tracking down to each partner, and the team used it to decide payouts.</p>
       </div>
       <div class="wid-card reveal reveal-delay-3">
         <div class="wid-card-icon">
@@ -484,11 +491,26 @@ a:hover{color:#D97706}
           <span class="tag-gray">Internal Tooling</span>
         </div>
         <h3>Automating away 40 hours of weekly busywork</h3>
-        <p>Partner onboarding was a manual nightmare — forms, approvals, data entry. I built Apps Script workflows that automated the whole thing. I added dashboards in BigQuery and Looker Studio so people could check things themselves. The team got their week back.</p>
+        <p>Partner onboarding was a manual nightmare — forms, approvals, data entry. I built Apps Script workflows that automated the whole thing. I added Looker Studio dashboards so people could check things themselves. The team got their week back.</p>
       </div>
       <div class="work-card-result">
         <div class="work-card-result-label">Savings</div>
         <div class="work-card-result-val">~40 engineering hours reclaimed every week</div>
+      </div>
+    </div>
+    <div class="work-card reveal">
+      <div class="work-card-body">
+        <div class="work-card-tags">
+          <span class="tag-amber">Mozilla Punjab</span>
+          <span class="tag-gray">Events</span>
+        </div>
+        <h3>Building a 500-person hackathon from an empty page</h3>
+        <p>Autumn Hacks started as a name and nothing else. I built the concept, the site and the social presence, then went after sponsors — GitHub, Cloudflare, Gatsby and Twilio among them. Ran it twice: 403 hackers on campus as an MLH Local Hack Day, then a fully virtual second edition with four inclusion-led tracks once 2020 ruled out meeting in person. Concept, sponsorship, marketing, on-ground execution, and the unglamorous post-event work.</p>
+      </div>
+      <div class="work-card-result">
+        <div class="work-card-result-label">Scale</div>
+        <div class="work-card-result-val">500 hackers across two editions, backed by 14 sponsors</div>
+        <a href="https://autumnhacks.netlify.app/" target="_blank" rel="noopener" class="work-card-result-link" onclick="gtag('event','autumnhacks_click',{location:'work_card'})">View Autumn Hacks <span>&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -502,7 +524,7 @@ a:hover{color:#D97706}
     <p class="section-desc reveal">The same approach at every scale — from communities I started myself back in 2018, to a 3,500-person mentor network at Google, to building a creator programme from zero at a Series A startup.</p>
     <div class="career-grid">
       <div class="career-card reveal reveal-delay-1">
-        <span class="career-date">May 2026 – Jun 2026</span>
+        <span class="career-date">Apr 2026 – May 2026</span>
         <h3>Firecrawl</h3>
         <p class="role">Creator &amp; Community Lead</p>
         <p>Series A web-data company for AI. Built the partner and creator programs from zero — Ambassador, Firestarter, Affiliate, and Student. Grew creator-attributed referrals 4x (1.7K → 7.2K weekly). Built the affiliate tracking the team now uses to decide payouts.</p>
@@ -552,15 +574,11 @@ a:hover{color:#D97706}
     <div class="skill-group reveal reveal-delay-1">
       <div class="skill-group-title">Tech I Build With</div>
       <ul>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>JavaScript</li>
         <li>Google Apps Script</li>
-        <li>BigQuery</li>
         <li>Looker Studio</li>
+        <li>Google Analytics (GA4)</li>
         <li>GitHub Actions</li>
-        <li>Next.js</li>
-        <li>Supabase</li>
+        <li>Airtable</li>
       </ul>
     </div>
     <div class="skill-group reveal reveal-delay-2">
@@ -568,8 +586,11 @@ a:hover{color:#D97706}
       <ul>
         <li>Jira / Asana</li>
         <li>Buganizer</li>
+        <li>Taskflow</li>
+        <li>GitHub Issues</li>
+        <li>Discord</li>
+        <li>Discourse</li>
         <li>Figma</li>
-        <li>LaunchCal</li>
       </ul>
     </div>
     <div class="skill-group reveal reveal-delay-2">
@@ -577,10 +598,9 @@ a:hover{color:#D97706}
       <ul>
         <li>Developer ecosystems</li>
         <li>EdTech / Academia</li>
-        <li>AI / ML products</li>
+        <li>AI / ML products &amp; infrastructure</li>
         <li>Community strategy</li>
         <li>Partner ecosystems</li>
-        <li>AI infrastructure</li>
       </ul>
     </div>
   </div>
@@ -591,37 +611,48 @@ a:hover{color:#D97706}
   <div class="side-projects-inner">
     <span class="section-label reveal">Beyond Work</span>
     <h2 class="section-title reveal">Things I care about</h2>
+    <p class="sp-note reveal"><strong>89 merged pull requests across Google, Mozilla, GitHub, and Gatsby. 66 more reviewed.</strong> Most of what I do in open source is helping other people ship.</p>
     <div class="sp-grid">
-      <div class="sp-card reveal reveal-delay-1">
+      <a href="https://github.com/MozillaPunjab" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-1" onclick="gtag('event','oss_click',{location:'mozilla_punjab'})">
         <h3>Mozilla Punjab — Community Lead</h3>
-        <p>Started and still lead an open source community built around inclusion and togetherness. This is where I learned how communities actually work, long before it was my job.</p>
+        <p>Started and still lead an open source community built around inclusion and togetherness. Wrote its code of conduct and maintain the shared resources and talks repos the community runs on.</p>
         <span class="sp-tags">Since 2018 · Open Source · Community</span>
-      </div>
-      <div class="sp-card reveal reveal-delay-1">
+      </a>
+      <a href="https://githubcampus.expert/kindavishal/" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-1" onclick="gtag('event','oss_click',{location:'campus_expert'})">
         <h3>GitHub Campus Expert</h3>
-        <p>Trained through GitHub's eight-week programme, then spent two and a half years helping student leaders champion open source at their colleges.</p>
+        <p>Trained through GitHub's eight-week programme, then spent two and a half years helping student leaders champion open source at their colleges. Built the Git workshop I taught it with.</p>
         <span class="sp-tags">2019–2021 · GitHub · Student Communities</span>
-      </div>
-      <div class="sp-card reveal reveal-delay-2">
+      </a>
+      <a href="https://github.com/kindavishal/gitinit" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-2" onclick="gtag('event','oss_click',{location:'gitinit'})">
+        <h3>gitinit</h3>
+        <p>An open source workshop that teaches students Git and GitHub by having them open a real pull request. Ran for four years — I reviewed 29 of those first PRs myself.</p>
+        <span class="sp-tags">2019–2023 · 9 stars · Teaching</span>
+      </a>
+      <a href="https://mozilla.github.io/reps-archive/u/kindavishal/index.html" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-2" onclick="gtag('event','oss_click',{location:'mozilla_rep'})">
         <h3>Mozilla Rep</h3>
-        <p>Mobilised and supported regional Mozilla communities, running hands-on workshops to promote open web standards.</p>
+        <p>Community Coordinator for Punjab in Mozilla's Reps programme. Mobilised and supported regional communities, ran hands-on workshops, and covered engagement, education, localization and open design.</p>
         <span class="sp-tags">2020–2022 · Community · Open Web</span>
-      </div>
-      <div class="sp-card reveal reveal-delay-2">
-        <h3>Gatsby Maintainer</h3>
-        <p>Helped keep the Gatsby project running for two years — reviewing React contributions and improving docs so newcomers could land their first PR.</p>
+      </a>
+      <a href="https://github.com/mozilla/OpenDesign" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-2" onclick="gtag('event','oss_click',{location:'open_design'})">
+        <h3>Mozilla Open Design</h3>
+        <p>Mozilla's experiment in running design work the way open source runs code — anyone could file a request, claim a task, or ship the source files. I contributed to it as part of my Reps remit.</p>
+        <span class="sp-tags">400 stars · Open Source · Design</span>
+      </a>
+      <a href="https://github.com/gatsbyjs/gatsby/pulls?q=is%3Apr+author%3Akindavishal" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-2" onclick="gtag('event','oss_click',{location:'gatsby'})">
+        <h3>Gatsby Contributor</h3>
+        <p>Contributed docs fixes and code reviews to Gatsby while it was one of the busiest React projects on GitHub — the kind of unglamorous work that decides whether a newcomer lands their first PR or gives up.</p>
         <span class="sp-tags">2019–2021 · Open Source · React</span>
-      </div>
-      <div class="sp-card reveal reveal-delay-3">
+      </a>
+      <a href="https://sites.google.com/view/knine/home" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-3" onclick="gtag('event','oss_click',{location:'knine'})">
         <h3>Knine.ngo</h3>
-        <p>Built a full-stack donation platform for animal welfare. Raised INR 2.5M+ for rescue operations.</p>
+        <p>Built the full-stack donation platform for K-Nine Animal Welfare Society, a volunteer-run rescue NGO. Raised INR 2.5M+ for rescue operations.</p>
         <span class="sp-tags">Full Stack · Impact</span>
-      </div>
-      <div class="sp-card reveal reveal-delay-3">
+      </a>
+      <a href="https://tubemonitor-youtube-scraper-tracker-423818559206.asia-southeast1.run.app/" target="_blank" rel="noopener" class="sp-card reveal reveal-delay-3" onclick="gtag('event','oss_click',{location:'tubemonitor'})">
         <h3>TubeMonitor</h3>
-        <p>Built TubeMonitor (Next.js + Supabase) — an internal tool tracking creator performance and competitive share-of-voice.</p>
-        <span class="sp-tags">Next.js · Supabase · Internal Tools</span>
-      </div>
+        <p>Built TubeMonitor — an internal tool tracking creator performance and competitive share-of-voice.</p>
+        <span class="sp-tags">Internal Tools · Analytics</span>
+      </a>
     </div>
   </div>
 </section>
