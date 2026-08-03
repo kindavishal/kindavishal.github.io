@@ -3,7 +3,7 @@ title: "Why I paid creators for the video, not the views"
 slug: creator-payout-design
 description: "Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on."
 date: "2026-06-30"
-featured: 2
+featured: 3
 homepage: 2
 category: "Creator programs"
 cardLabel: "Flat fee + points"

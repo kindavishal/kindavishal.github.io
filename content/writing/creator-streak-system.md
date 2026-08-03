@@ -3,7 +3,7 @@ title: "The streak system that never punishes creators"
 slug: creator-streak-system
 description: "Most streak mechanics take something away when you stop. This one pauses instead — four states, nothing lost, and a re-entry path that stays open."
 date: "2026-07-10"
-featured: 3
+featured: 4
 category: "Creator programs"
 cardLabel: "Nothing is ever lost"
 shortTitle: "The streak system"

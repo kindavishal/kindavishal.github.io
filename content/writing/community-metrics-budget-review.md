@@ -3,7 +3,7 @@ title: "The community metrics that survive a budget review"
 slug: community-metrics-budget-review
 description: "Which DevRel and community metrics hold up when someone is deciding whether your programme continues — and what attribution still can't tell you."
 date: "2026-08-01"
-featured: 6
+featured: 7
 category: "Attribution"
 cardLabel: "Inputs vs results"
 shortTitle: "Metrics that survive"

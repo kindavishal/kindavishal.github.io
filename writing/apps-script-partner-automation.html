@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRM34FM9F4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HRM34FM9F4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How I automated 40 hours of weekly busywork out of a 300-partner program — Vishal Das</title>
+  <meta name="description" content="Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.">
+  <meta name="author" content="Vishal Das">
+  <link rel="canonical" href="https://kindavishal.js.org/writing/apps-script-partner-automation">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/apps-script-partner-automation">
+  <meta property="og:site_name" content="Vishal Das Portfolio">
+  <meta property="og:title" content="How I automated 40 hours of weekly busywork out of a 300-partner program — Vishal Das">
+  <meta property="og:description" content="Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/og/apps-script-partner-automation.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/apps-script-partner-automation.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="How I automated 40 hours of weekly busywork out of a 300-partner program">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kindavishal.js.org/writing/apps-script-partner-automation">
+  <meta name="twitter:title" content="How I automated 40 hours of weekly busywork out of a 300-partner program — Vishal Das">
+  <meta name="twitter:description" content="Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.">
+  <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/apps-script-partner-automation.png">
+  <meta name="twitter:image:alt" content="How I automated 40 hours of weekly busywork out of a 300-partner program">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How I automated 40 hours of weekly busywork out of a 300-partner program",
+    "description": "Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.",
+    "image": "https://kindavishal.js.org/assets/og/apps-script-partner-automation.png",
+    "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
+    "publisher": { "@type": "Person", "name": "Vishal Das" },
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindavishal.js.org/writing/apps-script-partner-automation" },
+    "url": "https://kindavishal.js.org/writing/apps-script-partner-automation"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What can Google Apps Script automate for program management?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Anything that moves information between steps. Form responses into a tracked record, status changes into notifications, scattered sheets into one reporting table, recurring reports on a schedule. It runs on triggers, it reads and writes Sheets and Gmail directly, and it needs no infrastructure. For an operations or DevRel team with no engineering time, it covers most of what you need." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you automate partner onboarding?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Start by writing down every step and marking each one as a handoff or a judgment. Handoffs are moving information from one place to the next, and those automate cleanly. Judgments are decisions about whether a partner qualifies, and those should stay with a person. Automate the handoffs first and most of the time disappears." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should you automate a broken process or fix it first?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Fix it first. Automating a bad process makes the bad outcome arrive faster and more consistently, and it hides the problem behind a script nobody reads. Write the process down, delete the steps that exist only because someone once asked for them, then automate what survives." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Apps Script or Zapier better for internal automation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Apps Script if your data already lives in Google Sheets and you need real logic, since you get a full scripting language, scheduled triggers and no per-task cost. A connector tool is faster to set up and easier to hand over. The deciding question is usually whether the person maintaining it after you can read code." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you measure time saved by automation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Count the task time, then count the interruption time separately. The hours spent doing the work are the obvious number and usually the smaller one. The bigger cost is people stopping what they are doing to ask for a status update, which a self-serve dashboard removes entirely." }
+      }
+    ]
+  }</script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+a:hover{color:#D97706}
+::selection{background:#D97706;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:#1C1917;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon span{color:#D97706;font-family:'Literata',serif;font-weight:700;font-size:16px}
+.nav-logo-name{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:500;color:#78716C}
+.nav-links a{cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:#1C1917}
+.nav-links a.active{color:#D97706;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.btn-outline{border:1.5px solid #E7E5E0;color:#1C1917;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#D97706;color:#D97706}
+.btn-primary{background:#D97706;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#B45309;color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#1C1917;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(248,246,242,0.98);backdrop-filter:blur(16px);z-index:99;flex-direction:column;padding:32px;gap:8px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:500;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#1C1917}
+.mobile-menu .nav-btns{flex-direction:column;gap:12px;margin-top:24px}
+.mobile-menu .nav-btns a{text-align:center;padding:14px 24px}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.footer{padding:24px 64px;background:#1C1917;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#78716C}
+.footer-links{display:flex;gap:20px}
+.footer a{color:#78716C;transition:color .2s}
+.footer a:hover{color:#D97706}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.05s}
+.reveal-delay-2{transition-delay:0.1s}
+.reveal-delay-3{transition-delay:0.15s}
+.reveal-delay-4{transition-delay:0.2s}
+.article-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#D97706;font-weight:600;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#B45309}
+.back-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.article-header{margin-bottom:40px}
+.article-title{font-family:'Literata',serif;font-size:36px;line-height:1.15;letter-spacing:-0.5px;margin:0 0 16px;color:#1C1917}
+.article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article-date{font-size:13px;font-weight:600;color:#D97706;background:#FEF3C7;padding:4px 12px;border-radius:6px;display:inline-block}
+.article-readtime{font-size:13px;color:#78716C}
+.article-body{font-size:16px;line-height:1.8;color:#44403C}
+.article-body h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:40px 0 16px;letter-spacing:-0.3px;line-height:1.3}
+.article-body h3{font-size:18px;font-weight:600;color:#1C1917;margin:32px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body li::marker{color:#D97706}
+.article-body strong{color:#1C1917;font-weight:600}
+.article-body a{color:#D97706;font-weight:500;border-bottom:1px solid rgba(217,119,6,0.3)}
+.article-body a:hover{border-bottom-color:#D97706}
+.article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
+.article-body blockquote p:last-child{margin-bottom:0}
+.callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
+.callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.callout ul,.callout ol{margin:0;padding-left:20px}
+.callout li{margin-bottom:6px;font-size:14px;line-height:1.6;color:#44403C}
+.callout li::marker{color:#D97706}
+.callout p:last-child{margin-bottom:0}
+.mono{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body code{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body pre{background:#1C1917;color:#F8F6F2;padding:20px 24px;border-radius:12px;overflow-x:auto;margin:0 0 24px;font-size:14px;line-height:1.6}
+.article-body pre code{background:none;padding:0;color:inherit;font-size:14px}
+.table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(0,0,0,0.08);border-radius:12px}
+.article-body table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+.article-body th{text-align:left;font-weight:600;color:#1C1917;background:#F0EDE8;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);white-space:nowrap}
+.article-body td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.05);vertical-align:top;line-height:1.6}
+.article-body tr:last-child td{border-bottom:none}
+.faq{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px}
+.faq h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:0 0 24px;letter-spacing:-0.3px}
+.faq-item{margin-bottom:24px}
+.faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
+.faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.article-nav-link{font-size:14px;color:#D97706;font-weight:600;transition:color .2s}
+.article-nav-link:hover{color:#B45309}
+@media(max-width:1024px){
+.nav-inner{padding:0 32px}
+.footer{padding:24px 32px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.nav-inner{padding:0 20px}
+.article-wrap{padding:88px 20px 60px}
+.article-title{font-size:28px}
+.footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><span>V</span></div>
+      <span class="nav-logo-name">Vishal Das</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing" class="active">Writing</a>
+      <div class="nav-btns">
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <div class="nav-btns">
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+  </div>
+</div>
+<article>
+  <div class="article-wrap">
+    <a href="/writing" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to writing
+    </a>
+
+    <header class="article-header reveal">
+      <h1 class="article-title">How I automated 40 hours of weekly busywork out of a 300-partner program</h1>
+      <div class="article-meta">
+        <span class="article-date">February 2026</span>
+        <span class="article-readtime">~5 min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+<p>At Google I ran a partner ecosystem that grew past 300 institutions across India. Onboarding a partner was a manual job, and so was everything after it.</p>
+<p>Nobody had designed it that way. It grew one step at a time, each one reasonable on its own. Together they took about a working week of effort, every week.</p>
+<p>I&#39;m not an engineer. I automated most of it with Apps Script and Looker Studio. There was nobody else to do it, and waiting was not going to work.</p>
+<p><strong>The rule that made it work: automate the handoffs, never the judgment.</strong></p>
+<h2>The real cost wasn&#39;t the hours</h2>
+<p>The hours are the number I put on the work card, because hours are legible. They&#39;re not the interesting part.</p>
+<p>The interesting part is what a week of busywork prevents. When onboarding takes days of coordination, you stop signing partners you should sign. When a report takes a day to assemble, you produce it monthly instead of weekly. So you find out about problems a month late. When four people have to be asked for status, nobody has a current picture at any moment.</p>
+<p>The busywork wasn&#39;t slowing the programme down. It was quietly setting its ceiling.</p>
+<p>That reframe is also what got it prioritised. &quot;I&#39;d like to save some time&quot; is a request nobody funds. &quot;We&#39;re turning down partners because onboarding can&#39;t keep up&quot; is a different conversation.</p>
+<h2>Handoffs and judgments</h2>
+<p>Most automation projects fail because someone tries to automate a decision. Write down every step in the process and mark each one:</p>
+<ul>
+<li><strong>A handoff</strong> moves information from one place to the next. Copying a form response into a tracker. Telling someone their status changed. Pulling four sheets into one table.</li>
+<li><strong>A judgment</strong> decides something. Does this institution qualify. Is this partner ready for the next stage. Should we make an exception.</li>
+</ul>
+<p>Handoffs automate cleanly and account for nearly all the time. Judgments should stay with a person. Trying to encode them is where these projects die. You end up with a script full of special cases that nobody trusts and everyone overrides.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>What was manual</th>
+<th>What replaced it</th>
+<th>What stayed human</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Copying application details into a tracker</td>
+<td>Form response writes the record on submit</td>
+<td>Whether the partner qualifies</td>
+</tr>
+<tr>
+<td>Chasing missing documents</td>
+<td>Scheduled check, automatic reminder</td>
+<td>Whether to grant an exception</td>
+</tr>
+<tr>
+<td>Assembling the weekly report</td>
+<td>Scheduled script builds the table</td>
+<td>What the numbers mean</td>
+</tr>
+<tr>
+<td>Answering &quot;where is my application?&quot;</td>
+<td>Self-serve dashboard</td>
+<td>The awkward conversations</td>
+</tr>
+<tr>
+<td>Telling people their stage changed</td>
+<td>Triggered notification on status change</td>
+<td>Deciding to change the stage</td>
+</tr>
+</tbody></table></div>
+<p>Every row in the middle column is a few dozen lines of Apps Script. None of it is clever. That&#39;s the point.</p>
+<h2>What I built it on</h2>
+<p>Apps Script, because the data already lived in Google Sheets and it runs on scheduled triggers with nothing to deploy. Sheets as the store, because everyone could already read it and nobody needed a login I&#39;d have to request. Looker Studio on top, because a dashboard people can open themselves is the whole game.</p>
+<p>Two habits kept it maintainable:</p>
+<p><strong>One function per source. Keep fetching separate from cleaning up.</strong> Forms always change shape. When one did, I fixed a single function instead of hunting through a script.</p>
+<p><strong>Never write a summary.</strong> Store the row, work the summary out later. The first version aggregated as it wrote, and within a month someone asked a question the aggregate couldn&#39;t answer. I couldn&#39;t get the detail back, because I&#39;d never stored it. Same mistake I&#39;d make again later on a different system, which is how I learned it properly.</p>
+<div class="callout">
+<p class="callout-title">Before you automate anything</p>
+<ol>
+<li>Write the process down. All of it, including the steps nobody admits to.</li>
+<li>Delete the steps that exist only because someone once asked for them.</li>
+<li>Mark every remaining step as handoff or judgment.</li>
+<li>Automate handoffs. Leave judgments alone.</li>
+<li>Build the dashboard before you think you need it.</li>
+</ol>
+</div><p>Step two matters more than step four. Automating a bad process makes the bad outcome arrive faster and hides it behind a script nobody reads.</p>
+<h2>The dashboard was the biggest win</h2>
+<p>The dashboard saved less task time than anything else I built. It made more difference than all of it.</p>
+<p>Before it existed, wanting to know something meant asking a person. That person stopped what they were doing, looked it up, and replied. The lookup took two minutes and the interruption cost twenty, because they then had to get back to whatever they&#39;d been doing.</p>
+<p>Multiply that across a team and a week and the interruption tax is larger than the task time. It never shows up in an estimate of hours saved. That&#39;s why it gets left out of the business case.</p>
+<p>Once people could answer their own questions, the questions stopped. That&#39;s the change people actually noticed. Nobody thanked me for the script.</p>
+<h2>What I got wrong</h2>
+<p><strong>I automated before I documented.</strong> I built the first workflows around the process as it was. Two of the steps existed because of a request from a team that had reorganised a year earlier. So I automated work that shouldn&#39;t have been happening, and made it permanent. In someone&#39;s head it might have been questioned. In a script, nobody looks.</p>
+<p><strong>I built it so only I could maintain it.</strong> That was fine until I went on leave. Apps Script is easy to write and easy to leave undocumented. An automation nobody else can fix is not an asset. I&#39;d now write the runbook alongside it, not after.</p>
+<h2>Why an operator should do this</h2>
+<p>The standard advice is to file a request and wait for engineering time. For a community or DevRel team, that request never gets to the top of the queue. It shouldn&#39;t. Shipping product matters more.</p>
+<p>But the person who knows exactly which steps are handoffs and which are judgments is the person running the process. That knowledge is the hard part. The scripting is a weekend.</p>
+<p>I&#39;ve done a version of this three times now. It works the same way every time. Write the process down, automate the movement, keep the decisions, build the dashboard early.</p>
+<p>Years later that habit is what let me stand up a creator program from zero in four weeks, with no tooling and nobody to ask: <a href="/writing/firecrawl-ambassador-tier-system">the five-tier ambassador program</a>.</p>
+    </div>
+
+      <section class="faq">
+        <h2>Questions people ask</h2>
+        <div class="faq-item">
+          <p class="faq-q">What can Google Apps Script automate for program management?</p>
+          <p class="faq-a">Anything that moves information between steps. Form responses into a tracked record, status changes into notifications, scattered sheets into one reporting table, recurring reports on a schedule. It runs on triggers, it reads and writes Sheets and Gmail directly, and it needs no infrastructure. For an operations or DevRel team with no engineering time, it covers most of what you need.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How do you automate partner onboarding?</p>
+          <p class="faq-a">Start by writing down every step and marking each one as a handoff or a judgment. Handoffs are moving information from one place to the next, and those automate cleanly. Judgments are decisions about whether a partner qualifies, and those should stay with a person. Automate the handoffs first and most of the time disappears.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Should you automate a broken process or fix it first?</p>
+          <p class="faq-a">Fix it first. Automating a bad process makes the bad outcome arrive faster and more consistently, and it hides the problem behind a script nobody reads. Write the process down, delete the steps that exist only because someone once asked for them, then automate what survives.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is Apps Script or Zapier better for internal automation?</p>
+          <p class="faq-a">Apps Script if your data already lives in Google Sheets and you need real logic, since you get a full scripting language, scheduled triggers and no per-task cost. A connector tool is faster to set up and easier to hand over. The deciding question is usually whether the person maintaining it after you can read code.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How do you measure time saved by automation?</p>
+          <p class="faq-a">Count the task time, then count the interruption time separately. The hours spent doing the work are the obvious number and usually the smaller one. The bigger cost is people stopping what they are doing to ask for a status update, which a self-serve dashboard removes entirely.</p>
+        </div>
+      </section>
+
+    <div class="article-bottom">
+      <a href="/writing" class="back-link" style="margin:0">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to writing
+      </a>
+      <a href="/writing/firecrawl-ambassador-tier-system" class="article-nav-link">Next: The tier system →</a>
+    </div>
+  </div>
+</article>
+<footer class="footer">
+  <span>&copy; 2026 Vishal Das</span>
+  <div class="footer-links">
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('active',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',function(){if(window.innerWidth>768)closeMenu()});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}
+  });
+// threshold 0, not 0.1: an element taller than the viewport can never reach a
+// ratio of 0.1, which would leave it stuck at opacity 0 forever.
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>

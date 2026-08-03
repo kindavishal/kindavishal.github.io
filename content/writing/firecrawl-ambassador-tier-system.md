@@ -3,7 +3,7 @@ title: "How I designed a five-tier ambassador program that 4x'd creator referral
 slug: firecrawl-ambassador-tier-system
 description: "A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals."
 date: "2026-06-17"
-featured: 1
+featured: 2
 homepage: 1
 category: "Creator programs"
 cardLabel: "1.7K → 7.2K weekly"

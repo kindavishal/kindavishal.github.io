@@ -56,5 +56,12 @@
       <pubDate>Wed, 17 Jun 2026 09:00:00 GMT</pubDate>
       <description>A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.</description>
     </item>
+    <item>
+      <title>How I automated 40 hours of weekly busywork out of a 300-partner program</title>
+      <link>https://kindavishal.js.org/writing/apps-script-partner-automation</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/apps-script-partner-automation</guid>
+      <pubDate>Wed, 11 Feb 2026 09:00:00 GMT</pubDate>
+      <description>Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.</description>
+    </item>
   </channel>
 </rss>

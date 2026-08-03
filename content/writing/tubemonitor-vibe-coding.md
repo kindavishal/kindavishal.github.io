@@ -3,7 +3,7 @@ title: "I can't write production code. I shipped the internal tool in a week any
 slug: tubemonitor-vibe-coding
 description: "The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part."
 date: "2026-07-16"
-featured: 4
+featured: 5
 category: "Internal tooling"
 cardLabel: "Spec → shipped in a week"
 shortTitle: "Shipping TubeMonitor"
