@@ -4,6 +4,7 @@ slug: firecrawl-ambassador-tier-system
 description: "Why tier is set by one number, why that number is a rolling average, and how ten creators in four weeks turned into a 4x lift in referrals."
 date: "2026-06-17"
 featured: 1
+homepage: 1
 category: "Creator programs"
 cardLabel: "1.7K → 7.2K weekly"
 shortTitle: "The tier system"

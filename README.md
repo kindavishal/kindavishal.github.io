@@ -44,6 +44,16 @@ and `date` (`YYYY-MM-DD`); `slug` defaults to the filename. Optional: `category`
 the on-page FAQ and the `FAQPage` structured data), and `draft: true` to build everything
 except that post.
 
+Two fields control ordering, and they answer different questions:
+
+- **`featured`** — position on the writing index, and the order the next/prev links walk.
+  This is the reading sequence, so each post's closing line should hand off to whatever
+  comes after it. Set `ORDER = 'date'` in `scripts/build.js` to ignore it and go
+  reverse-chronological instead.
+- **`homepage`** — which posts get a card on the homepage, and in what order. The homepage
+  is a shop window rather than a sequence, so it deliberately doesn't have to match
+  `featured`. Posts without a `homepage` rank fill any leftover slots in reading order.
+
 Then `npm run build`. Deleting or drafting a post removes its generated HTML.
 
 ## Development

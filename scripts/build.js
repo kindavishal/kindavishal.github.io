@@ -29,6 +29,11 @@ const ORDER = 'featured'; // 'featured' | 'date'
 
 // How many post cards the homepage shows. Three reads better than four — the
 // cards get room to breathe instead of sitting at the grid's 280px minimum.
+//
+// Which three is a separate question from reading order: the homepage is a
+// shop window, the writing index is a sequence. Give a post a `homepage` rank
+// in frontmatter to pin it to a card slot. Posts without one fill any
+// remaining slots in display order.
 const HOMEPAGE_CARDS = 3;
 
 const ROOT = path.join(__dirname, '..');
@@ -394,7 +399,12 @@ function injectHomepage(posts) {
     return;
   }
 
-  const cards = posts.slice(0, HOMEPAGE_CARDS).map((p, i) => `      <a href="/writing/${p.slug}" class="blog-card reveal reveal-delay-${i + 1}">
+  // Pinned posts claim their slot first; the rest fill up in display order.
+  const pinned = posts.filter((p) => p.homepage).sort((a, b) => a.homepage - b.homepage);
+  const rest = posts.filter((p) => !p.homepage);
+  const chosen = [...pinned, ...rest].slice(0, HOMEPAGE_CARDS);
+
+  const cards = chosen.map((p, i) => `      <a href="/writing/${p.slug}" class="blog-card reveal reveal-delay-${i + 1}">
         <div class="blog-card-img ${i % 2 === 0 ? 'amber' : 'dark'}"><span>${esc(p.cardLabel || p.dateDisplay)}</span></div>
         <div class="blog-card-body">
           <span class="blog-cat">${esc(p.category || 'Writing')}</span>
