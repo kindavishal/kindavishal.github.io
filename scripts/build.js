@@ -266,7 +266,11 @@ ${P.scripts()}
 }
 
 function renderIndex(posts) {
-  const desc = 'Teardowns of the developer community, DevRel and creator programs I have built — in the order I built them.';
+  // Two jobs, two strings. `subtitle` is the line a reader actually sees, so it
+  // has to sound like him. `desc` is only ever seen in a search result or a feed
+  // reader, so it can name the subject plainly without dragging keywords on-page.
+  const subtitle = "Every program here is one I built. Including the parts that didn't work.";
+  const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
 
   // Numbered so the run of dates reads as a deliberate sequence rather than a
   // stale reverse-chronological list. Drop the number if ORDER goes to 'date'.
@@ -325,7 +329,7 @@ ${P.nav()}
   <div class="page-wrap">
     <header class="page-header reveal">
       <h1 class="page-title">Writing</h1>
-      <p class="page-desc">${esc(desc)}</p>
+      <p class="page-desc">${esc(subtitle)}</p>
     </header>
 
     <div class="article-list">
@@ -370,7 +374,7 @@ ${urls.map((u) => `  <url>
 }
 
 function renderFeed(posts) {
-  const desc = 'Teardowns of the developer community, DevRel and creator programs I have built — in the order I built them.';
+  const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
   const built = posts.length ? rfc822(posts[0].date) : new Date().toUTCString();
 
   return `<?xml version="1.0" encoding="UTF-8"?>
