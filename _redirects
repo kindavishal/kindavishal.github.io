@@ -1,13 +1,21 @@
+# kindavishal.js.org is the canonical host. The Netlify subdomain serves the
+# same content, so it is folded in to stop it competing as a duplicate.
+https://kindavishal.netlify.app/*  https://kindavishal.js.org/:splat  301!
+http://kindavishal.netlify.app/*   https://kindavishal.js.org/:splat  301!
+
 /resume   https://docs.google.com/document/d/e/2PACX-1vS5il5Ac2vc5606ACVm3YnOFXpCi7u4Py-HXB0bkUrBQGCiAnsTa4IUczZuZb4L3NVTaXU7BOCjge-W/pub  301
 
-# Posts pulled back for revision. 302 (not 301) so browsers and crawlers
-# don't cache these permanently — the original URLs are meant to return.
-/writing/big-company-to-startup           /writing  302
-/writing/unsexy-side-of-devrel            /writing  302
-/writing/community-is-not-a-cost-center   /writing  302
-/writing/operator-builder-gap             /writing  302
-/writing/managing-300-partnerships        /writing  302
-/writing/firecrawl-ambassador-tier-system /writing  302
+# Retired essays. These are not coming back — 301 so the equity consolidates.
+# Retarget an individual line once a new post supersedes it.
+/writing/big-company-to-startup           /writing  301
+/writing/unsexy-side-of-devrel            /writing  301
+/writing/community-is-not-a-cost-center   /writing  301
+/writing/operator-builder-gap             /writing  301
+/writing/managing-300-partnerships        /writing  301
+
+# Being rebuilt at the same URLs. 302 so nothing caches the detour — delete
+# each line as its post ships. Netlify serves a real file ahead of a rule
+# anyway, but leaving stale rules around invites confusion.
 /writing/tubemonitor-vibe-coding          /writing  302
 /writing/12-step-community-framework      /writing  302
 
