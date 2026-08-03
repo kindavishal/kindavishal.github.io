@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRM34FM9F4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HRM34FM9F4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to prove what your developer community returned, without engineering help — Vishal Das</title>
+  <meta name="description" content="The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.">
+  <meta name="author" content="Vishal Das">
+  <link rel="canonical" href="https://kindavishal.js.org/writing/community-attribution-layer">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/community-attribution-layer">
+  <meta property="og:site_name" content="Vishal Das Portfolio">
+  <meta property="og:title" content="How to prove what your developer community returned, without engineering help — Vishal Das">
+  <meta property="og:description" content="The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/og/community-attribution-layer.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/community-attribution-layer.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="How to prove what your developer community returned, without engineering help">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kindavishal.js.org/writing/community-attribution-layer">
+  <meta name="twitter:title" content="How to prove what your developer community returned, without engineering help — Vishal Das">
+  <meta name="twitter:description" content="The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.">
+  <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/community-attribution-layer.png">
+  <meta name="twitter:image:alt" content="How to prove what your developer community returned, without engineering help">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to prove what your developer community returned, without engineering help",
+    "description": "The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.",
+    "image": "https://kindavishal.js.org/assets/og/community-attribution-layer.png",
+    "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
+    "publisher": { "@type": "Person", "name": "Vishal Das" },
+    "datePublished": "2026-07-22",
+    "dateModified": "2026-07-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindavishal.js.org/writing/community-attribution-layer" },
+    "url": "https://kindavishal.js.org/writing/community-attribution-layer"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a community attribution layer?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is what connects a community action to a business result, one person at a time. It answers two questions from the same data: what a member got out of the community, and what the company got back. Without it, community reporting is a list of activities instead of a record of what came back." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you build community attribution without engineering support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that community teams rarely get engineering time, so the work has to be doable by the person who needs it." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do most community teams fail to show ROI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Attribution needs engineering time, and community teams are rarely first in line for it. So the reporting gets done by hand. That makes it slow, different every month, and impossible to check. Nobody quite trusts it, and the programme gets cut on instinct instead of evidence." }
+      },
+      {
+        "@type": "Question",
+        "name": "How detailed does attribution need to be?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Detailed enough to make a decision with. If the decision is which partners to pay, it has to go down to a single partner. Channel-level numbers are enough to report with and not enough to act on." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the first step to setting up community attribution?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Put a tracking code on every link and form you control, this week, before building anything else. It costs an afternoon. It is the only step that gets permanently harder the longer you wait, because attribution you did not capture cannot be recovered later." }
+      }
+    ]
+  }</script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+a:hover{color:#D97706}
+::selection{background:#D97706;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:#1C1917;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon span{color:#D97706;font-family:'Literata',serif;font-weight:700;font-size:16px}
+.nav-logo-name{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:500;color:#78716C}
+.nav-links a{cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:#1C1917}
+.nav-links a.active{color:#D97706;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.btn-outline{border:1.5px solid #E7E5E0;color:#1C1917;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#D97706;color:#D97706}
+.btn-primary{background:#D97706;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#B45309;color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#1C1917;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(248,246,242,0.98);backdrop-filter:blur(16px);z-index:99;flex-direction:column;padding:32px;gap:8px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:500;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#1C1917}
+.mobile-menu .nav-btns{flex-direction:column;gap:12px;margin-top:24px}
+.mobile-menu .nav-btns a{text-align:center;padding:14px 24px}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.footer{padding:24px 64px;background:#1C1917;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#78716C}
+.footer-links{display:flex;gap:20px}
+.footer a{color:#78716C;transition:color .2s}
+.footer a:hover{color:#D97706}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.05s}
+.reveal-delay-2{transition-delay:0.1s}
+.reveal-delay-3{transition-delay:0.15s}
+.reveal-delay-4{transition-delay:0.2s}
+.article-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#D97706;font-weight:600;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#B45309}
+.back-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.article-header{margin-bottom:40px}
+.article-title{font-family:'Literata',serif;font-size:36px;line-height:1.15;letter-spacing:-0.5px;margin:0 0 16px;color:#1C1917}
+.article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article-date{font-size:13px;font-weight:600;color:#D97706;background:#FEF3C7;padding:4px 12px;border-radius:6px;display:inline-block}
+.article-readtime{font-size:13px;color:#78716C}
+.article-body{font-size:16px;line-height:1.8;color:#44403C}
+.article-body h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:40px 0 16px;letter-spacing:-0.3px;line-height:1.3}
+.article-body h3{font-size:18px;font-weight:600;color:#1C1917;margin:32px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body li::marker{color:#D97706}
+.article-body strong{color:#1C1917;font-weight:600}
+.article-body a{color:#D97706;font-weight:500;border-bottom:1px solid rgba(217,119,6,0.3)}
+.article-body a:hover{border-bottom-color:#D97706}
+.article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
+.article-body blockquote p:last-child{margin-bottom:0}
+.callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
+.callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.callout ul,.callout ol{margin:0;padding-left:20px}
+.callout li{margin-bottom:6px;font-size:14px;line-height:1.6;color:#44403C}
+.callout li::marker{color:#D97706}
+.callout p:last-child{margin-bottom:0}
+.mono{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body code{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body pre{background:#1C1917;color:#F8F6F2;padding:20px 24px;border-radius:12px;overflow-x:auto;margin:0 0 24px;font-size:14px;line-height:1.6}
+.article-body pre code{background:none;padding:0;color:inherit;font-size:14px}
+.table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(0,0,0,0.08);border-radius:12px}
+.article-body table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+.article-body th{text-align:left;font-weight:600;color:#1C1917;background:#F0EDE8;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);white-space:nowrap}
+.article-body td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.05);vertical-align:top;line-height:1.6}
+.article-body tr:last-child td{border-bottom:none}
+.faq{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px}
+.faq h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:0 0 24px;letter-spacing:-0.3px}
+.faq-item{margin-bottom:24px}
+.faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
+.faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.article-nav-link{font-size:14px;color:#D97706;font-weight:600;transition:color .2s}
+.article-nav-link:hover{color:#B45309}
+@media(max-width:1024px){
+.nav-inner{padding:0 32px}
+.footer{padding:24px 32px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.nav-inner{padding:0 20px}
+.article-wrap{padding:88px 20px 60px}
+.article-title{font-size:28px}
+.footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><span>V</span></div>
+      <span class="nav-logo-name">Vishal Das</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing" class="active">Writing</a>
+      <div class="nav-btns">
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <div class="nav-btns">
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+  </div>
+</div>
+<article>
+  <div class="article-wrap">
+    <a href="/writing" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to writing
+    </a>
+
+    <header class="article-header reveal">
+      <h1 class="article-title">How to prove what your developer community returned, without engineering help</h1>
+      <div class="article-meta">
+        <span class="article-date">July 2026</span>
+        <span class="article-readtime">~5 min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+<p>Two questions are hard to answer in most community work.</p>
+<p>What did a member actually get out of this? And what did the company get back?</p>
+<p>Most community teams can&#39;t answer either one with evidence. They answer the first with testimonials and the second with activity counts — events run, messages sent, members joined. Both are real. Neither is a return.</p>
+<p><strong>An attribution layer is what connects a community action to a business result, one person at a time.</strong> That&#39;s it. It isn&#39;t a dashboard. It isn&#39;t a metrics framework. It&#39;s a data model, plus a job that keeps it up to date.</p>
+<p>I&#39;ve built one three times. At Google it turned manual reporting into something the programme could actually see itself in. At Firecrawl it tracked affiliate performance down to each partner, and the team used it to decide payouts. Here&#39;s the pattern.</p>
+<h2>Why this never gets built</h2>
+<p>Not because it&#39;s hard. Because of where you sit in the queue.</p>
+<p>Showing what community work returned needs engineering time, and community is near the bottom of the list for engineering time on every team I&#39;ve worked on. That isn&#39;t a complaint about engineers. It&#39;s the right call when the other option is shipping product. But it leaves you stuck: the team that most needs to prove its value is the team least likely to get the tools that would prove it.</p>
+<p>So the reporting gets done by hand. Someone exports four CSVs on the last Friday of the month and pastes them into a deck, and the number is old before the meeting starts. It&#39;s slow, it looks different every month, and nobody can check it. So nobody quite trusts it. So when budgets get tight, the programme gets cut on instinct.</p>
+<p>The way out is to build it yourself, with tools that don&#39;t need a ticket.</p>
+<h2>The four-table schema</h2>
+<p>Everything runs on four tables. This is the part worth copying.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Table</th>
+<th>One row per</th>
+<th>Key fields</th>
+<th>What it&#39;s for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>people</code></td>
+<td>Human</td>
+<td><code>person_id</code>, known emails, handles per platform, first-seen date</td>
+<td>Working out who is who. The same person is a GitHub handle, a Discord ID, and an email. This is where they become one row.</td>
+</tr>
+<tr>
+<td><code>events</code></td>
+<td>Action</td>
+<td><code>event_id</code>, <code>person_id</code>, <code>type</code>, <code>source</code>, <code>timestamp</code>, <code>ref_code</code></td>
+<td>The raw log. Attended, posted, published, referred, applied. Never added up when you write it.</td>
+</tr>
+<tr>
+<td><code>attribution</code></td>
+<td>Credited link</td>
+<td><code>event_id</code>, <code>partner_id</code>, <code>model</code>, <code>weight</code></td>
+<td>Connects an event to whoever gets credit, and under which model. Keeping it separate is what lets you change the model later.</td>
+</tr>
+<tr>
+<td><code>outcomes</code></td>
+<td>Business result</td>
+<td><code>outcome_id</code>, <code>person_id</code>, <code>type</code>, <code>value</code>, <code>timestamp</code></td>
+<td>Signup, activation, conversion, expansion. The things finance already counts.</td>
+</tr>
+</tbody></table></div>
+<p>Four rules make it work.</p>
+<p><strong>Never add anything up when you write it.</strong> Store the single event. Any summary you need later, you can work out. A summary you stored, you can&#39;t get the detail back from. My first version broke this rule and I paid for it within a month.</p>
+<p><strong>Keep attribution in its own table.</strong> The moment credit rules live inside the event log, switching from last-touch to multi-touch means rewriting your history. Keep them apart and a model change is just a new query.</p>
+<p><strong>Work out who is who before you need to.</strong> The hardest join is one person across platforms. Start saving handles on day one, even when you have nothing to match them to yet.</p>
+<p><strong>Put a <code>ref_code</code> on everything you control.</strong> Every link a partner shares, every event signup, every application form. Attribution you set up beats attribution you guess at later, every time.</p>
+<h2>The three tools</h2>
+<p><strong>Apps Script collects and cleans up.</strong> Triggers run on a schedule. Each source gets one function whose only job is to pull raw records and write them into <code>events</code> in the shape above. Keep the fetch and the clean-up in separate functions. When a source changes its format, and it will, you fix one function.</p>
+<p><strong>Sheets holds it.</strong> Not because it&#39;s the right database, but because you already have access, everyone can read it, and Looker Studio plugs straight into it. Sheets will hold a few hundred thousand rows before it complains. That&#39;s more than most community programmes make in years. When you outgrow it, the same schema moves to BigQuery unchanged. That&#39;s the point of getting it right now.</p>
+<p><strong>Looker Studio makes it readable.</strong> One page per question, not one page per data source. The dashboard people use answers &quot;which partners do we pay this month&quot; on one screen. The dashboard people ignore is a wall of charts sorted by where the data came from.</p>
+<p>All of it is free. The cost is a few days of your time and the discipline to keep the schema clean.</p>
+<div class="callout">
+<p class="callout-title">Build order that works</p>
+<ol>
+<li>Define <code>outcomes</code> first. Start from what finance already counts, so you never argue about whether the result is real.</li>
+<li>Put a <code>ref_code</code> on every link and form you control. Do this before anything else.</li>
+<li>Log <code>events</code> raw, one row per action. Don't add anything up.</li>
+<li>Add <code>people</code> and start matching identities as the joins become possible.</li>
+<li>Build <code>attribution</code> last, once you can see what the data supports.</li>
+</ol>
+</div><p>Build it in that order and you have something useful after step two. Build the dashboard first and you&#39;ll have something pretty that nobody acts on.</p>
+<h2>Start here</h2>
+<p>Put a <code>ref_code</code> on every link and form you control, this week, before you build anything else.</p>
+<p>It costs an afternoon. It&#39;s the only part that gets permanently harder the longer you wait, because attribution you didn&#39;t capture is attribution you can&#39;t get back. Everything else here can be built later, against data you&#39;re already collecting.</p>
+<p>Then comes the harder question — not what you can count, but what you should claim. That&#39;s <a href="/writing/community-metrics-budget-review">the community metrics that survive a budget review</a>.</p>
+    </div>
+
+      <section class="faq">
+        <h2>Questions people ask</h2>
+        <div class="faq-item">
+          <p class="faq-q">What is a community attribution layer?</p>
+          <p class="faq-a">It is what connects a community action to a business result, one person at a time. It answers two questions from the same data: what a member got out of the community, and what the company got back. Without it, community reporting is a list of activities instead of a record of what came back.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can you build community attribution without engineering support?</p>
+          <p class="faq-a">Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that community teams rarely get engineering time, so the work has to be doable by the person who needs it.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why do most community teams fail to show ROI?</p>
+          <p class="faq-a">Attribution needs engineering time, and community teams are rarely first in line for it. So the reporting gets done by hand. That makes it slow, different every month, and impossible to check. Nobody quite trusts it, and the programme gets cut on instinct instead of evidence.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How detailed does attribution need to be?</p>
+          <p class="faq-a">Detailed enough to make a decision with. If the decision is which partners to pay, it has to go down to a single partner. Channel-level numbers are enough to report with and not enough to act on.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is the first step to setting up community attribution?</p>
+          <p class="faq-a">Put a tracking code on every link and form you control, this week, before building anything else. It costs an afternoon. It is the only step that gets permanently harder the longer you wait, because attribution you did not capture cannot be recovered later.</p>
+        </div>
+      </section>
+
+    <div class="article-bottom">
+      <a href="/writing" class="back-link" style="margin:0">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to writing
+      </a>
+      <a href="/writing/community-metrics-budget-review" class="article-nav-link">Next: Metrics that survive →</a>
+    </div>
+  </div>
+</article>
+<footer class="footer">
+  <span>&copy; 2026 Vishal Das</span>
+  <div class="footer-links">
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('active',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',function(){if(window.innerWidth>768)closeMenu()});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}
+  });
+// threshold 0, not 0.1: an element taller than the viewport can never reach a
+// ratio of 0.1, which would leave it stuck at opacity 0 forever.
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>

@@ -16,6 +16,7 @@
 <meta name="description" content="Developer Community & Program Manager. I build profitable developer communities that people want to be in — and the attribution layer that proves what they returned.">
 <meta name="author" content="Vishal Das">
 <meta name="keywords" content="Developer Community Manager, Program Manager, Firecrawl, Developer Ecosystems, Community Strategy, Google, AI Infrastructure">
+<link rel="canonical" href="https://kindavishal.js.org/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kindavishal.js.org">
 <meta property="og:site_name" content="Vishal Das">
@@ -34,6 +35,7 @@
 <meta name="twitter:image" content="https://kindavishal.js.org/assets/preview-card.png">
 <meta name="twitter:image:alt" content="Vishal Das — Developer Community Manager & Program Manager">
 <link rel="icon" type="image/png" href="assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
@@ -43,6 +45,16 @@
   "@type": "Person",
   "name": "Vishal Das",
   "jobTitle": "Developer Community Manager & Program Manager",
+  "description": "Builds developer community and creator programs, and the attribution layer that measures what they return to the business.",
+  "knowsAbout": [
+    "Developer community programs",
+    "Developer relations attribution",
+    "Creator and ambassador program design",
+    "Affiliate attribution for developer tools",
+    "Partner ecosystem management",
+    "Google Apps Script automation",
+    "Looker Studio reporting"
+  ],
   "alumniOf": [
     { "@type": "Organization", "name": "Firecrawl" },
     { "@type": "Organization", "name": "Google" },
@@ -698,14 +710,40 @@ a.sp-card:hover h3::after{opacity:1}
     <span class="section-label reveal">Writing</span>
     <h2 class="section-title reveal">Things I'm thinking about</h2>
     <div class="blog-grid">
-      <div class="blog-card reveal reveal-delay-1" style="cursor:default">
-        <div class="blog-card-img amber"><span>Coming Soon</span></div>
+<!-- BUILD:blog-cards -->
+      <a href="/writing/firecrawl-ambassador-tier-system" class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-img amber"><span>1.7K → 7.2K weekly</span></div>
         <div class="blog-card-body">
-          <span class="blog-cat">Writing</span>
-          <h3>Essays on Developer Ecosystems, Communities, and Building</h3>
-          <p>I'm currently revising a series of essays about lessons learned scaling programs at Google and Firecrawl. Check back soon.</p>
+          <span class="blog-cat">Creator programs</span>
+          <h3>How I designed a five-tier ambassador program that 4x'd creator referrals</h3>
+          <p>Why tier is set by one number, why that number is a rolling average, and how ten creators in four weeks turned into a 4x lift in referrals.</p>
         </div>
-      </div>
+      </a>
+      <a href="/writing/creator-payout-design" class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-img dark"><span>Flat fee + points</span></div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Creator programs</span>
+          <h3>Why I paid creators for the video, not the views</h3>
+          <p>Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.</p>
+        </div>
+      </a>
+      <a href="/writing/creator-streak-system" class="blog-card reveal reveal-delay-3">
+        <div class="blog-card-img amber"><span>Nothing is ever lost</span></div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Creator programs</span>
+          <h3>The streak system that never punishes creators</h3>
+          <p>Most streak mechanics take something away when you stop. This one pauses instead — four states, nothing lost, and a re-entry path that stays open.</p>
+        </div>
+      </a>
+      <a href="/writing/community-attribution-layer" class="blog-card reveal reveal-delay-4">
+        <div class="blog-card-img dark"><span>Apps Script → Looker Studio</span></div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Attribution</span>
+          <h3>How to prove what your developer community returned, without engineering help</h3>
+          <p>The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.</p>
+        </div>
+      </a>
+      <!-- /BUILD:blog-cards -->
     </div>
     <div class="reveal" style="text-align:center;margin-top:40px">
       <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">View all writing <span style="font-size:18px">→</span></a>
@@ -767,7 +805,7 @@ var revealObserver=new IntersectionObserver(function(entries){
       revealObserver.unobserve(entry.target);
     }
   });
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
 reveals.forEach(function(el){revealObserver.observe(el)});
 
 // Smooth scroll for anchor links

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vishal Das — Writing</title>
+    <link>https://kindavishal.js.org/writing</link>
+    <description>Long-form pieces on developer community programs, creator economics, and program management.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Aug 2026 09:00:00 GMT</lastBuildDate>
+    <atom:link href="https://kindavishal.js.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The community metrics that survive a budget review</title>
+      <link>https://kindavishal.js.org/writing/community-metrics-budget-review</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/community-metrics-budget-review</guid>
+      <pubDate>Sat, 01 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Counts are inputs, not results. What to claim when someone is deciding whether your programme continues — and what attribution still can't tell you.</description>
+    </item>
+    <item>
+      <title>How to prove what your developer community returned, without engineering help</title>
+      <link>https://kindavishal.js.org/writing/community-attribution-layer</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/community-attribution-layer</guid>
+      <pubDate>Wed, 22 Jul 2026 09:00:00 GMT</pubDate>
+      <description>The four-table schema and the Apps Script to Looker Studio setup I've built three times, by someone who is not an engineer.</description>
+    </item>
+    <item>
+      <title>The streak system that never punishes creators</title>
+      <link>https://kindavishal.js.org/writing/creator-streak-system</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/creator-streak-system</guid>
+      <pubDate>Fri, 10 Jul 2026 09:00:00 GMT</pubDate>
+      <description>Most streak mechanics take something away when you stop. This one pauses instead — four states, nothing lost, and a re-entry path that stays open.</description>
+    </item>
+    <item>
+      <title>Why I paid creators for the video, not the views</title>
+      <link>https://kindavishal.js.org/writing/creator-payout-design</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/creator-payout-design</guid>
+      <pubDate>Tue, 30 Jun 2026 09:00:00 GMT</pubDate>
+      <description>Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.</description>
+    </item>
+    <item>
+      <title>How I designed a five-tier ambassador program that 4x'd creator referrals</title>
+      <link>https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</guid>
+      <pubDate>Wed, 17 Jun 2026 09:00:00 GMT</pubDate>
+      <description>Why tier is set by one number, why that number is a rolling average, and how ten creators in four weeks turned into a 4x lift in referrals.</description>
+    </item>
+  </channel>
+</rss>
