@@ -88,4 +88,4 @@ But a good program quietly produces a third thing. A clear, accurate explanation
 
 If you run a creator program, you're already making it. The question is whether you can show it.
 
-That question — what to actually claim when someone is deciding whether your programme continues — is [the one that decides budgets](/writing/community-metrics-budget-review).
+Whether you can show it is not an academic question right now. It is [why DevRel gets cut first](/writing/why-devrel-gets-cut-first).

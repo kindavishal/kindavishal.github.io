@@ -8,11 +8,25 @@
     <lastBuildDate>Mon, 03 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://kindavishal.js.org/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Leaving community doubles your odds of getting promoted</title>
+      <link>https://kindavishal.js.org/writing/community-career-ceiling</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/community-career-ceiling</guid>
+      <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
+      <description>An 11-year cohort study found 28% of people who stayed in community reached Director or VP. Of those who left, 60% did. Here's what I think that number is really measuring.</description>
+    </item>
+    <item>
       <title>Your creator program is training the models that recommend you</title>
       <link>https://kindavishal.js.org/writing/share-of-model-creator-content</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/share-of-model-creator-content</guid>
       <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
       <description>Share of voice used to mean where you show up on a channel. Now it also means whether an AI names you when a developer asks what to use. Here's how I'd track it.</description>
+    </item>
+    <item>
+      <title>Why DevRel gets cut first</title>
+      <link>https://kindavishal.js.org/writing/why-devrel-gets-cut-first</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/why-devrel-gets-cut-first</guid>
+      <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
+      <description>The survey data is blunt about it. Two in five DevRel programmes have no formal budget, and a third are under pressure to show metrics they were never set up to produce.</description>
     </item>
     <item>
       <title>The community metrics that survive a budget review</title>
