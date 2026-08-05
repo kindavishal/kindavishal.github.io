@@ -203,7 +203,7 @@ function pageTitle(post) {
 function renderPost(post) {
   const faqHtml = post.faq.length ? `
       <section class="faq">
-        <h2>Questions people ask</h2>
+        <h2>Questions worth answering</h2>
 ${post.faq.map((f) => `        <div class="faq-item">
           <p class="faq-q">${esc(f.q)}</p>
           <p class="faq-a">${esc(f.a)}</p>
