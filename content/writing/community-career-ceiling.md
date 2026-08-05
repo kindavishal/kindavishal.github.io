@@ -1,7 +1,7 @@
 ---
 title: "Leaving community doubles your odds of getting promoted"
 slug: community-career-ceiling
-description: "An 11-year cohort study found 28% of people who stayed in community reached Director or VP. Of those who left, 60% did. What that number really measures."
+description: "A study that followed 86 people for 11 years found 28% of those who stayed reached Director or VP. Of those who left, 60% did. What that number really measures."
 date: "2026-08-03"
 featured: 10
 category: "The field"
@@ -9,15 +9,15 @@ cardLabel: "28% vs 60%"
 shortTitle: "The community ceiling"
 faq:
   - q: "Is community management a dead-end career?"
-    a: "The data is not kind. FeverBee tracked 86 community professionals over 11 years and found 28% of those who stayed reached Director or VP, against 60% of those who moved into another function. Roughly a quarter were still in the same role after 11 years. It is not a dead end for everyone, but the odds of climbing inside the field are poor."
+    a: "The data is not kind. FeverBee tracked 86 community professionals over 11 years and found 28% of those who stayed reached Director or VP, against 60% of those who moved into another function. Roughly a quarter were still in the same role after 11 years. It is not a dead end for everyone, but the odds of climbing without leaving are poor."
   - q: "Why are there so few senior community roles?"
-    a: "The pyramid is unusually flat. FeverBee puts it at roughly 21 managers for every VP in community, far tighter than most professional fields. There is very little to climb into, so progression is limited by the shape of the field rather than by individual performance."
+    a: "The pyramid is unusually flat. FeverBee puts it at roughly 21 managers for every VP in community, far tighter than most professional fields. There is very little to climb into. How far you get is set by how few senior jobs exist, not by how good you are."
   - q: "How long should you stay in a community role?"
     a: "FeverBee describes it as a three to seven year window of doing the core work. After that you either accept staying at that level, or you move â€” into a bigger organisation with a real team, into a company where community is the product, or out into an adjacent function."
   - q: "What makes some community people get promoted and not others?"
     a: "Profit-line responsibility and managing a team are the two things that reliably precede a senior title. Both require being somewhere that invests in community rather than treating it as one person's job. Being good at the work is necessary and nowhere near sufficient."
   - q: "Should I leave community to advance my career?"
-    a: "Not necessarily, but you should be honest that staying costs you odds. The useful question is not whether to leave the field, it is whether your current role can ever produce a number a business cares about. If it cannot, the ceiling is structural and no amount of good work moves it."
+    a: "Not necessarily, but you should be honest that staying costs you odds. The useful question is not whether to leave community work. It is whether your job can ever produce a number a business cares about. If it cannot, no amount of good work will move you up."
 ---
 
 Richard Millington at FeverBee did something most people writing about careers never bother with. He [followed the same people over time](https://www.feverbee.com/is-community-a-dead-end-career/).
@@ -30,19 +30,19 @@ The number I keep coming back to is a different one. **24% were still in the sam
 
 ## The shape of the problem
 
-Most career advice in this field is survivorship bias with a byline. Someone made it to VP of Community, wrote about how, and everyone read it as a map. Nobody counts the people who followed the same route and are still where they started.
+Most career advice here only counts the people it worked for. Someone made it to VP of Community, wrote about how, and everyone read it as a map. Nobody counts the people who followed the same route and are still where they started.
 
-The structural number explains it: roughly **21 managers for every one VP** in community. That pyramid is far flatter at the top than most professions. There simply isn't much to climb into.
+One number explains it: roughly **21 managers for every one VP** in community. That pyramid is far flatter at the top than most professions. There simply isn't much to climb into.
 
 So the honest question is not "am I good enough to get promoted." It's "does this field have anywhere to put me." For a lot of people the answer is no. Doing the work well does not change it.
 
-Only 8% of that cohort climbed within community. 41% moved sideways into a different function. 20% went independent.
+Only 8% of those 86 people climbed within community. 41% moved sideways into a different function. 20% went independent.
 
 ## Why I think the gap exists
 
 Here's where I'll add something rather than just repeat the data.
 
-The two things that reliably precede a senior title anywhere are profit-line responsibility and managing people. Community roles are structurally bad at producing the first one.
+The two things that reliably precede a senior title anywhere are profit-line responsibility and managing people. Community roles almost never come with the first one.
 
 Not because the work doesn't create value. Because the value **lands in someone else's numbers**. The tutorial a community member wrote shows up in organic acquisition. The bug an ambassador reported shows up in product quality. The developer who stayed because someone answered their question shows up in retention. Every one of those is real, and every one of them gets counted by a different team.
 
@@ -75,7 +75,7 @@ I've written up [exactly how I do that](/writing/community-attribution-layer) â€
 
 I won't push back on the data. It's the most honest thing anyone has published about this field. It follows the same people over time instead of surveying different ones each year, which is why it beats the advice it contradicts.
 
-What I'd question is the conclusion people will draw from it. The lesson is not "leave community." It's that **being good at community work is not a promotion strategy**, and it never was. The people who climbed did something structurally different. They got somewhere with a real team, or somewhere community was the business, or they built their case in numbers a CFO recognises.
+What I'd question is the conclusion people will draw from it. The lesson is not "leave community." It's that **being good at community work is not a promotion strategy**, and it never was. The people who climbed did something different. They got somewhere with a real team, or somewhere community was the business, or they built their case in numbers a CFO recognises.
 
 I'd also name the obvious confounder, which Millington names himself: people who switch functions may just be more ambitious to begin with. The gap is real. The causation is murkier than the number makes it look.
 

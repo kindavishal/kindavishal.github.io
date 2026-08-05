@@ -15,7 +15,7 @@ faq:
   - q: "What protects a DevRel team during budget cuts?"
     a: "Being able to trace a business result back to a named source in your programme. Not activity counts. If the only defence you can mount is attendance, content published, or community size, you are describing effort rather than return, and effort is not what survives a budget review."
   - q: "Is developer relations a dying field?"
-    a: "No, but it is consolidating. The teams being cut are disproportionately the ones that could not demonstrate a return, and the roles being created skew towards people who can. That is a painful correction rather than an ending."
+    a: "No, but it is shrinking and changing shape. The teams being cut are mostly the ones that could not show a return, and the new roles are going to people who can. That hurts, but it is not the end of the job."
   - q: "What should a DevRel person do about this right now?"
     a: "Start instrumenting before you need to. Attribution you did not capture cannot be reconstructed later, so the work has to begin while the programme is healthy. The cheapest first step is putting a tracking code on every link and form you control."
 ---
@@ -28,7 +28,7 @@ Put those two facts next to each other and the pattern is not mysterious.
 
 **A team with no budget line has nothing to defend.** There's no number to argue from, no baseline to point at, and no record of what the spend returned. When someone goes looking for cuts, that team isn't the least valuable one. It's the cheapest one to remove, because removing it costs no argument.
 
-I'm writing this while looking for my next role, so read it with that in mind. It is not a complaint. I think the field is partly responsible, including me.
+I'm writing this while looking for my next role, so read it with that in mind. It is not a complaint. I think we did some of this to ourselves. Me included.
 
 ## The market underneath this
 
@@ -44,13 +44,13 @@ By then it's too late. You cannot instrument a programme retroactively. Attribut
 
 ## What "unmeasurable" actually means
 
-The usual defence is that community work is inherently hard to measure. I've made that argument myself and I no longer believe most of it.
+The usual defence is that community work is just hard to measure. I've made that argument myself and I no longer believe most of it.
 
 Some of it is genuinely hard. A developer who reads a tutorial, tells a colleague, and never clicks a link is invisible, and no amount of tooling fixes that. That part is real.
 
 But most of what goes unmeasured in DevRel is not unmeasurable. It's uninstrumented. Nobody put a tracking code on the link. Nobody logged which partner drove which signup. Nobody stored the raw event, so no summary can be produced now. That isn't a measurement problem. It's a decision nobody made.
 
-And there's a reason nobody made it: attribution needs engineering time, and DevRel is never first in the queue for engineering time. That is a rational allocation right up until the moment it becomes the reason the team is cut.
+And there's a reason nobody made it: attribution needs engineering time, and DevRel is never first in the queue for engineering time. That is the right call, right up until it becomes the reason the team is cut.
 
 <div class="callout">
 <p class="callout-title">The uncomfortable version</p>
