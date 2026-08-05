@@ -504,7 +504,7 @@ function injectHomepage(posts) {
     const label = posts.length > HOMEPAGE_CARDS
       ? `Read all ${posts.length} pieces`
       : 'View all writing';
-    const cta = `      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#D97706">${label} <span style="font-size:18px">→</span></a>`;
+    const cta = `      <a href="/writing" class="btn-link" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#B45309">${label} <span style="font-size:18px">→</span></a>`;
     html = html.replace(
       new RegExp(`${CTA_START}[\\s\\S]*?${CTA_END}`),
       `${CTA_START}\n${cta}\n      ${CTA_END}`);
