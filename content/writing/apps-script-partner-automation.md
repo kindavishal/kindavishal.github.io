@@ -1,6 +1,7 @@
 ---
 title: "How I automated 40 hours of weekly busywork out of a 300-partner program"
 slug: apps-script-partner-automation
+seoTitle: "Automating 40 hours of busywork with Apps Script"
 description: "Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment."
 date: "2026-02-11"
 featured: 1

@@ -1,7 +1,7 @@
 ---
 title: "Leaving community doubles your odds of getting promoted"
 slug: community-career-ceiling
-description: "An 11-year cohort study found 28% of people who stayed in community reached Director or VP. Of those who left, 60% did. Here's what I think that number is really measuring."
+description: "An 11-year cohort study found 28% of people who stayed in community reached Director or VP. Of those who left, 60% did. What that number really measures."
 date: "2026-08-03"
 featured: 10
 category: "The field"

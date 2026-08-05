@@ -1,6 +1,7 @@
 ---
 title: "How to prove what your developer community returned, without engineering help"
 slug: community-attribution-layer
+seoTitle: "DevRel attribution: prove what your community returned"
 description: "A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required."
 date: "2026-07-22"
 featured: 6

@@ -1,7 +1,7 @@
 ---
 title: "Why I paid creators for the video, not the views"
 slug: creator-payout-design
-description: "Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on."
+description: "Per-view and per-signup payouts both quietly ruin the content. The flat-fee and points structure I used instead, and how to define the content types."
 date: "2026-06-30"
 featured: 3
 homepage: 2

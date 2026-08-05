@@ -1,7 +1,8 @@
 ---
 title: "Your creator program is training the models that recommend you"
 slug: share-of-model-creator-content
-description: "Share of voice used to mean where you show up on a channel. Now it also means whether an AI names you when a developer asks what to use. Here's how I'd track it."
+seoTitle: "Share of model: creator content and AI answers"
+description: "Share of voice means where you show up on a channel. Share of model means whether an AI names you when a developer asks. How I'd track the second one."
 date: "2026-08-03"
 featured: 8
 category: "Attribution"

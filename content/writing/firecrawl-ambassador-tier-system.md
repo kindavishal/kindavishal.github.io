@@ -1,7 +1,8 @@
 ---
 title: "How I designed a five-tier ambassador program that 4x'd creator referrals"
 slug: firecrawl-ambassador-tier-system
-description: "A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals."
+seoTitle: "How I designed a five-tier ambassador program"
+description: "A developer ambassador program built from zero: why tier is one rolling number, not follower count, and how ten creators became a 4x lift in referrals."
 date: "2026-06-17"
 featured: 2
 homepage: 1

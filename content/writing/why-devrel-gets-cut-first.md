@@ -1,7 +1,7 @@
 ---
 title: "Why DevRel gets cut first"
 slug: why-devrel-gets-cut-first
-description: "The survey data is blunt about it. Two in five DevRel programmes have no formal budget, and a third are under pressure to show metrics they were never set up to produce."
+description: "Two in five DevRel programmes have no formal budget, and a third are under pressure to show metrics they were never set up to produce."
 date: "2026-08-03"
 featured: 9
 category: "The field"
