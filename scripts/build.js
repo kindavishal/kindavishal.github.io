@@ -281,7 +281,7 @@ function renderIndex(posts) {
   // Two jobs, two strings. `subtitle` is the line a reader actually sees, so it
   // has to sound like him. `desc` is only ever seen in a search result or a feed
   // reader, so it can name the subject plainly without dragging keywords on-page.
-  const subtitle = "Every program here is one I built. Including the parts that didn't work.";
+  const subtitle = "Projects I delivered — including what didn't work. Uncomfortable truths & Observations";
   const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
 
   // Category -> reader-facing header label. The order these appear on the
