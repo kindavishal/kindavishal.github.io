@@ -9,16 +9,12 @@ category: "Internal tooling"
 cardLabel: "~40 hours a week back"
 shortTitle: "Automating the busywork"
 faq:
-  - q: "What can Google Apps Script automate for program management?"
-    a: "Anything that moves information between steps. Form responses into a tracked record, status changes into notifications, scattered sheets into one reporting table, recurring reports on a schedule. It runs on triggers, it reads and writes Sheets and Gmail directly, and it needs no infrastructure. For an operations or DevRel team with no engineering time, it covers most of what you need."
   - q: "How do you automate partner onboarding?"
     a: "Start by writing down every step and marking each one as a handoff or a judgment. Handoffs are moving information from one place to the next, and those automate cleanly. Judgments are decisions about whether a partner qualifies, and those should stay with a person. Automate the handoffs first and most of the time disappears."
   - q: "Should you automate a broken process or fix it first?"
     a: "Fix it first. Automating a bad process makes the bad outcome arrive faster and more consistently, and it hides the problem behind a script nobody reads. Write the process down, delete the steps that exist only because someone once asked for them, then automate what survives."
   - q: "Is Apps Script or Zapier better for internal automation?"
     a: "Apps Script if your data already lives in Google Sheets and you need real logic, since you get a full scripting language, scheduled triggers and no per-task cost. A connector tool is faster to set up and easier to hand over. The deciding question is usually whether the person maintaining it after you can read code."
-  - q: "How do you measure time saved by automation?"
-    a: "Count the task time, then count the interruption time separately. The hours spent doing the work are the obvious number and usually the smaller one. The bigger cost is people stopping what they are doing to ask for a status update, which a self-serve dashboard removes entirely."
 ---
 
 At Google I ran a partner ecosystem that grew past 300 institutions across India. Onboarding a partner was a manual job, and so was everything after it.

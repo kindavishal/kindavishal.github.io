@@ -7,17 +7,6 @@ featured: 10
 category: "The field"
 cardLabel: "28% vs 60%"
 shortTitle: "The community ceiling"
-faq:
-  - q: "Is community management a dead-end career?"
-    a: "The data is not kind. FeverBee tracked 86 community professionals over 11 years and found 28% of those who stayed reached Director or VP, against 60% of those who moved into another function. Roughly a quarter were still in the same role after 11 years. It is not a dead end for everyone, but the odds of climbing without leaving are poor."
-  - q: "Why are there so few senior community roles?"
-    a: "The pyramid is unusually flat. FeverBee puts it at roughly 21 managers for every VP in community, far tighter than most professional fields. There is very little to climb into. How far you get is set by how few senior jobs exist, not by how good you are."
-  - q: "How long should you stay in a community role?"
-    a: "FeverBee describes it as a three to seven year window of doing the core work. After that you either accept staying at that level, or you move — into a bigger organisation with a real team, into a company where community is the product, or out into an adjacent function."
-  - q: "What makes some community people get promoted and not others?"
-    a: "Profit-line responsibility and managing a team are the two things that reliably precede a senior title. Both require being somewhere that invests in community rather than treating it as one person's job. Being good at the work is necessary and nowhere near sufficient."
-  - q: "Should I leave community to advance my career?"
-    a: "Not necessarily, but you should be honest that staying costs you odds. The useful question is not whether to leave community work. It is whether your job can ever produce a number a business cares about. If it cannot, no amount of good work will move you up."
 ---
 
 Richard Millington at FeverBee did something most people writing about careers never bother with. He [followed the same people over time](https://www.feverbee.com/is-community-a-dead-end-career/).

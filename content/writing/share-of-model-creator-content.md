@@ -15,10 +15,6 @@ faq:
     a: "It is one of the inputs. Tutorials, comparisons and code walkthroughs are exactly the kind of technical writing that ends up describing how a tool works and what it is for. A creator program that produces clear, accurate explanations is producing the same material that shapes how a model describes your product later."
   - q: "How do you measure whether AI tools recommend your product?"
     a: "Write down the questions a developer would actually ask, run them on a fixed schedule across the models your users use, and log which products get named and in what order. It is the same method as any tracking job: fixed prompts, regular cadence, results in a table you can query over time."
-  - q: "Is share of model different from SEO?"
-    a: "The goal overlaps and the mechanics do not. Search returns a ranked list a person chooses from, so position matters and being on page one is worth something. A model returns one answer, so being named third in a list of three is much closer to not being named at all."
-  - q: "What kind of content gets a developer tool named by AI?"
-    a: "Content that states plainly what the tool does, what it is for, and how it compares to the obvious alternatives. Tutorials that show real integration work, and comparisons that are specific rather than promotional. Vague, promotional content gives a model nothing quotable to reuse."
 ---
 
 At Firecrawl I tracked competitive share of voice across our creator network. The question was simple. On a given creator's channel, is that audience spending more time with us or with a competitor?

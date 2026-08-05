@@ -16,12 +16,6 @@ faq:
     a: "Trace a business result back to a named community source, one person at a time. Most DevRel measurement advice stops at naming metric categories — reach, engagement, qualified leads. The gap is the data model underneath. Without a schema that links an event to a person to an outcome, the categories stay a list of things you cannot actually produce."
   - q: "Can you build DevRel attribution without engineering support?"
     a: "Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that developer relations and community teams rarely get engineering time, so the work has to be doable by the person who needs it."
-  - q: "Why do most community and DevRel teams fail to show ROI?"
-    a: "Attribution needs engineering time, and community teams are rarely first in line for it. So the reporting gets done by hand. That makes it slow, different every month, and impossible to check. Nobody quite trusts it, and the programme gets cut on instinct instead of evidence."
-  - q: "How detailed does attribution need to be?"
-    a: "Detailed enough to make a decision with. If the decision is which partners to pay, it has to go down to a single partner. Channel-level numbers are enough to report with and not enough to act on."
-  - q: "What is the first step to setting up community attribution?"
-    a: "Put a tracking code on every link and form you control, this week, before building anything else. It costs an afternoon. It is the only step that gets permanently harder the longer you wait, because attribution you did not capture cannot be recovered later."
 ---
 
 Two questions are hard to answer in most community work.

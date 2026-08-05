@@ -7,17 +7,6 @@ featured: 9
 category: "The field"
 cardLabel: "Cut first, and why"
 shortTitle: "Why DevRel gets cut first"
-faq:
-  - q: "Why is DevRel usually the first team cut?"
-    a: "Because it is the function least able to show what it returned. Survey data puts roughly two in five DevRel programmes on no formal budget at all, which means there is no line item to defend and no baseline to argue from. A team whose value is asserted rather than measured is the cheapest thing on the list to remove."
-  - q: "Are DevRel layoffs worse than engineering layoffs?"
-    a: "The public data does not settle that cleanly, and anyone claiming a precise multiple is guessing. What the data does show is that DevRel teams in large companies were hit hard — 43.4% lost staff in the 2023 State of DevRel survey — while over half of medium and large companies cut DevRel budgets in the same period."
-  - q: "What protects a DevRel team during budget cuts?"
-    a: "Being able to trace a business result back to a named source in your programme. Not activity counts. If the only defence you can mount is attendance, content published, or community size, you are describing effort rather than return, and effort is not what survives a budget review."
-  - q: "Is developer relations a dying field?"
-    a: "No, but it is shrinking and changing shape. The teams being cut are mostly the ones that could not show a return, and the new roles are going to people who can. That hurts, but it is not the end of the job."
-  - q: "What should a DevRel person do about this right now?"
-    a: "Start instrumenting before you need to. Attribution you did not capture cannot be reconstructed later, so the work has to begin while the programme is healthy. The cheapest first step is putting a tracking code on every link and form you control."
 ---
 
 Two in five developer relations programmes run with no formal budget at all.

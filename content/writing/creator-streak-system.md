@@ -12,8 +12,6 @@ faq:
     a: "By pausing progress, not deleting it. Move through clear states as time passes, check in with a person before anything changes, and pause new bonuses rather than removing earned ones. A creator who takes two months off should be able to come back to exactly where they were."
   - q: "Should you remove creators who go quiet?"
     a: "Take them off the active roster after a long enough gap, but keep everything they earned and keep the door open. Most quiet creators are busy, not gone. A formal offboarding that ends with an invitation to return costs nothing and gets people back."
-  - q: "Should you demote a creator whose numbers drop?"
-    a: "Not automatically. Review tiers when a creator asks, on a fixed cycle, and raise a sustained drop in a conversation rather than a silent change. A rate cut that arrives as a surprise ends the relationship even when the number justified it."
   - q: "Why does retention matter more than recruitment in creator programs?"
     a: "Signing a creator is cheap and mostly a sourcing problem. Keeping one producing good content for six months is the actual work, and it is where nearly all the value builds up. A creator on their fourth video understands the product well enough to explain what the docs leave out."
 ---
