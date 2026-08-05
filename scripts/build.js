@@ -281,22 +281,69 @@ function renderIndex(posts) {
   // Two jobs, two strings. `subtitle` is the line a reader actually sees, so it
   // has to sound like him. `desc` is only ever seen in a search result or a feed
   // reader, so it can name the subject plainly without dragging keywords on-page.
-  const subtitle = "Every program here is one I built. Including the parts that didn't work.";
+  const subtitle = "Projects I delivered — including what didn't work. Uncomfortable truths & Observations";
   const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
 
-  // Numbered so the run of dates reads as a deliberate sequence rather than a
-  // stale reverse-chronological list. Drop the number if ORDER goes to 'date'.
-  const num = (i) => (ORDER === 'featured' ? `${String(i + 1).padStart(2, '0')} · ` : '');
+  // Category -> reader-facing header label. The order these appear on the
+  // page is decided at render time by the newest post in each group, so
+  // whichever theme has the most recent post rises to the top. Only the label
+  // mapping is fixed here; a post whose `category` is missing from this map
+  // will throw in the loop below.
+  const GROUP_LABELS = {
+    'Creator programs': 'Programs I built',
+    'Internal tooling': 'Tools I shipped',
+    'Attribution':      'Proving the work',
+    'The field':        'The state of the field',
+  };
 
-  const list = posts.length
-    ? posts.map((p, i) => `      <a href="/writing/${p.slug}" class="article-item reveal${i < 4 ? ` reveal-delay-${i + 1}` : ''}">
-        <p class="article-item-date">${num(i)}${esc(p.dateDisplay)} · ~${p.readtime} min read</p>
-        <h2 class="article-item-title">${esc(p.title)}</h2>
-        <p class="article-item-desc">${esc(p.description)}</p>
-      </a>`).join('\n')
-    : `      <p class="reveal" style="color:#78716C;margin-top:24px;font-style:italic">
+  // "2026-02-11" -> "Feb 2026". The row meta needs the short form; the long
+  // form still lives on the post page and in JSON-LD via displayDate().
+  const shortMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const metaOf = (p) => {
+    const [y, m] = String(p.date).split('-');
+    return `${shortMonths[Number(m) - 1]} ${y} · ${p.readtime} min`;
+  };
+
+  const list = (() => {
+    if (!posts.length) {
+      return `      <p class="reveal" style="color:#78716C;margin-top:24px;font-style:italic">
         Nothing published yet. Check back soon.
       </p>`;
+    }
+
+    // Bucket by category, then order both the groups and the posts inside
+    // them by date, newest first. The rank within a group is the post's own
+    // date; the rank of a group is its newest post. That way the top of the
+    // page always shows the most recent thing, and the theme it belongs to.
+    const buckets = new Map();
+    for (const p of posts) {
+      if (!(p.category in GROUP_LABELS)) {
+        throw new Error(`${p.file}: category "${p.category || ''}" is not in the writing-index GROUP_LABELS map. Add it in scripts/build.js:renderIndex.`);
+      }
+      if (!buckets.has(p.category)) buckets.set(p.category, []);
+      buckets.get(p.category).push(p);
+    }
+    for (const arr of buckets.values()) {
+      arr.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)));
+    }
+    const orderedGroups = [...buckets.entries()]
+      .sort(([, a], [, b]) => (a[0].date < b[0].date ? 1 : a[0].date > b[0].date ? -1 : 0));
+
+    let i = 0;
+    const chunks = [];
+    for (const [key, bucket] of orderedGroups) {
+      chunks.push(`      <h2 class="article-group reveal">${esc(GROUP_LABELS[key])}</h2>`);
+      for (const p of bucket) {
+        const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
+        chunks.push(`      <a href="/writing/${p.slug}" class="article-item reveal${delay}">
+        <h3 class="article-item-title">${esc(p.title)}</h3>
+        <span class="article-item-meta">${esc(metaOf(p))}</span>
+      </a>`);
+        i += 1;
+      }
+    }
+    return chunks.join('\n');
+  })();
 
   const ld = `  <script type="application/ld+json">{
     "@context": "https://schema.org",
