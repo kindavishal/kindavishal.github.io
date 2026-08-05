@@ -161,21 +161,25 @@ const ARTICLE_RESPONSIVE = `@media(max-width:768px){
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }`;
 
-// Writing index styles, verbatim from writing/index.html.
+// Writing index styles. The list is a compact index — one row per post, no
+// descriptions — grouped by theme. Descriptions still live in the JSON-LD and
+// the per-post pages; the index page's job is to make ten posts feel like ten
+// posts at a glance.
 const INDEX_CSS = `body{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1 0 auto}
 .footer{flex-shrink:0}
 .page-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
-.page-header{margin-bottom:48px}
+.page-header{margin-bottom:40px}
 .page-title{font-family:'Literata',serif;font-size:36px;letter-spacing:-0.5px;margin:0 0 12px;color:#1C1917}
 .page-desc{font-size:16px;color:#78716C;font-style:italic;line-height:1.7}
 .article-list{display:flex;flex-direction:column}
-.article-item{display:block;border-bottom:1px solid rgba(0,0,0,0.06);padding:28px 0;transition:all .2s}
-.article-item:last-child{border-bottom:none}
+.article-group{font-family:'Literata',serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A29E;padding:28px 0 8px;border-bottom:1px solid rgba(0,0,0,0.08);margin:0}
+.article-group:first-child{padding-top:0}
+.article-item{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
 .article-item:hover .article-item-title{color:#D97706}
-.article-item-title{font-size:20px;font-weight:600;margin:0 0 8px;transition:color .2s;color:#1C1917;line-height:1.4}
-.article-item-date{font-size:13px;font-weight:600;color:#D97706;margin:0 0 8px}
-.article-item-desc{font-size:15px;color:#57534E;line-height:1.7;margin:0}`;
+.article-item-num{font-family:'Literata',serif;font-size:13px;color:#A8A29E;width:22px;flex:none;font-variant-numeric:tabular-nums}
+.article-item-title{font-size:16px;font-weight:500;line-height:1.45;flex:1;transition:color .2s;color:#1C1917;margin:0}
+.article-item-meta{font-size:12px;color:#A8A29E;flex:none;font-variant-numeric:tabular-nums}`;
 
 const INDEX_RESPONSIVE = `@media(max-width:768px){
 .nav-links{display:none}
@@ -183,7 +187,9 @@ const INDEX_RESPONSIVE = `@media(max-width:768px){
 .nav-inner{padding:0 20px}
 .page-wrap{padding:88px 20px 60px}
 .page-title{font-size:28px}
-.article-item-title{font-size:18px}
+.article-item{gap:12px}
+.article-item-title{font-size:15px}
+.article-item-meta{display:none}
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }`;
 

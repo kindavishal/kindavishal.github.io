@@ -161,16 +161,17 @@ body{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1 0 auto}
 .footer{flex-shrink:0}
 .page-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
-.page-header{margin-bottom:48px}
+.page-header{margin-bottom:40px}
 .page-title{font-family:'Literata',serif;font-size:36px;letter-spacing:-0.5px;margin:0 0 12px;color:#1C1917}
 .page-desc{font-size:16px;color:#78716C;font-style:italic;line-height:1.7}
 .article-list{display:flex;flex-direction:column}
-.article-item{display:block;border-bottom:1px solid rgba(0,0,0,0.06);padding:28px 0;transition:all .2s}
-.article-item:last-child{border-bottom:none}
+.article-group{font-family:'Literata',serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A29E;padding:28px 0 8px;border-bottom:1px solid rgba(0,0,0,0.08);margin:0}
+.article-group:first-child{padding-top:0}
+.article-item{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
 .article-item:hover .article-item-title{color:#D97706}
-.article-item-title{font-size:20px;font-weight:600;margin:0 0 8px;transition:color .2s;color:#1C1917;line-height:1.4}
-.article-item-date{font-size:13px;font-weight:600;color:#D97706;margin:0 0 8px}
-.article-item-desc{font-size:15px;color:#57534E;line-height:1.7;margin:0}
+.article-item-num{font-family:'Literata',serif;font-size:13px;color:#A8A29E;width:22px;flex:none;font-variant-numeric:tabular-nums}
+.article-item-title{font-size:16px;font-weight:500;line-height:1.45;flex:1;transition:color .2s;color:#1C1917;margin:0}
+.article-item-meta{font-size:12px;color:#A8A29E;flex:none;font-variant-numeric:tabular-nums}
 @media(max-width:1024px){
 .nav-inner{padding:0 32px}
 .footer{padding:24px 32px}
@@ -181,7 +182,9 @@ main{flex:1 0 auto}
 .nav-inner{padding:0 20px}
 .page-wrap{padding:88px 20px 60px}
 .page-title{font-size:28px}
-.article-item-title{font-size:18px}
+.article-item{gap:12px}
+.article-item-title{font-size:15px}
+.article-item-meta{display:none}
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }
 </style>
@@ -226,55 +229,59 @@ main{flex:1 0 auto}
     </header>
 
     <div class="article-list">
-      <a href="/writing/apps-script-partner-automation" class="article-item reveal reveal-delay-1">
-        <p class="article-item-date">01 · February 2026 · ~5 min read</p>
-        <h2 class="article-item-title">How I automated 40 hours of weekly busywork out of a 300-partner program</h2>
-        <p class="article-item-desc">Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.</p>
+      <h2 class="article-group reveal">Programs I built</h2>
+      <a href="/writing/firecrawl-ambassador-tier-system" class="article-item reveal reveal-delay-1">
+        <span class="article-item-num">01</span>
+        <h3 class="article-item-title">How I designed a five-tier ambassador program that 4x'd creator referrals</h3>
+        <span class="article-item-meta">Jun 2026 · 4 min</span>
       </a>
-      <a href="/writing/firecrawl-ambassador-tier-system" class="article-item reveal reveal-delay-2">
-        <p class="article-item-date">02 · June 2026 · ~4 min read</p>
-        <h2 class="article-item-title">How I designed a five-tier ambassador program that 4x'd creator referrals</h2>
-        <p class="article-item-desc">A developer ambassador program built from zero: why tier is one rolling number, not follower count, and how ten creators became a 4x lift in referrals.</p>
+      <a href="/writing/creator-payout-design" class="article-item reveal reveal-delay-2">
+        <span class="article-item-num">02</span>
+        <h3 class="article-item-title">Why I paid creators for the video, not the views</h3>
+        <span class="article-item-meta">Jun 2026 · 5 min</span>
       </a>
-      <a href="/writing/creator-payout-design" class="article-item reveal reveal-delay-3">
-        <p class="article-item-date">03 · June 2026 · ~5 min read</p>
-        <h2 class="article-item-title">Why I paid creators for the video, not the views</h2>
-        <p class="article-item-desc">Per-view and per-signup payouts both quietly ruin the content. The flat-fee and points structure I used instead, and how to define the content types.</p>
+      <a href="/writing/creator-streak-system" class="article-item reveal reveal-delay-3">
+        <span class="article-item-num">03</span>
+        <h3 class="article-item-title">The streak system that never punishes creators</h3>
+        <span class="article-item-meta">Jul 2026 · 4 min</span>
       </a>
-      <a href="/writing/creator-streak-system" class="article-item reveal reveal-delay-4">
-        <p class="article-item-date">04 · July 2026 · ~4 min read</p>
-        <h2 class="article-item-title">The streak system that never punishes creators</h2>
-        <p class="article-item-desc">Most streak mechanics take something away when you stop. This one pauses instead — four states, nothing lost, and a re-entry path that stays open.</p>
+      <h2 class="article-group reveal">Tools I shipped</h2>
+      <a href="/writing/apps-script-partner-automation" class="article-item reveal reveal-delay-4">
+        <span class="article-item-num">04</span>
+        <h3 class="article-item-title">How I automated 40 hours of weekly busywork out of a 300-partner program</h3>
+        <span class="article-item-meta">Feb 2026 · 5 min</span>
       </a>
       <a href="/writing/tubemonitor-vibe-coding" class="article-item reveal">
-        <p class="article-item-date">05 · July 2026 · ~5 min read</p>
-        <h2 class="article-item-title">I can't write production code. I shipped the internal tool in a week anyway.</h2>
-        <p class="article-item-desc">The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.</p>
+        <span class="article-item-num">05</span>
+        <h3 class="article-item-title">I can't write production code. I shipped the internal tool in a week anyway.</h3>
+        <span class="article-item-meta">Jul 2026 · 5 min</span>
       </a>
+      <h2 class="article-group reveal">Proving the work</h2>
       <a href="/writing/community-attribution-layer" class="article-item reveal">
-        <p class="article-item-date">06 · July 2026 · ~5 min read</p>
-        <h2 class="article-item-title">How to prove what your developer community returned, without engineering help</h2>
-        <p class="article-item-desc">A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.</p>
+        <span class="article-item-num">06</span>
+        <h3 class="article-item-title">How to prove what your developer community returned, without engineering help</h3>
+        <span class="article-item-meta">Jul 2026 · 5 min</span>
       </a>
       <a href="/writing/community-metrics-budget-review" class="article-item reveal">
-        <p class="article-item-date">07 · August 2026 · ~4 min read</p>
-        <h2 class="article-item-title">The community metrics that survive a budget review</h2>
-        <p class="article-item-desc">Which DevRel and community metrics hold up when someone is deciding whether your programme continues — and what attribution still can't tell you.</p>
+        <span class="article-item-num">07</span>
+        <h3 class="article-item-title">The community metrics that survive a budget review</h3>
+        <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
       <a href="/writing/share-of-model-creator-content" class="article-item reveal">
-        <p class="article-item-date">08 · August 2026 · ~4 min read</p>
-        <h2 class="article-item-title">Your creator program is training the models that recommend you</h2>
-        <p class="article-item-desc">Share of voice means where you show up on a channel. Share of model means whether an AI names you when a developer asks. How I'd track the second one.</p>
+        <span class="article-item-num">08</span>
+        <h3 class="article-item-title">Your creator program is training the models that recommend you</h3>
+        <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
+      <h2 class="article-group reveal">The state of the field</h2>
       <a href="/writing/why-devrel-gets-cut-first" class="article-item reveal">
-        <p class="article-item-date">09 · August 2026 · ~5 min read</p>
-        <h2 class="article-item-title">Why DevRel gets cut first</h2>
-        <p class="article-item-desc">Two in five DevRel programmes have no formal budget, and a third are under pressure to show metrics they were never set up to produce.</p>
+        <span class="article-item-num">09</span>
+        <h3 class="article-item-title">Why DevRel gets cut first</h3>
+        <span class="article-item-meta">Aug 2026 · 5 min</span>
       </a>
       <a href="/writing/community-career-ceiling" class="article-item reveal">
-        <p class="article-item-date">10 · August 2026 · ~4 min read</p>
-        <h2 class="article-item-title">Leaving community doubles your odds of getting promoted</h2>
-        <p class="article-item-desc">A study that followed 86 people for 11 years found 28% of those who stayed reached Director or VP. Of those who left, 60% did. What that number really measures.</p>
+        <span class="article-item-num">10</span>
+        <h3 class="article-item-title">Leaving community doubles your odds of getting promoted</h3>
+        <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
     </div>
   </div>
