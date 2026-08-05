@@ -177,7 +177,6 @@ main{flex:1 0 auto}
 .article-group:first-child{padding-top:0}
 .article-item{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
 .article-item:hover .article-item-title{color:#D97706}
-.article-item-num{font-family:'Literata',serif;font-size:13px;color:#A8A29E;width:22px;flex:none;font-variant-numeric:tabular-nums}
 .article-item-title{font-size:16px;font-weight:500;line-height:1.45;flex:1;transition:color .2s;color:#1C1917;margin:0}
 .article-item-meta{font-size:12px;color:#A8A29E;flex:none;font-variant-numeric:tabular-nums}`;
 

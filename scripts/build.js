@@ -284,17 +284,17 @@ function renderIndex(posts) {
   const subtitle = "Every program here is one I built. Including the parts that didn't work.";
   const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
 
-  // Group order on the index page. Each entry is [frontmatter-category, header
-  // label the reader sees]. Order is fixed here so the sequence — built,
-  // shipped, proving, state of the field — reads as a deliberate arc rather
-  // than a bucket dump. A post whose `category` is not in this list will
-  // throw in the loop below; add it here rather than letting it fall off.
-  const GROUPS = [
-    ['Creator programs', 'Programs I built'],
-    ['Internal tooling', 'Tools I shipped'],
-    ['Attribution',      'Proving the work'],
-    ['The field',        'The state of the field'],
-  ];
+  // Category -> reader-facing header label. The order these appear on the
+  // page is decided at render time by the newest post in each group, so
+  // whichever theme has the most recent post rises to the top. Only the label
+  // mapping is fixed here; a post whose `category` is missing from this map
+  // will throw in the loop below.
+  const GROUP_LABELS = {
+    'Creator programs': 'Programs I built',
+    'Internal tooling': 'Tools I shipped',
+    'Attribution':      'Proving the work',
+    'The field':        'The state of the field',
+  };
 
   // "2026-02-11" -> "Feb 2026". The row meta needs the short form; the long
   // form still lives on the post page and in JSON-LD via displayDate().
@@ -311,33 +311,35 @@ function renderIndex(posts) {
       </p>`;
     }
 
-    // Bucket in the order posts already sit in — that preserves the featured
-    // rank within each group without a second sort.
-    const buckets = new Map(GROUPS.map(([k]) => [k, []]));
+    // Bucket by category, then order both the groups and the posts inside
+    // them by date, newest first. The rank within a group is the post's own
+    // date; the rank of a group is its newest post. That way the top of the
+    // page always shows the most recent thing, and the theme it belongs to.
+    const buckets = new Map();
     for (const p of posts) {
-      if (!buckets.has(p.category)) {
-        throw new Error(`${p.file}: category "${p.category || ''}" is not in the writing-index GROUPS list. Add it in scripts/build.js:renderIndex.`);
+      if (!(p.category in GROUP_LABELS)) {
+        throw new Error(`${p.file}: category "${p.category || ''}" is not in the writing-index GROUP_LABELS map. Add it in scripts/build.js:renderIndex.`);
       }
+      if (!buckets.has(p.category)) buckets.set(p.category, []);
       buckets.get(p.category).push(p);
     }
+    for (const arr of buckets.values()) {
+      arr.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)));
+    }
+    const orderedGroups = [...buckets.entries()]
+      .sort(([, a], [, b]) => (a[0].date < b[0].date ? 1 : a[0].date > b[0].date ? -1 : 0));
 
-    // One counter across the whole visible list, so numbering runs 01..N in
-    // the order the reader actually sees the rows, not in per-group resets.
-    let n = 0;
+    let i = 0;
     const chunks = [];
-    for (const [key, header] of GROUPS) {
-      const bucket = buckets.get(key);
-      if (!bucket.length) continue;
-      chunks.push(`      <h2 class="article-group reveal">${esc(header)}</h2>`);
+    for (const [key, bucket] of orderedGroups) {
+      chunks.push(`      <h2 class="article-group reveal">${esc(GROUP_LABELS[key])}</h2>`);
       for (const p of bucket) {
-        n += 1;
-        const num = ORDER === 'featured' ? String(n).padStart(2, '0') : '';
-        const delay = n <= 4 ? ` reveal-delay-${n}` : '';
+        const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
         chunks.push(`      <a href="/writing/${p.slug}" class="article-item reveal${delay}">
-        ${num ? `<span class="article-item-num">${num}</span>` : ''}
         <h3 class="article-item-title">${esc(p.title)}</h3>
         <span class="article-item-meta">${esc(metaOf(p))}</span>
       </a>`);
+        i += 1;
       }
     }
     return chunks.join('\n');
