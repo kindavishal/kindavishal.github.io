@@ -12,19 +12,19 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How I automated 40 hours of weekly busywork out of a 300-partner program — Vishal Das</title>
+  <title>Automating 40 hours of busywork with Apps Script</title>
   <meta name="description" content="Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.">
   <meta name="author" content="Vishal Das">
   <link rel="canonical" href="https://kindavishal.js.org/writing/apps-script-partner-automation">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://kindavishal.js.org/writing/apps-script-partner-automation">
   <meta property="og:site_name" content="Vishal Das Portfolio">
-  <meta property="og:title" content="How I automated 40 hours of weekly busywork out of a 300-partner program — Vishal Das">
+  <meta property="og:title" content="Automating 40 hours of busywork with Apps Script">
   <meta property="og:description" content="Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.">
   <meta property="og:image" content="https://kindavishal.js.org/assets/og/apps-script-partner-automation.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/apps-script-partner-automation.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="How I automated 40 hours of weekly busywork out of a 300-partner program">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://kindavishal.js.org/writing/apps-script-partner-automation">
-  <meta name="twitter:title" content="How I automated 40 hours of weekly busywork out of a 300-partner program — Vishal Das">
+  <meta name="twitter:title" content="Automating 40 hours of busywork with Apps Script">
   <meta name="twitter:description" content="Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.">
   <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/apps-script-partner-automation.png">
   <meta name="twitter:image:alt" content="How I automated 40 hours of weekly busywork out of a 300-partner program">
@@ -47,11 +47,6 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What can Google Apps Script automate for program management?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Anything that moves information between steps. Form responses into a tracked record, status changes into notifications, scattered sheets into one reporting table, recurring reports on a schedule. It runs on triggers, it reads and writes Sheets and Gmail directly, and it needs no infrastructure. For an operations or DevRel team with no engineering time, it covers most of what you need." }
-      },
-      {
-        "@type": "Question",
         "name": "How do you automate partner onboarding?",
         "acceptedAnswer": { "@type": "Answer", "text": "Start by writing down every step and marking each one as a handoff or a judgment. Handoffs are moving information from one place to the next, and those automate cleanly. Judgments are decisions about whether a partner qualifies, and those should stay with a person. Automate the handoffs first and most of the time disappears." }
       },
@@ -64,11 +59,6 @@
         "@type": "Question",
         "name": "Is Apps Script or Zapier better for internal automation?",
         "acceptedAnswer": { "@type": "Answer", "text": "Apps Script if your data already lives in Google Sheets and you need real logic, since you get a full scripting language, scheduled triggers and no per-task cost. A connector tool is faster to set up and easier to hand over. The deciding question is usually whether the person maintaining it after you can read code." }
-      },
-      {
-        "@type": "Question",
-        "name": "How do you measure time saved by automation?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Count the task time, then count the interruption time separately. The hours spent doing the work are the obvious number and usually the smaller one. The bigger cost is people stopping what they are doing to ask for a status update, which a self-serve dashboard removes entirely." }
       }
     ]
   }</script>
@@ -312,11 +302,7 @@ a:hover{color:#D97706}
     </div>
 
       <section class="faq">
-        <h2>Questions people ask</h2>
-        <div class="faq-item">
-          <p class="faq-q">What can Google Apps Script automate for program management?</p>
-          <p class="faq-a">Anything that moves information between steps. Form responses into a tracked record, status changes into notifications, scattered sheets into one reporting table, recurring reports on a schedule. It runs on triggers, it reads and writes Sheets and Gmail directly, and it needs no infrastructure. For an operations or DevRel team with no engineering time, it covers most of what you need.</p>
-        </div>
+        <h2>Questions worth answering</h2>
         <div class="faq-item">
           <p class="faq-q">How do you automate partner onboarding?</p>
           <p class="faq-a">Start by writing down every step and marking each one as a handoff or a judgment. Handoffs are moving information from one place to the next, and those automate cleanly. Judgments are decisions about whether a partner qualifies, and those should stay with a person. Automate the handoffs first and most of the time disappears.</p>
@@ -328,10 +314,6 @@ a:hover{color:#D97706}
         <div class="faq-item">
           <p class="faq-q">Is Apps Script or Zapier better for internal automation?</p>
           <p class="faq-a">Apps Script if your data already lives in Google Sheets and you need real logic, since you get a full scripting language, scheduled triggers and no per-task cost. A connector tool is faster to set up and easier to hand over. The deciding question is usually whether the person maintaining it after you can read code.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">How do you measure time saved by automation?</p>
-          <p class="faq-a">Count the task time, then count the interruption time separately. The hours spent doing the work are the obvious number and usually the smaller one. The bigger cost is people stopping what they are doing to ask for a status update, which a self-serve dashboard removes entirely.</p>
         </div>
       </section>
 

@@ -1,7 +1,8 @@
 ---
 title: "How I designed a five-tier ambassador program that 4x'd creator referrals"
 slug: firecrawl-ambassador-tier-system
-description: "A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals."
+seoTitle: "How I designed a five-tier ambassador program"
+description: "A developer ambassador program built from zero: why tier is one rolling number, not follower count, and how ten creators became a 4x lift in referrals."
 date: "2026-06-17"
 featured: 2
 homepage: 1
@@ -13,12 +14,8 @@ faq:
     a: "One number, measured the same way for everyone. At Firecrawl it was a rolling three-month average of YouTube views. Not follower count, and not lifetime views. Reach is the only thing a tier should measure, because how deep a creator goes belongs in what you pay per piece, not in the tier itself."
   - q: "Why use a rolling average instead of follower count?"
     a: "Follower count tells you how many people signed up once. A rolling three-month average tells you how many people are watching now. A big channel that has gone quiet and a smaller channel that is climbing will look identical on followers and very different on a rolling average. You are buying attention, so measure attention."
-  - q: "How many tiers should a developer ambassador program have?"
-    a: "Five worked for us. It was enough to tell an early creator apart from an established one without making people slow to sort. The number matters less than whether the entry rule is written down and measurable. Two tiers with a real rule beat six tiers assigned on instinct."
   - q: "How is a developer ambassador program different from a brand ambassador program?"
     a: "Most brand ambassador advice is written for consumer products, where reach is the whole job. In DevRel the audience is technical, so depth counts separately from reach — a creator who has actually built with the API is worth more than a larger channel that only mentions it. That is why tier and content type are priced as two different things."
-  - q: "How do you recruit the first cohort?"
-    a: "By hand, with no public launch. Find creators who already mention your product or tools next to it, check their depth from what they have already made, and send short outreach about something specific they built. It is slower per creator than an open application and it sets the quality bar for everyone who applies later."
 ---
 
 When I joined Firecrawl post-Series A, the company had no creator program. A few creators were making content on their own. A few intro emails were sitting unanswered. There was no structure for what "working with creators" even meant.

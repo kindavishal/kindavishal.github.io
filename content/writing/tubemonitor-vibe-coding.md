@@ -1,6 +1,7 @@
 ---
 title: "I can't write production code. I shipped the internal tool in a week anyway."
 slug: tubemonitor-vibe-coding
+seoTitle: "Shipping an internal tool in a week as a non-engineer"
 description: "The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part."
 date: "2026-07-16"
 featured: 5
@@ -14,10 +15,6 @@ faq:
     a: "A written spec per component, and specific bug reports. Say what data comes in, what the component does, what state it produces, and what failure looks like. When something breaks, describe the observed behaviour against the expected behaviour rather than guessing at the code. Vague reports get vague fixes."
   - q: "Should you build or buy internal analytics?"
     a: "Buy when the tool measures something standard and you have no special access to the data. Build when the thing you need is missing from every option and you already have the means to collect it. We were missing organic mentions no vendor could see, and we owned a scraper, so building was the shorter path."
-  - q: "What is competitive share of voice for creator programs?"
-    a: "It measures where your product shows up relative to competitors on the same creator's channel. Not just how many views your content gets, but whether that audience is spending more time with your content or someone else's. It is the number that actually informs where to put program budget."
-  - q: "How long does it take to build an internal dashboard this way?"
-    a: "TubeMonitor went from spec to deployed and in use across teams in one week. Most of the value came from the hour spent listing every question the dashboard had to answer before any code existed. That list became the acceptance criteria."
 ---
 
 At Firecrawl, our YouTube tracking was broken. Not completely — the third-party tool was logging data. But it was under-counting creators in our network, missing views on untagged videos, and producing weekly reports that didn't answer the questions the team actually had.

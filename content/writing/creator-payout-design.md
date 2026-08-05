@@ -1,7 +1,7 @@
 ---
 title: "Why I paid creators for the video, not the views"
 slug: creator-payout-design
-description: "Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on."
+description: "Per-view and per-signup payouts both quietly ruin the content. The flat-fee and points structure I used instead, and how to define the content types."
 date: "2026-06-30"
 featured: 3
 homepage: 2
@@ -11,10 +11,6 @@ shortTitle: "Paying for the video"
 faq:
   - q: "Should you pay ambassadors commission or a flat fee?"
     a: "Most ambassador guides recommend commission because you only pay for results. For developer tools I would use a flat fee per deliverable instead. Commission assumes the creator controls the conversion, and they do not — developer buying cycles are long, signups often go untracked, and your pricing page decides much of the outcome. Put the upside in a revenue share on top rather than in the base rate."
-  - q: "What is wrong with paying creators per view?"
-    a: "It rewards whatever gets views, which is not the same as whatever explains your product well. Creators respond by chasing titles and thumbnails, because that is what the money asks for. You end up paying most for the content that teaches least."
-  - q: "What is wrong with paying per signup?"
-    a: "It invites conversion spam. The fastest way to drive signups is rarely a careful tutorial, so you get pressure tactics and audience burn. It also punishes creators for a conversion rate they do not control, since your pricing page and onboarding decide most of it."
   - q: "What is a milestone points system for creators?"
     a: "Every piece of content is worth a fixed number of points based on how deep it goes. A full dedicated video is worth twice an integration. Passing mentions are worth nothing. Points add up over the life of the partnership and unlock bonuses at set totals, so the reward is for staying rather than for any single upload."
   - q: "How should you define creator content types?"

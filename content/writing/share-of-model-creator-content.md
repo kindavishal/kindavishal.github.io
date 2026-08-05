@@ -1,7 +1,8 @@
 ---
 title: "Your creator program is training the models that recommend you"
 slug: share-of-model-creator-content
-description: "Share of voice used to mean where you show up on a channel. Now it also means whether an AI names you when a developer asks what to use. Here's how I'd track it."
+seoTitle: "Share of model: creator content and AI answers"
+description: "Share of voice means where you show up on a channel. Share of model means whether an AI names you when a developer asks. How I'd track the second one."
 date: "2026-08-03"
 featured: 8
 category: "Attribution"
@@ -14,10 +15,6 @@ faq:
     a: "It is one of the inputs. Tutorials, comparisons and code walkthroughs are exactly the kind of technical writing that ends up describing how a tool works and what it is for. A creator program that produces clear, accurate explanations is producing the same material that shapes how a model describes your product later."
   - q: "How do you measure whether AI tools recommend your product?"
     a: "Write down the questions a developer would actually ask, run them on a fixed schedule across the models your users use, and log which products get named and in what order. It is the same method as any tracking job: fixed prompts, regular cadence, results in a table you can query over time."
-  - q: "Is share of model different from SEO?"
-    a: "The goal overlaps and the mechanics do not. Search returns a ranked list a person chooses from, so position matters and being on page one is worth something. A model returns one answer, so being named third in a list of three is much closer to not being named at all."
-  - q: "What kind of content gets a developer tool named by AI?"
-    a: "Content that states plainly what the tool does, what it is for, and how it compares to the obvious alternatives. Tutorials that show real integration work, and comparisons that are specific rather than promotional. Vague, promotional content gives a model nothing quotable to reuse."
 ---
 
 At Firecrawl I tracked competitive share of voice across our creator network. The question was simple. On a given creator's channel, is that audience spending more time with us or with a competitor?
@@ -88,4 +85,4 @@ But a good program quietly produces a third thing. A clear, accurate explanation
 
 If you run a creator program, you're already making it. The question is whether you can show it.
 
-That question — what to actually claim when someone is deciding whether your programme continues — is [the one that decides budgets](/writing/community-metrics-budget-review).
+Whether you can show it is not an academic question right now. It is [why DevRel gets cut first](/writing/why-devrel-gets-cut-first).

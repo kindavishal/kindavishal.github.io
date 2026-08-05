@@ -188,10 +188,22 @@ ${items}
 
 /* ---------- page templates ---------- */
 
+// Search results truncate around 60 characters. A post's on-page headline can be
+// as long as it needs to be; the <title> cannot. `seoTitle` in frontmatter
+// overrides it, and the byline suffix is only appended when it still fits.
+const TITLE_SUFFIX = ' — Vishal Das';
+
+function pageTitle(post) {
+  if (post.seoTitle) return post.seoTitle;
+  return post.title.length + TITLE_SUFFIX.length <= 60
+    ? post.title + TITLE_SUFFIX
+    : post.title;
+}
+
 function renderPost(post) {
   const faqHtml = post.faq.length ? `
       <section class="faq">
-        <h2>Questions people ask</h2>
+        <h2>Questions worth answering</h2>
 ${post.faq.map((f) => `        <div class="faq-item">
           <p class="faq-q">${esc(f.q)}</p>
           <p class="faq-a">${esc(f.a)}</p>
@@ -215,7 +227,7 @@ ${post.faq.map((f) => `        <div class="faq-item">
 <head>
 ${P.ga()}
 ${P.meta({
-    title: `${post.title} — Vishal Das`,
+    title: pageTitle(post),
     description: post.description,
     url: post.url,
     ogType: 'article',
@@ -309,7 +321,7 @@ ${posts.map((p) => `      {
 <head>
 ${P.ga()}
 ${P.meta({
-    title: 'Writing — Vishal Das',
+    title: 'Writing on DevRel, community and attribution',
     description: desc,
     url: `${origin}/writing`,
     ogType: 'website',

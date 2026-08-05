@@ -8,11 +8,25 @@
     <lastBuildDate>Mon, 03 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://kindavishal.js.org/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Leaving community doubles your odds of getting promoted</title>
+      <link>https://kindavishal.js.org/writing/community-career-ceiling</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/community-career-ceiling</guid>
+      <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
+      <description>A study that followed 86 people for 11 years found 28% of those who stayed reached Director or VP. Of those who left, 60% did. What that number really measures.</description>
+    </item>
+    <item>
       <title>Your creator program is training the models that recommend you</title>
       <link>https://kindavishal.js.org/writing/share-of-model-creator-content</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/share-of-model-creator-content</guid>
       <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
-      <description>Share of voice used to mean where you show up on a channel. Now it also means whether an AI names you when a developer asks what to use. Here's how I'd track it.</description>
+      <description>Share of voice means where you show up on a channel. Share of model means whether an AI names you when a developer asks. How I'd track the second one.</description>
+    </item>
+    <item>
+      <title>Why DevRel gets cut first</title>
+      <link>https://kindavishal.js.org/writing/why-devrel-gets-cut-first</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/why-devrel-gets-cut-first</guid>
+      <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Two in five DevRel programmes have no formal budget, and a third are under pressure to show metrics they were never set up to produce.</description>
     </item>
     <item>
       <title>The community metrics that survive a budget review</title>
@@ -47,14 +61,14 @@
       <link>https://kindavishal.js.org/writing/creator-payout-design</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/creator-payout-design</guid>
       <pubDate>Tue, 30 Jun 2026 09:00:00 GMT</pubDate>
-      <description>Per-view and per-signup payouts both quietly ruin the content. Here's the flat-fee and points structure I used instead, and how to define the content types it depends on.</description>
+      <description>Per-view and per-signup payouts both quietly ruin the content. The flat-fee and points structure I used instead, and how to define the content types.</description>
     </item>
     <item>
       <title>How I designed a five-tier ambassador program that 4x'd creator referrals</title>
       <link>https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</guid>
       <pubDate>Wed, 17 Jun 2026 09:00:00 GMT</pubDate>
-      <description>A developer ambassador program built from zero: why tier is set by one number, why that number is a rolling average, and how ten creators became a 4x lift in referrals.</description>
+      <description>A developer ambassador program built from zero: why tier is one rolling number, not follower count, and how ten creators became a 4x lift in referrals.</description>
     </item>
     <item>
       <title>How I automated 40 hours of weekly busywork out of a 300-partner program</title>

@@ -12,19 +12,19 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>I can't write production code. I shipped the internal tool in a week anyway. — Vishal Das</title>
+  <title>Shipping an internal tool in a week as a non-engineer</title>
   <meta name="description" content="The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.">
   <meta name="author" content="Vishal Das">
   <link rel="canonical" href="https://kindavishal.js.org/writing/tubemonitor-vibe-coding">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://kindavishal.js.org/writing/tubemonitor-vibe-coding">
   <meta property="og:site_name" content="Vishal Das Portfolio">
-  <meta property="og:title" content="I can't write production code. I shipped the internal tool in a week anyway. — Vishal Das">
+  <meta property="og:title" content="Shipping an internal tool in a week as a non-engineer">
   <meta property="og:description" content="The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.">
   <meta property="og:image" content="https://kindavishal.js.org/assets/og/tubemonitor-vibe-coding.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/tubemonitor-vibe-coding.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="I can't write production code. I shipped the internal tool in a week anyway.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://kindavishal.js.org/writing/tubemonitor-vibe-coding">
-  <meta name="twitter:title" content="I can't write production code. I shipped the internal tool in a week anyway. — Vishal Das">
+  <meta name="twitter:title" content="Shipping an internal tool in a week as a non-engineer">
   <meta name="twitter:description" content="The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.">
   <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/tubemonitor-vibe-coding.png">
   <meta name="twitter:image:alt" content="I can't write production code. I shipped the internal tool in a week anyway.">
@@ -59,16 +59,6 @@
         "@type": "Question",
         "name": "Should you build or buy internal analytics?",
         "acceptedAnswer": { "@type": "Answer", "text": "Buy when the tool measures something standard and you have no special access to the data. Build when the thing you need is missing from every option and you already have the means to collect it. We were missing organic mentions no vendor could see, and we owned a scraper, so building was the shorter path." }
-      },
-      {
-        "@type": "Question",
-        "name": "What is competitive share of voice for creator programs?",
-        "acceptedAnswer": { "@type": "Answer", "text": "It measures where your product shows up relative to competitors on the same creator's channel. Not just how many views your content gets, but whether that audience is spending more time with your content or someone else's. It is the number that actually informs where to put program budget." }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to build an internal dashboard this way?",
-        "acceptedAnswer": { "@type": "Answer", "text": "TubeMonitor went from spec to deployed and in use across teams in one week. Most of the value came from the hour spent listing every question the dashboard had to answer before any code existed. That list became the acceptance criteria." }
       }
     ]
   }</script>
@@ -296,7 +286,7 @@ a:hover{color:#D97706}
     </div>
 
       <section class="faq">
-        <h2>Questions people ask</h2>
+        <h2>Questions worth answering</h2>
         <div class="faq-item">
           <p class="faq-q">Can a non-engineer build an internal tool with AI?</p>
           <p class="faq-a">For internal tools — dashboards, data pipelines, reporting surfaces — yes. The limit is no longer whether you can write the code. It is whether you can define the problem precisely enough that the output can be checked. Customer-facing production systems are a different question and still need an engineer.</p>
@@ -308,14 +298,6 @@ a:hover{color:#D97706}
         <div class="faq-item">
           <p class="faq-q">Should you build or buy internal analytics?</p>
           <p class="faq-a">Buy when the tool measures something standard and you have no special access to the data. Build when the thing you need is missing from every option and you already have the means to collect it. We were missing organic mentions no vendor could see, and we owned a scraper, so building was the shorter path.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">What is competitive share of voice for creator programs?</p>
-          <p class="faq-a">It measures where your product shows up relative to competitors on the same creator's channel. Not just how many views your content gets, but whether that audience is spending more time with your content or someone else's. It is the number that actually informs where to put program budget.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">How long does it take to build an internal dashboard this way?</p>
-          <p class="faq-a">TubeMonitor went from spec to deployed and in use across teams in one week. Most of the value came from the hour spent listing every question the dashboard had to answer before any code existed. That list became the acceptance criteria.</p>
         </div>
       </section>
 

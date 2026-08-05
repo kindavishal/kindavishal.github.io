@@ -12,12 +12,8 @@ faq:
     a: "Business results traced back to a named community source, plus leading indicators you can show come before those results. Attendance, messages and member counts are inputs. They belong in your own weekly review because they tell you the programme is running, not in a business case."
   - q: "Why don't activity numbers work in a business case?"
     a: "Because a stakeholder cutting your budget does not lose messages. They lose whatever the messages led to. An activity count answers a question nobody in that room is asking, so it reads as an attempt to look busy rather than an argument for keeping the programme."
-  - q: "What is a leading indicator in community work?"
-    a: "Something the community controls that reliably happens before a business result, on a lag you can point to. If ambassador tutorials come before a lift in activations three weeks later, that is a forecast rather than a nice number. Attribution is what lets you prove the lag is real instead of just asserting it."
   - q: "What can't community attribution measure?"
     a: "The developer who read a tutorial, told a colleague, and never clicked a link. Word of mouth is a large share of how developer tools spread and most of it leaves no trace. Anyone claiming complete attribution is either measuring it wrong or overselling it."
-  - q: "Should you use last-touch or multi-touch attribution?"
-    a: "Either, as long as you write down why and stay consistent. Which model fits is a judgment call about your business, not something the data settles. Being consistent matters more than being right, because a model that changes between meetings cannot be compared against itself."
 ---
 
 Once you can trace a community action to a business result, the question changes. It stops being "what can I count" and becomes "what should I claim."
