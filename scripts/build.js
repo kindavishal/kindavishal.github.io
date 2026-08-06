@@ -596,7 +596,7 @@ function ogSvg(post) {
   <text x="40" y="350" font-family="${MONO}" font-size="17" font-weight="600" fill="${creamTint}" letter-spacing="2.7">WRITING</text>
   <text x="40" y="378" font-family="${MONO}" font-size="17" font-weight="600" fill="${creamTint}" letter-spacing="2.7">${esc(group.toUpperCase())}</text>
 
-  <text x="40" y="580" font-family="${MONO}" font-size="17" font-weight="600" fill="${creamTint}" letter-spacing="2.4">KINDAVISHAL.JS.ORG</text>
+  <text x="40" y="580" font-family="${SANS}" font-size="14" font-weight="600" fill="${creamTint}" letter-spacing="1.6">KINDAVISHAL.JS.ORG</text>
 
   <!-- Right content panel -->
   <circle cx="338" cy="100" r="5" fill="${orange}"/>
