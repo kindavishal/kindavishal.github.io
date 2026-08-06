@@ -517,9 +517,12 @@ function injectHomepage(posts) {
 
 /* ---------- OG images ---------- */
 
-// Brand-coloured card generated per post. Falls back to the shared preview
-// card if sharp is unavailable, so image tooling can never break a deploy.
-function wrapText(text, max) {
+// Editorial + split link-preview card, generated per post. Sharp renders the
+// SVG with libvips's system fonts, so this sticks to Georgia / Menlo / Helvetica
+// fallbacks rather than the Instrument Serif / JetBrains Mono / Inter the
+// on-screen design uses. Falls back to the shared preview card if sharp is
+// unavailable, so image tooling can never break a deploy.
+function wrapText(text, max, maxLines) {
   const lines = [];
   let line = '';
   for (const word of text.split(/\s+/)) {
@@ -527,21 +530,85 @@ function wrapText(text, max) {
     else line = line ? `${line} ${word}` : word;
   }
   if (line) lines.push(line);
-  return lines.slice(0, 4);
+  if (lines.length > maxLines) {
+    const kept = lines.slice(0, maxLines);
+    kept[maxLines - 1] = kept[maxLines - 1].replace(/[.,;:!?]*$/, '') + '…';
+    return kept;
+  }
+  return lines;
 }
 
+// Category on the post is the raw taxonomy; readers see the group label.
+// Kept in step with GROUP_LABELS in renderIndex.
+const OG_GROUP_LABELS = {
+  'Creator programs': 'Programs I built',
+  'Internal tooling': 'Tools I shipped',
+  'Attribution':      'Proving the work',
+  'The field':        'The state of the field',
+};
+
 function ogSvg(post) {
-  const lines = wrapText(post.title, 30);
-  const size = lines.length > 3 ? 52 : lines.length > 2 ? 60 : 68;
-  const startY = 300 - ((lines.length - 1) * size * 0.62);
+  const SERIF = "Georgia, 'Times New Roman', serif";
+  const MONO  = 'Menlo, Consolas, monospace';
+  const SANS  = 'Helvetica, Arial, sans-serif';
+
+  const orange     = '#b8532d';
+  const orangeDark = '#a04824';
+  const cream      = '#fafaf7';
+  const creamTint  = '#fbe4d5';
+  const border     = '#eae7dd';
+  const ink        = '#111';
+  const inkMuted   = '#555';
+  const inkLabel   = '#666';
+
+  const group = OG_GROUP_LABELS[post.category] || 'Writing';
+  const meta  = `Essay · ${post.dateDisplay} · ${post.readtime} min read`.toUpperCase();
+
+  // Right panel is 940 wide (1200 - 260) with 73px side padding = 794 usable.
+  const titleLines = wrapText(post.title, 22, 4);
+  const titleSize  = titleLines.length > 3 ? 62 : titleLines.length > 2 ? 70 : 77;
+  const titleLead  = titleSize * 1.02;
+  const titleBlockH = titleSize + (titleLines.length - 1) * titleLead;
+  const titleTop   = 315 - titleBlockH / 2;
+
+  const descLines = post.description
+    ? wrapText(post.description, 58, 2)
+    : [];
+
+  const titleSvg = titleLines
+    .map((l, i) => `  <text x="333" y="${Math.round(titleTop + titleSize * 0.82 + i * titleLead)}" font-family="${SERIF}" font-size="${titleSize}" fill="${ink}">${esc(l)}</text>`)
+    .join('\n');
+
+  const descSvg = descLines
+    .map((l, i) => `  <text x="333" y="${528 + i * 30}" font-family="${SANS}" font-size="22" fill="${inkMuted}">${esc(l)}</text>`)
+    .join('\n');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#F8F6F2"/>
-  <rect width="1200" height="10" fill="#D97706"/>
-  <text x="80" y="130" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#D97706" letter-spacing="3">VISHAL DAS</text>
-${lines.map((l, i) => `  <text x="80" y="${startY + i * size * 1.2}" font-family="Georgia,serif" font-size="${size}" font-weight="bold" fill="#1C1917">${esc(l)}</text>`).join('\n')}
-  <text x="80" y="540" font-family="Helvetica,Arial,sans-serif" font-size="24" fill="#78716C">${esc(post.dateDisplay)} · ~${post.readtime} min read</text>
-  <text x="80" y="580" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="bold" fill="#D97706">kindavishal.js.org</text>
+  <rect width="1200" height="630" fill="${cream}"/>
+
+  <!-- Left brand panel -->
+  <rect x="0" y="0" width="260" height="630" fill="${orange}"/>
+  <rect x="40" y="53" width="50" height="50" fill="none" stroke="${cream}" stroke-width="2"/>
+  <text x="65" y="90" font-family="${SERIF}" font-style="italic" font-size="33" fill="${cream}" text-anchor="middle">V</text>
+  <text x="103" y="87" font-family="${SANS}" font-size="20" font-weight="600" fill="${cream}">Vishal Das</text>
+
+  <rect x="40" y="310" width="53" height="2" fill="${cream}" opacity="0.35"/>
+  <text x="40" y="350" font-family="${MONO}" font-size="17" font-weight="600" fill="${creamTint}" letter-spacing="2.7">WRITING</text>
+  <text x="40" y="378" font-family="${MONO}" font-size="17" font-weight="600" fill="${creamTint}" letter-spacing="2.7">${esc(group.toUpperCase())}</text>
+
+  <text x="40" y="580" font-family="${MONO}" font-size="17" font-weight="600" fill="${creamTint}" letter-spacing="2.4">KINDAVISHAL.JS.ORG</text>
+
+  <!-- Right content panel -->
+  <circle cx="338" cy="100" r="5" fill="${orange}"/>
+  <text x="355" y="106" font-family="${MONO}" font-size="18" fill="${inkLabel}" letter-spacing="2.5">${esc(meta)}</text>
+
+${titleSvg}
+
+${descSvg}
+  <text x="1127" y="561" font-family="${SERIF}" font-style="italic" font-size="27" fill="${orangeDark}" text-anchor="end">Read →</text>
+
+  <!-- Outer hairline border -->
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="${border}" stroke-width="1"/>
 </svg>`;
 }
 
