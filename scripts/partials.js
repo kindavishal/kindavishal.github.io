@@ -172,10 +172,16 @@ main{flex:1 0 auto}
 .page-header{margin-bottom:32px}
 .page-title{font-family:'Literata',serif;font-size:36px;letter-spacing:-0.5px;margin:0 0 12px;color:#1C1917}
 .page-desc{font-size:16px;color:#57534E;font-style:italic;line-height:1.7}
-.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.08)}
+.filter-group{display:flex;align-items:center;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.filter-group:last-of-type{margin-bottom:0;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.08)}
+.filter-label{font-family:'Literata',serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A29E;flex:none;min-width:64px}
+.filter-bar{display:flex;flex-wrap:wrap;gap:6px}
 .filter-chip{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:500;color:#57534E;background:transparent;border:1px solid rgba(0,0,0,0.12);border-radius:999px;padding:6px 14px;cursor:pointer;transition:all .15s;line-height:1.4}
 .filter-chip:hover{border-color:#D97706;color:#D97706}
 .filter-chip.active{background:#1C1917;border-color:#1C1917;color:#F8F6F2}
+.sort-select{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:500;color:#1C1917;background:transparent;border:1px solid rgba(0,0,0,0.12);border-radius:999px;padding:6px 32px 6px 14px;cursor:pointer;line-height:1.4;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='none' stroke='%2357534E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1 1l4 4 4-4'/></svg>");background-repeat:no-repeat;background-position:right 12px center}
+.sort-select:hover{border-color:#D97706;color:#D97706}
+.sort-select:focus{outline:none;border-color:#D97706}
 .article-list{display:flex;flex-direction:column}
 .article-item{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
 .article-item:hover .article-item-title{color:#D97706}
@@ -189,7 +195,10 @@ const INDEX_RESPONSIVE = `@media(max-width:768px){
 .nav-inner{padding:0 20px}
 .page-wrap{padding:88px 20px 60px}
 .page-title{font-size:28px}
+.filter-group{gap:8px;align-items:flex-start;flex-direction:column}
+.filter-label{min-width:0}
 .filter-chip{font-size:12px;padding:5px 12px}
+.sort-select{font-size:12px}
 .article-item{gap:12px}
 .article-item-title{font-size:15px}
 .article-item-meta{display:none}

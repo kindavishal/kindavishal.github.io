@@ -6,6 +6,7 @@ description: "Before you build a schema, run this. Two numbers per source — ho
 date: "2026-08-05"
 featured: 11
 category: "Attribution"
+companies: ["Observations"]
 cardLabel: "Two numbers, one afternoon"
 shortTitle: "The two-metric audit"
 faq:

@@ -7,6 +7,7 @@ date: "2026-07-22"
 featured: 6
 homepage: 3
 category: "Attribution"
+companies: ["Firecrawl", "Google"]
 cardLabel: "Apps Script → Looker Studio"
 shortTitle: "The attribution layer"
 faq:

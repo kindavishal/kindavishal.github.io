@@ -5,6 +5,7 @@ description: "A study that followed 86 people for 11 years found 28% of those wh
 date: "2026-08-03"
 featured: 10
 category: "The field"
+companies: ["Observations"]
 cardLabel: "28% vs 60%"
 shortTitle: "The community ceiling"
 ---

@@ -6,6 +6,7 @@ description: "Growth makes whatever is already there louder. My referrals went 4
 date: "2026-08-06"
 featured: 12
 category: "Creator programs"
+companies: ["Firecrawl"]
 cardLabel: "4x on ten, not forty"
 shortTitle: "More members won't fix it"
 faq:

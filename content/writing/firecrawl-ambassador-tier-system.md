@@ -7,6 +7,7 @@ date: "2026-06-17"
 featured: 2
 homepage: 1
 category: "Creator programs"
+companies: ["Firecrawl"]
 cardLabel: "1.7K → 7.2K weekly"
 shortTitle: "The tier system"
 faq:

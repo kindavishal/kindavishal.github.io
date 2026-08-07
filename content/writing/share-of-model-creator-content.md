@@ -6,6 +6,7 @@ description: "Share of voice means where you show up on a channel. Share of mode
 date: "2026-08-03"
 featured: 8
 category: "Attribution"
+companies: ["Firecrawl"]
 cardLabel: "Share of model"
 shortTitle: "Share of model"
 faq:

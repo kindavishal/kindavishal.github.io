@@ -6,6 +6,7 @@ description: "Google Apps Script, Sheets and Looker Studio, built by the person 
 date: "2026-02-11"
 featured: 1
 category: "Internal tooling"
+companies: ["Google"]
 cardLabel: "~40 hours a week back"
 shortTitle: "Automating the busywork"
 faq:

@@ -108,6 +108,7 @@ function loadPosts() {
       body,
       draft: data.draft === true,
       faq: Array.isArray(data.faq) ? data.faq : [],
+      companies: Array.isArray(data.companies) ? data.companies : (data.companies ? [data.companies] : []),
       url: `${origin}/writing/${slug}`,
       readtime: data.readtime || readingTime(body),
       dateDisplay: data.dateDisplay || displayDate(String(data.date)),
@@ -295,7 +296,7 @@ function renderIndex(posts) {
     'The field':        'The state of the field',
   };
 
-  // Stable slug per category, used for data-attributes and chip IDs.
+  // Stable slug per category or company, used for data-attributes and chip IDs.
   const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   // "2026-02-11" -> "Feb 2026". The row meta needs the short form; the long
@@ -324,10 +325,39 @@ function renderIndex(posts) {
   const orderedCats = [...catNewest.keys()]
     .sort((a, b) => (catNewest.get(a) < catNewest.get(b) ? 1 : catNewest.get(a) > catNewest.get(b) ? -1 : 0));
 
-  const filterBar = posts.length
-    ? `      <div class="filter-bar reveal" role="tablist" aria-label="Filter by theme">
-        <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
-${orderedCats.map((c) => `        <button type="button" class="filter-chip" data-filter="${esc(catSlug(c))}" aria-pressed="false">${esc(GROUP_LABELS[c])}</button>`).join('\n')}
+  // Company chips are the second lens on the same list. Order is by newest
+  // post per company so the freshest project sits first after "All".
+  const companyNewest = new Map();
+  for (const p of posts) {
+    for (const co of p.companies) {
+      const cur = companyNewest.get(co);
+      if (!cur || p.date > cur) companyNewest.set(co, p.date);
+    }
+  }
+  const orderedCompanies = [...companyNewest.keys()]
+    .sort((a, b) => (companyNewest.get(a) < companyNewest.get(b) ? 1 : companyNewest.get(a) > companyNewest.get(b) ? -1 : 0));
+
+  const controls = posts.length
+    ? `      <div class="filter-group reveal">
+        <span class="filter-label">Theme</span>
+        <div class="filter-bar" role="tablist" aria-label="Filter by theme" data-filter-group="theme">
+          <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+${orderedCats.map((c) => `          <button type="button" class="filter-chip" data-filter="${esc(catSlug(c))}" aria-pressed="false">${esc(GROUP_LABELS[c])}</button>`).join('\n')}
+        </div>
+      </div>
+      <div class="filter-group reveal">
+        <span class="filter-label">Company</span>
+        <div class="filter-bar" role="tablist" aria-label="Filter by company" data-filter-group="company">
+          <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+${orderedCompanies.map((co) => `          <button type="button" class="filter-chip" data-filter="${esc(catSlug(co))}" aria-pressed="false">${esc(co)}</button>`).join('\n')}
+        </div>
+      </div>
+      <div class="filter-group filter-sort reveal">
+        <label class="filter-label" for="sort-select">Sort</label>
+        <select id="sort-select" class="sort-select">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
       </div>`
     : '';
 
@@ -344,7 +374,8 @@ ${orderedCats.map((c) => `        <button type="button" class="filter-chip" data
 
     return sorted.map((p, i) => {
       const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
-      return `      <a href="/writing/${p.slug}" class="article-item reveal${delay}" data-category="${esc(catSlug(p.category))}">
+      const cos = p.companies.map(catSlug).join(' ');
+      return `      <a href="/writing/${p.slug}" class="article-item reveal${delay}" data-category="${esc(catSlug(p.category))}" data-companies="${esc(cos)}" data-date="${esc(p.date)}">
         <h3 class="article-item-title">${esc(p.title)}</h3>
         <span class="article-item-meta">${esc(metaOf(p))}</span>
       </a>`;
@@ -397,7 +428,7 @@ ${P.nav()}
       <p class="page-desc">${esc(subtitle)}</p>
     </header>
 
-${filterBar}
+${controls}
     <div class="article-list" id="article-list">
 ${list}
     </div>
@@ -407,23 +438,47 @@ ${P.footer()}
 ${P.scripts()}
 <script>
 (function(){
-  var chips=document.querySelectorAll('.filter-chip');
-  var items=document.querySelectorAll('#article-list .article-item');
-  if(!chips.length||!items.length)return;
-  chips.forEach(function(chip){
-    chip.addEventListener('click',function(){
-      var f=chip.getAttribute('data-filter');
-      chips.forEach(function(c){
-        var on=c===chip;
-        c.classList.toggle('active',on);
-        c.setAttribute('aria-pressed',on?'true':'false');
-      });
-      items.forEach(function(it){
-        var show=f==='all'||it.getAttribute('data-category')===f;
-        it.classList.toggle('hidden',!show);
+  var listEl=document.getElementById('article-list');
+  if(!listEl)return;
+  var items=Array.prototype.slice.call(listEl.querySelectorAll('.article-item'));
+  var groups=document.querySelectorAll('[data-filter-group]');
+  var sortSel=document.getElementById('sort-select');
+  var state={theme:'all',company:'all',sort:'newest'};
+
+  function apply(){
+    items.forEach(function(it){
+      var t=it.getAttribute('data-category');
+      var cos=(it.getAttribute('data-companies')||'').split(' ');
+      var show=(state.theme==='all'||t===state.theme)
+            && (state.company==='all'||cos.indexOf(state.company)!==-1);
+      it.classList.toggle('hidden',!show);
+    });
+    var sorted=items.slice().sort(function(a,b){
+      var da=a.getAttribute('data-date'),db=b.getAttribute('data-date');
+      if(da===db)return 0;
+      return state.sort==='oldest'?(da<db?-1:1):(da<db?1:-1);
+    });
+    sorted.forEach(function(el){listEl.appendChild(el)});
+  }
+
+  groups.forEach(function(g){
+    var key=g.getAttribute('data-filter-group');
+    var chips=g.querySelectorAll('.filter-chip');
+    chips.forEach(function(chip){
+      chip.addEventListener('click',function(){
+        state[key]=chip.getAttribute('data-filter');
+        chips.forEach(function(c){
+          var on=c===chip;
+          c.classList.toggle('active',on);
+          c.setAttribute('aria-pressed',on?'true':'false');
+        });
+        apply();
       });
     });
   });
+  if(sortSel){
+    sortSel.addEventListener('change',function(){state.sort=sortSel.value;apply();});
+  }
 })();
 </script>
 </body>

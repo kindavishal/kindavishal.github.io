@@ -6,6 +6,7 @@ date: "2026-06-30"
 featured: 3
 homepage: 2
 category: "Creator programs"
+companies: ["Firecrawl"]
 cardLabel: "Flat fee + points"
 shortTitle: "Paying for the video"
 faq:

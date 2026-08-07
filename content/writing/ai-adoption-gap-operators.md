@@ -6,6 +6,7 @@ description: "84% of people have never used AI. That is not a reason to wait —
 date: "2026-08-07"
 featured: 13
 category: "The field"
+companies: ["Observations"]
 cardLabel: "84% haven't tried it"
 shortTitle: "Nobody has tried this yet"
 faq:
