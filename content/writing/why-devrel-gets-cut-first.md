@@ -5,6 +5,7 @@ description: "Two in five DevRel programmes have no formal budget, and a third a
 date: "2026-08-03"
 featured: 9
 category: "The field"
+companies: ["Observations"]
 cardLabel: "Cut first, and why"
 shortTitle: "Why DevRel gets cut first"
 ---

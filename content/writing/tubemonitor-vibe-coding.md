@@ -6,6 +6,7 @@ description: "The third-party tracker was under-counting our creators. So I spec
 date: "2026-07-16"
 featured: 5
 category: "Internal tooling"
+companies: ["Firecrawl"]
 cardLabel: "Spec → shipped in a week"
 shortTitle: "Shipping TubeMonitor"
 faq:

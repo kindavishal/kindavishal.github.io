@@ -5,6 +5,7 @@ description: "Which DevRel and community metrics hold up when someone is decidin
 date: "2026-08-01"
 featured: 7
 category: "Attribution"
+companies: ["Firecrawl"]
 cardLabel: "Inputs vs results"
 shortTitle: "Metrics that survive"
 faq:

@@ -5,6 +5,7 @@ description: "Most streak mechanics take something away when you stop. This one 
 date: "2026-07-10"
 featured: 4
 category: "Creator programs"
+companies: ["Firecrawl"]
 cardLabel: "Nothing is ever lost"
 shortTitle: "The streak system"
 faq:

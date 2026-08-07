@@ -108,6 +108,7 @@ function loadPosts() {
       body,
       draft: data.draft === true,
       faq: Array.isArray(data.faq) ? data.faq : [],
+      companies: Array.isArray(data.companies) ? data.companies : (data.companies ? [data.companies] : []),
       url: `${origin}/writing/${slug}`,
       readtime: data.readtime || readingTime(body),
       dateDisplay: data.dateDisplay || displayDate(String(data.date)),
@@ -284,10 +285,9 @@ function renderIndex(posts) {
   const subtitle = "Projects I delivered — including what didn't work. Uncomfortable truths & Observations";
   const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
 
-  // Category -> reader-facing header label. The order these appear on the
-  // page is decided at render time by the newest post in each group, so
-  // whichever theme has the most recent post rises to the top. Only the label
-  // mapping is fixed here; a post whose `category` is missing from this map
+  // Category -> reader-facing filter label. Themes are surfaced as chips above
+  // a single flat list rather than as group headers; the list itself is always
+  // sorted newest first. A post whose `category` is missing from this map
   // will throw in the loop below.
   const GROUP_LABELS = {
     'Creator programs': 'Programs I built',
@@ -295,6 +295,9 @@ function renderIndex(posts) {
     'Attribution':      'Proving the work',
     'The field':        'The state of the field',
   };
+
+  // Stable slug per category or company, used for data-attributes and chip IDs.
+  const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   // "2026-02-11" -> "Feb 2026". The row meta needs the short form; the long
   // form still lives on the post page and in JSON-LD via displayDate().
@@ -304,6 +307,62 @@ function renderIndex(posts) {
     return `${shortMonths[Number(m) - 1]} ${y} · ${p.readtime} min`;
   };
 
+  // Validate categories once, up front. The chip bar and the list both need
+  // to know every category a post might carry.
+  for (const p of posts) {
+    if (!(p.category in GROUP_LABELS)) {
+      throw new Error(`${p.file}: category "${p.category || ''}" is not in the writing-index GROUP_LABELS map. Add it in scripts/build.js:renderIndex.`);
+    }
+  }
+
+  // Chips are ordered by the newest post in each category, so the theme with
+  // the most recent piece sits first after "All".
+  const catNewest = new Map();
+  for (const p of posts) {
+    const cur = catNewest.get(p.category);
+    if (!cur || p.date > cur) catNewest.set(p.category, p.date);
+  }
+  const orderedCats = [...catNewest.keys()]
+    .sort((a, b) => (catNewest.get(a) < catNewest.get(b) ? 1 : catNewest.get(a) > catNewest.get(b) ? -1 : 0));
+
+  // Company chips are the second lens on the same list. Order is by newest
+  // post per company so the freshest project sits first after "All".
+  const companyNewest = new Map();
+  for (const p of posts) {
+    for (const co of p.companies) {
+      const cur = companyNewest.get(co);
+      if (!cur || p.date > cur) companyNewest.set(co, p.date);
+    }
+  }
+  const orderedCompanies = [...companyNewest.keys()]
+    .sort((a, b) => (companyNewest.get(a) < companyNewest.get(b) ? 1 : companyNewest.get(a) > companyNewest.get(b) ? -1 : 0));
+
+  const controls = posts.length
+    ? `      <div class="filter-group reveal">
+        <span class="filter-label">Theme</span>
+        <div class="filter-bar" role="tablist" aria-label="Filter by theme" data-filter-group="theme">
+          <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+${orderedCats.map((c) => `          <button type="button" class="filter-chip" data-filter="${esc(catSlug(c))}" aria-pressed="false">${esc(GROUP_LABELS[c])}</button>`).join('\n')}
+        </div>
+      </div>
+      <div class="filter-row reveal">
+        <div class="filter-group">
+          <span class="filter-label">Source</span>
+          <div class="filter-bar" role="tablist" aria-label="Filter by source" data-filter-group="company">
+            <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+${orderedCompanies.map((co) => `            <button type="button" class="filter-chip" data-filter="${esc(catSlug(co))}" aria-pressed="false">${esc(co)}</button>`).join('\n')}
+          </div>
+        </div>
+        <div class="filter-group filter-sort">
+          <label class="filter-label" for="sort-select">Sort</label>
+          <select id="sort-select" class="sort-select">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
+      </div>`
+    : '';
+
   const list = (() => {
     if (!posts.length) {
       return `      <p class="reveal" style="color:#78716C;margin-top:24px;font-style:italic">
@@ -311,38 +370,18 @@ function renderIndex(posts) {
       </p>`;
     }
 
-    // Bucket by category, then order both the groups and the posts inside
-    // them by date, newest first. The rank within a group is the post's own
-    // date; the rank of a group is its newest post. That way the top of the
-    // page always shows the most recent thing, and the theme it belongs to.
-    const buckets = new Map();
-    for (const p of posts) {
-      if (!(p.category in GROUP_LABELS)) {
-        throw new Error(`${p.file}: category "${p.category || ''}" is not in the writing-index GROUP_LABELS map. Add it in scripts/build.js:renderIndex.`);
-      }
-      if (!buckets.has(p.category)) buckets.set(p.category, []);
-      buckets.get(p.category).push(p);
-    }
-    for (const arr of buckets.values()) {
-      arr.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)));
-    }
-    const orderedGroups = [...buckets.entries()]
-      .sort(([, a], [, b]) => (a[0].date < b[0].date ? 1 : a[0].date > b[0].date ? -1 : 0));
+    // Flat list, newest first. Ties broken by slug for a stable build.
+    const sorted = [...posts].sort((a, b) =>
+      a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug));
 
-    let i = 0;
-    const chunks = [];
-    for (const [key, bucket] of orderedGroups) {
-      chunks.push(`      <h2 class="article-group reveal">${esc(GROUP_LABELS[key])}</h2>`);
-      for (const p of bucket) {
-        const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
-        chunks.push(`      <a href="/writing/${p.slug}" class="article-item reveal${delay}">
+    return sorted.map((p, i) => {
+      const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
+      const cos = p.companies.map(catSlug).join(' ');
+      return `      <a href="/writing/${p.slug}" class="article-item reveal${delay}" data-category="${esc(catSlug(p.category))}" data-companies="${esc(cos)}" data-date="${esc(p.date)}">
         <h3 class="article-item-title">${esc(p.title)}</h3>
         <span class="article-item-meta">${esc(metaOf(p))}</span>
-      </a>`);
-        i += 1;
-      }
-    }
-    return chunks.join('\n');
+      </a>`;
+    }).join('\n');
   })();
 
   const ld = `  <script type="application/ld+json">{
@@ -391,13 +430,59 @@ ${P.nav()}
       <p class="page-desc">${esc(subtitle)}</p>
     </header>
 
-    <div class="article-list">
+${controls}
+    <div class="article-list" id="article-list">
 ${list}
     </div>
   </div>
 </main>
 ${P.footer()}
 ${P.scripts()}
+<script>
+(function(){
+  var listEl=document.getElementById('article-list');
+  if(!listEl)return;
+  var items=Array.prototype.slice.call(listEl.querySelectorAll('.article-item'));
+  var groups=document.querySelectorAll('[data-filter-group]');
+  var sortSel=document.getElementById('sort-select');
+  var state={theme:'all',company:'all',sort:'newest'};
+
+  function apply(){
+    items.forEach(function(it){
+      var t=it.getAttribute('data-category');
+      var cos=(it.getAttribute('data-companies')||'').split(' ');
+      var show=(state.theme==='all'||t===state.theme)
+            && (state.company==='all'||cos.indexOf(state.company)!==-1);
+      it.classList.toggle('hidden',!show);
+    });
+    var sorted=items.slice().sort(function(a,b){
+      var da=a.getAttribute('data-date'),db=b.getAttribute('data-date');
+      if(da===db)return 0;
+      return state.sort==='oldest'?(da<db?-1:1):(da<db?1:-1);
+    });
+    sorted.forEach(function(el){listEl.appendChild(el)});
+  }
+
+  groups.forEach(function(g){
+    var key=g.getAttribute('data-filter-group');
+    var chips=g.querySelectorAll('.filter-chip');
+    chips.forEach(function(chip){
+      chip.addEventListener('click',function(){
+        state[key]=chip.getAttribute('data-filter');
+        chips.forEach(function(c){
+          var on=c===chip;
+          c.classList.toggle('active',on);
+          c.setAttribute('aria-pressed',on?'true':'false');
+        });
+        apply();
+      });
+    });
+  });
+  if(sortSel){
+    sortSel.addEventListener('change',function(){state.sort=sortSel.value;apply();});
+  }
+})();
+</script>
 </body>
 </html>
 `;

@@ -105,6 +105,27 @@
         "description": "A study that followed 86 people for 11 years found 28% of those who stayed reached Director or VP. Of those who left, 60% did. What that number really measures.",
         "datePublished": "2026-08-03",
         "url": "https://kindavishal.js.org/writing/community-career-ceiling"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Two numbers per source is most of community attribution",
+        "description": "Before you build a schema, run this. Two numbers per source — how many showed interest, how many converted — and where your growth is stuck becomes obvious.",
+        "datePublished": "2026-08-05",
+        "url": "https://kindavishal.js.org/writing/two-metric-attribution-audit"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "More members won't fix an engagement problem",
+        "description": "Growth makes whatever is already there louder. My referrals went 4x on ten creators, not forty — and adding thirty more would have made it worse.",
+        "datePublished": "2026-08-06",
+        "url": "https://kindavishal.js.org/writing/growth-amplifies-what-exists"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Almost nobody has actually tried this yet",
+        "description": "84% of people have never used AI. That is not a reason to wait — it is the reason the operators who build their own tools right now get a long head start.",
+        "datePublished": "2026-08-07",
+        "url": "https://kindavishal.js.org/writing/ai-adoption-gap-operators"
       }
     ]
   }</script>
@@ -161,14 +182,26 @@ body{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1 0 auto}
 .footer{flex-shrink:0}
 .page-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
-.page-header{margin-bottom:40px}
+.page-header{margin-bottom:32px}
 .page-title{font-family:'Literata',serif;font-size:36px;letter-spacing:-0.5px;margin:0 0 12px;color:#1C1917}
 .page-desc{font-size:16px;color:#57534E;font-style:italic;line-height:1.7}
+.filter-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.filter-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-top:10px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,0.08);flex-wrap:wrap}
+.filter-row .filter-group{margin:0}
+.filter-row .filter-group:first-child{flex:1 1 auto;min-width:0}
+.filter-row .filter-sort{flex:none}
+.filter-label{font-family:'Literata',serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A29E;flex:none}
+.filter-bar{display:flex;flex-wrap:wrap;gap:6px}
+.filter-chip{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:500;color:#57534E;background:transparent;border:1px solid rgba(0,0,0,0.12);border-radius:999px;padding:6px 14px;cursor:pointer;transition:all .15s;line-height:1.4}
+.filter-chip:hover{border-color:#D97706;color:#D97706}
+.filter-chip.active{background:#1C1917;border-color:#1C1917;color:#F8F6F2}
+.sort-select{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:500;color:#1C1917;background:transparent;border:1px solid rgba(0,0,0,0.12);border-radius:999px;padding:6px 32px 6px 14px;cursor:pointer;line-height:1.4;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='none' stroke='%2357534E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1 1l4 4 4-4'/></svg>");background-repeat:no-repeat;background-position:right 12px center}
+.sort-select:hover{border-color:#D97706;color:#D97706}
+.sort-select:focus{outline:none;border-color:#D97706}
 .article-list{display:flex;flex-direction:column}
-.article-group{font-family:'Literata',serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A29E;padding:28px 0 8px;border-bottom:1px solid rgba(0,0,0,0.08);margin:0}
-.article-group:first-child{padding-top:0}
 .article-item{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
 .article-item:hover .article-item-title{color:#D97706}
+.article-item.hidden{display:none}
 .article-item-title{font-size:16px;font-weight:500;line-height:1.45;flex:1;transition:color .2s;color:#1C1917;margin:0}
 .article-item-meta{font-size:12px;color:#A8A29E;flex:none;font-variant-numeric:tabular-nums}
 @media(max-width:1024px){
@@ -181,6 +214,12 @@ main{flex:1 0 auto}
 .nav-inner{padding:0 20px}
 .page-wrap{padding:88px 20px 60px}
 .page-title{font-size:28px}
+.filter-group{gap:8px;align-items:flex-start;flex-direction:column}
+.filter-row{flex-direction:column;gap:14px;margin-top:14px;padding-bottom:18px}
+.filter-row .filter-sort{width:100%}
+.sort-select{width:100%}
+.filter-chip{font-size:12px;padding:5px 12px}
+.sort-select{font-size:12px}
 .article-item{gap:12px}
 .article-item-title{font-size:15px}
 .article-item-meta{display:none}
@@ -227,50 +266,86 @@ main{flex:1 0 auto}
       <p class="page-desc">Projects I delivered — including what didn't work. Uncomfortable truths &amp; Observations</p>
     </header>
 
-    <div class="article-list">
-      <h2 class="article-group reveal">Proving the work</h2>
-      <a href="/writing/share-of-model-creator-content" class="article-item reveal reveal-delay-1">
-        <h3 class="article-item-title">Your creator program is training the models that recommend you</h3>
+      <div class="filter-group reveal">
+        <span class="filter-label">Theme</span>
+        <div class="filter-bar" role="tablist" aria-label="Filter by theme" data-filter-group="theme">
+          <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-chip" data-filter="the-field" aria-pressed="false">The state of the field</button>
+          <button type="button" class="filter-chip" data-filter="creator-programs" aria-pressed="false">Programs I built</button>
+          <button type="button" class="filter-chip" data-filter="attribution" aria-pressed="false">Proving the work</button>
+          <button type="button" class="filter-chip" data-filter="internal-tooling" aria-pressed="false">Tools I shipped</button>
+        </div>
+      </div>
+      <div class="filter-row reveal">
+        <div class="filter-group">
+          <span class="filter-label">Source</span>
+          <div class="filter-bar" role="tablist" aria-label="Filter by source" data-filter-group="company">
+            <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-chip" data-filter="observations" aria-pressed="false">Observations</button>
+            <button type="button" class="filter-chip" data-filter="firecrawl" aria-pressed="false">Firecrawl</button>
+            <button type="button" class="filter-chip" data-filter="google" aria-pressed="false">Google</button>
+          </div>
+        </div>
+        <div class="filter-group filter-sort">
+          <label class="filter-label" for="sort-select">Sort</label>
+          <select id="sort-select" class="sort-select">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
+      </div>
+    <div class="article-list" id="article-list">
+      <a href="/writing/ai-adoption-gap-operators" class="article-item reveal reveal-delay-1" data-category="the-field" data-companies="observations" data-date="2026-08-07">
+        <h3 class="article-item-title">Almost nobody has actually tried this yet</h3>
         <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
-      <a href="/writing/community-metrics-budget-review" class="article-item reveal reveal-delay-2">
-        <h3 class="article-item-title">The community metrics that survive a budget review</h3>
+      <a href="/writing/growth-amplifies-what-exists" class="article-item reveal reveal-delay-2" data-category="creator-programs" data-companies="firecrawl" data-date="2026-08-06">
+        <h3 class="article-item-title">More members won't fix an engagement problem</h3>
         <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
-      <a href="/writing/community-attribution-layer" class="article-item reveal reveal-delay-3">
-        <h3 class="article-item-title">How to prove what your developer community returned, without engineering help</h3>
-        <span class="article-item-meta">Jul 2026 · 5 min</span>
+      <a href="/writing/two-metric-attribution-audit" class="article-item reveal reveal-delay-3" data-category="attribution" data-companies="observations" data-date="2026-08-05">
+        <h3 class="article-item-title">Two numbers per source is most of community attribution</h3>
+        <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
-      <h2 class="article-group reveal">The state of the field</h2>
-      <a href="/writing/community-career-ceiling" class="article-item reveal reveal-delay-4">
+      <a href="/writing/community-career-ceiling" class="article-item reveal reveal-delay-4" data-category="the-field" data-companies="observations" data-date="2026-08-03">
         <h3 class="article-item-title">Leaving community doubles your odds of getting promoted</h3>
         <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
-      <a href="/writing/why-devrel-gets-cut-first" class="article-item reveal">
+      <a href="/writing/share-of-model-creator-content" class="article-item reveal" data-category="attribution" data-companies="firecrawl" data-date="2026-08-03">
+        <h3 class="article-item-title">Your creator program is training the models that recommend you</h3>
+        <span class="article-item-meta">Aug 2026 · 4 min</span>
+      </a>
+      <a href="/writing/why-devrel-gets-cut-first" class="article-item reveal" data-category="the-field" data-companies="observations" data-date="2026-08-03">
         <h3 class="article-item-title">Why DevRel gets cut first</h3>
         <span class="article-item-meta">Aug 2026 · 5 min</span>
       </a>
-      <h2 class="article-group reveal">Tools I shipped</h2>
-      <a href="/writing/tubemonitor-vibe-coding" class="article-item reveal">
+      <a href="/writing/community-metrics-budget-review" class="article-item reveal" data-category="attribution" data-companies="firecrawl" data-date="2026-08-01">
+        <h3 class="article-item-title">The community metrics that survive a budget review</h3>
+        <span class="article-item-meta">Aug 2026 · 4 min</span>
+      </a>
+      <a href="/writing/community-attribution-layer" class="article-item reveal" data-category="attribution" data-companies="firecrawl google" data-date="2026-07-22">
+        <h3 class="article-item-title">How to prove what your developer community returned, without engineering help</h3>
+        <span class="article-item-meta">Jul 2026 · 5 min</span>
+      </a>
+      <a href="/writing/tubemonitor-vibe-coding" class="article-item reveal" data-category="internal-tooling" data-companies="firecrawl" data-date="2026-07-16">
         <h3 class="article-item-title">I can't write production code. I shipped the internal tool in a week anyway.</h3>
         <span class="article-item-meta">Jul 2026 · 5 min</span>
       </a>
-      <a href="/writing/apps-script-partner-automation" class="article-item reveal">
-        <h3 class="article-item-title">How I automated 40 hours of weekly busywork out of a 300-partner program</h3>
-        <span class="article-item-meta">Feb 2026 · 5 min</span>
-      </a>
-      <h2 class="article-group reveal">Programs I built</h2>
-      <a href="/writing/creator-streak-system" class="article-item reveal">
+      <a href="/writing/creator-streak-system" class="article-item reveal" data-category="creator-programs" data-companies="firecrawl" data-date="2026-07-10">
         <h3 class="article-item-title">The streak system that never punishes creators</h3>
         <span class="article-item-meta">Jul 2026 · 4 min</span>
       </a>
-      <a href="/writing/creator-payout-design" class="article-item reveal">
+      <a href="/writing/creator-payout-design" class="article-item reveal" data-category="creator-programs" data-companies="firecrawl" data-date="2026-06-30">
         <h3 class="article-item-title">Why I paid creators for the video, not the views</h3>
         <span class="article-item-meta">Jun 2026 · 5 min</span>
       </a>
-      <a href="/writing/firecrawl-ambassador-tier-system" class="article-item reveal">
+      <a href="/writing/firecrawl-ambassador-tier-system" class="article-item reveal" data-category="creator-programs" data-companies="firecrawl" data-date="2026-06-17">
         <h3 class="article-item-title">How I designed a five-tier ambassador program that 4x'd creator referrals</h3>
         <span class="article-item-meta">Jun 2026 · 4 min</span>
+      </a>
+      <a href="/writing/apps-script-partner-automation" class="article-item reveal" data-category="internal-tooling" data-companies="google" data-date="2026-02-11">
+        <h3 class="article-item-title">How I automated 40 hours of weekly busywork out of a 300-partner program</h3>
+        <span class="article-item-meta">Feb 2026 · 5 min</span>
       </a>
     </div>
   </div>
@@ -310,6 +385,51 @@ var ro=new IntersectionObserver(function(entries){
 // ratio of 0.1, which would leave it stuck at opacity 0 forever.
 },{threshold:0,rootMargin:'0px 0px -40px 0px'});
 reveals.forEach(function(el){ro.observe(el)});
+</script>
+<script>
+(function(){
+  var listEl=document.getElementById('article-list');
+  if(!listEl)return;
+  var items=Array.prototype.slice.call(listEl.querySelectorAll('.article-item'));
+  var groups=document.querySelectorAll('[data-filter-group]');
+  var sortSel=document.getElementById('sort-select');
+  var state={theme:'all',company:'all',sort:'newest'};
+
+  function apply(){
+    items.forEach(function(it){
+      var t=it.getAttribute('data-category');
+      var cos=(it.getAttribute('data-companies')||'').split(' ');
+      var show=(state.theme==='all'||t===state.theme)
+            && (state.company==='all'||cos.indexOf(state.company)!==-1);
+      it.classList.toggle('hidden',!show);
+    });
+    var sorted=items.slice().sort(function(a,b){
+      var da=a.getAttribute('data-date'),db=b.getAttribute('data-date');
+      if(da===db)return 0;
+      return state.sort==='oldest'?(da<db?-1:1):(da<db?1:-1);
+    });
+    sorted.forEach(function(el){listEl.appendChild(el)});
+  }
+
+  groups.forEach(function(g){
+    var key=g.getAttribute('data-filter-group');
+    var chips=g.querySelectorAll('.filter-chip');
+    chips.forEach(function(chip){
+      chip.addEventListener('click',function(){
+        state[key]=chip.getAttribute('data-filter');
+        chips.forEach(function(c){
+          var on=c===chip;
+          c.classList.toggle('active',on);
+          c.setAttribute('aria-pressed',on?'true':'false');
+        });
+        apply();
+      });
+    });
+  });
+  if(sortSel){
+    sortSel.addEventListener('change',function(){state.sort=sortSel.value;apply();});
+  }
+})();
 </script>
 </body>
 </html>
