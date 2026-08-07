@@ -5,8 +5,29 @@
     <link>https://kindavishal.js.org/writing</link>
     <description>Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Aug 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://kindavishal.js.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Almost nobody has actually tried this yet</title>
+      <link>https://kindavishal.js.org/writing/ai-adoption-gap-operators</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/ai-adoption-gap-operators</guid>
+      <pubDate>Fri, 07 Aug 2026 09:00:00 GMT</pubDate>
+      <description>84% of people have never used AI. That is not a reason to wait — it is the reason the operators who build their own tools right now get a long head start.</description>
+    </item>
+    <item>
+      <title>More members won't fix an engagement problem</title>
+      <link>https://kindavishal.js.org/writing/growth-amplifies-what-exists</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/growth-amplifies-what-exists</guid>
+      <pubDate>Thu, 06 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Growth makes whatever is already there louder. My referrals went 4x on ten creators, not forty — and adding thirty more would have made it worse.</description>
+    </item>
+    <item>
+      <title>Two numbers per source is most of community attribution</title>
+      <link>https://kindavishal.js.org/writing/two-metric-attribution-audit</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/two-metric-attribution-audit</guid>
+      <pubDate>Wed, 05 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Before you build a schema, run this. Two numbers per source — how many showed interest, how many converted — and where your growth is stuck becomes obvious.</description>
+    </item>
     <item>
       <title>Leaving community doubles your odds of getting promoted</title>
       <link>https://kindavishal.js.org/writing/community-career-ceiling</link>
