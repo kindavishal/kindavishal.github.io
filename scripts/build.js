@@ -345,19 +345,21 @@ function renderIndex(posts) {
 ${orderedCats.map((c) => `          <button type="button" class="filter-chip" data-filter="${esc(catSlug(c))}" aria-pressed="false">${esc(GROUP_LABELS[c])}</button>`).join('\n')}
         </div>
       </div>
-      <div class="filter-group reveal">
-        <span class="filter-label">Company</span>
-        <div class="filter-bar" role="tablist" aria-label="Filter by company" data-filter-group="company">
-          <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
-${orderedCompanies.map((co) => `          <button type="button" class="filter-chip" data-filter="${esc(catSlug(co))}" aria-pressed="false">${esc(co)}</button>`).join('\n')}
+      <div class="filter-row reveal">
+        <div class="filter-group">
+          <span class="filter-label">Source</span>
+          <div class="filter-bar" role="tablist" aria-label="Filter by source" data-filter-group="company">
+            <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+${orderedCompanies.map((co) => `            <button type="button" class="filter-chip" data-filter="${esc(catSlug(co))}" aria-pressed="false">${esc(co)}</button>`).join('\n')}
+          </div>
         </div>
-      </div>
-      <div class="filter-group filter-sort reveal">
-        <label class="filter-label" for="sort-select">Sort</label>
-        <select id="sort-select" class="sort-select">
-          <option value="newest">Newest first</option>
-          <option value="oldest">Oldest first</option>
-        </select>
+        <div class="filter-group filter-sort">
+          <label class="filter-label" for="sort-select">Sort</label>
+          <select id="sort-select" class="sort-select">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
       </div>`
     : '';
 
