@@ -284,10 +284,9 @@ function renderIndex(posts) {
   const subtitle = "Projects I delivered — including what didn't work. Uncomfortable truths & Observations";
   const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
 
-  // Category -> reader-facing header label. The order these appear on the
-  // page is decided at render time by the newest post in each group, so
-  // whichever theme has the most recent post rises to the top. Only the label
-  // mapping is fixed here; a post whose `category` is missing from this map
+  // Category -> reader-facing filter label. Themes are surfaced as chips above
+  // a single flat list rather than as group headers; the list itself is always
+  // sorted newest first. A post whose `category` is missing from this map
   // will throw in the loop below.
   const GROUP_LABELS = {
     'Creator programs': 'Programs I built',
@@ -295,6 +294,9 @@ function renderIndex(posts) {
     'Attribution':      'Proving the work',
     'The field':        'The state of the field',
   };
+
+  // Stable slug per category, used for data-attributes and chip IDs.
+  const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   // "2026-02-11" -> "Feb 2026". The row meta needs the short form; the long
   // form still lives on the post page and in JSON-LD via displayDate().
@@ -304,6 +306,31 @@ function renderIndex(posts) {
     return `${shortMonths[Number(m) - 1]} ${y} · ${p.readtime} min`;
   };
 
+  // Validate categories once, up front. The chip bar and the list both need
+  // to know every category a post might carry.
+  for (const p of posts) {
+    if (!(p.category in GROUP_LABELS)) {
+      throw new Error(`${p.file}: category "${p.category || ''}" is not in the writing-index GROUP_LABELS map. Add it in scripts/build.js:renderIndex.`);
+    }
+  }
+
+  // Chips are ordered by the newest post in each category, so the theme with
+  // the most recent piece sits first after "All".
+  const catNewest = new Map();
+  for (const p of posts) {
+    const cur = catNewest.get(p.category);
+    if (!cur || p.date > cur) catNewest.set(p.category, p.date);
+  }
+  const orderedCats = [...catNewest.keys()]
+    .sort((a, b) => (catNewest.get(a) < catNewest.get(b) ? 1 : catNewest.get(a) > catNewest.get(b) ? -1 : 0));
+
+  const filterBar = posts.length
+    ? `      <div class="filter-bar reveal" role="tablist" aria-label="Filter by theme">
+        <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+${orderedCats.map((c) => `        <button type="button" class="filter-chip" data-filter="${esc(catSlug(c))}" aria-pressed="false">${esc(GROUP_LABELS[c])}</button>`).join('\n')}
+      </div>`
+    : '';
+
   const list = (() => {
     if (!posts.length) {
       return `      <p class="reveal" style="color:#78716C;margin-top:24px;font-style:italic">
@@ -311,38 +338,17 @@ function renderIndex(posts) {
       </p>`;
     }
 
-    // Bucket by category, then order both the groups and the posts inside
-    // them by date, newest first. The rank within a group is the post's own
-    // date; the rank of a group is its newest post. That way the top of the
-    // page always shows the most recent thing, and the theme it belongs to.
-    const buckets = new Map();
-    for (const p of posts) {
-      if (!(p.category in GROUP_LABELS)) {
-        throw new Error(`${p.file}: category "${p.category || ''}" is not in the writing-index GROUP_LABELS map. Add it in scripts/build.js:renderIndex.`);
-      }
-      if (!buckets.has(p.category)) buckets.set(p.category, []);
-      buckets.get(p.category).push(p);
-    }
-    for (const arr of buckets.values()) {
-      arr.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)));
-    }
-    const orderedGroups = [...buckets.entries()]
-      .sort(([, a], [, b]) => (a[0].date < b[0].date ? 1 : a[0].date > b[0].date ? -1 : 0));
+    // Flat list, newest first. Ties broken by slug for a stable build.
+    const sorted = [...posts].sort((a, b) =>
+      a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug));
 
-    let i = 0;
-    const chunks = [];
-    for (const [key, bucket] of orderedGroups) {
-      chunks.push(`      <h2 class="article-group reveal">${esc(GROUP_LABELS[key])}</h2>`);
-      for (const p of bucket) {
-        const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
-        chunks.push(`      <a href="/writing/${p.slug}" class="article-item reveal${delay}">
+    return sorted.map((p, i) => {
+      const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
+      return `      <a href="/writing/${p.slug}" class="article-item reveal${delay}" data-category="${esc(catSlug(p.category))}">
         <h3 class="article-item-title">${esc(p.title)}</h3>
         <span class="article-item-meta">${esc(metaOf(p))}</span>
-      </a>`);
-        i += 1;
-      }
-    }
-    return chunks.join('\n');
+      </a>`;
+    }).join('\n');
   })();
 
   const ld = `  <script type="application/ld+json">{
@@ -391,13 +397,35 @@ ${P.nav()}
       <p class="page-desc">${esc(subtitle)}</p>
     </header>
 
-    <div class="article-list">
+${filterBar}
+    <div class="article-list" id="article-list">
 ${list}
     </div>
   </div>
 </main>
 ${P.footer()}
 ${P.scripts()}
+<script>
+(function(){
+  var chips=document.querySelectorAll('.filter-chip');
+  var items=document.querySelectorAll('#article-list .article-item');
+  if(!chips.length||!items.length)return;
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      var f=chip.getAttribute('data-filter');
+      chips.forEach(function(c){
+        var on=c===chip;
+        c.classList.toggle('active',on);
+        c.setAttribute('aria-pressed',on?'true':'false');
+      });
+      items.forEach(function(it){
+        var show=f==='all'||it.getAttribute('data-category')===f;
+        it.classList.toggle('hidden',!show);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
 `;
