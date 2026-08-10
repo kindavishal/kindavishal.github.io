@@ -3,8 +3,6 @@
 https://kindavishal.netlify.app/*  https://kindavishal.js.org/:splat  301!
 http://kindavishal.netlify.app/*   https://kindavishal.js.org/:splat  301!
 
-/resume   https://docs.google.com/document/d/e/2PACX-1vS5il5Ac2vc5606ACVm3YnOFXpCi7u4Py-HXB0bkUrBQGCiAnsTa4IUczZuZb4L3NVTaXU7BOCjge-W/pub  301
-
 # Retired essays. These are not coming back — 301 so the equity consolidates.
 # Retarget an individual line once a new post supersedes it.
 /writing/big-company-to-startup           /writing  301
