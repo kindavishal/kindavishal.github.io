@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-label="Three-step timeline showing attribution instrumentation must happen at T=0; by the time budget pressure arrives there's no retroactive fix." style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+
+<text x="40" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" letter-spacing="1.5">THE ORDER MATTERS</text>
+<text x="40" y="80" font-family="'Literata', Georgia, serif" font-size="22" fill="#1A1815">Attribution cannot be applied backwards.</text>
+<text x="860" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="end" letter-spacing="1.5">MID-POST</text>
+
+<!-- timeline -->
+<line x1="60" y1="120" x2="60" y2="400" stroke="#D9D0BD" stroke-width="2"/>
+
+<!-- Node 1: T·0 -->
+<circle cx="60" cy="140" r="8" fill="#6A6355"/>
+<text x="90" y="140" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#6A6355" letter-spacing="1.2">T · 0 · SHOULD HAVE HAPPENED</text>
+<text x="90" y="168" font-family="'Literata', Georgia, serif" font-size="17" fill="#1A1815">Instrument every link, form, registration.</text>
+<text x="90" y="190" font-family="'Literata', Georgia, serif" font-size="17" fill="#1A1815">Store one row per event.</text>
+<text x="90" y="212" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" fill="#6A6355">Costs an afternoon. Cheapest step in the whole programme.</text>
+
+<!-- Node 2: T+N (diamond) -->
+<g transform="translate(60 260) rotate(45)"><rect x="-8" y="-8" width="16" height="16" fill="#B8532E"/></g>
+<text x="90" y="260" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#B8532E" letter-spacing="1.2">T · +N MONTHS · BUDGET CONVERSATION TURNS</text>
+<text x="90" y="288" font-family="'Literata', Georgia, serif" font-size="17" fill="#1A1815">Someone is deciding whether the programme continues.</text>
+
+<!-- Node 3: T+N+1 (open ring) -->
+<circle cx="60" cy="340" r="8" fill="none" stroke="#B8532E" stroke-width="2"/>
+<text x="90" y="340" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#B8532E" letter-spacing="1.2">T · +N + 1 · METRIC PRESSURE ARRIVES</text>
+<text x="90" y="368" font-family="'Literata', Georgia, serif" font-size="17" fill="#1A1815">Asked to prove what you can no longer prove.</text>
+<text x="90" y="390" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" fill="#B8532E">The events you didn't log are gone. There is no retroactive fix.</text>
+
+</svg>

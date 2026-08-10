@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-label="Tier by depth matrix: reach on the vertical axis, content depth on the horizontal; dedicated tutorials from top tier get the highest rate." style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+<text x="40" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" letter-spacing="1.5">TWO AXES · NOT ONE BLENDED SCORE</text>
+<text x="40" y="80" font-family="'Literata', Georgia, serif" font-size="22" fill="#1A1815">Reach is the tier. Depth is what you make.</text>
+<text x="860" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="end" letter-spacing="1.5">MID-POST</text>
+<text x="60" y="265.0" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#6A6355" letter-spacing="1.2" text-anchor="middle" transform="rotate(-90 60 265.0)">REACH · TIER →</text>
+<rect x="100" y="130" width="250" height="90" fill="none" stroke="#D9D0BD"/>
+<text x="116" y="164" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#8A8072">·</text>
+<text x="138" y="164" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">mention</text>
+<rect x="350" y="130" width="250" height="90" fill="rgba(184,83,46,0.10)" stroke="#D9D0BD"/>
+<text x="366" y="164" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#B8532E">◆</text>
+<text x="388" y="164" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">walk-on</text>
+<rect x="600" y="130" width="250" height="90" fill="rgba(184,83,46,0.14)" stroke="#D9D0BD"/>
+<text x="616" y="164" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#B8532E">★</text>
+<text x="638" y="164" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#B8532E" font-weight="bold">dedicated</text>
+<text x="638" y="186" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#B8532E">highest rate</text>
+<text x="86" y="179.0" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E" text-anchor="end">T5</text>
+<rect x="100" y="220" width="250" height="90" fill="none" stroke="#D9D0BD"/>
+<text x="116" y="254" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#8A8072">·</text>
+<text x="138" y="254" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">mention</text>
+<rect x="350" y="220" width="250" height="90" fill="rgba(184,83,46,0.06)" stroke="#D9D0BD"/>
+<text x="366" y="254" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#B8532E">◆</text>
+<text x="388" y="254" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">walk-on</text>
+<rect x="600" y="220" width="250" height="90" fill="rgba(184,83,46,0.10)" stroke="#D9D0BD"/>
+<text x="616" y="254" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#B8532E">★</text>
+<text x="638" y="254" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">dedicated</text>
+<text x="86" y="269.0" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E" text-anchor="end">T3</text>
+<rect x="100" y="310" width="250" height="90" fill="none" stroke="#D9D0BD"/>
+<text x="116" y="344" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#8A8072">·</text>
+<text x="138" y="344" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">mention</text>
+<rect x="350" y="310" width="250" height="90" fill="none" stroke="#D9D0BD"/>
+<text x="366" y="344" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#B8532E">◆</text>
+<text x="388" y="344" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">walk-on</text>
+<rect x="600" y="310" width="250" height="90" fill="none" stroke="#D9D0BD"/>
+<text x="616" y="344" font-family="'Space Grotesk', ui-monospace, monospace" font-size="14" fill="#B8532E">★</text>
+<text x="638" y="344" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">dedicated</text>
+<text x="86" y="359.0" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E" text-anchor="end">T1</text>
+<text x="225.0" y="122" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="middle" letter-spacing="1.2">MENTION</text>
+<text x="475.0" y="122" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="middle" letter-spacing="1.2">WALK-ON</text>
+<text x="725.0" y="122" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="middle" letter-spacing="1.2">DEDICATED</text>
+<text x="450.0" y="430" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="middle" letter-spacing="1.2">DEPTH · CONTENT TYPE →</text>
+<text x="40" y="444" font-family="'Literata', Georgia, serif" font-style="italic" font-size="13" fill="#6A6355">Same creator can price at three different rates depending on what they made.</text>
+</svg>

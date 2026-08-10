@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-label="A viral clip spikes and decays; a tutorial's value rises steadily over 12 months." style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+
+<text x="40" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" letter-spacing="1.5">THE ASSET WITH A LONG LIFE</text>
+<text x="40" y="80" font-family="'Literata', Georgia, serif" font-size="22" fill="#1A1815">A tutorial keeps working after the algorithm forgets it.</text>
+<text x="860" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="end" letter-spacing="1.5">MID-POST</text>
+
+<line x1="60" y1="130" x2="60" y2="330" stroke="#D9D0BD"/>
+<line x1="60" y1="330" x2="860" y2="330" stroke="#D9D0BD"/>
+
+<!-- viral spike (muted) -->
+<polyline points="60,320 128.0,175.0 197.0,197.0 288.0,270.0 403.0,300.0 517.0,315.0 631.0,320.0 746.0,322.0 860,323.0" fill="none" stroke="#6A6355" stroke-width="2"/>
+<!-- tutorial (accent, rising) -->
+<polyline points="60,320 128.0,305.0 197.0,295.0 288.0,280.0 403.0,260.0 517.0,240.0 631.0,215.0 746.0,190.0 860,170.0" fill="none" stroke="#B8532E" stroke-width="2.5"/>
+
+<text x="854" y="144" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#6A6355" text-anchor="end">viral clip (pay-per-view)</text>
+<text x="854" y="162" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E" text-anchor="end">tutorial (pay-per-video)</text>
+<text x="56" y="144" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072">VALUE →</text>
+
+<g font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072">
+  <text x="60" y="352">week 0</text>
+  <text x="172.0" y="352" text-anchor="middle">1</text>
+  <text x="284.0" y="352" text-anchor="middle">2</text>
+  <text x="404.0" y="352" text-anchor="middle">1 mo</text>
+  <text x="516.0" y="352" text-anchor="middle">3 mo</text>
+  <text x="628.0" y="352" text-anchor="middle">6 mo</text>
+  <text x="860" y="352" text-anchor="end">12 mo</text>
+</g>
+
+<text x="40" y="364" font-family="'Literata', Georgia, serif" font-style="italic" font-size="13" fill="#6A6355">Views peak and decay. A useful tutorial gets found by the next developer — and by the model trying to answer them.</text>
+
+</svg>
