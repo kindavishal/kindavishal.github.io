@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img" aria-label="Ten hand-picked creators outperform forty thinly-briefed ones (4.2x)" style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+
+<!-- Left header -->
+<text x="60" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#B8532E" letter-spacing="1.5">FIRECRAWL · ACTUAL</text>
+<text x="60" y="72" font-family="'Literata', Georgia, serif" font-size="18" fill="#1A1815">Ten creators, hand-picked, briefed</text>
+
+<!-- Right header -->
+<text x="500" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" letter-spacing="1.5">TEMPTING ALTERNATIVE</text>
+<text x="500" y="72" font-family="'Literata', Georgia, serif" font-size="18" fill="#6A6355">Forty creators, thin brief</text>
+
+<!-- Divider -->
+<line x1="450" y1="30" x2="450" y2="300" stroke="#D9D0BD"/>
+
+<rect x="60" y="150" width="20" height="50" fill="#B8532E"/><rect x="86" y="138" width="20" height="62" fill="#B8532E"/><rect x="112" y="144" width="20" height="56" fill="#B8532E"/><rect x="138" y="128" width="20" height="72" fill="#B8532E"/><rect x="164" y="140" width="20" height="60" fill="#B8532E"/><rect x="190" y="132" width="20" height="68" fill="#B8532E"/><rect x="216" y="146" width="20" height="54" fill="#B8532E"/><rect x="242" y="136" width="20" height="64" fill="#B8532E"/><rect x="268" y="130" width="20" height="70" fill="#B8532E"/><rect x="294" y="142" width="20" height="58" fill="#B8532E"/>
+<rect x="500" y="178" width="6" height="22" fill="#8A8072"/><rect x="509" y="176" width="6" height="24" fill="#8A8072"/><rect x="518" y="184" width="6" height="16" fill="#8A8072"/><rect x="527" y="182" width="6" height="18" fill="#8A8072"/><rect x="536" y="179" width="6" height="21" fill="#8A8072"/><rect x="545" y="177" width="6" height="23" fill="#8A8072"/><rect x="554" y="185" width="6" height="15" fill="#8A8072"/><rect x="563" y="171" width="6" height="29" fill="#8A8072"/><rect x="572" y="176" width="6" height="24" fill="#8A8072"/><rect x="581" y="179" width="6" height="21" fill="#8A8072"/><rect x="590" y="181" width="6" height="19" fill="#8A8072"/><rect x="599" y="172" width="6" height="28" fill="#8A8072"/><rect x="608" y="175" width="6" height="25" fill="#8A8072"/><rect x="617" y="185" width="6" height="15" fill="#8A8072"/><rect x="626" y="178" width="6" height="22" fill="#8A8072"/><rect x="635" y="182" width="6" height="18" fill="#8A8072"/><rect x="644" y="174" width="6" height="26" fill="#8A8072"/><rect x="653" y="184" width="6" height="16" fill="#8A8072"/><rect x="662" y="176" width="6" height="24" fill="#8A8072"/><rect x="671" y="178" width="6" height="22" fill="#8A8072"/><rect x="500" y="138" width="6" height="17" fill="#8A8072"/><rect x="509" y="141" width="6" height="14" fill="#8A8072"/><rect x="518" y="125" width="6" height="30" fill="#8A8072"/><rect x="527" y="124" width="6" height="31" fill="#8A8072"/><rect x="536" y="139" width="6" height="16" fill="#8A8072"/><rect x="545" y="134" width="6" height="21" fill="#8A8072"/><rect x="554" y="124" width="6" height="31" fill="#8A8072"/><rect x="563" y="138" width="6" height="17" fill="#8A8072"/><rect x="572" y="134" width="6" height="21" fill="#8A8072"/><rect x="581" y="132" width="6" height="23" fill="#8A8072"/><rect x="590" y="129" width="6" height="26" fill="#8A8072"/><rect x="599" y="136" width="6" height="19" fill="#8A8072"/><rect x="608" y="138" width="6" height="17" fill="#8A8072"/><rect x="617" y="124" width="6" height="31" fill="#8A8072"/><rect x="626" y="133" width="6" height="22" fill="#8A8072"/><rect x="635" y="137" width="6" height="18" fill="#8A8072"/><rect x="644" y="132" width="6" height="23" fill="#8A8072"/><rect x="653" y="136" width="6" height="19" fill="#8A8072"/><rect x="662" y="139" width="6" height="16" fill="#8A8072"/><rect x="671" y="128" width="6" height="27" fill="#8A8072"/>
+
+<!-- Left number row -->
+<text x="60" y="245" font-family="'Literata', Georgia, serif" font-size="16" fill="#8A8072" text-decoration="line-through">1.7K/wk</text>
+<text x="140" y="245" font-family="'Space Grotesk', system-ui, sans-serif" fill="#B8532E" font-size="16">→</text>
+<text x="170" y="252" font-family="'Literata', Georgia, serif" font-size="34" fill="#B8532E">7.2K/wk</text>
+<text x="330" y="245" font-family="'Space Grotesk', ui-monospace, monospace" font-size="12" fill="#B8532E">4.2×</text>
+
+<!-- Right number row -->
+<text x="500" y="252" font-family="'Literata', Georgia, serif" font-size="34" fill="#6A6355">~flat</text>
+<text x="600" y="245" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072">same volume, spread thinner</text>
+
+<text x="60" y="320" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" letter-spacing="1.5">FIG 2.1 — REFERRALS PER WEEK</text>
+
+</svg>
