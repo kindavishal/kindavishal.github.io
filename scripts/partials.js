@@ -165,15 +165,15 @@ const ARTICLE_RESPONSIVE = `@media(max-width:768px){
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }`;
 
-// Writing index styles. The list is a compact index — one row per post, no
-// descriptions — sorted newest first. Themes are surfaced as filter chips
-// above the list rather than as group headers. Descriptions still live in the
-// JSON-LD and the per-post pages.
+// Writing index styles. Posts render as a two-column card grid so titles,
+// descriptions and category get room to breathe. Themes and sources are
+// surfaced as filter chips above the grid rather than as group headers, and
+// the list is sorted newest first by default.
 const INDEX_CSS = `body{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1 0 auto}
 .footer{flex-shrink:0}
-.page-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
-.page-header{margin-bottom:32px}
+.page-wrap{max-width:1040px;margin:0 auto;padding:120px 32px 80px}
+.page-header{margin-bottom:32px;max-width:680px}
 .page-title{font-family:'Literata',serif;font-size:36px;letter-spacing:-0.5px;margin:0 0 12px;color:#1C1917}
 .page-desc{font-size:16px;color:#57534E;font-style:italic;line-height:1.7}
 .filter-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -189,21 +189,25 @@ main{flex:1 0 auto}
 .sort-select{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:500;color:#1C1917;background:transparent;border:1px solid rgba(0,0,0,0.12);border-radius:999px;padding:6px 32px 6px 14px;cursor:pointer;line-height:1.4;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='none' stroke='%2357534E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1 1l4 4 4-4'/></svg>");background-repeat:no-repeat;background-position:right 12px center}
 .sort-select:hover{border-color:#D97706;color:#D97706}
 .sort-select:focus{outline:none;border-color:#D97706}
-.article-list{display:flex;flex-direction:column}
-.article-item{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
-.article-item:hover .article-item-title{color:#D97706}
-.article-item:hover .article-item-ico{background:#D97706;color:#fff}
-.article-item.hidden{display:none}
-.article-item-ico{flex:none;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;color:#B45309;background:#FEF3C7;border-radius:8px;transition:background .2s,color .2s}
-.article-item-ico svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.article-item-title{font-size:16px;font-weight:500;line-height:1.45;flex:1;transition:color .2s;color:#1C1917;margin:0}
-.article-item-meta{font-size:12px;color:#A8A29E;flex:none;font-variant-numeric:tabular-nums}
-.icon-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.06);font-size:12px;color:#78716C}
-.icon-legend-item{display:inline-flex;align-items:center;gap:8px}
-.icon-legend-item .article-item-ico{width:22px;height:22px}
-.icon-legend-item .article-item-ico svg{width:12px;height:12px}`;
+.article-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
+.article-card{display:flex;flex-direction:column;gap:14px;padding:22px 24px 20px;background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:14px;transition:transform .2s,box-shadow .25s,border-color .2s;min-height:100%}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,0.07);border-color:rgba(217,119,6,0.35)}
+.article-card:hover .article-card-title{color:#B45309}
+.article-card:hover .article-card-arrow{transform:translateX(3px)}
+.article-card.hidden{display:none}
+.article-card-cat{display:inline-flex;align-items:center;gap:6px;font-family:'Space Grotesk',system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#B45309;background:#FEF3C7;padding:5px 11px 5px 9px;border-radius:999px;align-self:flex-start;line-height:1.2}
+.article-card-cat svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.article-card-title{font-family:'Literata',serif;font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-0.2px;color:#1C1917;margin:0;transition:color .2s}
+.article-card-desc{font-size:14.5px;line-height:1.6;color:#57534E;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.article-card-foot{margin-top:auto;padding-top:14px;border-top:1px solid rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#A8A29E;font-variant-numeric:tabular-nums}
+.article-card-arrow{color:#B45309;font-weight:600;font-size:13px;transition:transform .2s}
+.article-empty{grid-column:1/-1;color:#78716C;margin-top:24px;font-style:italic}`;
 
-const INDEX_RESPONSIVE = `@media(max-width:768px){
+const INDEX_RESPONSIVE = `@media(max-width:900px){
+.article-list{grid-template-columns:1fr;gap:16px}
+.page-wrap{max-width:680px}
+}
+@media(max-width:768px){
 .nav-links{display:none}
 .hamburger{display:flex}
 .nav-inner{padding:0 20px}
@@ -215,10 +219,9 @@ const INDEX_RESPONSIVE = `@media(max-width:768px){
 .sort-select{width:100%}
 .filter-chip{font-size:12px;padding:5px 12px}
 .sort-select{font-size:12px}
-.article-item{gap:10px}
-.article-item-title{font-size:15px}
-.article-item-meta{display:none}
-.icon-legend{gap:12px 16px;font-size:11px}
+.article-card{padding:20px 20px 18px;gap:12px}
+.article-card-title{font-size:17px}
+.article-card-desc{font-size:14px}
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }`;
 
