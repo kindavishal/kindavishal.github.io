@@ -199,11 +199,18 @@ main{flex:1 0 auto}
 .sort-select:hover{border-color:#D97706;color:#D97706}
 .sort-select:focus{outline:none;border-color:#D97706}
 .article-list{display:flex;flex-direction:column}
-.article-item{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
+.article-item{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:all .2s}
 .article-item:hover .article-item-title{color:#D97706}
+.article-item:hover .article-item-ico{background:#D97706;color:#fff}
 .article-item.hidden{display:none}
+.article-item-ico{flex:none;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;color:#B45309;background:#FEF3C7;border-radius:8px;transition:background .2s,color .2s}
+.article-item-ico svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .article-item-title{font-size:16px;font-weight:500;line-height:1.45;flex:1;transition:color .2s;color:#1C1917;margin:0}
 .article-item-meta{font-size:12px;color:#A8A29E;flex:none;font-variant-numeric:tabular-nums}
+.icon-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.06);font-size:12px;color:#78716C}
+.icon-legend-item{display:inline-flex;align-items:center;gap:8px}
+.icon-legend-item .article-item-ico{width:22px;height:22px}
+.icon-legend-item .article-item-ico svg{width:12px;height:12px}
 @media(max-width:1024px){
 .nav-inner{padding:0 32px}
 .footer{padding:24px 32px}
@@ -220,9 +227,10 @@ main{flex:1 0 auto}
 .sort-select{width:100%}
 .filter-chip{font-size:12px;padding:5px 12px}
 .sort-select{font-size:12px}
-.article-item{gap:12px}
+.article-item{gap:10px}
 .article-item-title{font-size:15px}
 .article-item-meta{display:none}
+.icon-legend{gap:12px 16px;font-size:11px}
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }
 </style>
@@ -296,57 +304,76 @@ main{flex:1 0 auto}
       </div>
     <div class="article-list" id="article-list">
       <a href="/writing/ai-adoption-gap-operators" class="article-item reveal reveal-delay-1" data-category="the-field" data-companies="observations" data-date="2026-08-07">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="2"/></svg></span>
         <h3 class="article-item-title">Almost nobody has actually tried this yet</h3>
         <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
       <a href="/writing/growth-amplifies-what-exists" class="article-item reveal reveal-delay-2" data-category="creator-programs" data-companies="firecrawl" data-date="2026-08-06">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/></svg></span>
         <h3 class="article-item-title">More members won't fix an engagement problem</h3>
         <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
       <a href="/writing/two-metric-attribution-audit" class="article-item reveal reveal-delay-3" data-category="attribution" data-companies="observations" data-date="2026-08-05">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/></svg></span>
         <h3 class="article-item-title">Two numbers per source is most of community attribution</h3>
         <span class="article-item-meta">Aug 2026 · 4 min</span>
       </a>
       <a href="/writing/community-career-ceiling" class="article-item reveal reveal-delay-4" data-category="the-field" data-companies="observations" data-date="2026-08-03">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="2"/></svg></span>
         <h3 class="article-item-title">Leaving community doubles your odds of getting promoted</h3>
-        <span class="article-item-meta">Aug 2026 · 4 min</span>
+        <span class="article-item-meta">Aug 2026 · 5 min</span>
       </a>
       <a href="/writing/share-of-model-creator-content" class="article-item reveal" data-category="attribution" data-companies="firecrawl" data-date="2026-08-03">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/></svg></span>
         <h3 class="article-item-title">Your creator program is training the models that recommend you</h3>
-        <span class="article-item-meta">Aug 2026 · 4 min</span>
+        <span class="article-item-meta">Aug 2026 · 5 min</span>
       </a>
       <a href="/writing/why-devrel-gets-cut-first" class="article-item reveal" data-category="the-field" data-companies="observations" data-date="2026-08-03">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="2"/></svg></span>
         <h3 class="article-item-title">Why DevRel gets cut first</h3>
         <span class="article-item-meta">Aug 2026 · 5 min</span>
       </a>
       <a href="/writing/community-metrics-budget-review" class="article-item reveal" data-category="attribution" data-companies="firecrawl" data-date="2026-08-01">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/></svg></span>
         <h3 class="article-item-title">The community metrics that survive a budget review</h3>
-        <span class="article-item-meta">Aug 2026 · 4 min</span>
+        <span class="article-item-meta">Aug 2026 · 5 min</span>
       </a>
       <a href="/writing/community-attribution-layer" class="article-item reveal" data-category="attribution" data-companies="firecrawl google" data-date="2026-07-22">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/></svg></span>
         <h3 class="article-item-title">How to prove what your developer community returned, without engineering help</h3>
-        <span class="article-item-meta">Jul 2026 · 5 min</span>
+        <span class="article-item-meta">Jul 2026 · 6 min</span>
       </a>
       <a href="/writing/tubemonitor-vibe-coding" class="article-item reveal" data-category="internal-tooling" data-companies="firecrawl" data-date="2026-07-16">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.5 4.9L4 16.4V20h3.6l5.2-5.2a4 4 0 0 0 4.9-5.5l-2.5 2.5-2.5-.7-.7-2.5 2.7-2.3z"/></svg></span>
         <h3 class="article-item-title">I can't write production code. I shipped the internal tool in a week anyway.</h3>
-        <span class="article-item-meta">Jul 2026 · 5 min</span>
+        <span class="article-item-meta">Jul 2026 · 6 min</span>
       </a>
       <a href="/writing/creator-streak-system" class="article-item reveal" data-category="creator-programs" data-companies="firecrawl" data-date="2026-07-10">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/></svg></span>
         <h3 class="article-item-title">The streak system that never punishes creators</h3>
-        <span class="article-item-meta">Jul 2026 · 4 min</span>
+        <span class="article-item-meta">Jul 2026 · 5 min</span>
       </a>
       <a href="/writing/creator-payout-design" class="article-item reveal" data-category="creator-programs" data-companies="firecrawl" data-date="2026-06-30">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/></svg></span>
         <h3 class="article-item-title">Why I paid creators for the video, not the views</h3>
-        <span class="article-item-meta">Jun 2026 · 5 min</span>
+        <span class="article-item-meta">Jun 2026 · 6 min</span>
       </a>
       <a href="/writing/firecrawl-ambassador-tier-system" class="article-item reveal" data-category="creator-programs" data-companies="firecrawl" data-date="2026-06-17">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/></svg></span>
         <h3 class="article-item-title">How I designed a five-tier ambassador program that 4x'd creator referrals</h3>
-        <span class="article-item-meta">Jun 2026 · 4 min</span>
+        <span class="article-item-meta">Jun 2026 · 5 min</span>
       </a>
       <a href="/writing/apps-script-partner-automation" class="article-item reveal" data-category="internal-tooling" data-companies="google" data-date="2026-02-11">
+        <span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.5 4.9L4 16.4V20h3.6l5.2-5.2a4 4 0 0 0 4.9-5.5l-2.5 2.5-2.5-.7-.7-2.5 2.7-2.3z"/></svg></span>
         <h3 class="article-item-title">How I automated 40 hours of weekly busywork out of a 300-partner program</h3>
-        <span class="article-item-meta">Feb 2026 · 5 min</span>
+        <span class="article-item-meta">Feb 2026 · 6 min</span>
       </a>
+    </div>
+    <div class="icon-legend reveal" aria-label="Category legend">
+      <span class="icon-legend-item"><span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="2"/></svg></span>The state of the field</span>
+      <span class="icon-legend-item"><span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/></svg></span>Programs I built</span>
+      <span class="icon-legend-item"><span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/></svg></span>Proving the work</span>
+      <span class="icon-legend-item"><span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.5 4.9L4 16.4V20h3.6l5.2-5.2a4 4 0 0 0 4.9-5.5l-2.5 2.5-2.5-.7-.7-2.5 2.7-2.3z"/></svg></span>Tools I shipped</span>
     </div>
   </div>
 </main>

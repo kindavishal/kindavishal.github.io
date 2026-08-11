@@ -18,6 +18,8 @@ faq:
     a: "Write down the questions a developer would actually ask, run them on a fixed schedule across the models your users use, and log which products get named and in what order. It is the same method as any tracking job: fixed prompts, regular cadence, results in a table you can query over time."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post05-hero-voice-vs-model.svg" alt="Search share of voice vs share of model comparison: on a Google search page you can be sixth of ten results and still get clicks; in a large-language-model answer, you are named or you aren't." loading="lazy" decoding="async" width="900" height="500"><figcaption>Share of voice vs share of model — a very different distribution.</figcaption></figure>
+
 At Firecrawl I tracked competitive share of voice across our creator network. The question was simple. On a given creator's channel, is that audience spending more time with us or with a competitor?
 
 That was a useful number for deciding where program budget went. It's about to be useful for a second reason I didn't build it for.
@@ -41,6 +43,8 @@ A model describes a tool from text that explains three things. What it does, wha
 So a creator program making genuinely useful technical content is also making the material that shapes how your product gets described later. That's a second return on the same spend, and almost nobody is counting it.
 
 It also puts more weight on a decision I already argued for elsewhere: [paying for the video rather than the views](/writing/creator-payout-design). Content optimised for click-through is thin on exactly the specifics that make a description reusable. Content built to answer a real technical question is dense with them. If you pay for thumbnails, you get thumbnails.
+
+<figure class="bv-figure"><img src="/assets/writing/post05-interior-measurement-ladder.svg" alt="Four-rung share-of-model measurement ladder for creator content: named at all, named first, described accurately, and who you appear beside — from cheapest to run to most valuable competitive signal." loading="lazy" decoding="async" width="900" height="500"><figcaption>The measurement ladder — cheapest rung first.</figcaption></figure>
 
 ## How I'd track it
 

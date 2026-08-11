@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-label="Three-column table: what was manual, what became a script, and what stayed human — the judgment calls that shouldn't be automated." style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+<text x="40" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" letter-spacing="1.5">AUTOMATE THE HANDOFFS · NEVER THE JUDGMENT</text>
+<text x="40" y="80" font-family="'Literata', Georgia, serif" font-size="22" fill="#1A1815">The line you must not cross.</text>
+<text x="860" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="end" letter-spacing="1.5">MID-POST</text>
+<text x="40" y="130" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" letter-spacing="1.2">WHAT WAS MANUAL</text>
+<text x="330" y="130" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#B8532E" letter-spacing="1.2">→ SCRIPT</text>
+<text x="600" y="130" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#6A6355" letter-spacing="1.2">STAYED HUMAN</text>
+<line x1="40" y1="140" x2="860" y2="140" stroke="#CFC6B5"/>
+<text x="40" y="172" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815">Copy application into tracker</text>
+<text x="330" y="172" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#B8532E">form-submit writes the row</text>
+<text x="600" y="172" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#6A6355">whether partner qualifies</text>
+<line x1="40" y1="188" x2="860" y2="188" stroke="#D9D0BD"/>
+<text x="40" y="224" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815">Chase missing documents</text>
+<text x="330" y="224" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#B8532E">scheduled reminder</text>
+<text x="600" y="224" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#6A6355">whether to grant exception</text>
+<line x1="40" y1="240" x2="860" y2="240" stroke="#D9D0BD"/>
+<text x="40" y="276" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815">Assemble weekly report</text>
+<text x="330" y="276" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#B8532E">scheduled table build</text>
+<text x="600" y="276" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#6A6355">what the numbers mean</text>
+<line x1="40" y1="292" x2="860" y2="292" stroke="#D9D0BD"/>
+<text x="40" y="328" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815">"Where is my application?"</text>
+<text x="330" y="328" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#B8532E">self-serve dashboard</text>
+<text x="600" y="328" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#6A6355">the awkward conversations</text>
+<line x1="40" y1="344" x2="860" y2="344" stroke="#D9D0BD"/>
+<text x="40" y="380" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815">Tell people stage changed</text>
+<text x="330" y="380" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#B8532E">triggered notification</text>
+<text x="600" y="380" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#6A6355">deciding to change the stage</text>
+<line x1="40" y1="396" x2="860" y2="396" stroke="#D9D0BD"/>
+<text x="40" y="462" font-family="'Literata', Georgia, serif" font-style="italic" font-size="13" fill="#6A6355">The middle column is a few dozen lines of Apps Script each. Not clever. That’s the point.</text>
+</svg>

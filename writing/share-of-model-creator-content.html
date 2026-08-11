@@ -132,6 +132,10 @@ a:hover{color:#D97706}
 .article-body a:hover{border-bottom-color:#B45309}
 .article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
 .article-body blockquote p:last-child{margin-bottom:0}
+.article-body .bv-figure{margin:32px 0}
+.article-body .bv-figure img{width:100%;height:auto;display:block;border-radius:8px}
+.article-body .bv-figure figcaption{font-family:'Space Grotesk',ui-monospace,monospace;font-size:12px;color:#78716C;margin-top:10px;letter-spacing:0.02em}
+.article-body .bv-hero{margin:24px 0 40px}
 .callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
 .callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
 .callout ul,.callout ol{margin:0;padding-left:20px}
@@ -215,12 +219,12 @@ a:hover{color:#D97706}
       <h1 class="article-title">Your creator program is training the models that recommend you</h1>
       <div class="article-meta">
         <span class="article-date">August 2026</span>
-        <span class="article-readtime">~4 min read</span>
+        <span class="article-readtime">~5 min read</span>
       </div>
     </header>
 
     <div class="article-body">
-<p>At Firecrawl I tracked competitive share of voice across our creator network. The question was simple. On a given creator&#39;s channel, is that audience spending more time with us or with a competitor?</p>
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post05-hero-voice-vs-model.svg" alt="Search share of voice vs share of model comparison: on a Google search page you can be sixth of ten results and still get clicks; in a large-language-model answer, you are named or you aren't." loading="lazy" decoding="async" width="900" height="500"><figcaption>Share of voice vs share of model — a very different distribution.</figcaption></figure><p>At Firecrawl I tracked competitive share of voice across our creator network. The question was simple. On a given creator&#39;s channel, is that audience spending more time with us or with a competitor?</p>
 <p>That was a useful number for deciding where program budget went. It&#39;s about to be useful for a second reason I didn&#39;t build it for.</p>
 <p><strong>Share of voice asks where you show up on a channel someone browses. Share of model asks whether you get named at all when the answer is generated instead.</strong> Those are different questions now. The second one is getting more important.</p>
 <h2>Why this changed</h2>
@@ -232,7 +236,7 @@ a:hover{color:#D97706}
 <p>A model describes a tool from text that explains three things. What it does, what it&#39;s for, how it compares to the obvious alternatives. Good developer creator content is <em>exactly that</em>. A tutorial that builds something real, and says why this tool handled that step, is a specific description of the product&#39;s job.</p>
 <p>So a creator program making genuinely useful technical content is also making the material that shapes how your product gets described later. That&#39;s a second return on the same spend, and almost nobody is counting it.</p>
 <p>It also puts more weight on a decision I already argued for elsewhere: <a href="/writing/creator-payout-design">paying for the video rather than the views</a>. Content optimised for click-through is thin on exactly the specifics that make a description reusable. Content built to answer a real technical question is dense with them. If you pay for thumbnails, you get thumbnails.</p>
-<h2>How I&#39;d track it</h2>
+<figure class="bv-figure"><img src="/assets/writing/post05-interior-measurement-ladder.svg" alt="Four-rung share-of-model measurement ladder for creator content: named at all, named first, described accurately, and who you appear beside — from cheapest to run to most valuable competitive signal." loading="lazy" decoding="async" width="900" height="500"><figcaption>The measurement ladder — cheapest rung first.</figcaption></figure><h2>How I&#39;d track it</h2>
 <p>The method is the same as any tracking job. Fixed inputs, regular cadence, results in a table you can query.</p>
 <div class="table-wrap"><table>
 <thead>

@@ -18,6 +18,8 @@ faq:
     a: "Fewer than you think. At Firecrawl, creator-attributed referrals went from 1.7K to 7.2K weekly on ten creators. The growth came from better content by well-briefed people, not from signing more. Volume without quality would have flattened the numbers."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post02-hero-ten-vs-forty.svg" alt="Firecrawl creator programme results: ten hand-picked, briefed creators drove 7.2K weekly referrals — a 4.2× lift from the 1.7K baseline — while forty thinly-briefed creators stayed flat." loading="lazy" decoding="async" width="900" height="500"><figcaption>Ten creators picked and briefed beat forty on a thin brief.</figcaption></figure>
+
 The instinct when a programme isn't working is to add people to it. More members, more ambassadors, more partners. It feels like progress because the number goes up.
 
 It almost never works, and there's a good line for why. **Growth makes whatever is already there louder.**
@@ -43,6 +45,8 @@ The honest version: the ceiling on that programme was never the number of creato
 Here's why teams get it wrong. Member count is the easiest number to move and the easiest to report.
 
 You can add fifty people to a programme in a fortnight. You cannot make fifty people care in a fortnight. So when someone asks how it's going, the honest answer takes a paragraph. The flattering answer takes a number, and the number is always there.
+
+<figure class="bv-figure"><img src="/assets/writing/post02-interior-added-vs-care.svg" alt="Community growth chart contrasting members added (rises steeply over 14 days) with members who care (stays nearly flat) — the reason a member-count metric ends up as the target." loading="lazy" decoding="async" width="900" height="500"><figcaption>Members added moves fast; members who care doesn't — so the wrong line becomes the target.</figcaption></figure>
 
 Then it becomes the target. That's the whole failure. I've argued elsewhere that [activity counts don't survive a budget review](/writing/community-metrics-budget-review). This is the same problem, one step earlier. They don't survive contact with reality either. They just take longer to fall over.
 

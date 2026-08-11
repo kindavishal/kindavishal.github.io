@@ -296,6 +296,17 @@ function renderIndex(posts) {
     'The field':        'The state of the field',
   };
 
+  // Monochrome glyph per category, rendered in a small amber chip next to
+  // each row's title. Add an entry when a new category is added to
+  // GROUP_LABELS above, or the row will render without an icon.
+  const CATEGORY_ICONS = {
+    'Creator programs': '<polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/>',
+    'Internal tooling': '<path d="M14.7 6.3a4 4 0 0 0-5.5 4.9L4 16.4V20h3.6l5.2-5.2a4 4 0 0 0 4.9-5.5l-2.5 2.5-2.5-.7-.7-2.5 2.7-2.3z"/>',
+    'Attribution':      '<path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/>',
+    'The field':        '<circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="2"/>',
+  };
+  const iconSvg = (cat) => `<span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24">${CATEGORY_ICONS[cat] || ''}</svg></span>`;
+
   // Stable slug per category or company, used for data-attributes and chip IDs.
   const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -378,6 +389,7 @@ ${orderedCompanies.map((co) => `            <button type="button" class="filter-
       const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
       const cos = p.companies.map(catSlug).join(' ');
       return `      <a href="/writing/${p.slug}" class="article-item reveal${delay}" data-category="${esc(catSlug(p.category))}" data-companies="${esc(cos)}" data-date="${esc(p.date)}">
+        ${iconSvg(p.category)}
         <h3 class="article-item-title">${esc(p.title)}</h3>
         <span class="article-item-meta">${esc(metaOf(p))}</span>
       </a>`;
@@ -434,6 +446,9 @@ ${controls}
     <div class="article-list" id="article-list">
 ${list}
     </div>
+${posts.length ? `    <div class="icon-legend reveal" aria-label="Category legend">
+${orderedCats.map((c) => `      <span class="icon-legend-item">${iconSvg(c)}${esc(GROUP_LABELS[c])}</span>`).join('\n')}
+    </div>` : ''}
   </div>
 </main>
 ${P.footer()}

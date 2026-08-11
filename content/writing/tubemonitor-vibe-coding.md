@@ -18,6 +18,8 @@ faq:
     a: "Buy when the tool measures something standard and you have no special access to the data. Build when the thing you need is missing from every option and you already have the means to collect it. We were missing organic mentions no vendor could see, and we owned a scraper, so building was the shorter path."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post09-hero-week-timeline.svg" alt="TubeMonitor one-week vibe-coding timeline showing where the days actually went — three on the spec, two on the AI-assisted build, two on fix and ship — the code was never the hard part." loading="lazy" decoding="async" width="900" height="500"><figcaption>Where the week actually went.</figcaption></figure>
+
 At Firecrawl, our YouTube tracking was broken. Not completely — the third-party tool was logging data. But it was under-counting creators in our network, missing views on untagged videos, and producing weekly reports that didn't answer the questions the team actually had.
 
 I could fix the tool or replace it. I replaced it, in a week.
@@ -87,6 +89,8 @@ What it tracks: view performance across the network, **spillover** from videos n
 Share of voice is the most useful surface. It tells you not just how many views our content got, but whether a creator's audience is spending more time with us or with a competitor. That's the question that actually decides where program budget goes.
 
 It shipped in a week and replaced the third-party tool the same week. Marketing, partnerships and the founders used it for weekly reporting.
+
+<figure class="bv-figure"><img src="/assets/writing/post09-interior-running-vs-working.svg" alt="Two log panels comparing 'running' and 'not working': healthy status logs and a green pipeline check next to the same 42 rows unchanged for six days with the cursor never advancing — the failure mode that looks finished." loading="lazy" decoding="async" width="900" height="500"><figcaption>Running is not working.</figcaption></figure>
 
 ## What I got wrong
 

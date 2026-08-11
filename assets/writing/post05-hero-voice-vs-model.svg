@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-label="Search share of voice vs share of model: on a search page you can be sixth and still visible; in a model answer you're named or you aren't." style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+
+<text x="40" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" letter-spacing="1.5">SHARE OF VOICE · SHARE OF MODEL</text>
+<text x="40" y="80" font-family="'Literata', Georgia, serif" font-size="22" fill="#1A1815">Being third of three is much closer to absent than sixth of ten.</text>
+<text x="860" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="end" letter-spacing="1.5">HERO</text>
+
+<!-- LEFT -->
+<text x="40" y="115" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#6A6355" letter-spacing="1.2">SEARCH PAGE · SHARE OF VOICE</text>
+<text x="40" y="135" font-family="'Literata', Georgia, serif" font-size="12" font-style="italic" fill="#6A6355">"best scraping library for js pages"</text>
+<rect x="40" y="128" width="380" height="30" fill="#ECE6DA"/><text x="56" y="148" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072">1</text><text x="80" y="148" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">competitor</text><text x="56" y="184" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072">2</text><text x="80" y="184" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">competitor</text><rect x="40" y="200" width="380" height="30" fill="#ECE6DA"/><text x="56" y="220" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072">3</text><text x="80" y="220" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">other</text><text x="56" y="256" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072">4</text><text x="80" y="256" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">other</text><rect x="40" y="272" width="380" height="30" fill="#ECE6DA"/><text x="56" y="292" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072">5</text><text x="80" y="292" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#1A1815" font-weight="normal">other</text><rect x="40" y="308" width="380" height="30" fill="rgba(184,83,46,0.14)"/><rect x="40" y="308" width="3" height="30" fill="#B8532E"/><text x="56" y="328" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E">6</text><text x="80" y="328" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" fill="#B8532E" font-weight="bold">you — still visible</text>
+<text x="40" y="382" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" fill="#6A6355">A human is doing the choosing.</text>
+<text x="40" y="402" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" fill="#6A6355">Position six is worth something.</text>
+
+<!-- Divider -->
+<line x1="450" y1="105" x2="450" y2="430" stroke="#D9D0BD"/>
+
+<!-- RIGHT -->
+<text x="470" y="115" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#B8532E" letter-spacing="1.2">MODEL ANSWER · SHARE OF MODEL</text>
+<text x="470" y="135" font-family="'Literata', Georgia, serif" font-size="12" font-style="italic" fill="#6A6355">"best scraping library for js pages"</text>
+
+<rect x="470" y="155" width="390" height="150" fill="#ECE6DA" stroke="#D9D0BD"/>
+<g font-family="'Literata', Georgia, serif" font-size="14" fill="#1A1815">
+  <text x="484" y="185">For pages that render client-side, you have</text>
+  <text x="484" y="207">a few options — <tspan fill="#B8532E" style="background:rgba(184,83,46,0.18)">competitor A</tspan>,</text>
+  <text x="484" y="229"><tspan fill="#B8532E">competitor B</tspan>, and <tspan fill="#B8532E">competitor C</tspan>.</text>
+  <text x="484" y="251">Each handles…</text>
+</g>
+
+<rect x="470" y="325" width="390" height="34" fill="none" stroke="#B8532E" stroke-dasharray="4 3"/>
+<text x="484" y="347" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E">✗  you — not named at all</text>
+
+<text x="470" y="385" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" fill="#6A6355">No page one. You're named or you</text>
+<text x="470" y="405" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" fill="#6A6355">aren't. Not buyable.</text>
+
+</svg>

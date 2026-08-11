@@ -17,6 +17,8 @@ faq:
     a: "Signing a creator is cheap and mostly a sourcing problem. Keeping one producing good content for six months is the actual work, and it is where nearly all the value builds up. A creator on their fourth video understands the product well enough to explain what the docs leave out."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post10-hero-streak-lines.svg" alt="Twelve-week creator streak comparison of two rules on the same missed week: the Duolingo-style rule resets to zero and restarts from scratch; the humane rule credits the missed week and keeps the streak compounding." loading="lazy" decoding="async" width="900" height="500"><figcaption>One missed week, two different rules.</figcaption></figure>
+
 Most streak mechanics are built on loss. Miss a day and the counter resets. Stop for a month and you're back to nothing.
 
 That works on a language app where the streak is the product. It's a bad idea when the person on the other end is a professional with a schedule, a pipeline, and other clients.
@@ -30,6 +32,8 @@ Signing an ambassador is cheap. It's mostly a sourcing problem, and you can solv
 Keeping one producing good content for six months is the actual work, and it's where nearly all the value builds up. A creator on their fourth video understands the product well enough to explain the parts the docs don't cover. That's the content that ranks, and you cannot get it from someone on their first.
 
 Which means the design question isn't "how do we get more creators." It's "what would make a good one drift away," and then removing those things one at a time.
+
+<figure class="bv-figure"><img src="/assets/writing/post10-interior-three-rules.svg" alt="Three rules that carry a humane creator streak: a rolling four-of-six-weeks window, banking extra work forward, and a one-click pause signal for vacation, illness, or a deadline elsewhere." loading="lazy" decoding="async" width="900" height="500"><figcaption>Three rules, one calendar.</figcaption></figure>
 
 ## Four states, not two
 

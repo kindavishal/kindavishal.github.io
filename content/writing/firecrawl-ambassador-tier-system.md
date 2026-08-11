@@ -19,6 +19,8 @@ faq:
     a: "Most brand ambassador advice is written for consumer products, where reach is the whole job. In DevRel the audience is technical, so depth counts separately from reach — a creator who has actually built with the API is worth more than a larger channel that only mentions it. That is why tier and content type are priced as two different things."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post12-hero-five-tiers.svg" alt="Firecrawl five-tier ambassador program keyed to one metric — rolling three-month average views: T5 Marquee (≥100K per video), T4 Established (30K–100K), T3 Growing (10K–30K), T2 Emerging (3K–10K), T1 Entry (under 3K)." loading="lazy" decoding="async" width="900" height="500"><figcaption>Five tiers, one metric. Illustrative ranges.</figcaption></figure>
+
 When I joined Firecrawl post-Series A, the company had no creator program. A few creators were making content on their own. A few intro emails were sitting unanswered. There was no structure for what "working with creators" even meant.
 
 Four weeks later there were ten ambassadors across five tiers. In the months after, creator-attributed referrals went from 1.7K to 7.2K weekly.
@@ -32,6 +34,8 @@ Not for lack of good creators. They fail because the program never says what it'
 You get vague entry criteria, patchy outreach, and a roster of "ambassadors" who don't know what they're meant to do or why they were picked. The program gets harder to run with every person you add, because every call is a fresh judgment call.
 
 So the question wasn't "how do we get creators to mention Firecrawl". It was: how do we build something that gets *stronger* as it grows instead of heavier?
+
+<figure class="bv-figure"><img src="/assets/writing/post12-interior-reach-x-depth.svg" alt="Ambassador tier-by-depth pricing matrix: reach as the vertical axis (T1–T5), content depth on the horizontal (mention, walk-on, dedicated). The same creator can price at three different rates depending on what they actually made." loading="lazy" decoding="async" width="900" height="500"><figcaption>Reach is the tier. Depth is what you make.</figcaption></figure>
 
 ## Separate reach from depth
 

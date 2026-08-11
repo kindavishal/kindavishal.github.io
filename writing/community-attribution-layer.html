@@ -132,6 +132,10 @@ a:hover{color:#D97706}
 .article-body a:hover{border-bottom-color:#B45309}
 .article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
 .article-body blockquote p:last-child{margin-bottom:0}
+.article-body .bv-figure{margin:32px 0}
+.article-body .bv-figure img{width:100%;height:auto;display:block;border-radius:8px}
+.article-body .bv-figure figcaption{font-family:'Space Grotesk',ui-monospace,monospace;font-size:12px;color:#78716C;margin-top:10px;letter-spacing:0.02em}
+.article-body .bv-hero{margin:24px 0 40px}
 .callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
 .callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
 .callout ul,.callout ol{margin:0;padding-left:20px}
@@ -215,12 +219,12 @@ a:hover{color:#D97706}
       <h1 class="article-title">How to prove what your developer community returned, without engineering help</h1>
       <div class="article-meta">
         <span class="article-date">July 2026</span>
-        <span class="article-readtime">~5 min read</span>
+        <span class="article-readtime">~6 min read</span>
       </div>
     </header>
 
     <div class="article-body">
-<p>Two questions are hard to answer in most community work.</p>
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post08-hero-schema.svg" alt="Four-table developer community attribution schema — people, events, attribution, and outcomes — with one row per thing, foreign keys linking events to people, and attribution kept separate from events." loading="lazy" decoding="async" width="900" height="500"><figcaption>The schema, copy-pasteable.</figcaption></figure><p>Two questions are hard to answer in most community work.</p>
 <p>What did a member actually get out of this? And what did the company get back?</p>
 <p>Most community teams can&#39;t answer either one with evidence. They answer the first with testimonials and the second with activity counts — events run, messages sent, members joined. Both are real. Neither is a return.</p>
 <p><strong>An attribution layer is what connects a community action to a business result, one person at a time.</strong> That&#39;s it. It isn&#39;t a dashboard. It isn&#39;t a metrics framework. It&#39;s a data model, plus a job that keeps it up to date.</p>
@@ -272,7 +276,7 @@ a:hover{color:#D97706}
 <p><strong>Keep attribution in its own table.</strong> The moment credit rules live inside the event log, switching from last-touch to multi-touch means rewriting your history. Keep them apart and a model change is just a new query.</p>
 <p><strong>Work out who is who before you need to.</strong> The hardest join is one person across platforms. Start saving handles on day one, even when you have nothing to match them to yet.</p>
 <p><strong>Put a <code>ref_code</code> on everything you control.</strong> Every link a partner shares, every event signup, every application form. Attribution you set up beats attribution you guess at later, every time.</p>
-<h2>The three tools</h2>
+<figure class="bv-figure"><img src="/assets/writing/post08-interior-pipeline.svg" alt="Three-tool community attribution pipeline you can build in an afternoon: Apps Script collects, Google Sheets stores, Looker Studio reads — with the build order (outcomes first, then ref codes, events, people, attribution)." loading="lazy" decoding="async" width="900" height="500"><figcaption>The pipeline you can build in an afternoon.</figcaption></figure><h2>The three tools</h2>
 <p><strong>Apps Script collects and cleans up.</strong> Triggers run on a schedule. Each source gets one function whose only job is to pull raw records and write them into <code>events</code> in the shape above. Keep the fetch and the clean-up in separate functions. When a source changes its format, and it will, you fix one function.</p>
 <p><strong>Sheets holds it.</strong> Not because it&#39;s the right database, but because you already have access, everyone can read it, and Looker Studio plugs straight into it. Sheets will hold a few hundred thousand rows before it complains. That&#39;s more than most community programmes make in years. When you outgrow it, the same schema moves to BigQuery unchanged. That&#39;s the point of getting it right now.</p>
 <p><strong>Looker Studio makes it readable.</strong> One page per question, not one page per data source. The dashboard people use answers &quot;which partners do we pay this month&quot; on one screen. The dashboard people ignore is a wall of charts sorted by where the data came from.</p>

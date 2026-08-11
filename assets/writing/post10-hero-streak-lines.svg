@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-label="Two 12-week streak lines. Duolingo-style resets to zero after a missed week; the new system credits the week and keeps growing." style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+
+<text x="40" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" letter-spacing="1.5">MISS ONE WEEK · WHAT HAPPENS</text>
+<text x="40" y="80" font-family="'Literata', Georgia, serif" font-size="22" fill="#1A1815">A streak that resets is a system that fires you for a bad week.</text>
+<text x="860" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="end" letter-spacing="1.5">HERO</text>
+
+<text x="40" y="150" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#6A6355" letter-spacing="1.2">DUOLINGO-STYLE</text>
+<rect x="180" y="172" width="50" height="8" fill="#6A6355"/><rect x="238" y="164" width="50" height="16" fill="#6A6355"/><rect x="296" y="156" width="50" height="24" fill="#6A6355"/><rect x="354" y="148" width="50" height="32" fill="#6A6355"/><rect x="412" y="140" width="50" height="40" fill="#6A6355"/><rect x="470" y="132" width="50" height="48" fill="#6A6355"/><rect x="528" y="176" width="50" height="4" fill="#CFC6B5"/><rect x="586" y="172" width="50" height="8" fill="#6A6355"/><rect x="644" y="164" width="50" height="16" fill="#6A6355"/><rect x="702" y="156" width="50" height="24" fill="#6A6355"/><rect x="760" y="148" width="50" height="32" fill="#6A6355"/><rect x="818" y="140" width="50" height="40" fill="#6A6355"/>
+
+<text x="40" y="240" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#B8532E" letter-spacing="1.2">NEW SYSTEM</text>
+<rect x="180" y="297" width="50" height="8" fill="#6A6355"/><rect x="238" y="289" width="50" height="16" fill="#6A6355"/><rect x="296" y="281" width="50" height="24" fill="#6A6355"/><rect x="354" y="273" width="50" height="32" fill="#6A6355"/><rect x="412" y="265" width="50" height="40" fill="#6A6355"/><rect x="470" y="257" width="50" height="48" fill="#6A6355"/><rect x="528" y="257" width="50" height="48" fill="#B8532E"/><rect x="586" y="249" width="50" height="56" fill="#6A6355"/><rect x="644" y="241" width="50" height="64" fill="#6A6355"/><rect x="702" y="233" width="50" height="72" fill="#6A6355"/><rect x="760" y="225" width="50" height="80" fill="#6A6355"/><rect x="818" y="217" width="50" height="88" fill="#6A6355"/>
+
+<!-- x labels -->
+<g font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072">
+  <text x="205" y="325" text-anchor="middle">w1</text><text x="263" y="325" text-anchor="middle">w2</text><text x="321" y="325" text-anchor="middle">w3</text><text x="379" y="325" text-anchor="middle">w4</text><text x="437" y="325" text-anchor="middle">w5</text><text x="495" y="325" text-anchor="middle">w6</text><text x="553" y="325" text-anchor="middle">w7 ✗</text><text x="611" y="325" text-anchor="middle">w8</text><text x="669" y="325" text-anchor="middle">w9</text><text x="727" y="325" text-anchor="middle">w10</text><text x="785" y="325" text-anchor="middle">w11</text><text x="843" y="325" text-anchor="middle">w12</text>
+</g>
+
+<line x1="40" y1="345" x2="860" y2="345" stroke="#D9D0BD"/>
+<g font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" fill="#6A6355" transform="translate(40 370)">
+  <rect x="0" y="-10" width="10" height="10" fill="#6A6355"/><text x="16" y="0">streak intact</text>
+  <rect x="110" y="-10" width="10" height="10" fill="#CFC6B5"/><text x="126" y="0">missed week</text>
+  <rect x="220" y="-10" width="10" height="10" fill="#B8532E"/><text x="236" y="0">credited / preserved</text>
+</g>
+<text x="860" y="370" font-family="'Literata', Georgia, serif" font-style="italic" font-size="12" fill="#1A1815" text-anchor="end">the classic reset punishes vacations, illness, and family</text>
+
+</svg>

@@ -18,6 +18,8 @@ faq:
     a: "Traffic tells you who arrived, not who was interested. A threshold is a small deliberate action — booking a call, joining a workshop, applying to a programme. Counting those filters out passers-by, and it is the first point where a person becomes traceable."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post03-hero-two-numbers-table.svg" alt="Community attribution audit table showing volume vs conversion for four sources — conf talk 400/3 at 0.8%, partner tutorial 40/12 at 30%, LinkedIn 220/11 at 5%, newsletter 95/22 at 23% — the two numbers that flip the ranking." loading="lazy" decoding="async" width="900" height="500"><figcaption>Two numbers per source is the whole audit.</figcaption></figure>
+
 Before you build anything, run this. It takes an afternoon and it will tell you more than most dashboards.
 
 For every place people find you, write down two numbers.
@@ -47,6 +49,8 @@ The trick that makes this work is having a single line that counts as interest, 
 Booking a call. Applying to the programme. Registering for the workshop. It doesn't matter which — it matters that it's one thing, that every source funnels to it, and that it's recorded.
 
 The moment you have two thresholds, sources stop being comparable. LinkedIn drives newsletter signups, the conference drives call bookings, and now you're comparing two things that mean different amounts of intent. You will guess, and you will guess in favour of whichever number is bigger.
+
+<figure class="bv-figure"><img src="/assets/writing/post03-interior-one-threshold.svg" alt="Attribution comparison: two different threshold actions (newsletter signup vs call booking) break comparability across sources; one shared threshold makes every source rank on the same intent." loading="lazy" decoding="async" width="900" height="500"><figcaption>One threshold across every source — otherwise the numbers stop meaning the same thing.</figcaption></figure>
 
 <div class="callout">
 <p class="callout-title">The audit, in four steps</p>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-label="One-week timeline of shipping TubeMonitor: three days on spec, two on AI-assisted build, two on fix and ship." style="display:block;width:100%;height:auto;background:#F4EFE6;border:1px solid #D9D0BD;border-radius:8px">
+
+<text x="40" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" letter-spacing="1.5">TUBEMONITOR · ONE WEEK</text>
+<text x="40" y="80" font-family="'Literata', Georgia, serif" font-size="22" fill="#1A1815">The spec is where the days go. Not the code.</text>
+<text x="860" y="42" font-family="'Space Grotesk', ui-monospace, monospace" font-size="10" fill="#8A8072" text-anchor="end" letter-spacing="1.5">HERO</text>
+<rect x="60" y="110" width="90" height="180" fill="#B8532E"/><text x="105.0" y="312" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E" text-anchor="middle">D1 · spec</text><rect x="170" y="125" width="90" height="165" fill="#B8532E"/><text x="215.0" y="312" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E" text-anchor="middle">D2 · spec</text><rect x="280" y="165" width="90" height="125" fill="#B8532E"/><text x="325.0" y="312" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#B8532E" text-anchor="middle">D3 · spec</text><rect x="390" y="200" width="90" height="90" fill="#6A6355"/><text x="435.0" y="312" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#6A6355" text-anchor="middle">D4 · build</text><rect x="500" y="210" width="90" height="80" fill="#6A6355"/><text x="545.0" y="312" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#6A6355" text-anchor="middle">D5 · build</text><rect x="610" y="235" width="90" height="55" fill="#8A8072"/><text x="655.0" y="312" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" text-anchor="middle">D6 · fix</text><rect x="720" y="246" width="90" height="44" fill="#8A8072"/><text x="765.0" y="312" font-family="'Space Grotesk', ui-monospace, monospace" font-size="11" fill="#8A8072" text-anchor="middle">D7 · ship</text>
+<line x1="40" y1="325" x2="860" y2="325" stroke="#D9D0BD"/>
+<g font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" fill="#6A6355" transform="translate(40 355)">
+  <rect x="0" y="-10" width="10" height="10" fill="#B8532E"/><text x="16" y="0">defining what "good" looks like</text>
+  <rect x="230" y="-10" width="10" height="10" fill="#6A6355"/><text x="246" y="0">AI-assisted build</text>
+  <rect x="360" y="-10" width="10" height="10" fill="#8A8072"/><text x="376" y="0">fix + ship</text>
+</g>
+<text x="860" y="355" font-family="'Literata', Georgia, serif" font-style="italic" font-size="13" fill="#1A1815" text-anchor="end">the code isn't the hard part</text>
+
+</svg>

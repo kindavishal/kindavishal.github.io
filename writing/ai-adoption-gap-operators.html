@@ -132,6 +132,10 @@ a:hover{color:#D97706}
 .article-body a:hover{border-bottom-color:#B45309}
 .article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
 .article-body blockquote p:last-child{margin-bottom:0}
+.article-body .bv-figure{margin:32px 0}
+.article-body .bv-figure img{width:100%;height:auto;display:block;border-radius:8px}
+.article-body .bv-figure figcaption{font-family:'Space Grotesk',ui-monospace,monospace;font-size:12px;color:#78716C;margin-top:10px;letter-spacing:0.02em}
+.article-body .bv-hero{margin:24px 0 40px}
 .callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
 .callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
 .callout ul,.callout ol{margin:0;padding-left:20px}
@@ -220,7 +224,7 @@ a:hover{color:#D97706}
     </header>
 
     <div class="article-body">
-<p>Everyone is talking about AI. Almost nobody is using it.</p>
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post01-hero-adoption-dots.svg" alt="AI adoption gap chart: 84% of the world had never used AI in February 2026, 15.7% tried it free, only 0.3% paid — visualised as a 2000-dot grid where one dot represents about five people." loading="lazy" decoding="async" width="900" height="500"><figcaption>Global AI adoption, February 2026 — one dot ≈ five people.</figcaption></figure><p>Everyone is talking about AI. Almost nobody is using it.</p>
 <p>As of February 2026, around <strong>84% of the world had never used AI at all</strong>, and about <strong>0.3% were paying subscribers</strong>. Those numbers came up in a <a href="https://www.communityconsultants.life/post/practical-ai-use-cases-for-community-managers">session on practical AI for community managers</a>. They stopped me. They don&#39;t match the volume of the conversation at all.</p>
 <p>I&#39;ve argued that <a href="/writing/tubemonitor-vibe-coding">an operator can now ship their own internal tools</a> — I built one in a week without being able to write production code. I still think that&#39;s true. These numbers make it <em>more</em> interesting, not less.</p>
 <h2>The gap is the opportunity</h2>
@@ -235,7 +239,7 @@ a:hover{color:#D97706}
 <h2>What the change actually looks like</h2>
 <p>One example from that session stuck with me. A community manager at Glean, with no coding background, used AI tools and a widget builder to redesign an entire community experience in <strong>a couple of weeks</strong>. That work would previously have needed developers, designers and an implementation team lined up in a queue.</p>
 <p>That&#39;s the same shape as what I did at Firecrawl, in a different company, by a different person, on a different problem. Which is the part worth noticing. When the same unusual thing happens independently in two places, it&#39;s a pattern rather than a story.</p>
-<div class="callout">
+<figure class="bv-figure"><img src="/assets/writing/post01-interior-same-pattern.svg" alt="Two independent AI-assisted internal-tool build cases with the same shape: a Glean community manager redesigned a whole community experience in about two weeks; a Firecrawl operator shipped internal tracking in about one week — neither of them writes production code." loading="lazy" decoding="async" width="900" height="500"><figcaption>Two operators, different companies, same shape — that's the pattern.</figcaption></figure><div class="callout">
 <p class="callout-title">Where I'd start, in order</p>
 <ol>
 <li>Pick one thing you already do slowly and hate. Not a tool you read about.</li>

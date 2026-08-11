@@ -18,6 +18,8 @@ faq:
     a: "By screen time and by whether your product is the subject. A dedicated piece is where the product is the reason the content exists. An integration is where it does a real job inside a larger build and gets meaningful screen time. A mention is a credit with something shown on screen. Write the definitions down before you sign anyone."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post11-hero-payout-models.svg" alt="Pay-per-view versus pay-per-video creator payout comparison, same spend pool: paying per view optimises for thumbnails, hooks, and thin technical depth; paying per shipped video optimises for tutorials, walkthroughs, and citable technical content the model can reuse." loading="lazy" decoding="async" width="900" height="500"><figcaption>Same spend, very different content.</figcaption></figure>
+
 Almost every guide to paying ambassadors lands in the same place: commission is the most ROI-friendly model, because you only pay for results. It sounds unarguable. You pay for outcomes, the creator carries the risk, nobody wastes money on content that goes nowhere.
 
 I think it's wrong for developer tools, and I built the opposite.
@@ -39,6 +41,8 @@ A developer watches a tutorial, doesn't sign up, and comes back nine weeks later
 So good creators price in the risk and ask for more, or pass. The ones who accept are the ones who most need the money — not the same people as the ones who explain your API well.
 
 There's a second cost. Commission makes you a variable expense in someone's month, and anyone with a full pipeline schedules guaranteed work first. You end up last in the queue while believing you built an efficient program.
+
+<figure class="bv-figure"><img src="/assets/writing/post11-interior-value-over-time.svg" alt="Twelve-month value-of-a-video chart: a viral clip spikes and decays fast under pay-per-view; a tutorial's value rises steadily as the next developer finds it — and later as the model trying to answer them cites it." loading="lazy" decoding="async" width="900" height="500"><figcaption>The tutorial's value keeps compounding.</figcaption></figure>
 
 ## Pay for the thing you actually want
 
