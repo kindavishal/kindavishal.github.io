@@ -17,6 +17,8 @@ faq:
     a: "The developer who read a tutorial, told a colleague, and never clicked a link. Word of mouth is a large share of how developer tools spread and most of it leaves no trace. Anyone claiming complete attribution is either measuring it wrong or overselling it."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post07-hero-inputs-vs-outcomes.svg" alt="Community metrics comparison for a budget review: inputs — events run, members joined, messages, content published, impressions — belong in the weekly; outcomes — activations traced to links, dollars in pipeline, activation lag, stated attribution model — belong in the review." loading="lazy" decoding="async" width="900" height="500"><figcaption>Two piles, different rooms — inputs for the weekly, outcomes for the review.</figcaption></figure>
+
 Once you can trace a community action to a business result, the question changes. It stops being "what can I count" and becomes "what should I claim."
 
 Those are very different questions. Most community reporting answers the first one while thinking it answered the second.
@@ -40,6 +42,8 @@ Not "our community is 12,000 people." Instead: this many activations came throug
 The tracing is what makes it survivable. A result with no source attached invites the obvious response — that it would have happened anyway. A result with a source attached moves the conversation to whether the model is right. That's a much better argument to be having, and one you can win.
 
 At Firecrawl this is what made payouts decidable. Not "who feels like they contributed", but a number per partner the team could look at together. The disagreements got specific, and specific disagreements get resolved.
+
+<figure class="bv-figure"><img src="/assets/writing/post07-interior-leading-lag.svg" alt="Leading indicator chart for community metrics: tutorials shipped rises early while activations follow with a roughly three-week lag — the shape that turns a community team from a cost centre into an input for planning." loading="lazy" decoding="async" width="900" height="500"><figcaption>Leading indicator, measurable lag.</figcaption></figure>
 
 ## The number that predicts
 

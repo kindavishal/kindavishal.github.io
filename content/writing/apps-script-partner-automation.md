@@ -18,6 +18,8 @@ faq:
     a: "Apps Script if your data already lives in Google Sheets and you need real logic, since you get a full scripting language, scheduled triggers and no per-task cost. A connector tool is faster to set up and easier to hand over. The deciding question is usually whether the person maintaining it after you can read code."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post13-hero-hours-collapsed.svg" alt="300-partner program automation before/after: 40 hours of weekly busywork collapsed to about 5 hours of judgment — the deeper cost of the busywork was partners not signed, problems found a month late, and no current picture, ever." loading="lazy" decoding="async" width="900" height="500"><figcaption>Hours saved is the shallow read. The ceiling was the real cost.</figcaption></figure>
+
 At Google I ran a partner ecosystem that grew past 300 institutions across India. Onboarding a partner was a manual job, and so was everything after it.
 
 Nobody had designed it that way. It grew one step at a time, each one reasonable on its own. Together they took about a working week of effort, every week.
@@ -35,6 +37,8 @@ The interesting part is what a week of busywork prevents. When onboarding takes 
 The busywork wasn't slowing the programme down. It was quietly setting its ceiling.
 
 That reframe is also what got it prioritised. "I'd like to save some time" is a request nobody funds. "We're turning down partners because onboarding can't keep up" is a different conversation.
+
+<figure class="bv-figure"><img src="/assets/writing/post13-interior-handoffs-judgment.svg" alt="Three-column automation split from the Apps Script partner project: what was manual, what became a scheduled script (form-submit, reminders, weekly table build, self-serve dashboard, triggered notifications), and what stayed human (qualification, exceptions, meaning, awkward conversations, stage decisions)." loading="lazy" decoding="async" width="900" height="500"><figcaption>Automate the handoffs. Never the judgment.</figcaption></figure>
 
 ## Handoffs and judgments
 

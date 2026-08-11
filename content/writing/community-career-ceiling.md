@@ -10,6 +10,8 @@ cardLabel: "28% vs 60%"
 shortTitle: "The community ceiling"
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post04-hero-career-outcomes.svg" alt="FeverBee longitudinal community career study: 86 community professionals tracked over 11 years — 28% who stayed in community reached Director or VP; 60% of those who left for another function did; 24% were still in the same role." loading="lazy" decoding="async" width="900" height="500"><figcaption>The FeverBee cohort, 11 years later — 28% vs 60% reached Director/VP.</figcaption></figure>
+
 Richard Millington at FeverBee did something most people writing about careers never bother with. He [followed the same people over time](https://www.feverbee.com/is-community-a-dead-end-career/).
 
 He took 86 community professionals from a 2015 event, and eleven years later checked where they ended up.
@@ -23,6 +25,8 @@ The number I keep coming back to is a different one. **24% were still in the sam
 Most career advice here only counts the people it worked for. Someone made it to VP of Community, wrote about how, and everyone read it as a map. Nobody counts the people who followed the same route and are still where they started.
 
 One number explains it: roughly **21 managers for every one VP** in community. That pyramid is far flatter at the top than most professions. There simply isn't much to climb into.
+
+<figure class="bv-figure"><img src="/assets/writing/post04-interior-returns-elsewhere.svg" alt="Community function returns flow to other teams: tutorials, bug reports, retention wins, and integrations get counted by marketing, engineering, CS, and BD — plus the pyramid of about 21 managers per VP in community." loading="lazy" decoding="async" width="900" height="500"><figcaption>The value community produces gets counted in someone else's numbers.</figcaption></figure>
 
 So the honest question is not "am I good enough to get promoted." It's "does this field have anywhere to put me." For a lot of people the answer is no. Doing the work well does not change it.
 

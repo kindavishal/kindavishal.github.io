@@ -19,6 +19,8 @@ faq:
     a: "Yes. Google Apps Script can collect and clean up the data on a schedule, Google Sheets can hold it, and Looker Studio can make it readable. The hard part is not the tech. It is that developer relations and community teams rarely get engineering time, so the work has to be doable by the person who needs it."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post08-hero-schema.svg" alt="Four-table developer community attribution schema — people, events, attribution, and outcomes — with one row per thing, foreign keys linking events to people, and attribution kept separate from events." loading="lazy" decoding="async" width="900" height="500"><figcaption>The schema, copy-pasteable.</figcaption></figure>
+
 Two questions are hard to answer in most community work.
 
 What did a member actually get out of this? And what did the company get back?
@@ -61,6 +63,8 @@ Four rules make it work.
 **Work out who is who before you need to.** The hardest join is one person across platforms. Start saving handles on day one, even when you have nothing to match them to yet.
 
 **Put a `ref_code` on everything you control.** Every link a partner shares, every event signup, every application form. Attribution you set up beats attribution you guess at later, every time.
+
+<figure class="bv-figure"><img src="/assets/writing/post08-interior-pipeline.svg" alt="Three-tool community attribution pipeline you can build in an afternoon: Apps Script collects, Google Sheets stores, Looker Studio reads — with the build order (outcomes first, then ref codes, events, people, attribution)." loading="lazy" decoding="async" width="900" height="500"><figcaption>The pipeline you can build in an afternoon.</figcaption></figure>
 
 ## The three tools
 

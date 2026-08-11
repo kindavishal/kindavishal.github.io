@@ -219,13 +219,12 @@ a:hover{color:#D97706}
       <h1 class="article-title">I can't write production code. I shipped the internal tool in a week anyway.</h1>
       <div class="article-meta">
         <span class="article-date">July 2026</span>
-        <span class="article-readtime">~5 min read</span>
+        <span class="article-readtime">~6 min read</span>
       </div>
     </header>
 
     <div class="article-body">
-<figure class="bv-figure bv-hero"><img src="/assets/writing/post09-hero-week-timeline.svg" alt="One week to ship TubeMonitor: three days on the spec, two on the AI-assisted build, two on fix and ship. The code is not the hard part."><figcaption>Where the week actually went.</figcaption></figure>
-<p>At Firecrawl, our YouTube tracking was broken. Not completely — the third-party tool was logging data. But it was under-counting creators in our network, missing views on untagged videos, and producing weekly reports that didn&#39;t answer the questions the team actually had.</p>
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post09-hero-week-timeline.svg" alt="TubeMonitor one-week vibe-coding timeline showing where the days actually went — three on the spec, two on the AI-assisted build, two on fix and ship — the code was never the hard part." loading="lazy" decoding="async" width="900" height="500"><figcaption>Where the week actually went.</figcaption></figure><p>At Firecrawl, our YouTube tracking was broken. Not completely — the third-party tool was logging data. But it was under-counting creators in our network, missing views on untagged videos, and producing weekly reports that didn&#39;t answer the questions the team actually had.</p>
 <p>I could fix the tool or replace it. I replaced it, in a week.</p>
 <p>I&#39;m not an engineer. I can read code well enough to understand what it does and check output against what I expected. I can&#39;t write production systems. <strong>That turned out not to be the binding constraint — defining the problem was.</strong></p>
 <h2>The data problem</h2>
@@ -280,9 +279,7 @@ a:hover{color:#D97706}
 <p>What it tracks: view performance across the network, <strong>spillover</strong> from videos never formally tagged — the thing the old tool missed entirely — engagement relative to views as a rough quality signal, and competitive share of voice.</p>
 <p>Share of voice is the most useful surface. It tells you not just how many views our content got, but whether a creator&#39;s audience is spending more time with us or with a competitor. That&#39;s the question that actually decides where program budget goes.</p>
 <p>It shipped in a week and replaced the third-party tool the same week. Marketing, partnerships and the founders used it for weekly reporting.</p>
-
-<figure class="bv-figure"><img src="/assets/writing/post09-interior-running-vs-working.svg" alt="Two log panels. The green 'running' side shows a healthy pipeline; the reality side shows the same 42 rows for six days, cursor never advanced — caught during launch week."><figcaption>Running is not working.</figcaption></figure>
-<h2>What I got wrong</h2>
+<figure class="bv-figure"><img src="/assets/writing/post09-interior-running-vs-working.svg" alt="Two log panels comparing 'running' and 'not working': healthy status logs and a green pipeline check next to the same 42 rows unchanged for six days with the cursor never advancing — the failure mode that looks finished." loading="lazy" decoding="async" width="900" height="500"><figcaption>Running is not working.</figcaption></figure><h2>What I got wrong</h2>
 <p>Data freshness. I built the scrape cycle to run daily, which is fine most of the time and useless during a launch week, when you want to see what&#39;s happening now. I switched to scraping on request with a cache — pull fresh data if what&#39;s stored is more than two hours old.</p>
 <p>I should have asked &quot;how stale can this be?&quot; in the spec. It&#39;s the same kind of question as &quot;what does failure look like&quot;, and I&#39;d left it out.</p>
 <h2>The part worth arguing about</h2>

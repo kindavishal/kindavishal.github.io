@@ -18,6 +18,8 @@ faq:
     a: "With one thing you already do badly or slowly, not with a tool you read about. Refining writing you have already drafted, pulling themes out of a pile of conversations, or building one small internal dashboard. Anchor to an outcome you wanted anyway, then pick whatever gets you there."
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post01-hero-adoption-dots.svg" alt="AI adoption gap chart: 84% of the world had never used AI in February 2026, 15.7% tried it free, only 0.3% paid — visualised as a 2000-dot grid where one dot represents about five people." loading="lazy" decoding="async" width="900" height="500"><figcaption>Global AI adoption, February 2026 — one dot ≈ five people.</figcaption></figure>
+
 Everyone is talking about AI. Almost nobody is using it.
 
 As of February 2026, around **84% of the world had never used AI at all**, and about **0.3% were paying subscribers**. Those numbers came up in a [session on practical AI for community managers](https://www.communityconsultants.life/post/practical-ai-use-cases-for-community-managers). They stopped me. They don't match the volume of the conversation at all.
@@ -47,6 +49,8 @@ The other reason adoption looks shallow: a lot of what people call using AI is r
 One example from that session stuck with me. A community manager at Glean, with no coding background, used AI tools and a widget builder to redesign an entire community experience in **a couple of weeks**. That work would previously have needed developers, designers and an implementation team lined up in a queue.
 
 That's the same shape as what I did at Firecrawl, in a different company, by a different person, on a different problem. Which is the part worth noticing. When the same unusual thing happens independently in two places, it's a pattern rather than a story.
+
+<figure class="bv-figure"><img src="/assets/writing/post01-interior-same-pattern.svg" alt="Two independent AI-assisted internal-tool build cases with the same shape: a Glean community manager redesigned a whole community experience in about two weeks; a Firecrawl operator shipped internal tracking in about one week — neither of them writes production code." loading="lazy" decoding="async" width="900" height="500"><figcaption>Two operators, different companies, same shape — that's the pattern.</figcaption></figure>
 
 <div class="callout">
 <p class="callout-title">Where I'd start, in order</p>

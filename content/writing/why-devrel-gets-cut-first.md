@@ -10,6 +10,8 @@ cardLabel: "Cut first, and why"
 shortTitle: "Why DevRel gets cut first"
 ---
 
+<figure class="bv-figure bv-hero"><img src="/assets/writing/post06-hero-four-devrel-numbers.svg" alt="State of DevRel 2023 in four numbers: 40.4% had no formal budget, 43.4% at large companies lost staff in layoffs, 34.2% faced new metrics pressure the programme wasn't set up to produce, 36.2% felt vulnerable." loading="lazy" decoding="async" width="900" height="500"><figcaption>Four numbers from the State of DevRel report, 2023.</figcaption></figure>
+
 Two in five developer relations programmes run with no formal budget at all.
 
 That's from the [State of Developer Relations survey](https://www.stateofdeveloperrelations.com/2023devrelreport) — 40.4% of respondents had no set budget or didn't know what theirs was. In the same survey, 43.4% of DevRel teams at large companies lost staff to layoffs, and over half of medium and large companies cut DevRel budgets.
@@ -60,6 +62,8 @@ When a team under pressure reaches for numbers, it reaches for the ones it has. 
 Those are the numbers most likely to be available and least likely to help. A stakeholder cutting your budget does not lose messages. They lose whatever the messages led to. Bringing activity counts to that conversation reads as an attempt to look busy, which is worse than bringing nothing.
 
 I've written separately about [which metrics actually survive that meeting](/writing/community-metrics-budget-review). The short version: a business result traced back to a named source in your programme survives. Everything else is input, not return.
+
+<figure class="bv-figure"><img src="/assets/writing/post06-interior-attribution-timing.svg" alt="DevRel attribution timing: instrument links, forms and registrations at T=0 (an afternoon of work) or you cannot prove impact by the time the budget conversation turns and metric pressure arrives — attribution cannot be applied backwards." loading="lazy" decoding="async" width="900" height="500"><figcaption>Attribution cannot be applied backwards.</figcaption></figure>
 
 ## What I'd actually do
 
