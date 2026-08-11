@@ -141,6 +141,22 @@ a:hover{color:#D97706}
 .wid-card h3{font-size:18px;font-weight:600;margin:0 0 12px;color:#F8F6F2}
 .wid-card p{font-size:14px;line-height:1.7;color:#A8A29E;margin:0}
 
+/* FLAGSHIPS */
+.flagships{padding:100px 0;background:#F0EDE8}
+.flagships-inner{max-width:1320px;margin:0 auto;padding:0 64px}
+.flag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.flag-card{background:#fff;border-radius:16px;padding:32px;border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:14px;transition:all .3s ease}
+.flag-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-4px);border-color:rgba(217,119,6,0.15)}
+.flag-card h3{font-family:'Literata',serif;font-size:20px;line-height:1.3;color:#1C1917;margin:0;letter-spacing:-0.3px}
+.flag-meta{font-size:11px;font-weight:700;color:#D97706;text-transform:uppercase;letter-spacing:1.2px;margin:0}
+.flag-scope{font-size:14px;line-height:1.65;color:#57534E;margin:0}
+.flag-outcomes{list-style:none;padding:16px 0 0;margin:auto 0 0;border-top:1px solid rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:12px}
+.flag-outcomes li{font-size:13px;line-height:1.6;color:#1C1917}
+.flag-outcomes li b{display:block;font-size:10px;font-weight:700;color:#D97706;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:3px}
+.flag-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.flag-chips a{font-size:12px;font-weight:600;color:#B45309;background:#FEF3C7;padding:6px 12px;border-radius:100px;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.flag-chips a:hover{background:#FDE68A;color:#92400E}
+
 /* WORK */
 .work{padding:100px 64px;max-width:1320px;margin:0 auto}
 .work-cards{display:flex;flex-direction:column;gap:24px;margin-top:40px}
@@ -277,6 +293,8 @@ a.sp-card:hover h3::after{opacity:1}
   .what-i-do .section-title,.what-i-do-desc{max-width:none}
   .what-i-do-inner,.career-inner,.member-value-inner,.side-projects-inner,.blog-inner{padding:0 32px}
   .what-i-do-grid{grid-template-columns:1fr}
+  .flagships-inner{padding:0 32px}
+  .flag-grid{grid-template-columns:repeat(2,1fr)}
   .work{padding:80px 32px}
   .work-card{grid-template-columns:1fr}
   .work-card-result{border-left:none;border-top:3px solid #D97706}
@@ -305,6 +323,9 @@ a.sp-card:hover h3::after{opacity:1}
   .what-i-do-inner,.career-inner,.member-value-inner,.side-projects-inner,.blog-inner{padding:0 20px}
   .what-i-do,.career,.member-value,.side-projects,.blog{padding:60px 0}
   .section-title{font-size:28px}
+  .flagships{padding:60px 0}
+  .flagships-inner{padding:0 20px}
+  .flag-grid{grid-template-columns:1fr}
   .work{padding:60px 20px}
   .skills{padding:60px 20px}
   .skills-grid{grid-template-columns:1fr}
@@ -328,6 +349,7 @@ a.sp-card:hover h3::after{opacity:1}
     </a>
     <div class="nav-links">
       <a href="#what-i-do">How I Work</a>
+      <a href="#flagships">Flagships</a>
       <a href="#work">Work</a>
       <a href="#career">Experience</a>
       <a href="#writing">Writing</a>
@@ -345,6 +367,7 @@ a.sp-card:hover h3::after{opacity:1}
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="#flagships" onclick="closeMenu()">Flagships</a>
   <a href="#work" onclick="closeMenu()">Work</a>
   <a href="#career" onclick="closeMenu()">Experience</a>
   <a href="#writing" onclick="closeMenu()">Writing</a>
@@ -408,6 +431,81 @@ a.sp-card:hover h3::after{opacity:1}
         <h3>Both sides read the same numbers</h3>
         <p>This is a habit I've built over a decade — across independent communities, GitHub, CodeChef, Google, and Firecrawl. The numbers that show what developers gained are the same numbers that show leadership what the program returned, so member value and business returns stop being two separate arguments. And communities that feel unfair or unsafe stop growing. Clear rules and good moderation aren't extras. They're what keeps the numbers going up.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flagships -->
+<section class="flagships" id="flagships" aria-label="Flagship Programs">
+  <div class="flagships-inner">
+    <span class="section-label reveal">Flagships</span>
+    <h2 class="section-title reveal">Campaigns, events, and partnerships that moved real numbers</h2>
+    <p class="section-desc reveal">The programs I built and shipped end-to-end — with what they returned to the business and what they gave the community.</p>
+    <div class="flag-grid">
+      <article class="flag-card reveal reveal-delay-1">
+        <p class="flag-meta">Firecrawl · 2026 · Program Lead</p>
+        <h3>Firecrawl Creator &amp; Partner Programs</h3>
+        <p class="flag-scope">Four programs built from zero — Ambassador, Firestarter, Affiliate, and Student — with a five-tier system and payout logic tied to real attribution.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>Attribution the team now uses to decide every creator payout.</li>
+          <li><b>For the community</b>Creator-attributed referrals grew 4x (1.7K → 7.2K weekly).</li>
+        </ul>
+        <div class="flag-chips">
+          <a href="/writing/firecrawl-ambassador-tier-system" onclick="gtag('event','flagship_click',{flagship:'firecrawl-ambassador'})">Tier system teardown ↗</a>
+          <a href="/writing/creator-payout-design" onclick="gtag('event','flagship_click',{flagship:'firecrawl-payout'})">Payout design ↗</a>
+        </div>
+      </article>
+      <article class="flag-card reveal reveal-delay-2">
+        <p class="flag-meta">Google · 2022–2025 · Program Manager</p>
+        <h3>India Cloud Skills Partnership</h3>
+        <p class="flag-scope">A cloud skills program rolled into 200+ Indian colleges of very different readiness. Backed the strongest partners first while bringing slower ones along.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>New revenue channel piloted through the partner network (Google Workspace for Education).</li>
+          <li><b>For the community</b>200K+ learners reached across 200+ institutions.</li>
+        </ul>
+      </article>
+      <article class="flag-card reveal reveal-delay-3">
+        <p class="flag-meta">Google · 2024–2025 · Program Manager</p>
+        <h3>Gemini API Developer Adoption</h3>
+        <p class="flag-scope">Segmented partners by readiness — depth workshops for advanced teams, breadth for newer ones — to move developers from "interested" to "building with it."</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>60K+ Gemini API developer adoptions.</li>
+          <li><b>For the community</b>Hands-on workshops with partners at every skill level.</li>
+        </ul>
+      </article>
+      <article class="flag-card reveal reveal-delay-1">
+        <p class="flag-meta">Google · 2023–2025 · Technical Maintainer</p>
+        <h3>Google Dev Library</h3>
+        <p class="flag-scope">Ran the publishing pipeline of Google's public showcase for developer-built projects — triage, CI/CD, coordination between vendor content and engineering.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>Library grew +96% in 19 months; Cloud tripled, Maps launched from zero.</li>
+          <li><b>For the community</b>358 developers earned their first byline on a Google property; 41% came back to publish again.</li>
+        </ul>
+        <div class="flag-chips">
+          <a href="https://devlibrary.withgoogle.com" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'dev-library'})">View Dev Library ↗</a>
+        </div>
+      </article>
+      <article class="flag-card reveal reveal-delay-2">
+        <p class="flag-meta">CodeChef · 2020–2022 · Community Manager</p>
+        <h3>CodeChef Colleges Program</h3>
+        <p class="flag-scope">Grew the college partner network from 100 to 300+. Signed MoUs, ran workshops, and stood up a Discord for each partner college.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>CodeChef became the default classroom platform for competitive programming at 3x the number of colleges.</li>
+          <li><b>For the community</b>Every partner college got its own Discord and a regular workshop cadence.</li>
+        </ul>
+      </article>
+      <article class="flag-card reveal reveal-delay-3">
+        <p class="flag-meta">Mozilla Punjab · 2019–2020 · Founder &amp; Organizer</p>
+        <h3>Autumn Hacks</h3>
+        <p class="flag-scope">A hackathon built from a name and nothing else — twice. On-campus MLH Local Hack Day in 2019; fully virtual with four inclusion-led tracks in 2020.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>14 sponsors across two editions — GitHub, Cloudflare, Gatsby, Twilio, and more.</li>
+          <li><b>For the community</b>500 hackers shipped projects across the two events.</li>
+        </ul>
+        <div class="flag-chips">
+          <a href="https://autumnhacks.netlify.app/" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'autumn-hacks'})">View Autumn Hacks ↗</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
