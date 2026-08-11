@@ -156,6 +156,18 @@ a:hover{color:#D97706}
 .flag-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
 .flag-chips a{font-size:12px;font-weight:600;color:#B45309;background:#FEF3C7;padding:6px 12px;border-radius:100px;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
 .flag-chips a:hover{background:#FDE68A;color:#92400E}
+.flag-ext{margin-top:56px;padding-top:40px;border-top:1px solid rgba(0,0,0,0.08)}
+.flag-ext-label{font-size:12px;font-weight:700;color:#D97706;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;display:block}
+.flag-ext-title{font-family:'Literata',serif;font-size:24px;letter-spacing:-0.3px;margin:0 0 12px;color:#1C1917}
+.flag-ext-desc{font-size:14px;line-height:1.7;color:#57534E;max-width:720px;margin:0 0 28px}
+.flag-ext-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.flag-ext-item{background:#fff;border:1px solid rgba(0,0,0,0.04);border-radius:12px;padding:22px 24px;transition:all .2s ease;display:block}
+.flag-ext-item:hover{border-color:rgba(217,119,6,0.2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.05)}
+.flag-ext-item h4{font-family:'Literata',serif;font-size:17px;margin:0 0 6px;color:#1C1917;letter-spacing:-0.2px;transition:color .2s ease}
+.flag-ext-item:hover h4{color:#B45309}
+.flag-ext-item h4::after{content:'↗';font-size:13px;margin-left:6px;color:#D97706;opacity:.55;transition:opacity .2s ease}
+.flag-ext-item:hover h4::after{opacity:1}
+.flag-ext-item p{font-size:13px;line-height:1.6;color:#57534E;margin:0}
 
 /* WORK */
 .work{padding:100px 64px;max-width:1320px;margin:0 auto}
@@ -295,6 +307,7 @@ a.sp-card:hover h3::after{opacity:1}
   .what-i-do-grid{grid-template-columns:1fr}
   .flagships-inner{padding:0 32px}
   .flag-grid{grid-template-columns:repeat(2,1fr)}
+  .flag-ext-list{grid-template-columns:repeat(2,1fr)}
   .work{padding:80px 32px}
   .work-card{grid-template-columns:1fr}
   .work-card-result{border-left:none;border-top:3px solid #D97706}
@@ -326,6 +339,7 @@ a.sp-card:hover h3::after{opacity:1}
   .flagships{padding:60px 0}
   .flagships-inner{padding:0 20px}
   .flag-grid{grid-template-columns:1fr}
+  .flag-ext-list{grid-template-columns:1fr}
   .work{padding:60px 20px}
   .skills{padding:60px 20px}
   .skills-grid{grid-template-columns:1fr}
@@ -443,6 +457,19 @@ a.sp-card:hover h3::after{opacity:1}
     <p class="section-desc reveal">The programs I built and shipped end-to-end — with what they returned to the business and what they gave the community.</p>
     <div class="flag-grid">
       <article class="flag-card reveal reveal-delay-1">
+        <p class="flag-meta">Google · 2022–2025 · Program Manager</p>
+        <h3>India Edu Program by Google for Developers</h3>
+        <p class="flag-scope">Google's education-first developer program in India. My main program — I ran the partner network and rollout across cloud skills, Gemini adoption, and K-12 AI enablement.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>60K+ Gemini API developer adoptions; new revenue channel piloted through the partner network (Workspace for Education).</li>
+          <li><b>For the community</b>200K+ learners across 200+ institutions; Gemini for K-12 and the AI Educator Series extended the program into schools in 7 Indian languages.</li>
+        </ul>
+        <div class="flag-chips">
+          <a href="https://www.linkedin.com/company/gdevs-educators-community/posts/?feedView=all" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'edu-linkedin'})">Educators community ↗</a>
+          <a href="https://www.youtube.com/playlist?list=PLlyCyjh2pUe9P0BgZ_kY1mD2aUd1dTNvq" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'edu-youtube'})">Program playlist ↗</a>
+        </div>
+      </article>
+      <article class="flag-card reveal reveal-delay-2">
         <p class="flag-meta">Firecrawl · 2026 · Program Lead</p>
         <h3>Firecrawl Creator &amp; Partner Programs</h3>
         <p class="flag-scope">Four programs built from zero — Ambassador, Firestarter, Affiliate, and Student — with a five-tier system and payout logic tied to real attribution.</p>
@@ -451,27 +478,58 @@ a.sp-card:hover h3::after{opacity:1}
           <li><b>For the community</b>Creator-attributed referrals grew 4x (1.7K → 7.2K weekly).</li>
         </ul>
         <div class="flag-chips">
+          <a href="https://www.firecrawl.dev/ambassadors" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'firecrawl-ambassadors-page'})">Ambassadors page ↗</a>
           <a href="/writing/firecrawl-ambassador-tier-system" onclick="gtag('event','flagship_click',{flagship:'firecrawl-ambassador'})">Tier system teardown ↗</a>
           <a href="/writing/creator-payout-design" onclick="gtag('event','flagship_click',{flagship:'firecrawl-payout'})">Payout design ↗</a>
         </div>
       </article>
-      <article class="flag-card reveal reveal-delay-2">
-        <p class="flag-meta">Google · 2022–2025 · Program Manager</p>
-        <h3>India Cloud Skills Partnership</h3>
-        <p class="flag-scope">A cloud skills program rolled into 200+ Indian colleges of very different readiness. Backed the strongest partners first while bringing slower ones along.</p>
+      <article class="flag-card reveal reveal-delay-3">
+        <p class="flag-meta">Google · 2022–2025 · Core Organizer &amp; Educators Lead</p>
+        <h3>India Community Summit</h3>
+        <p class="flag-scope">Google for Developers' invite-only annual summit for India's community leaders — GDG, GDE, TFUG, gaming, and startup organizers in one room. On the org team every year from 2022 to 2025.</p>
         <ul class="flag-outcomes">
-          <li><b>For the business</b>New revenue channel piloted through the partner network (Google Workspace for Education).</li>
-          <li><b>For the community</b>200K+ learners reached across 200+ institutions.</li>
+          <li><b>For the business</b>The forum where product, DevRel, and community leadership aligned on the year's programs and launches.</li>
+          <li><b>For the community</b>Represented the Educators community to global internal stakeholders and Experts — landing Educators as a first-class program alongside engineering and startups.</li>
         </ul>
       </article>
-      <article class="flag-card reveal reveal-delay-3">
-        <p class="flag-meta">Google · 2024–2025 · Program Manager</p>
-        <h3>Gemini API Developer Adoption</h3>
-        <p class="flag-scope">Segmented partners by readiness — depth workshops for advanced teams, breadth for newer ones — to move developers from "interested" to "building with it."</p>
+      <article class="flag-card reveal reveal-delay-1">
+        <p class="flag-meta">Google · 2023–2025 · Core Organizer</p>
+        <h3>Google I/O Connect Bengaluru</h3>
+        <p class="flag-scope">The Bengaluru edition of Google I/O — three consecutive editions on the org team. Ran community-side mobilization for GDG, GDE, and Educator attendees.</p>
         <ul class="flag-outcomes">
-          <li><b>For the business</b>60K+ Gemini API developer adoptions.</li>
-          <li><b>For the community</b>Hands-on workshops with partners at every skill level.</li>
+          <li><b>For the business</b>1,800+ developers on-site (2024); stage for India-first launches — Gemma 2, IndicGenBench, MeitY Startup Hub partnership.</li>
+          <li><b>For the community</b>Educators community landed on the same stage as engineers and startups.</li>
         </ul>
+        <div class="flag-chips">
+          <a href="https://blog.google/intl/en-in/company-news/technology/io-connect-bengaluru-7-ways-were-making-technology-more-helpful-and-accessible-for-indian-developers/" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'io-connect-2023'})">2023 recap ↗</a>
+          <a href="https://blog.google/intl/en-in/company-news/google-io-connect-bengaluru-2024-latest-ai-models-tools-and-programs-to-fuel-developer-innovation-in-india/" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'io-connect-2024'})">2024 recap ↗</a>
+          <a href="https://blog.google/intl/en-in/company-news/google-io-connect-india-2025-empowering-developers-with-ai-to-lead-indias-ambitions/" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'io-connect-2025'})">2025 recap ↗</a>
+          <a href="https://www.youtube.com/playlist?list=PL7m7kHJFCVjW4GQ2c_iv0sWwj47uwesg3" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'io-connect-2024-yt'})">2024 sessions ↗</a>
+        </div>
+      </article>
+      <article class="flag-card reveal reveal-delay-2">
+        <p class="flag-meta">Google Cloud · 2025 · Community Mobilization</p>
+        <h3>Agentic AI Day <span style="color:#D97706">(Guinness World Record)</span></h3>
+        <p class="flag-scope">Google Cloud's single-day mass hackathon in Bangalore. Set the Guinness record for "Most participants in an agentic AI hackathon." I mobilized GDG chapters and the Educators community to participate.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>Guinness World Record set at 1,941 adjudicated participants; 500+ prototypes built in a day.</li>
+          <li><b>For the community</b>2,000+ developers across 700+ teams; organized cohorts arrived through GDG and educator networks.</li>
+        </ul>
+        <div class="flag-chips">
+          <a href="https://blog.google/intl/en-in/company-news/seizing-our-moment-in-guinness-world-records/" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'agentic-ai-day'})">Guinness announcement ↗</a>
+        </div>
+      </article>
+      <article class="flag-card reveal reveal-delay-3">
+        <p class="flag-meta">Google · 2023 &amp; 2024 · Organizer</p>
+        <h3>GDSC Graduation Days</h3>
+        <p class="flag-scope">The India-side celebration marking each Google Developer Student Clubs cohort — chapter recognition, Solution Challenge honors, and the transition of graduating leads into the alumni network.</p>
+        <ul class="flag-outcomes">
+          <li><b>For the business</b>Retention pathway from graduating student leads into ongoing Google community programs.</li>
+          <li><b>For the community</b>The end-of-year recognition moment for the student leads who ran GDSC chapters across India.</li>
+        </ul>
+        <div class="flag-chips">
+          <a href="https://www.youtube.com/watch?v=Edo7SKZQARU" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'gdsc-graduation-2023'})">2023 India Leads recording ↗</a>
+        </div>
       </article>
       <article class="flag-card reveal reveal-delay-1">
         <p class="flag-meta">Google · 2023–2025 · Technical Maintainer</p>
@@ -483,6 +541,7 @@ a.sp-card:hover h3::after{opacity:1}
         </ul>
         <div class="flag-chips">
           <a href="https://devlibrary.withgoogle.com" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'dev-library'})">View Dev Library ↗</a>
+          <a href="https://developers.googleblog.com/what-is-googles-dev-librarya-new-open-source-platform-for-developers/" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'dev-library-launch'})">Launch announcement ↗</a>
         </div>
       </article>
       <article class="flag-card reveal reveal-delay-2">
@@ -493,6 +552,9 @@ a.sp-card:hover h3::after{opacity:1}
           <li><b>For the business</b>CodeChef became the default classroom platform for competitive programming at 3x the number of colleges.</li>
           <li><b>For the community</b>Every partner college got its own Discord and a regular workshop cadence.</li>
         </ul>
+        <div class="flag-chips">
+          <a href="https://www.codechef.com/college-program" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'codechef-college-program'})">College Program page ↗</a>
+        </div>
       </article>
       <article class="flag-card reveal reveal-delay-3">
         <p class="flag-meta">Mozilla Punjab · 2019–2020 · Founder &amp; Organizer</p>
@@ -506,6 +568,29 @@ a.sp-card:hover h3::after{opacity:1}
           <a href="https://autumnhacks.netlify.app/" target="_blank" rel="noopener" onclick="gtag('event','flagship_click',{flagship:'autumn-hacks'})">View Autumn Hacks ↗</a>
         </div>
       </article>
+    </div>
+    <div class="flag-ext reveal">
+      <span class="flag-ext-label">Extended Contributions</span>
+      <h3 class="flag-ext-title">Sister programs I helped run</h3>
+      <p class="flag-ext-desc">Alongside my main program, I contributed to managing four adjacent developer communities under Google for Developers India — bringing content, community mobilization, and event support to the teams that owned each.</p>
+      <div class="flag-ext-list">
+        <a class="flag-ext-item" href="https://developers.google.com/community/gdsc" target="_blank" rel="noopener" onclick="gtag('event','ext_click',{program:'gdsc'})">
+          <h4>Google Developer Groups on Campus <span style="font-weight:400;color:#78716C">(fka GDSC)</span></h4>
+          <p>India's student developer chapter network — active at roughly 700 Indian campuses at its peak.</p>
+        </a>
+        <a class="flag-ext-item" href="https://developers.google.com/community/experts" target="_blank" rel="noopener" onclick="gtag('event','ext_click',{program:'gde'})">
+          <h4>Google Developer Experts</h4>
+          <p>Google's recognition program for verified experts in Google technologies, part of a 1,000+ global network.</p>
+        </a>
+        <a class="flag-ext-item" href="https://developers.google.com/community/gdg" target="_blank" rel="noopener" onclick="gtag('event','ext_click',{program:'gdg'})">
+          <h4>Google Developer Groups</h4>
+          <p>Community-led local developer chapters across India's metros and tier-2/3 cities — the hosts of DevFest and I/O Extended editions.</p>
+        </a>
+        <a class="flag-ext-item" href="https://startup.google.com/programs/accelerator/india/" target="_blank" rel="noopener" onclick="gtag('event','ext_click',{program:'gfs'})">
+          <h4>Google for Startups</h4>
+          <p>Google's equity-free accelerator for India's AI-first startups — 2026 cohort selected 20 from ~2,500 applicants.</p>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -528,64 +613,6 @@ a.sp-card:hover h3::after{opacity:1}
         <div class="work-card-result-label">Result</div>
         <div class="work-card-result-val">What the team now uses to decide every partner payout</div>
         <a href="/writing/community-attribution-layer" class="work-card-result-link" onclick="gtag('event','writing_click',{location:'work_card',post:'community-attribution-layer'})">How I did it <span>&rarr;</span></a>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="work-card-body">
-        <div class="work-card-tags">
-          <span class="tag-amber">Firecrawl</span>
-          <span class="tag-gray">AI Infrastructure</span>
-        </div>
-        <h3>Building a partner ecosystem from zero at a Series A AI startup</h3>
-        <p>Firecrawl had no partner program. I built the four programs — Ambassador, Firestarter, Affiliate, and Student. I signed 10 creator partners in 4 weeks. Then I built the tracking to show what each one was worth.</p>
-      </div>
-      <div class="work-card-result">
-        <div class="work-card-result-label">Growth</div>
-        <div class="work-card-result-val">Creator-attributed referrals grew 4x (1.7K → 7.2K weekly)</div>
-        <a href="/writing/firecrawl-ambassador-tier-system" class="work-card-result-link" onclick="gtag('event','writing_click',{location:'work_card',post:'firecrawl-ambassador-tier-system'})">How I did it <span>&rarr;</span></a>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="work-card-body">
-        <div class="work-card-tags">
-          <span class="tag-amber">Google</span>
-          <span class="tag-gray">Education</span>
-        </div>
-        <h3>Scaling a cloud skills program across 200+ Indian colleges</h3>
-        <p>The challenge: get cloud skills into hundreds of colleges with very different setups and staff readiness. I wrote the playbook and negotiated with each institution. Then I designed a rollout that backed the strongest partnerships first while bringing the slower ones along.</p>
-      </div>
-      <div class="work-card-result">
-        <div class="work-card-result-label">Scale</div>
-        <div class="work-card-result-val">200K+ learners reached across 200+ institutions</div>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="work-card-body">
-        <div class="work-card-tags">
-          <span class="tag-amber">Google</span>
-          <span class="tag-gray">AI / ML</span>
-        </div>
-        <h3>Getting developers to actually adopt Gemini API</h3>
-        <p>Google had a powerful AI product. My job was to get developers from "interested" to "building with it." I picked which partners to start with and designed the workshop program. Then I split partners by how far along they were — depth for advanced teams, breadth for newer ones.</p>
-      </div>
-      <div class="work-card-result">
-        <div class="work-card-result-label">Result</div>
-        <div class="work-card-result-val">60K+ Gemini API developer adoptions</div>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="work-card-body">
-        <div class="work-card-tags">
-          <span class="tag-amber">Google</span>
-          <span class="tag-gray">Open Source</span>
-        </div>
-        <h3>Doubling Google's Dev Library</h3>
-        <p>Dev Library is Google's public showcase of what developers build with its products. I ran its publishing pipeline — triaging issues, keeping CI/CD green, and coordinating between the vendor content team and engineering to get submissions live. In 19 months the library nearly doubled: the Cloud collection tripled, Android grew 137%, and the Maps section launched from zero. 358 developers got their first byline on a Google property, and 41% came back to publish again.</p>
-      </div>
-      <div class="work-card-result">
-        <div class="work-card-result-label">Growth</div>
-        <div class="work-card-result-val">Library grew +96%; 358 new developer contributors, 41% repeat rate</div>
-        <a href="https://devlibrary.withgoogle.com" target="_blank" rel="noopener" class="work-card-result-link" onclick="gtag('event','devlibrary_click',{location:'work_card'})">View Dev Library <span>&rarr;</span></a>
       </div>
     </div>
     <div class="work-card reveal">
@@ -614,21 +641,6 @@ a.sp-card:hover h3::after{opacity:1}
         <div class="work-card-result-label">Savings</div>
         <div class="work-card-result-val">~40 engineering hours reclaimed every week</div>
         <a href="/writing/apps-script-partner-automation" class="work-card-result-link" onclick="gtag('event','writing_click',{location:'work_card',post:'apps-script-partner-automation'})">How I did it <span>&rarr;</span></a>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="work-card-body">
-        <div class="work-card-tags">
-          <span class="tag-amber">Mozilla Punjab</span>
-          <span class="tag-gray">Events</span>
-        </div>
-        <h3>Building a 500-person hackathon from an empty page</h3>
-        <p>Autumn Hacks started as a name and nothing else. I built the concept, the site and the social presence, then went after sponsors — GitHub, Cloudflare, Gatsby and Twilio among them. Ran it twice: 403 hackers on campus as an MLH Local Hack Day, then a fully virtual second edition with four inclusion-led tracks once 2020 ruled out meeting in person. Concept, sponsorship, marketing, on-ground execution, and the unglamorous post-event work.</p>
-      </div>
-      <div class="work-card-result">
-        <div class="work-card-result-label">Scale</div>
-        <div class="work-card-result-val">500 hackers across two editions, backed by 14 sponsors</div>
-        <a href="https://autumnhacks.netlify.app/" target="_blank" rel="noopener" class="work-card-result-link" onclick="gtag('event','autumnhacks_click',{location:'work_card'})">View Autumn Hacks <span>&rarr;</span></a>
       </div>
     </div>
   </div>
