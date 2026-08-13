@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRM34FM9F4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HRM34FM9F4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rolling new safety rules to 300 partners with zero incidents</title>
+  <meta name="description" content="Google policy changed. Every partner program in India had to comply without grinding to a halt. The tiered rollout, the runbook, and the cadence that made zero incidents the boring outcome.">
+  <meta name="author" content="Vishal Das">
+  <link rel="canonical" href="https://kindavishal.js.org/writing/safety-rollout-zero-incidents">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/safety-rollout-zero-incidents">
+  <meta property="og:site_name" content="Vishal Das Portfolio">
+  <meta property="og:title" content="Rolling new safety rules to 300 partners with zero incidents">
+  <meta property="og:description" content="Google policy changed. Every partner program in India had to comply without grinding to a halt. The tiered rollout, the runbook, and the cadence that made zero incidents the boring outcome.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/og/safety-rollout-zero-incidents.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/safety-rollout-zero-incidents.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="How I rolled new safety rules to 300 partners with zero incidents">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kindavishal.js.org/writing/safety-rollout-zero-incidents">
+  <meta name="twitter:title" content="Rolling new safety rules to 300 partners with zero incidents">
+  <meta name="twitter:description" content="Google policy changed. Every partner program in India had to comply without grinding to a halt. The tiered rollout, the runbook, and the cadence that made zero incidents the boring outcome.">
+  <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/safety-rollout-zero-incidents.png">
+  <meta name="twitter:image:alt" content="How I rolled new safety rules to 300 partners with zero incidents">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How I rolled new safety rules to 300 partners with zero incidents",
+  "description": "Google policy changed. Every partner program in India had to comply without grinding to a halt. The tiered rollout, the runbook, and the cadence that made zero incidents the boring outcome.",
+  "image": "https://kindavishal.js.org/assets/og/safety-rollout-zero-incidents.png",
+  "author": {
+    "@type": "Person",
+    "name": "Vishal Das",
+    "url": "https://kindavishal.js.org"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Vishal Das"
+  },
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kindavishal.js.org/writing/safety-rollout-zero-incidents"
+  },
+  "url": "https://kindavishal.js.org/writing/safety-rollout-zero-incidents",
+  "articleSection": "Developer Communities",
+  "wordCount": 940,
+  "about": {
+    "@type": "Thing",
+    "name": "Developer communities",
+    "sameAs": "https://en.wikipedia.org/wiki/Developer_relations"
+  },
+  "mentions": [
+    {
+      "@type": "Organization",
+      "name": "Google",
+      "sameAs": "https://en.wikipedia.org/wiki/Google"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kindavishal.js.org/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://kindavishal.js.org/writing"}, {"@type": "ListItem", "position": 3, "name": "Rolling new safety rules to 300 partners with zero incidents", "item": "https://kindavishal.js.org/writing/safety-rollout-zero-incidents"}]}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you roll out a strict policy without stalling a partner program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tier partners by readiness, not by region. A ready partner can absorb the change in a week. An unready partner needs a runbook, a pilot period, and a named contact. Treating them the same means either the ready ones move too slowly or the unready ones ship broken. The tier is the whole design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a partner-facing safety runbook contain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The specific behaviours that changed, why the policy changed, the deadline, the escalation path, and a worked example. Not the legal text \u2014 a policy document is a legal artifact and a runbook is an operational one. Partners read the second, not the first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you know a rollout is going well before the deadline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You track two numbers. Percent of partners past a defined readiness checkpoint by week, and count of escalations from partner ops. The first tells you whether the schedule holds. The second tells you where the policy is genuinely ambiguous. Both together are your early warning."
+      }
+    }
+  ]
+}</script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+a:hover{color:#D97706}
+::selection{background:#D97706;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:#1C1917;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon span{color:#D97706;font-family:'Literata',serif;font-weight:700;font-size:16px}
+.nav-logo-name{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:500;color:#57534E}
+.nav-links a{cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:#1C1917}
+.nav-links a.active{color:#D97706;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.btn-outline{border:1.5px solid #E7E5E0;color:#1C1917;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#D97706;color:#D97706}
+.btn-primary{background:#B45309;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#92400E;color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#1C1917;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(248,246,242,0.98);backdrop-filter:blur(16px);z-index:99;flex-direction:column;padding:32px;gap:8px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:500;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#1C1917}
+.mobile-menu .nav-btns{flex-direction:column;gap:12px;margin-top:24px}
+.mobile-menu .nav-btns a{text-align:center;padding:14px 24px}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.footer{padding:24px 64px;background:#1C1917;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#A8A29E}
+.footer-links{display:flex;gap:20px}
+.footer a{color:#A8A29E;transition:color .2s}
+.footer a:hover{color:#D97706}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.05s}
+.reveal-delay-2{transition-delay:0.1s}
+.reveal-delay-3{transition-delay:0.15s}
+.reveal-delay-4{transition-delay:0.2s}
+.article-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#B45309;font-weight:600;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#92400E}
+.back-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.article-header{margin-bottom:40px}
+.article-title{font-family:'Literata',serif;font-size:36px;line-height:1.15;letter-spacing:-0.5px;margin:0 0 16px;color:#1C1917}
+.article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article-date{font-size:13px;font-weight:600;color:#D97706;background:#FEF3C7;padding:4px 12px;border-radius:6px;display:inline-block}
+.article-readtime{font-size:13px;color:#57534E}
+.article-body{font-size:16px;line-height:1.8;color:#44403C}
+.article-body h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:40px 0 16px;letter-spacing:-0.3px;line-height:1.3}
+.article-body h3{font-size:18px;font-weight:600;color:#1C1917;margin:32px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body li::marker{color:#D97706}
+.article-body strong{color:#1C1917;font-weight:600}
+.article-body a{color:#B45309;font-weight:500;border-bottom:1px solid rgba(180,83,9,0.4)}
+.article-body a:hover{border-bottom-color:#B45309}
+.article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
+.article-body blockquote p:last-child{margin-bottom:0}
+.article-body .bv-figure{margin:32px 0}
+.article-body .bv-figure img{width:100%;height:auto;display:block;border-radius:8px}
+.article-body .bv-figure figcaption{font-family:'Space Grotesk',ui-monospace,monospace;font-size:12px;color:#78716C;margin-top:10px;letter-spacing:0.02em}
+.article-body .bv-hero{margin:24px 0 40px}
+.callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
+.callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.callout ul,.callout ol{margin:0;padding-left:20px}
+.callout li{margin-bottom:6px;font-size:14px;line-height:1.6;color:#44403C}
+.callout li::marker{color:#D97706}
+.callout p:last-child{margin-bottom:0}
+.mono{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body code{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body pre{background:#1C1917;color:#F8F6F2;padding:20px 24px;border-radius:12px;overflow-x:auto;margin:0 0 24px;font-size:14px;line-height:1.6}
+.article-body pre code{background:none;padding:0;color:inherit;font-size:14px}
+.table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(0,0,0,0.08);border-radius:12px}
+.article-body table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+.article-body th{text-align:left;font-weight:600;color:#1C1917;background:#F0EDE8;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);white-space:nowrap}
+.article-body td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.05);vertical-align:top;line-height:1.6}
+.article-body tr:last-child td{border-bottom:none}
+.faq{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px}
+.faq h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:0 0 24px;letter-spacing:-0.3px}
+.faq-item{margin-bottom:24px}
+.faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
+.faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.article-nav-link{font-size:14px;color:#B45309;font-weight:600;transition:color .2s;display:inline-block;padding:6px 0}
+.article-nav-link:hover{color:#92400E}
+.article-bottom>a:last-child{text-align:right}
+@media(max-width:1024px){
+.nav-inner{padding:0 32px}
+.footer{padding:24px 32px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.nav-inner{padding:0 20px}
+.article-wrap{padding:88px 20px 60px}
+.article-title{font-size:28px}
+.article-bottom{gap:12px}
+.article-nav-link{font-size:13px}
+.footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><span>V</span></div>
+      <span class="nav-logo-name">Vishal Das</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing" class="active">Writing</a>
+      <div class="nav-btns">
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <div class="nav-btns">
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+  </div>
+</div>
+<article>
+  <div class="article-wrap">
+    <a href="/writing" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to writing
+    </a>
+
+    <header class="article-header reveal">
+      <h1 class="article-title">How I rolled new safety rules to 300 partners with zero incidents</h1>
+      <div class="article-meta">
+        <span class="article-date">August 2026</span>
+        <span class="article-readtime">~5 min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+<figure class="bv-figure bv-hero"><img src="/assets/writing/safety-rollout-hero.svg" alt="Three tiers of partners by readiness, not by region. Tier one absorbs the change in a week; tier two runs a pilot; tier three gets a runbook, a named contact, and an extended window. Rollout completes without a compliance incident." loading="lazy" decoding="async" width="900" height="500"><figcaption>Tier by readiness. Region is the wrong axis.</figcaption></figure><p>At Google I ran a partner ecosystem across 300+ institutions in India. Partway through, policy changed. The new safety rules had to reach every partner program in the network, and they had to reach it without breaking developer velocity across the ecosystem.</p>
+<p>The outcome on the work card is <strong>zero compliance incidents during national rollout</strong>. This is what it took.</p>
+<h2>The default plan and why it fails</h2>
+<p>The default rollout plan for a policy change is: send the update to everyone at once, set a common deadline, escalate the stragglers.</p>
+<p>That plan works for a homogeneous audience. A partner ecosystem is not homogeneous. In this one, some partners had legal teams on staff and could turn around a policy change in days. Others were single-person operations who would read the policy PDF once and then need help implementing it. Treating them the same has two failure modes:</p>
+<ul>
+<li><strong>The ready partners wait.</strong> They finish the work in a week and then sit for a month because the deadline is set for the slowest.</li>
+<li><strong>The unready partners ship broken.</strong> They hit the deadline by rushing and get the implementation wrong. That is where compliance incidents come from.</li>
+</ul>
+<p>The whole rollout has to be built around this variance.</p>
+<h2>Tier by readiness, not by region</h2>
+<p>The organising axis was readiness. I sorted every partner into one of three tiers before the rollout started.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Tier</th><th>What defined it</th><th>What they got</th></tr></thead>
+<tbody>
+<tr><td>1 — Absorb</td><td>Has internal legal or ops capacity, has done a Google policy update before</td><td>Policy summary, deadline, escalation path. Done in a week</td></tr>
+<tr><td>2 — Guided</td><td>Willing and organised but new to Google&#39;s policy shape</td><td>Runbook with worked examples, 30-day window, a two-week pilot</td></tr>
+<tr><td>3 — Supported</td><td>Small teams, first-time policy change, or in a region with limited legal support</td><td>Runbook, named partner ops contact, extended window, weekly check-in</td></tr>
+</tbody></table></div>
+<p>Region was not the axis. Two partners in the same city could sit in different tiers. Two partners in different tiers might share the same broad institutional type. The variance in readiness is orthogonal to geography.</p>
+<figure class="bv-figure"><img src="/assets/writing/safety-rollout-interior.svg" alt="Communication cadence for the tiered rollout: T-30 announcement to all tiers, T-14 tier-specific reminder with runbook, T-7 named contact for tier three, T-0 checkpoint confirmation, T+7 verification, T+30 sign-off." loading="lazy" decoding="async" width="900" height="500"><figcaption>The cadence is what turns a policy PDF into a completed rollout.</figcaption></figure><h2>The cadence that carried it</h2>
+<p>Once the tiers were set, the communication cadence did the rest. Six touchpoints per partner.</p>
+<ul>
+<li><strong>T-30</strong> — announcement to all tiers with the deadline and the reason for the change.</li>
+<li><strong>T-14</strong> — tier-specific reminder with the runbook attached.</li>
+<li><strong>T-7</strong> — tier three gets a named partner ops contact by direct message.</li>
+<li><strong>T-0</strong> — checkpoint. Every partner confirms compliance by a defined artifact.</li>
+<li><strong>T+7</strong> — verification pass. Partner ops spot-checks a sample per tier.</li>
+<li><strong>T+30</strong> — sign-off. Any escalations from the previous 30 days are resolved.</li>
+</ul>
+<p>None of the touchpoints are heavy. All of them are named. A partner never had to guess when the next thing was coming or who to reach on the way.</p>
+<h2>What the runbook contained</h2>
+<p>The policy document was a legal artifact. It read as one — dense, defensive, and correctly written for the audience it was written for. It was not written for partner operations.</p>
+<p>The runbook was a separate document I wrote alongside partner ops. It contained:</p>
+<ol>
+<li>The specific partner-visible behaviours that changed. Numbered list.</li>
+<li>Why the policy changed. One paragraph.</li>
+<li>The deadline and the checkpoint artifact.</li>
+<li>The escalation path — who to email, when to expect a reply.</li>
+<li>A worked example from a real partner scenario, with the wrong and right implementations shown side by side.</li>
+</ol>
+<p>The worked example was the piece that carried it. A policy in the abstract is ambiguous. A worked example is not. Every unclear escalation I got named a scenario the worked example did not cover, and the fix was to add that scenario to the runbook and re-circulate. The runbook grew as ambiguity was found.</p>
+<h2>Two numbers I watched</h2>
+<p>Before deadline, only two numbers mattered.</p>
+<p><strong>Percent past the readiness checkpoint by week.</strong> This is the schedule number. If tier one is at 40 percent at T-14, the schedule is fine. If tier three is at 5 percent at T-14, the schedule is going to slip and the fix is to intervene now, not at T-7. This number is on a chart the whole time.</p>
+<p><strong>Count of escalations from partner ops.</strong> This is the ambiguity number. Every escalation is a signal that the policy is genuinely unclear at that boundary. A low escalation count that also has a low readiness percent is a bad sign — partners are not asking, which usually means they have not read the runbook yet.</p>
+<div class="callout">
+<p class="callout-title">If you have to roll a strict policy across an uneven partner base</p>
+<ol>
+<li>Tier by readiness, not by region. Region is the wrong axis.</li>
+<li>Write a runbook. The policy PDF is a legal artifact and reads as one.</li>
+<li>Every runbook needs a worked example. Ambiguity is what causes incidents.</li>
+<li>Name the contact for the unready tier. A named person is worth more than a mailbox.</li>
+<li>Track two numbers before deadline — schedule progress and escalation count. Both together tell you what is happening.</li>
+</ol>
+</div><h2>Why zero is the boring outcome</h2>
+<p>Zero compliance incidents sounds like a strong result. Inside the rollout it was the expected one. The tiering was designed so that the unready partners had enough support to not ship broken, and the ready partners were not held up waiting for them. Incidents come from either forcing an unready partner to the same deadline as a ready one, or from an ambiguity in the runbook that never surfaced as an escalation.</p>
+<p>Related: <a href="/writing/apps-script-partner-automation">how I automated 40 hours of partner busywork out of the same programme</a>, and <a href="/writing/community-attribution-layer">the attribution schema that ran alongside it</a>.</p>
+    </div>
+
+      <section class="faq">
+        <h2>Questions worth answering</h2>
+        <div class="faq-item">
+          <p class="faq-q">How do you roll out a strict policy without stalling a partner program?</p>
+          <p class="faq-a">Tier partners by readiness, not by region. A ready partner can absorb the change in a week. An unready partner needs a runbook, a pilot period, and a named contact. Treating them the same means either the ready ones move too slowly or the unready ones ship broken. The tier is the whole design.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What does a partner-facing safety runbook contain?</p>
+          <p class="faq-a">The specific behaviours that changed, why the policy changed, the deadline, the escalation path, and a worked example. Not the legal text — a policy document is a legal artifact and a runbook is an operational one. Partners read the second, not the first.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How do you know a rollout is going well before the deadline?</p>
+          <p class="faq-a">You track two numbers. Percent of partners past a defined readiness checkpoint by week, and count of escalations from partner ops. The first tells you whether the schedule holds. The second tells you where the policy is genuinely ambiguous. Both together are your early warning.</p>
+        </div>
+      </section>
+
+    <div class="article-bottom">
+      <span></span>
+      <a href="/writing/community-attribution-layer" class="article-nav-link">Next: The attribution schema →</a>
+    </div>
+  </div>
+</article>
+<footer class="footer">
+  <span>&copy; 2026 Vishal Das</span>
+  <div class="footer-links">
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('active',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',function(){if(window.innerWidth>768)closeMenu()});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}
+  });
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>
