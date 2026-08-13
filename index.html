@@ -42,8 +42,38 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://kindavishal.js.org/#website",
+      "url": "https://kindavishal.js.org/",
+      "name": "Vishal Das",
+      "alternateName": "kindavishal",
+      "inLanguage": "en-US",
+      "publisher": { "@id": "https://kindavishal.js.org/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://kindavishal.js.org/#profilepage",
+      "url": "https://kindavishal.js.org/",
+      "name": "Vishal Das — Developer Community & Program Manager",
+      "isPartOf": { "@id": "https://kindavishal.js.org/#website" },
+      "mainEntity": { "@id": "https://kindavishal.js.org/#person" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://kindavishal.js.org/assets/profile.jpg"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero h1", ".hero-sub"]
+      }
+    },
+    {
   "@type": "Person",
+  "@id": "https://kindavishal.js.org/#person",
   "name": "Vishal Das",
+  "image": "https://kindavishal.js.org/assets/profile.jpg",
+  "mainEntityOfPage": { "@id": "https://kindavishal.js.org/#profilepage" },
   "jobTitle": "Developer Community Manager & Program Manager",
   "description": "Developer Community & Program Manager. Built the creator function at Firecrawl (grew creator-attributed referrals 4x, from 1.7K to 7.2K weekly) and a 3,500-person mentor network at Google that supported 150K+ early-career developers across India.",
   "knowsAbout": [
@@ -100,6 +130,8 @@
     "https://github.com/kindavishal"
   ],
   "url": "https://kindavishal.js.org"
+    }
+  ]
 }
 </script>
 <style>
