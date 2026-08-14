@@ -8,6 +8,41 @@
     <lastBuildDate>Wed, 12 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://kindavishal.js.org/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>How I mobilized 2,000 developers into a Guinness record in one day</title>
+      <link>https://kindavishal.js.org/writing/agentic-ai-day-mobilization</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/agentic-ai-day-mobilization</guid>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Google Cloud's Agentic AI Day set the Guinness record for the most participants in an agentic AI hackathon. The community-side mobilization funnel that filled the room.</description>
+    </item>
+    <item>
+      <title>Why 41% of Dev Library authors came back for a second byline</title>
+      <link>https://kindavishal.js.org/writing/dev-library-return-rate</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/dev-library-return-rate</guid>
+      <pubDate>Tue, 11 Aug 2026 09:00:00 GMT</pubDate>
+      <description>I ran Google Dev Library as technical maintainer from 2023 to 2025. 358 developers earned their first byline on a Google property. Two in five came back. The publishing pipeline that made them return.</description>
+    </item>
+    <item>
+      <title>Making Educators a first-class program at Google for Developers</title>
+      <link>https://kindavishal.js.org/writing/educators-first-class-program</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/educators-first-class-program</guid>
+      <pubDate>Mon, 10 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Educators were a subcategory when I started. Three years of representing them to global stakeholders landed them alongside engineering and startups. How a category becomes a category.</description>
+    </item>
+    <item>
+      <title>How I rolled new safety rules to 300 partners with zero incidents</title>
+      <link>https://kindavishal.js.org/writing/safety-rollout-zero-incidents</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/safety-rollout-zero-incidents</guid>
+      <pubDate>Sun, 09 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Google policy changed. Every partner program in India had to comply without grinding to a halt. The tiered rollout, the runbook, and the cadence that made zero incidents the boring outcome.</description>
+    </item>
+    <item>
+      <title>60,000 Gemini API adoptions came from a partner network, not a campaign</title>
+      <link>https://kindavishal.js.org/writing/gemini-adoption-partner-network</link>
+      <guid isPermaLink="true">https://kindavishal.js.org/writing/gemini-adoption-partner-network</guid>
+      <pubDate>Sat, 08 Aug 2026 09:00:00 GMT</pubDate>
+      <description>The India Edu Program by Google for Developers drove 60K+ Gemini API developer adoptions. Not a launch campaign. A faculty-enablement pattern that multiplied one trained instructor into a cohort of adopters.</description>
+    </item>
+    <item>
       <title>Almost nobody has actually tried this yet</title>
       <link>https://kindavishal.js.org/writing/ai-adoption-gap-operators</link>
       <guid isPermaLink="true">https://kindavishal.js.org/writing/ai-adoption-gap-operators</guid>
