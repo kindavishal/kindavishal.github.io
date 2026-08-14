@@ -1,0 +1,55 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img">
+<rect width="900" height="500" fill="#F8F6F2"></rect>
+
+
+<text x="50" y="130" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917">With editor pass</text>
+<text x="50" y="148" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917">+ Google URL</text>
+<text x="50" y="330" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917">Without</text>
+
+
+
+  <rect x="230" y="120" width="120" height="50" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="290" y="150" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917" text-anchor="middle">Submit</text>
+  <path d="M 350 145 L 375 145" stroke="#1C1917" stroke-width="1.5"></path>
+  <path d="M 375 145 L 367 140 L 367 150 Z" fill="#1C1917"></path>
+
+  <rect x="375" y="120" width="120" height="50" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="435" y="150" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917" text-anchor="middle">Editor pass</text>
+  <path d="M 495 145 L 520 145" stroke="#1C1917" stroke-width="1.5"></path>
+  <path d="M 520 145 L 512 140 L 512 150 Z" fill="#1C1917"></path>
+
+  <rect x="520" y="120" width="120" height="50" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="580" y="150" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917" text-anchor="middle">Google URL</text>
+  <path d="M 640 145 L 665 145" stroke="#1C1917" stroke-width="1.5"></path>
+  <path d="M 665 145 L 657 140 L 657 150 Z" fill="#1C1917"></path>
+
+  <rect x="665" y="120" width="120" height="50" fill="#D97706" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="725" y="150" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#F8F6F2" text-anchor="middle">2nd submission</text>
+
+
+
+
+  <rect x="230" y="305" width="120" height="50" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="290" y="335" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917" text-anchor="middle">Submit</text>
+  <path d="M 350 330 L 375 330" stroke="#1C1917" stroke-width="1" opacity="0.4"></path>
+
+  <rect x="375" y="305" width="120" height="50" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4"></rect>
+  <text x="435" y="335" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917" text-anchor="middle" opacity="0.4">—</text>
+  <path d="M 495 330 L 520 330" stroke="#1C1917" stroke-width="1" opacity="0.4"></path>
+
+  <rect x="520" y="305" width="120" height="50" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4"></rect>
+  <text x="580" y="335" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917" text-anchor="middle" opacity="0.4">—</text>
+
+
+<circle cx="720" cy="330" r="8" fill="none" stroke="#1C1917" stroke-width="1.5"></circle>
+<line x1="714" y1="324" x2="726" y2="336" stroke="#1C1917" stroke-width="1.5"></line>
+<line x1="726" y1="324" x2="714" y2="336" stroke="#1C1917" stroke-width="1.5"></line>
+<text x="720" y="360" font-family="Space Grotesk, system-ui, sans-serif" font-size="11" font-weight="500" fill="#1C1917" text-anchor="middle">dead end</text>
+
+
+<text x="450" y="430" font-family="Literata, Georgia, serif" font-style="italic" font-size="14" fill="#1C1917" text-anchor="middle" opacity="0.85">two small interventions decide whether an author returns</text>
+
+
+<text x="450" y="80" font-family="Space Grotesk, system-ui, sans-serif" font-size="16" font-weight="600" fill="#1C1917" text-anchor="middle">Two author journeys</text>
+
+</svg>

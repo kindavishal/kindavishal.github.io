@@ -1,0 +1,55 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img">
+<rect width="900" height="500" fill="#F8F6F2"></rect>
+
+
+
+  <rect x="60" y="90" width="140" height="60" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="130" y="126" font-family="Space Grotesk, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1C1917" text-anchor="middle">Submission</text>
+  <path d="M 200 120 L 235 120" stroke="#1C1917" stroke-width="1.5" fill="none"></path>
+  <path d="M 235 120 L 227 115 L 227 125 Z" fill="#1C1917"></path>
+  <rect x="235" y="90" width="140" height="60" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="305" y="126" font-family="Space Grotesk, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1C1917" text-anchor="middle">Triage</text>
+  <path d="M 375 120 L 410 120" stroke="#1C1917" stroke-width="1.5" fill="none"></path>
+  <path d="M 410 120 L 402 115 L 402 125 Z" fill="#1C1917"></path>
+  <rect x="410" y="90" width="140" height="60" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="480" y="126" font-family="Space Grotesk, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1C1917" text-anchor="middle">Editor pass</text>
+  <path d="M 550 120 L 585 120" stroke="#1C1917" stroke-width="1.5" fill="none"></path>
+  <path d="M 585 120 L 577 115 L 577 125 Z" fill="#1C1917"></path>
+  <rect x="585" y="90" width="140" height="60" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="655" y="126" font-family="Space Grotesk, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1C1917" text-anchor="middle">CI checks</text>
+  <path d="M 725 120 L 760 120" stroke="#1C1917" stroke-width="1.5" fill="none"></path>
+  <path d="M 760 120 L 752 115 L 752 125 Z" fill="#1C1917"></path>
+  <rect x="760" y="90" width="140" height="60" fill="#F8F6F2" stroke="#1C1917" stroke-width="1.5"></rect>
+  <text x="830" y="126" font-family="Space Grotesk, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1C1917" text-anchor="middle">Merge &amp; Showcase</text>
+
+
+<text x="60" y="220" font-family="Space Grotesk, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917">First bylines &amp; return submissions</text>
+
+<line x1="60" y1="380" x2="800" y2="380" stroke="#1C1917" stroke-width="1"></line>
+<line x1="60" y1="240" x2="60" y2="380" stroke="#1C1917" stroke-width="1"></line>
+
+<g stroke="#1C1917" stroke-width="0.8">
+  <line x1="55" y1="270" x2="60" y2="270"></line>
+  <line x1="55" y1="325" x2="60" y2="325"></line>
+  <line x1="55" y1="380" x2="60" y2="380"></line>
+</g>
+<g font-family="Space Grotesk, system-ui, sans-serif" font-size="10" fill="#1C1917" text-anchor="end">
+  <text x="52" y="273">358</text>
+  <text x="52" y="328">147</text>
+  <text x="52" y="383">0</text>
+</g>
+
+<rect x="180" y="270" width="120" height="110" fill="#1C1917"></rect>
+<text x="240" y="400" font-family="Space Grotesk, system-ui, sans-serif" font-size="12" font-weight="500" fill="#1C1917" text-anchor="middle">first bylines</text>
+<text x="240" y="262" font-family="Space Grotesk, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1C1917" text-anchor="middle">358</text>
+
+<rect x="520" y="325" width="120" height="55" fill="#D97706"></rect>
+<text x="580" y="400" font-family="Space Grotesk, system-ui, sans-serif" font-size="12" font-weight="500" fill="#1C1917" text-anchor="middle">second submission</text>
+<text x="580" y="317" font-family="Space Grotesk, system-ui, sans-serif" font-size="14" font-weight="600" fill="#D97706" text-anchor="middle">147 · 41%</text>
+
+<path d="M 300 275 C 380 200, 460 200, 540 320" stroke="#D97706" stroke-width="1.5" fill="none" stroke-dasharray="4 3"></path>
+<path d="M 540 320 L 533 313 L 545 313 Z" fill="#D97706"></path>
+<text x="420" y="215" font-family="Literata, Georgia, serif" font-style="italic" font-size="12" fill="#D97706" text-anchor="middle">returns as a second submission</text>
+<text x="60" y="465" font-family="Literata, Georgia, serif" font-style="italic" font-size="13" fill="#1C1917" opacity="0.8">the pipeline turns strangers into repeat authors</text>
+
+</svg>
