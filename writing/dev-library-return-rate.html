@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRM34FM9F4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HRM34FM9F4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The publishing pipeline that brought Dev Library authors back</title>
+  <meta name="description" content="I ran Google Dev Library as technical maintainer from 2023 to 2025. 358 developers earned their first byline on a Google property. Two in five came back. The publishing pipeline that made them return.">
+  <meta name="author" content="Vishal Das">
+  <link rel="canonical" href="https://kindavishal.js.org/writing/dev-library-return-rate">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kindavishal.js.org/writing/dev-library-return-rate">
+  <meta property="og:site_name" content="Vishal Das Portfolio">
+  <meta property="og:title" content="The publishing pipeline that brought Dev Library authors back">
+  <meta property="og:description" content="I ran Google Dev Library as technical maintainer from 2023 to 2025. 358 developers earned their first byline on a Google property. Two in five came back. The publishing pipeline that made them return.">
+  <meta property="og:image" content="https://kindavishal.js.org/assets/og/dev-library-return-rate.png"><meta property="og:image:secure_url" content="https://kindavishal.js.org/assets/og/dev-library-return-rate.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Why 41% of Dev Library authors came back for a second byline">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kindavishal.js.org/writing/dev-library-return-rate">
+  <meta name="twitter:title" content="The publishing pipeline that brought Dev Library authors back">
+  <meta name="twitter:description" content="I ran Google Dev Library as technical maintainer from 2023 to 2025. 358 developers earned their first byline on a Google property. Two in five came back. The publishing pipeline that made them return.">
+  <meta name="twitter:image" content="https://kindavishal.js.org/assets/og/dev-library-return-rate.png">
+  <meta name="twitter:image:alt" content="Why 41% of Dev Library authors came back for a second byline">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why 41% of Dev Library authors came back for a second byline",
+    "description": "I ran Google Dev Library as technical maintainer from 2023 to 2025. 358 developers earned their first byline on a Google property. Two in five came back. The publishing pipeline that made them return.",
+    "image": "https://kindavishal.js.org/assets/og/dev-library-return-rate.png",
+    "author": { "@type": "Person", "name": "Vishal Das", "url": "https://kindavishal.js.org" },
+    "publisher": { "@type": "Person", "name": "Vishal Das" },
+    "datePublished": "2026-08-11",
+    "dateModified": "2026-08-11",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindavishal.js.org/writing/dev-library-return-rate" },
+    "url": "https://kindavishal.js.org/writing/dev-library-return-rate"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What was Google Dev Library?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A public showcase for open-source projects and technical writing built on Google technologies, launched in 2022. Google's launch announcement is at developers.googleblog.com/what-is-googles-dev-library. I ran the publishing pipeline from 2023 to 2025 as a technical maintainer." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does return rate matter for a developer content programme?",
+        "acceptedAnswer": { "@type": "Answer", "text": "First-time contributor counts are the vanity number. Return rate tells you whether the submission was worth their time. A programme with high first-timers and low returns is failing at retention — the reviewers are hard, the visibility is low, or the merged content disappears into a feed nobody reads. Both numbers together are the honest read." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you get authors to publish a second piece?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Give them something the first byline paid for that a second one would multiply. In our case it was a URL on a Google-owned domain, a searchable showcase page with their name, and an editor pass they could point to on a resume. When those hold, return becomes the default choice, not a favour." }
+      }
+    ]
+  }</script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Vishal Das — Writing" href="https://kindavishal.js.org/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#1C1917;background:#F8F6F2;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+a:hover{color:#D97706}
+::selection{background:#D97706;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:#1C1917;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon span{color:#D97706;font-family:'Literata',serif;font-weight:700;font-size:16px}
+.nav-logo-name{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:500;color:#57534E}
+.nav-links a{cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:#1C1917}
+.nav-links a.active{color:#D97706;font-weight:600}
+.nav-btns{display:flex;gap:8px}
+.btn-outline{border:1.5px solid #E7E5E0;color:#1C1917;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#D97706;color:#D97706}
+.btn-primary{background:#B45309;color:#fff;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#92400E;color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#1C1917;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(248,246,242,0.98);backdrop-filter:blur(16px);z-index:99;flex-direction:column;padding:32px;gap:8px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:500;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#1C1917}
+.mobile-menu .nav-btns{flex-direction:column;gap:12px;margin-top:24px}
+.mobile-menu .nav-btns a{text-align:center;padding:14px 24px}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.footer{padding:24px 64px;background:#1C1917;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#A8A29E}
+.footer-links{display:flex;gap:20px}
+.footer a{color:#A8A29E;transition:color .2s}
+.footer a:hover{color:#D97706}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.05s}
+.reveal-delay-2{transition-delay:0.1s}
+.reveal-delay-3{transition-delay:0.15s}
+.reveal-delay-4{transition-delay:0.2s}
+.article-wrap{max-width:680px;margin:0 auto;padding:120px 24px 80px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#B45309;font-weight:600;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#92400E}
+.back-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.article-header{margin-bottom:40px}
+.article-title{font-family:'Literata',serif;font-size:36px;line-height:1.15;letter-spacing:-0.5px;margin:0 0 16px;color:#1C1917}
+.article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.article-date{font-size:13px;font-weight:600;color:#D97706;background:#FEF3C7;padding:4px 12px;border-radius:6px;display:inline-block}
+.article-readtime{font-size:13px;color:#57534E}
+.article-body{font-size:16px;line-height:1.8;color:#44403C}
+.article-body h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:40px 0 16px;letter-spacing:-0.3px;line-height:1.3}
+.article-body h3{font-size:18px;font-weight:600;color:#1C1917;margin:32px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body li::marker{color:#D97706}
+.article-body strong{color:#1C1917;font-weight:600}
+.article-body a{color:#B45309;font-weight:500;border-bottom:1px solid rgba(180,83,9,0.4)}
+.article-body a:hover{border-bottom-color:#B45309}
+.article-body blockquote{border-left:3px solid #D97706;padding-left:20px;margin:32px 0;font-family:'Literata',serif;font-style:italic;font-size:18px;color:#1C1917;line-height:1.6}
+.article-body blockquote p:last-child{margin-bottom:0}
+.article-body .bv-figure{margin:32px 0}
+.article-body .bv-figure img{width:100%;height:auto;display:block;border-radius:8px}
+.article-body .bv-figure figcaption{font-family:'Space Grotesk',ui-monospace,monospace;font-size:12px;color:#78716C;margin-top:10px;letter-spacing:0.02em}
+.article-body .bv-hero{margin:24px 0 40px}
+.callout{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:24px 28px;margin:32px 0}
+.callout-title{font-size:13px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.callout ul,.callout ol{margin:0;padding-left:20px}
+.callout li{margin-bottom:6px;font-size:14px;line-height:1.6;color:#44403C}
+.callout li::marker{color:#D97706}
+.callout p:last-child{margin-bottom:0}
+.mono{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body code{font-family:'Space Grotesk',monospace;background:#F0EDE8;padding:2px 8px;border-radius:4px;font-size:14px;color:#1C1917}
+.article-body pre{background:#1C1917;color:#F8F6F2;padding:20px 24px;border-radius:12px;overflow-x:auto;margin:0 0 24px;font-size:14px;line-height:1.6}
+.article-body pre code{background:none;padding:0;color:inherit;font-size:14px}
+.table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(0,0,0,0.08);border-radius:12px}
+.article-body table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+.article-body th{text-align:left;font-weight:600;color:#1C1917;background:#F0EDE8;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);white-space:nowrap}
+.article-body td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.05);vertical-align:top;line-height:1.6}
+.article-body tr:last-child td{border-bottom:none}
+.faq{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px}
+.faq h2{font-family:'Literata',serif;font-size:24px;color:#1C1917;margin:0 0 24px;letter-spacing:-0.3px}
+.faq-item{margin-bottom:24px}
+.faq-q{font-size:16px;font-weight:600;color:#1C1917;margin:0 0 8px}
+.faq-a{font-size:15px;color:#44403C;line-height:1.7;margin:0}
+.article-bottom{border-top:1px solid rgba(0,0,0,0.06);margin-top:48px;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.article-nav-link{font-size:14px;color:#B45309;font-weight:600;transition:color .2s;display:inline-block;padding:6px 0}
+.article-nav-link:hover{color:#92400E}
+.article-bottom>a:last-child{text-align:right}
+@media(max-width:1024px){
+.nav-inner{padding:0 32px}
+.footer{padding:24px 32px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.nav-inner{padding:0 20px}
+.article-wrap{padding:88px 20px 60px}
+.article-title{font-size:28px}
+.article-bottom{gap:12px}
+.article-nav-link{font-size:13px}
+.footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><span>V</span></div>
+      <span class="nav-logo-name">Vishal Das</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing" class="active">Writing</a>
+      <div class="nav-btns">
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
+  <div class="nav-btns">
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
+  </div>
+</div>
+<article>
+  <div class="article-wrap">
+    <a href="/writing" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to writing
+    </a>
+
+    <header class="article-header reveal">
+      <h1 class="article-title">Why 41% of Dev Library authors came back for a second byline</h1>
+      <div class="article-meta">
+        <span class="article-date">August 2026</span>
+        <span class="article-readtime">~6 min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+<figure class="bv-figure bv-hero"><img src="/assets/writing/dev-library-hero.svg" alt="The Dev Library publishing pipeline: submission form, triage queue, editor pass, CI checks, merge, live URL on a Google domain. 358 first-time authors entered the top of the funnel; 41% came back for a second byline." loading="lazy" decoding="async" width="900" height="500"><figcaption>First bylines are the vanity number. Return rate is the honest read.</figcaption></figure><p>From 2023 to 2025 I ran the publishing pipeline for <a href="https://devlibrary.withgoogle.com">Google Dev Library</a> as its technical maintainer. It is Google&#39;s public showcase for developer-built projects and writing on Google technologies. The launch announcement is <a href="https://developers.googleblog.com/what-is-googles-dev-librarya-new-open-source-platform-for-developers/">here</a>.</p>
+<p>In that window the pipeline gave <strong>358 developers their first byline on a Google property</strong>. <strong>41% of them came back to publish again.</strong> Two in five is a return rate a paid content programme would take. Dev Library was not paid.</p>
+<p>This is what actually drove the second byline.</p>
+<h2>Return rate, not first bylines</h2>
+<p>The default metric on a developer content programme is first-time contributors. It sounds like growth. It measures the top of the funnel and nothing after it.</p>
+<p>The metric that tells you whether the programme is working is the second submission. It answers a question the first one cannot: <strong>was this worth the author&#39;s time?</strong> A first submission is a bet. The second is a considered decision to spend the same weekend on the same programme again. That is the number I optimised for.</p>
+<p>You cannot lift return rate by asking. You lift it by making the first byline worth enough that the second one is the default choice.</p>
+<h2>What the first byline actually gave them</h2>
+<p>Everything on Dev Library ran under one of Google&#39;s public domains. So the URL an author walked away with was <em>devlibrary.withgoogle.com</em>. That is different from a personal blog post in three ways:</p>
+<ul>
+<li>It is a URL you can put on a CV and hiring managers recognise the domain.</li>
+<li>It gets crawled and cited by search from day one.</li>
+<li>It appears in a searchable directory of peers, not alone.</li>
+</ul>
+<p>Those three properties are the payoff. A personal blog post has to earn each of them separately. The Dev Library URL had all three at merge time. That is the offer.</p>
+<h2>The pipeline, end to end</h2>
+<p>The publishing pipeline had five stages between a submission and a live URL. Each existed for a specific reason.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What happened</th>
+<th>Why it existed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Submission</td>
+<td>Author files a form with repo or article link, one-line summary, and Google tech tag</td>
+<td>Structured input so triage is fast</td>
+</tr>
+<tr>
+<td>Triage</td>
+<td>Fit check — is this an actual Google technology, is the project functional, is the article original</td>
+<td>Cuts spam and mis-fits early, before reviewer time</td>
+</tr>
+<tr>
+<td>Editor pass</td>
+<td>An editor reads it end to end and returns a single revision request</td>
+<td>Signals a human read it. This is the piece authors most consistently mentioned as the reason they came back</td>
+</tr>
+<tr>
+<td>CI checks</td>
+<td>Automated: link check, image build, front-matter validation, format lint</td>
+<td>Catches the small problems that turn into published errors</td>
+</tr>
+<tr>
+<td>Merge and showcase</td>
+<td>Merge to main triggers a deploy; the piece appears at a stable URL under a tag page</td>
+<td>The URL is the payoff. It is public within minutes of merge</td>
+</tr>
+</tbody></table></div>
+<p>Nothing here is inventive. The interesting part is which stage the returning authors named as the reason they came back.</p>
+<figure class="bv-figure"><img src="/assets/writing/dev-library-interior.svg" alt="Two side-by-side journeys of a first-time author: with an editor pass and a stable Google URL versus without either. The first ends in a second submission; the second ends nowhere." loading="lazy" decoding="async" width="900" height="500"><figcaption>The editor pass and the Google URL do most of the work. Everything else is hygiene.</figcaption></figure><h2>Why the editor pass mattered</h2>
+<p>The stage I could most easily have cut is the editor pass. It was the slowest, the most human, and the hardest to scale. It was also the reason the return rate held.</p>
+<p>A first-time author submitting a piece to a Google domain assumes it will land in a queue and either merge or disappear. When someone reads it, marks two specific paragraphs, and asks a real question about the third, that is a signal the piece was worth reading. That signal is the difference between &quot;my writing appeared on a Google page&quot; and &quot;a Google editor engaged with my work.&quot; The second is what shows up in a second submission.</p>
+<p>The revision request was always singular. Not a list of twelve things. One thing to address. Authors who came back consistently mentioned this — the single ask made it feel like a conversation, not a review queue.</p>
+<h2>What the CI pipeline caught</h2>
+<p>The CI stage was three small automated checks and it caught most of the problems that would otherwise land as visible bugs after publish:</p>
+<ul>
+<li><strong>Link check</strong> — every URL in the piece resolved with a 200. Broken links in a technical article age the piece within weeks.</li>
+<li><strong>Image build</strong> — every image referenced actually existed and was the right size. This is the most common author mistake and the most visible when missed.</li>
+<li><strong>Front-matter validation</strong> — the tag and category had to match the known list. This was what fed the tag pages on the showcase.</li>
+</ul>
+<p>None of the CI stages were clever. Together they meant an editor never had to be the person catching a broken image path. Editor time stayed on content.</p>
+<div class="callout">
+<p class="callout-title">If you run a developer content programme</p>
+<ol>
+<li>Report return rate alongside first-timers. Return is the honest number.</li>
+<li>Give first bylines something a personal post cannot buy on day one — a domain, a directory, an editor mark.</li>
+<li>Keep revision requests to one thing at a time. A list of twelve reads as a rejection.</li>
+<li>Automate the mechanical checks. Reserve editor time for the writing.</li>
+<li>Publish the tag pages. A siloed article does not multiply into a second one.</li>
+</ol>
+</div><h2>What this is not</h2>
+<p>Return rate does not tell you whether the content is any good on its own terms. A piece can be technically correct, get published, get its author a second byline, and still not be a useful reference for a working developer. Return rate measures the programme&#39;s pull, not the content&#39;s value.</p>
+<p>For the second question you need reader signals — inbound search, time on page, citations from other pieces. Those are separate metrics with separate pipelines. Return rate answers the programme design question, which is the one I was responsible for.</p>
+<p>Related: <a href="/writing/creator-payout-design">how I structured payouts to protect content quality</a>, and <a href="/writing/creator-streak-system">a streak system that never punishes creators</a>.</p>
+    </div>
+
+      <section class="faq">
+        <h2>Questions worth answering</h2>
+        <div class="faq-item">
+          <p class="faq-q">What was Google Dev Library?</p>
+          <p class="faq-a">A public showcase for open-source projects and technical writing built on Google technologies, launched in 2022. Google's launch announcement is at developers.googleblog.com/what-is-googles-dev-library. I ran the publishing pipeline from 2023 to 2025 as a technical maintainer.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why does return rate matter for a developer content programme?</p>
+          <p class="faq-a">First-time contributor counts are the vanity number. Return rate tells you whether the submission was worth their time. A programme with high first-timers and low returns is failing at retention — the reviewers are hard, the visibility is low, or the merged content disappears into a feed nobody reads. Both numbers together are the honest read.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How do you get authors to publish a second piece?</p>
+          <p class="faq-a">Give them something the first byline paid for that a second one would multiply. In our case it was a URL on a Google-owned domain, a searchable showcase page with their name, and an editor pass they could point to on a resume. When those hold, return becomes the default choice, not a favour.</p>
+        </div>
+      </section>
+
+    <div class="article-bottom">
+      <a href="/writing/agentic-ai-day-mobilization" class="article-nav-link">&larr; Prev: Filling a Guinness-record room</a>
+      <a href="/writing/educators-first-class-program" class="article-nav-link">Next: Educators as a category →</a>
+    </div>
+  </div>
+</article>
+<footer class="footer">
+  <span>&copy; 2026 Vishal Das</span>
+  <div class="footer-links">
+    <a href="https://github.com/kindavishal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kindavishal/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('active',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',function(){if(window.innerWidth>768)closeMenu()});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}
+  });
+// threshold 0, not 0.1: an element taller than the viewport can never reach a
+// ratio of 0.1, which would leave it stuck at opacity 0 forever.
+},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>

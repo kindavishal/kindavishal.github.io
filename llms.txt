@@ -9,6 +9,11 @@
 
 ## Writing
 
+- [How I mobilized 2,000 developers into a Guinness record in one day](https://kindavishal.js.org/writing/agentic-ai-day-mobilization)
+- [Why 41% of Dev Library authors came back for a second byline](https://kindavishal.js.org/writing/dev-library-return-rate)
+- [Making Educators a first-class program at Google for Developers](https://kindavishal.js.org/writing/educators-first-class-program)
+- [How I rolled new safety rules to 300 partners with zero incidents](https://kindavishal.js.org/writing/safety-rollout-zero-incidents)
+- [60,000 Gemini API adoptions came from a partner network, not a campaign](https://kindavishal.js.org/writing/gemini-adoption-partner-network)
 - [Almost nobody has actually tried this yet](https://kindavishal.js.org/writing/ai-adoption-gap-operators)
 - [More members won't fix an engagement problem](https://kindavishal.js.org/writing/growth-amplifies-what-exists)
 - [Two numbers per source is most of community attribution](https://kindavishal.js.org/writing/two-metric-attribution-audit)
