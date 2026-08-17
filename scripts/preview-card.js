@@ -35,27 +35,23 @@ const ink       = '#1C1917';
 const inkMuted  = '#57534E';
 const inkFaint  = '#78716C';
 
-// Portrait: 360x360 circle at (64, 135) with a 4px amber ring.
-const PORTRAIT = 360;
-const P_X = 64;
-const P_Y = 135;
+// Portrait: 440x440 circle, vertically centered, with a 4px amber ring.
+const PORTRAIT = 440;
+const P_X = 88;
+const P_Y = (H - PORTRAIT) / 2;
 const P_CX = P_X + PORTRAIT / 2;
 const P_CY = P_Y + PORTRAIT / 2;
 
-// Right column starts after portrait + 56px gap.
-const R_X = P_X + PORTRAIT + 56;
-
-// Vertical stack (roughly matches the design's flex column, 18px gap):
-//   logo row (36) → name (88) → role (26 × 2 lines) → quote (18 × 2 lines).
-const CONTENT_TOP = 168;
+// Right column starts after portrait + 60px gap.
+const R_X = P_X + PORTRAIT + 60;
 
 function bgSvg() {
-  const logoY = CONTENT_TOP;
-  const nameBase = CONTENT_TOP + 36 + 18 + 84;             // ~ 306
-  const roleTop = nameBase + 18;                           // ~ 324
-  const role1 = roleTop + 22;
-  const role2 = role1 + 34;
-  const quoteTop = role2 + 24;
+  // Vertical stack, top-anchored around y=210:
+  //   logo row → name (88) → role (single line) → quote (2 lines).
+  const logoY = 218;
+  const nameBase = 344;
+  const roleY = 400;
+  const quoteTop = 448;
   const quote1 = quoteTop + 16;
   const quote2 = quote1 + 26;
 
@@ -71,14 +67,13 @@ function bgSvg() {
   <!-- Name -->
   <text x="${R_X}" y="${nameBase}" font-family="${SERIF}" font-size="88" font-weight="700" fill="${ink}" letter-spacing="-2.4">Vishal Das</text>
 
-  <!-- Role -->
-  <text x="${R_X}" y="${role1}" font-family="${SANS}" font-size="26" font-weight="500" fill="${inkMuted}">Developer Community</text>
-  <text x="${R_X}" y="${role2}" font-family="${SANS}" font-size="26" font-weight="500" fill="${inkMuted}">&amp; Program Manager</text>
+  <!-- Role (single line) -->
+  <text x="${R_X}" y="${roleY}" font-family="${SANS}" font-size="26" font-weight="500" fill="${inkMuted}">Developer Community &amp; Program Manager</text>
 
   <!-- Pull quote (amber left rule + italic serif) -->
   <rect x="${R_X}" y="${quoteTop - 4}" width="2" height="48" fill="${amber}"/>
-  <text x="${R_X + 14}" y="${quote1}" font-family="${SERIF}" font-style="italic" font-size="18" fill="${inkFaint}">&#8220;Untangles complex programs, builds the systems</text>
-  <text x="${R_X + 14}" y="${quote2}" font-family="${SERIF}" font-style="italic" font-size="18" fill="${inkFaint}">to run them, and makes sure they land.&#8221;</text>
+  <text x="${R_X + 14}" y="${quote1}" font-family="${SERIF}" font-style="italic" font-size="18" fill="${inkFaint}">&#8220;Untangles complex programs, builds the systems to run</text>
+  <text x="${R_X + 14}" y="${quote2}" font-family="${SERIF}" font-style="italic" font-size="18" fill="${inkFaint}">them, and makes sure they land.&#8221;</text>
 
   <!-- Amber ring around the portrait (portrait itself is composited on top) -->
   <circle cx="${P_CX}" cy="${P_CY}" r="${PORTRAIT / 2 + 2}" fill="none" stroke="${amber}" stroke-width="4"/>
