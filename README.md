@@ -1,6 +1,6 @@
-# Vishal Das - Developer Community Manager & Program Manager Portfolio
+# Vishal Das - Developer Community & Program Manager Portfolio
 
-A lightweight, static portfolio website showcasing my experience as a Developer Community Manager & Program Manager.
+A lightweight, static portfolio website showcasing my experience as a Developer Community & Program Manager.
 
 **Live Site:** [kindavishal.js.org](https://kindavishal.js.org/)
 

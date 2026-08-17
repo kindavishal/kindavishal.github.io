@@ -19,3 +19,7 @@ http://kindavishal.netlify.app/*   https://kindavishal.js.org/:splat  301!
 # Retired pages. 302 so the URLs stay reclaimable.
 /now             /  302
 /work-with-me    /  302
+
+# Collapse .html duplicates into the extensionless canonical so GSC stops
+# filing them under "Alternative page with proper canonical tag".
+/*.html   /:splat   301!
