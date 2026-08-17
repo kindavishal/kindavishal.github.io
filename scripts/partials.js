@@ -9,7 +9,7 @@ const SITE = {
   author: 'Vishal Das',
   title: 'Vishal Das',
   ga: 'G-HRM34FM9F4',
-  ogAlt: 'Vishal Das — Developer Community Manager &amp; Program Manager',
+  ogAlt: 'Vishal Das — Developer Community &amp; Program Manager',
 };
 
 const ga = () => `  <!-- Google tag (gtag.js) -->
