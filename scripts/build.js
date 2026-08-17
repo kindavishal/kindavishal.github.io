@@ -187,6 +187,45 @@ ${items}
   }</script>`;
 }
 
+/* ---------- shared card bits ---------- */
+
+// Category -> reader-facing filter label. Shared between the writing index and
+// the homepage cards so both surface the same taxonomy.
+const GROUP_LABELS = {
+  'Creator programs': 'Programs I built',
+  'Internal tooling': 'Tools I shipped',
+  'Attribution':      'Proving the work',
+  'The field':        'The state of the field',
+};
+
+// Monochrome glyph per category, rendered in a small amber chip next to
+// each card's title.
+const CATEGORY_ICONS = {
+  'Creator programs': '<polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/>',
+  'Internal tooling': '<path d="M14.7 6.3a4 4 0 0 0-5.5 4.9L4 16.4V20h3.6l5.2-5.2a4 4 0 0 0 4.9-5.5l-2.5 2.5-2.5-.7-.7-2.5 2.7-2.3z"/>',
+  'Attribution':      '<path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/>',
+  'The field':        '<circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="2"/>',
+};
+
+const catPill = (cat) => `<span class="article-card-cat"><svg viewBox="0 0 24 24" aria-hidden="true">${CATEGORY_ICONS[cat] || ''}</svg>${esc(GROUP_LABELS[cat] || cat || 'Writing')}</span>`;
+const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+const SHORT_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const shortMeta = (p) => {
+  const [y, m] = String(p.date).split('-');
+  return `${SHORT_MONTHS[Number(m) - 1]} ${y} · ${p.readtime} min`;
+};
+
+function articleCard(p, delayIdx, extraAttrs = '') {
+  const delay = delayIdx < 4 ? ` reveal-delay-${delayIdx + 1}` : '';
+  return `      <a href="/writing/${p.slug}" class="article-card reveal${delay}"${extraAttrs}>
+        ${catPill(p.category)}
+        <h3 class="article-card-title">${esc(p.title)}</h3>
+        <p class="article-card-desc">${esc(p.description)}</p>
+        <span class="article-card-foot"><span>${esc(shortMeta(p))}</span><span class="article-card-arrow" aria-hidden="true">Read →</span></span>
+      </a>`;
+}
+
 /* ---------- page templates ---------- */
 
 // Search results truncate around 60 characters. A post's on-page headline can be
@@ -245,7 +284,7 @@ ${P.ARTICLE_RESPONSIVE}
 </style>
 </head>
 <body>
-${P.nav()}
+${P.nav('writing')}
 <article>
   <div class="article-wrap">
     <a href="/writing" class="back-link">
@@ -285,39 +324,9 @@ function renderIndex(posts) {
   const subtitle = "Projects I delivered — including what didn't work. Uncomfortable truths & Observations";
   const desc = 'Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.';
 
-  // Category -> reader-facing filter label. Themes are surfaced as chips above
-  // a single flat list rather than as group headers; the list itself is always
-  // sorted newest first. A post whose `category` is missing from this map
-  // will throw in the loop below.
-  const GROUP_LABELS = {
-    'Creator programs': 'Programs I built',
-    'Internal tooling': 'Tools I shipped',
-    'Attribution':      'Proving the work',
-    'The field':        'The state of the field',
-  };
-
-  // Monochrome glyph per category, rendered in a small amber chip next to
-  // each row's title. Add an entry when a new category is added to
-  // GROUP_LABELS above, or the row will render without an icon.
-  const CATEGORY_ICONS = {
-    'Creator programs': '<polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/>',
-    'Internal tooling': '<path d="M14.7 6.3a4 4 0 0 0-5.5 4.9L4 16.4V20h3.6l5.2-5.2a4 4 0 0 0 4.9-5.5l-2.5 2.5-2.5-.7-.7-2.5 2.7-2.3z"/>',
-    'Attribution':      '<path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/>',
-    'The field':        '<circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="2"/>',
-  };
-  const iconSvg = (cat) => `<span class="article-item-ico" aria-hidden="true"><svg viewBox="0 0 24 24">${CATEGORY_ICONS[cat] || ''}</svg></span>`;
-  const catPill = (cat) => `<span class="article-card-cat"><svg viewBox="0 0 24 24" aria-hidden="true">${CATEGORY_ICONS[cat] || ''}</svg>${esc(GROUP_LABELS[cat])}</span>`;
-
-  // Stable slug per category or company, used for data-attributes and chip IDs.
-  const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-
-  // "2026-02-11" -> "Feb 2026". The row meta needs the short form; the long
-  // form still lives on the post page and in JSON-LD via displayDate().
-  const shortMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const metaOf = (p) => {
-    const [y, m] = String(p.date).split('-');
-    return `${shortMonths[Number(m) - 1]} ${y} · ${p.readtime} min`;
-  };
+  // Taxonomy, icons, pill and short-meta helpers all live at module scope so
+  // the homepage cards render identically. See "shared card bits" above.
+  const metaOf = shortMeta;
 
   // Validate categories once, up front. The chip bar and the list both need
   // to know every category a post might carry.
@@ -387,14 +396,9 @@ ${orderedCompanies.map((co) => `            <button type="button" class="filter-
       a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug));
 
     return sorted.map((p, i) => {
-      const delay = i < 4 ? ` reveal-delay-${i + 1}` : '';
       const cos = p.companies.map(catSlug).join(' ');
-      return `      <a href="/writing/${p.slug}" class="article-card reveal${delay}" data-category="${esc(catSlug(p.category))}" data-companies="${esc(cos)}" data-date="${esc(p.date)}">
-        ${catPill(p.category)}
-        <h3 class="article-card-title">${esc(p.title)}</h3>
-        <p class="article-card-desc">${esc(p.description)}</p>
-        <span class="article-card-foot"><span>${esc(metaOf(p))}</span><span class="article-card-arrow" aria-hidden="true">Read →</span></span>
-      </a>`;
+      const attrs = ` data-category="${esc(catSlug(p.category))}" data-companies="${esc(cos)}" data-date="${esc(p.date)}"`;
+      return articleCard(p, i, attrs);
     }).join('\n');
   })();
 
@@ -436,7 +440,7 @@ ${P.INDEX_RESPONSIVE}
 </style>
 </head>
 <body>
-${P.nav()}
+${P.nav('writing')}
 <main>
   <div class="page-wrap">
     <header class="page-header reveal">
@@ -574,26 +578,28 @@ function injectHomepage(posts) {
   const rest = posts.filter((p) => !p.homepage);
   const chosen = [...pinned, ...rest].slice(0, HOMEPAGE_CARDS);
 
-  const cards = chosen.map((p, i) => `      <a href="/writing/${p.slug}" class="blog-card reveal reveal-delay-${i + 1}">
-        <div class="blog-card-img ${i % 2 === 0 ? 'amber' : 'dark'}"><span>${esc(p.cardLabel || p.dateDisplay)}</span></div>
-        <div class="blog-card-body">
-          <span class="blog-cat">${esc(p.category || 'Writing')}</span>
-          <h3>${esc(p.title)}</h3>
-          <p>${esc(p.description)}</p>
-        </div>
-      </a>`).join('\n');
+  const cards = chosen.map((p, i) => articleCard(p, i)).join('\n');
 
-  const body = posts.length ? cards : `      <div class="blog-card reveal reveal-delay-1" style="cursor:default">
-        <div class="blog-card-img amber"><span>Coming Soon</span></div>
-        <div class="blog-card-body">
-          <span class="blog-cat">Writing</span>
-          <h3>Essays on Developer Ecosystems, Communities, and Building</h3>
-          <p>I'm currently revising a series of essays about lessons learned scaling programs at Google and Firecrawl. Check back soon.</p>
-        </div>
+  const body = posts.length ? cards : `      <div class="article-card reveal reveal-delay-1" style="cursor:default">
+        <span class="article-card-cat">Writing</span>
+        <h3 class="article-card-title">Essays on Developer Ecosystems, Communities, and Building</h3>
+        <p class="article-card-desc">I'm currently revising a series of essays about lessons learned scaling programs at Google and Firecrawl. Check back soon.</p>
       </div>`;
 
   const re = new RegExp(`${START}[\\s\\S]*?${END}`);
   html = html.replace(re, `${START}\n${body}\n      ${END}`);
+
+  // Shared nav lives in partials.js. The homepage receives the same markup as
+  // every writing page, just with no active link highlighted.
+  const NAV_START = '<!-- BUILD:nav -->';
+  const NAV_END = '<!-- /BUILD:nav -->';
+  if (html.includes(NAV_START) && html.includes(NAV_END)) {
+    html = html.replace(
+      new RegExp(`${NAV_START}[\\s\\S]*?${NAV_END}`),
+      `${NAV_START}\n${P.nav()}\n${NAV_END}`);
+  } else {
+    warnings.push('index.html has no BUILD:nav markers — homepage nav not updated');
+  }
 
   // Say how many posts are behind the link, so the section reads as a preview
   // of something bigger rather than the whole list.

@@ -317,21 +317,22 @@ a.sp-card:hover h3::after{opacity:1}
 .endorse-name{font-size:14px;font-weight:600;color:#1C1917;margin:0}
 .endorse-role{font-size:13px;color:#78716C;margin:4px 0 0}
 
-/* BLOG */
+/* BLOG — cards use the writing-index .article-card look so the homepage
+   preview and the /writing grid read as one system. */
 .blog{padding:80px 0;background:#F0EDE8}
 .blog-inner{max-width:1320px;margin:0 auto;padding:0 64px}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:32px}
 .blog-grid>:only-child{max-width:420px;margin:0 auto;width:100%}
-.blog-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.04);transition:all .3s ease}
-.blog-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-4px)}
-.blog-card-img{height:180px;display:flex;align-items:center;justify-content:center;padding:32px}
-.blog-card-img.amber{background:linear-gradient(135deg,#D97706,#F59E0B)}
-.blog-card-img.dark{background:linear-gradient(135deg,#1C1917,#44403C)}
-.blog-card-img span{color:#fff;font-family:'Literata',serif;font-size:22px;font-weight:500}
-.blog-card-body{padding:28px}
-.blog-card-body .blog-cat{font-size:12px;color:#D97706;font-weight:600;text-transform:uppercase;letter-spacing:1px}
-.blog-card-body h3{font-size:18px;margin:8px 0;color:#1C1917;line-height:1.4}
-.blog-card-body p{font-size:14px;color:#78716C;line-height:1.6;margin:0}
+.article-card{display:flex;flex-direction:column;gap:14px;padding:22px 24px 20px;background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:14px;transition:transform .2s,box-shadow .25s,border-color .2s;min-height:100%}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,0.07);border-color:rgba(217,119,6,0.35)}
+.article-card:hover .article-card-title{color:#B45309}
+.article-card:hover .article-card-arrow{transform:translateX(3px)}
+.article-card-cat{display:inline-flex;align-items:center;gap:6px;font-family:'Space Grotesk',system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#B45309;background:#FEF3C7;padding:5px 11px 5px 9px;border-radius:999px;align-self:flex-start;line-height:1.2}
+.article-card-cat svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.article-card-title{font-family:'Literata',serif;font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-0.2px;color:#1C1917;margin:0;transition:color .2s}
+.article-card-desc{font-size:14.5px;line-height:1.6;color:#57534E;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.article-card-foot{margin-top:auto;padding-top:14px;border-top:1px solid rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#A8A29E;font-variant-numeric:tabular-nums}
+.article-card-arrow{color:#B45309;font-weight:600;font-size:13px;transition:transform .2s}
 
 
 /* CTA */
@@ -422,6 +423,7 @@ a.sp-card:hover h3::after{opacity:1}
 <body>
 
 <!-- Nav -->
+<!-- BUILD:nav -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
@@ -429,14 +431,14 @@ a.sp-card:hover h3::after{opacity:1}
       <span class="nav-logo-name">Vishal Das</span>
     </a>
     <div class="nav-links">
-      <a href="#what-i-do">How I Work</a>
-      <a href="#flagships">Flagships</a>
-      <a href="#work">Work</a>
-      <a href="#career">Experience</a>
-      <a href="#writing">Writing</a>
+      <a href="/#what-i-do">How I Work</a>
+      <a href="/#flagships">Flagships</a>
+      <a href="/#work">Work</a>
+      <a href="/#career">Experience</a>
+      <a href="/writing">Writing</a>
       <div class="nav-btns">
-        <a href="#contact" class="btn-outline" onclick="gtag('event','request_resume_click',{location:'nav'})">Request Resume</a>
-        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','book_a_chat_click',{location:'nav'})">Book a Chat →</a>
+        <a href="/#contact" class="btn-outline">Request Resume</a>
+        <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
       </div>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
@@ -444,20 +446,18 @@ a.sp-card:hover h3::after{opacity:1}
     </button>
   </div>
 </nav>
-
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#what-i-do" onclick="closeMenu()">How I Work</a>
-  <a href="#flagships" onclick="closeMenu()">Flagships</a>
-  <a href="#work" onclick="closeMenu()">Work</a>
-  <a href="#career" onclick="closeMenu()">Experience</a>
-  <a href="#writing" onclick="closeMenu()">Writing</a>
-  <a href="#endorsements" onclick="closeMenu()">Endorsements</a>
+  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
+  <a href="/#flagships" onclick="closeMenu()">Flagships</a>
+  <a href="/#work" onclick="closeMenu()">Work</a>
+  <a href="/#career" onclick="closeMenu()">Experience</a>
+  <a href="/writing" onclick="closeMenu()">Writing</a>
   <div class="nav-btns">
-    <a href="#contact" class="btn-outline" onclick="closeMenu(); gtag('event','request_resume_click',{location:'nav_mobile'})">Request Resume</a>
-    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','book_a_chat_click',{location:'nav_mobile'})">Book a Chat →</a>
+    <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
+    <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
   </div>
 </div>
+<!-- /BUILD:nav -->
 
 <main>
 
@@ -892,29 +892,23 @@ a.sp-card:hover h3::after{opacity:1}
     <h2 class="section-title reveal">How the work actually got built</h2>
     <div class="blog-grid">
 <!-- BUILD:blog-cards -->
-      <a href="/writing/firecrawl-ambassador-tier-system" class="blog-card reveal reveal-delay-1">
-        <div class="blog-card-img amber"><span>1.7K → 7.2K weekly</span></div>
-        <div class="blog-card-body">
-          <span class="blog-cat">Creator programs</span>
-          <h3>How I designed a five-tier ambassador program that 4x'd creator referrals</h3>
-          <p>A developer ambassador program built from zero: why tier is one rolling number, not follower count, and how ten creators became a 4x lift in referrals.</p>
-        </div>
+      <a href="/writing/firecrawl-ambassador-tier-system" class="article-card reveal reveal-delay-1">
+        <span class="article-card-cat"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/></svg>Programs I built</span>
+        <h3 class="article-card-title">How I designed a five-tier ambassador program that 4x'd creator referrals</h3>
+        <p class="article-card-desc">A developer ambassador program built from zero: why tier is one rolling number, not follower count, and how ten creators became a 4x lift in referrals.</p>
+        <span class="article-card-foot"><span>Jun 2026 · 5 min</span><span class="article-card-arrow" aria-hidden="true">Read →</span></span>
       </a>
-      <a href="/writing/creator-payout-design" class="blog-card reveal reveal-delay-2">
-        <div class="blog-card-img dark"><span>Flat fee + points</span></div>
-        <div class="blog-card-body">
-          <span class="blog-cat">Creator programs</span>
-          <h3>Why I paid creators for the video, not the views</h3>
-          <p>Per-view and per-signup payouts both quietly ruin the content. The flat-fee and points structure I used instead, and how to define the content types.</p>
-        </div>
+      <a href="/writing/creator-payout-design" class="article-card reveal reveal-delay-2">
+        <span class="article-card-cat"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="7 5 20 12 7 19 7 5" fill="currentColor" stroke="none"/></svg>Programs I built</span>
+        <h3 class="article-card-title">Why I paid creators for the video, not the views</h3>
+        <p class="article-card-desc">Per-view and per-signup payouts both quietly ruin the content. The flat-fee and points structure I used instead, and how to define the content types.</p>
+        <span class="article-card-foot"><span>Jun 2026 · 6 min</span><span class="article-card-arrow" aria-hidden="true">Read →</span></span>
       </a>
-      <a href="/writing/community-attribution-layer" class="blog-card reveal reveal-delay-3">
-        <div class="blog-card-img amber"><span>Apps Script → Looker Studio</span></div>
-        <div class="blog-card-body">
-          <span class="blog-cat">Attribution</span>
-          <h3>How to prove what your developer community returned, without engineering help</h3>
-          <p>A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.</p>
-        </div>
+      <a href="/writing/community-attribution-layer" class="article-card reveal reveal-delay-3">
+        <span class="article-card-cat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 20V10M12 20V6M17 20v-8"/></svg>Proving the work</span>
+        <h3 class="article-card-title">How to prove what your developer community returned, without engineering help</h3>
+        <p class="article-card-desc">A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.</p>
+        <span class="article-card-foot"><span>Jul 2026 · 6 min</span><span class="article-card-arrow" aria-hidden="true">Read →</span></span>
       </a>
       <!-- /BUILD:blog-cards -->
     </div>

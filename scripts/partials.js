@@ -225,17 +225,28 @@ const INDEX_RESPONSIVE = `@media(max-width:900px){
 .footer{padding:20px;flex-direction:column;gap:12px;text-align:center}
 }`;
 
-const nav = () => `<nav class="nav" id="nav">
+// Single source of truth for the nav on every page. `active` highlights one
+// link — pass 'writing' from writing pages; omit on the homepage.
+const NAV_ITEMS = [
+  { href: '/#what-i-do',  label: 'How I Work',  key: 'how' },
+  { href: '/#flagships',  label: 'Flagships',   key: 'flagships' },
+  { href: '/#work',       label: 'Work',        key: 'work' },
+  { href: '/#career',     label: 'Experience',  key: 'career' },
+  { href: '/writing',     label: 'Writing',     key: 'writing' },
+];
+
+const nav = (active) => {
+  const cls = (k) => k === active ? ' class="active"' : '';
+  const links = NAV_ITEMS.map((i) => `      <a href="${i.href}"${cls(i.key)}>${i.label}</a>`).join('\n');
+  const mobile = NAV_ITEMS.map((i) => `  <a href="${i.href}" onclick="closeMenu()">${i.label}</a>`).join('\n');
+  return `<nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
       <div class="nav-logo-icon"><span>V</span></div>
       <span class="nav-logo-name">Vishal Das</span>
     </a>
     <div class="nav-links">
-      <a href="/#what-i-do">How I Work</a>
-      <a href="/#work">Work</a>
-      <a href="/#career">Experience</a>
-      <a href="/writing" class="active">Writing</a>
+${links}
       <div class="nav-btns">
         <a href="/#contact" class="btn-outline">Request Resume</a>
         <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
@@ -247,15 +258,13 @@ const nav = () => `<nav class="nav" id="nav">
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/#what-i-do" onclick="closeMenu()">How I Work</a>
-  <a href="/#work" onclick="closeMenu()">Work</a>
-  <a href="/#career" onclick="closeMenu()">Experience</a>
-  <a href="/writing" onclick="closeMenu()">Writing</a>
+${mobile}
   <div class="nav-btns">
     <a href="/#contact" class="btn-outline" onclick="closeMenu()">Request Resume</a>
     <a href="https://calendar.app.google/WXY4AVd5ScqExaLD6" target="_blank" rel="noopener" class="btn-primary">Book a Chat →</a>
   </div>
 </div>`;
+};
 
 const footer = () => `<footer class="footer">
   <span>&copy; 2026 Vishal Das</span>
