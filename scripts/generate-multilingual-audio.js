@@ -26,10 +26,10 @@ const TTS_URL = 'https://api.sarvam.ai/text-to-speech';
 const REQUEST_DELAY_MS = 250;
 
 const LANGUAGES = [
-  { code: 'en-IN', speaker: 'meera' },
+  { code: 'en-IN', speaker: 'anushka' },
   { code: 'hi-IN', speaker: 'shubh' },
-  { code: 'ta-IN', speaker: 'meera' },
-  { code: 'te-IN', speaker: 'meera' },
+  { code: 'ta-IN', speaker: 'anushka' },
+  { code: 'te-IN', speaker: 'anushka' },
   { code: 'bn-IN', speaker: 'shubh' },
   { code: 'mr-IN', speaker: 'shubh' },
 ];
@@ -68,7 +68,7 @@ function ensureDirs() {
 function parseFrontmatter(raw) {
   const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!m) return null;
-  return yaml.safeLoad(m[1]);
+  return yaml.load(m[1]);
 }
 
 function collectItems() {
