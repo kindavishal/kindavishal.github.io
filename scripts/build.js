@@ -300,6 +300,7 @@ ${P.nav('writing')}
       </div>
     </header>
 
+    <audio-summary-player slug="${post.slug}"></audio-summary-player>
     <div class="article-body">
 ${renderBody(post.body)}
     </div>
@@ -312,6 +313,7 @@ ${faqHtml}
 </article>
 ${P.footer()}
 ${P.scripts()}
+<script src="/components/audio-summary-player.js" defer></script>
 </body>
 </html>
 `;
