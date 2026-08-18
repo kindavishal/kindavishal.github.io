@@ -26,10 +26,10 @@ const TTS_URL = 'https://api.sarvam.ai/text-to-speech';
 const REQUEST_DELAY_MS = 250;
 
 const LANGUAGES = [
-  { code: 'en-IN', speaker: 'anushka' },
+  { code: 'en-IN', speaker: 'priya' },
   { code: 'hi-IN', speaker: 'shubh' },
-  { code: 'ta-IN', speaker: 'anushka' },
-  { code: 'te-IN', speaker: 'anushka' },
+  { code: 'ta-IN', speaker: 'priya' },
+  { code: 'te-IN', speaker: 'priya' },
   { code: 'bn-IN', speaker: 'shubh' },
   { code: 'mr-IN', speaker: 'shubh' },
 ];
