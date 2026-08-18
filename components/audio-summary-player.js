@@ -6,12 +6,12 @@
 
 (function () {
   const LANGS = [
-    { code: 'en-IN', label: 'English' },
-    { code: 'hi-IN', label: 'हिंदी' },
-    { code: 'ta-IN', label: 'தமிழ்' },
-    { code: 'te-IN', label: 'తెలుగు' },
-    { code: 'bn-IN', label: 'বাংলা' },
-    { code: 'mr-IN', label: 'मराठी' },
+    { code: 'en-IN', label: 'English', voices: [{ id: 'priya', label: 'Priya (F)' }, { id: 'shubh', label: 'Shubh (M)' }] },
+    { code: 'hi-IN', label: 'हिंदी',   voices: [{ id: 'shubh', label: 'Shubh (M)' }, { id: 'priya', label: 'Priya (F)' }] },
+    { code: 'ta-IN', label: 'தமிழ்',   voices: [{ id: 'priya', label: 'Priya (F)' }, { id: 'shubh', label: 'Shubh (M)' }] },
+    { code: 'te-IN', label: 'తెలుగు',  voices: [{ id: 'priya', label: 'Priya (F)' }, { id: 'shubh', label: 'Shubh (M)' }] },
+    { code: 'bn-IN', label: 'বাংলা',   voices: [{ id: 'shubh', label: 'Shubh (M)' }, { id: 'priya', label: 'Priya (F)' }] },
+    { code: 'mr-IN', label: 'मराठी',   voices: [{ id: 'shubh', label: 'Shubh (M)' }, { id: 'priya', label: 'Priya (F)' }] },
   ];
   const SPEEDS = [1, 1.25];
   const AUDIO_BASE = '/public/audio';
@@ -28,9 +28,20 @@
     connectedCallback() {
       this.slug = this.getAttribute('slug') || 'profile-bio';
       this.lang = 'en-IN';
+      this.voice = LANGS[0].voices[0].id;
       this.speed = 1;
       this.render();
       this.load();
+    }
+
+    voicesFor(lang) {
+      const l = LANGS.find((x) => x.code === lang);
+      return l ? l.voices : [];
+    }
+
+    renderVoiceOptions() {
+      return this.voicesFor(this.lang)
+        .map((v) => `<option value="${v.id}">${v.label}</option>`).join('');
     }
 
     render() {
@@ -57,6 +68,7 @@
           <span class="asp-label">Audio summary</span>
           <div class="asp-controls">
             <select class="asp-select asp-lang" aria-label="Language">${langOpts}</select>
+            <select class="asp-select asp-voice" aria-label="Voice">${this.renderVoiceOptions()}</select>
             <select class="asp-select asp-speed" aria-label="Playback speed">${speedOpts}</select>
           </div>
         </div>
@@ -73,6 +85,7 @@
       `;
 
       this.$lang = this.querySelector('.asp-lang');
+      this.$voice = this.querySelector('.asp-voice');
       this.$speed = this.querySelector('.asp-speed');
       this.$play = this.querySelector('.asp-play');
       this.$iconPlay = this.querySelector('.asp-icon-play');
@@ -85,6 +98,13 @@
 
       this.$lang.addEventListener('change', () => {
         this.lang = this.$lang.value;
+        const voices = this.voicesFor(this.lang);
+        this.voice = voices[0] ? voices[0].id : '';
+        this.$voice.innerHTML = this.renderVoiceOptions();
+        this.load();
+      });
+      this.$voice.addEventListener('change', () => {
+        this.voice = this.$voice.value;
         this.load();
       });
       this.$speed.addEventListener('change', () => {
@@ -103,7 +123,7 @@
     }
 
     async load() {
-      const audioUrl = `${AUDIO_BASE}/${this.slug}-${this.lang}.wav`;
+      const audioUrl = `${AUDIO_BASE}/${this.slug}-${this.lang}-${this.voice}.wav`;
       const localeUrl = `${LOCALE_BASE}/${this.slug}-${this.lang}.json`;
       this.setPlaying(false);
       this.$audio.pause();

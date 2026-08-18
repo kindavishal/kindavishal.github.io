@@ -25,13 +25,15 @@ const TRANSLATE_URL = 'https://api.sarvam.ai/translate';
 const TTS_URL = 'https://api.sarvam.ai/text-to-speech';
 const REQUEST_DELAY_MS = 250;
 
+// Two Bulbul v3 speakers per language — one male, one female — so the frontend
+// can offer a voice picker without doubling the surface area of the config.
 const LANGUAGES = [
-  { code: 'en-IN', speaker: 'priya' },
-  { code: 'hi-IN', speaker: 'shubh' },
-  { code: 'ta-IN', speaker: 'priya' },
-  { code: 'te-IN', speaker: 'priya' },
-  { code: 'bn-IN', speaker: 'shubh' },
-  { code: 'mr-IN', speaker: 'shubh' },
+  { code: 'en-IN', speakers: ['priya', 'shubh'] },
+  { code: 'hi-IN', speakers: ['shubh', 'priya'] },
+  { code: 'ta-IN', speakers: ['priya', 'shubh'] },
+  { code: 'te-IN', speakers: ['priya', 'shubh'] },
+  { code: 'bn-IN', speakers: ['shubh', 'priya'] },
+  { code: 'mr-IN', speakers: ['shubh', 'priya'] },
 ];
 
 // Short bio for the homepage player. Kept as one paragraph so it fits comfortably
@@ -130,30 +132,47 @@ async function synthesize(apiKey, text, targetLang, speaker) {
 }
 
 async function processItem(apiKey, item) {
-  for (const { code, speaker } of LANGUAGES) {
+  for (const { code, speakers } of LANGUAGES) {
     const localePath = path.join(LOCALES_DIR, `${item.slug}-${code}.json`);
-    const audioPath = path.join(AUDIO_DIR, `${item.slug}-${code}.wav`);
+    const audioPaths = speakers.map((sp) => ({
+      speaker: sp,
+      path: path.join(AUDIO_DIR, `${item.slug}-${code}-${sp}.wav`),
+    }));
 
-    if (fs.existsSync(localePath) && fs.existsSync(audioPath)) {
+    const allCached = fs.existsSync(localePath) && audioPaths.every((a) => fs.existsSync(a.path));
+    if (allCached) {
       console.log(`[CACHED] Skipping ${item.slug} in ${code}`);
       continue;
     }
 
+    let text;
     try {
-      let text = item.text;
-      if (code !== 'en-IN') {
+      if (fs.existsSync(localePath)) {
+        text = JSON.parse(fs.readFileSync(localePath, 'utf8')).text;
+      } else if (code === 'en-IN') {
+        text = item.text;
+        fs.writeFileSync(localePath, JSON.stringify({ slug: item.slug, lang: code, text }, null, 2));
+      } else {
         text = await translate(apiKey, item.text, code);
         await sleep(REQUEST_DELAY_MS);
+        fs.writeFileSync(localePath, JSON.stringify({ slug: item.slug, lang: code, text }, null, 2));
+        console.log(`[TEXT]   ${item.slug} ${code}`);
       }
-      fs.writeFileSync(localePath, JSON.stringify({ slug: item.slug, lang: code, text }, null, 2));
-      console.log(`[TEXT]   ${item.slug} ${code}`);
-
-      const audio = await synthesize(apiKey, text, code, speaker);
-      fs.writeFileSync(audioPath, audio);
-      console.log(`[AUDIO]  ${item.slug} ${code} (${audio.length} bytes)`);
-      await sleep(REQUEST_DELAY_MS);
     } catch (err) {
-      console.error(`[FAIL]   ${item.slug} ${code}: ${err.message}`);
+      console.error(`[FAIL]   ${item.slug} ${code} (translate): ${err.message}`);
+      continue;
+    }
+
+    for (const { speaker, path: audioPath } of audioPaths) {
+      if (fs.existsSync(audioPath)) continue;
+      try {
+        const audio = await synthesize(apiKey, text, code, speaker);
+        fs.writeFileSync(audioPath, audio);
+        console.log(`[AUDIO]  ${item.slug} ${code} ${speaker} (${audio.length} bytes)`);
+        await sleep(REQUEST_DELAY_MS);
+      } catch (err) {
+        console.error(`[FAIL]   ${item.slug} ${code} ${speaker}: ${err.message}`);
+      }
     }
   }
 }
