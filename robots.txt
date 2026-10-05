@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /drafts/
-Sitemap: https://kindavishal.js.org/sitemap.xml
+Sitemap: https://kindavishal.dev/sitemap.xml

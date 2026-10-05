@@ -2,7 +2,7 @@
 
 A lightweight, static portfolio website showcasing my experience as a Developer Community & Program Manager.
 
-**Live Site:** [kindavishal.js.org](https://kindavishal.js.org/)
+**Live Site:** [kindavishal.dev](https://kindavishal.dev/)
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@ scripts/build.js      renders posts, writing index, sitemap, feed, OG images
 scripts/partials.js   shared nav / footer / CSS / meta — edit shared furniture here
 drafts/               unpublished pieces — not linked, noindex, disallowed in robots.txt
 assets/               images and icons; assets/og/ is generated
-_redirects            Netlify redirects for retired URLs and the canonical host
+vercel.json            Vercel build settings, clean URLs and redirects for retired URLs
 ```
 
 **Generated — do not hand-edit.** `writing/*.html`, `sitemap.xml`, `feed.xml`,
@@ -61,7 +61,7 @@ Then `npm run build`. Deleting or drafting a post removes its generated HTML.
 - `npm run build`: Render posts and regenerate the sitemap, feed, and OG images
 - `npm start`: Build, then serve on port 8080
 
-Netlify runs `npm run build` on deploy (see `netlify.toml`). `sharp` generates the
+The host (Vercel) runs `npm run build` on deploy. `sharp` generates the
 per-post OG cards; if it is unavailable the build still succeeds and posts fall back to
 the shared preview card.
 

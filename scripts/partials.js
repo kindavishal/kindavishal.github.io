@@ -5,7 +5,7 @@
 // copy-pasted. If you change nav/footer/tokens, change them here only.
 
 const SITE = {
-  origin: 'https://kindavishal.js.org',
+  origin: 'https://kindavishal.dev',
   author: 'Vishal Das',
   title: 'Vishal Das',
   ga: 'G-HRM34FM9F4',
