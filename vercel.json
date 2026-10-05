@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/writing/big-company-to-startup", "destination": "/writing", "permanent": true },
+    { "source": "/writing/unsexy-side-of-devrel", "destination": "/writing", "permanent": true },
+    { "source": "/writing/community-is-not-a-cost-center", "destination": "/writing", "permanent": true },
+    { "source": "/writing/operator-builder-gap", "destination": "/writing", "permanent": true },
+    { "source": "/writing/managing-300-partnerships", "destination": "/writing", "permanent": true },
+    { "source": "/writing/12-step-community-framework", "destination": "/writing", "permanent": false },
+    { "source": "/now", "destination": "/", "permanent": false },
+    { "source": "/work-with-me", "destination": "/", "permanent": false }
+  ]
+}

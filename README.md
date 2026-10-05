@@ -25,7 +25,7 @@ scripts/build.js      renders posts, writing index, sitemap, feed, OG images
 scripts/partials.js   shared nav / footer / CSS / meta — edit shared furniture here
 drafts/               unpublished pieces — not linked, noindex, disallowed in robots.txt
 assets/               images and icons; assets/og/ is generated
-_redirects            Netlify redirects for retired URLs and the canonical host
+vercel.json            Vercel build settings, clean URLs and redirects for retired URLs
 ```
 
 **Generated — do not hand-edit.** `writing/*.html`, `sitemap.xml`, `feed.xml`,
