@@ -2,134 +2,134 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vishal Das — Writing</title>
-    <link>https://kindavishal.js.org/writing</link>
+    <link>https://kindavishal.dev/writing</link>
     <description>Write-ups on building developer community, DevRel and creator programs — how they were designed, how they were measured, and what went wrong.</description>
     <language>en</language>
     <lastBuildDate>Wed, 12 Aug 2026 09:00:00 GMT</lastBuildDate>
-    <atom:link href="https://kindavishal.js.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://kindavishal.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>How I mobilized 2,000 developers into a Guinness record in one day</title>
-      <link>https://kindavishal.js.org/writing/agentic-ai-day-mobilization</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/agentic-ai-day-mobilization</guid>
+      <link>https://kindavishal.dev/writing/agentic-ai-day-mobilization</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/agentic-ai-day-mobilization</guid>
       <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
       <description>Google Cloud's Agentic AI Day set the Guinness record for the most participants in an agentic AI hackathon. The community-side mobilization funnel that filled the room.</description>
     </item>
     <item>
       <title>Why 41% of Dev Library authors came back for a second byline</title>
-      <link>https://kindavishal.js.org/writing/dev-library-return-rate</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/dev-library-return-rate</guid>
+      <link>https://kindavishal.dev/writing/dev-library-return-rate</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/dev-library-return-rate</guid>
       <pubDate>Tue, 11 Aug 2026 09:00:00 GMT</pubDate>
       <description>I ran Google Dev Library as technical maintainer from 2023 to 2025. 358 developers earned their first byline on a Google property. Two in five came back. The publishing pipeline that made them return.</description>
     </item>
     <item>
       <title>Making Educators a first-class program at Google for Developers</title>
-      <link>https://kindavishal.js.org/writing/educators-first-class-program</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/educators-first-class-program</guid>
+      <link>https://kindavishal.dev/writing/educators-first-class-program</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/educators-first-class-program</guid>
       <pubDate>Mon, 10 Aug 2026 09:00:00 GMT</pubDate>
       <description>Educators were a subcategory when I started. Three years of representing them to global stakeholders landed them alongside engineering and startups. How a category becomes a category.</description>
     </item>
     <item>
       <title>How I rolled new safety rules to 300 partners with zero incidents</title>
-      <link>https://kindavishal.js.org/writing/safety-rollout-zero-incidents</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/safety-rollout-zero-incidents</guid>
+      <link>https://kindavishal.dev/writing/safety-rollout-zero-incidents</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/safety-rollout-zero-incidents</guid>
       <pubDate>Sun, 09 Aug 2026 09:00:00 GMT</pubDate>
       <description>Google policy changed. Every partner program in India had to comply without grinding to a halt. The tiered rollout, the runbook, and the cadence that made zero incidents the boring outcome.</description>
     </item>
     <item>
       <title>60,000 Gemini API adoptions came from a partner network, not a campaign</title>
-      <link>https://kindavishal.js.org/writing/gemini-adoption-partner-network</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/gemini-adoption-partner-network</guid>
+      <link>https://kindavishal.dev/writing/gemini-adoption-partner-network</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/gemini-adoption-partner-network</guid>
       <pubDate>Sat, 08 Aug 2026 09:00:00 GMT</pubDate>
       <description>The India Edu Program by Google for Developers drove 60K+ Gemini API developer adoptions. Not a launch campaign. A faculty-enablement pattern that multiplied one trained instructor into a cohort of adopters.</description>
     </item>
     <item>
       <title>Almost nobody has actually tried this yet</title>
-      <link>https://kindavishal.js.org/writing/ai-adoption-gap-operators</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/ai-adoption-gap-operators</guid>
+      <link>https://kindavishal.dev/writing/ai-adoption-gap-operators</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/ai-adoption-gap-operators</guid>
       <pubDate>Fri, 07 Aug 2026 09:00:00 GMT</pubDate>
       <description>84% of people have never used AI. That is not a reason to wait — it is the reason the operators who build their own tools right now get a long head start.</description>
     </item>
     <item>
       <title>More members won't fix an engagement problem</title>
-      <link>https://kindavishal.js.org/writing/growth-amplifies-what-exists</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/growth-amplifies-what-exists</guid>
+      <link>https://kindavishal.dev/writing/growth-amplifies-what-exists</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/growth-amplifies-what-exists</guid>
       <pubDate>Thu, 06 Aug 2026 09:00:00 GMT</pubDate>
       <description>Growth makes whatever is already there louder. My referrals went 4x on ten creators, not forty — and adding thirty more would have made it worse.</description>
     </item>
     <item>
       <title>Two numbers per source is most of community attribution</title>
-      <link>https://kindavishal.js.org/writing/two-metric-attribution-audit</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/two-metric-attribution-audit</guid>
+      <link>https://kindavishal.dev/writing/two-metric-attribution-audit</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/two-metric-attribution-audit</guid>
       <pubDate>Wed, 05 Aug 2026 09:00:00 GMT</pubDate>
       <description>Before you build a schema, run this. Two numbers per source — how many showed interest, how many converted — and where your growth is stuck becomes obvious.</description>
     </item>
     <item>
       <title>Leaving community doubles your odds of getting promoted</title>
-      <link>https://kindavishal.js.org/writing/community-career-ceiling</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/community-career-ceiling</guid>
+      <link>https://kindavishal.dev/writing/community-career-ceiling</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/community-career-ceiling</guid>
       <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
       <description>A study that followed 86 people for 11 years found 28% of those who stayed reached Director or VP. Of those who left, 60% did. What that number really measures.</description>
     </item>
     <item>
       <title>Your creator program is training the models that recommend you</title>
-      <link>https://kindavishal.js.org/writing/share-of-model-creator-content</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/share-of-model-creator-content</guid>
+      <link>https://kindavishal.dev/writing/share-of-model-creator-content</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/share-of-model-creator-content</guid>
       <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
       <description>Share of voice means where you show up on a channel. Share of model means whether an AI names you when a developer asks. How I'd track the second one.</description>
     </item>
     <item>
       <title>Why DevRel gets cut first</title>
-      <link>https://kindavishal.js.org/writing/why-devrel-gets-cut-first</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/why-devrel-gets-cut-first</guid>
+      <link>https://kindavishal.dev/writing/why-devrel-gets-cut-first</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/why-devrel-gets-cut-first</guid>
       <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
       <description>Two in five DevRel programmes have no formal budget, and a third are under pressure to show metrics they were never set up to produce.</description>
     </item>
     <item>
       <title>The community metrics that survive a budget review</title>
-      <link>https://kindavishal.js.org/writing/community-metrics-budget-review</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/community-metrics-budget-review</guid>
+      <link>https://kindavishal.dev/writing/community-metrics-budget-review</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/community-metrics-budget-review</guid>
       <pubDate>Sat, 01 Aug 2026 09:00:00 GMT</pubDate>
       <description>Which DevRel and community metrics hold up when someone is deciding whether your programme continues — and what attribution still can't tell you.</description>
     </item>
     <item>
       <title>How to prove what your developer community returned, without engineering help</title>
-      <link>https://kindavishal.js.org/writing/community-attribution-layer</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/community-attribution-layer</guid>
+      <link>https://kindavishal.dev/writing/community-attribution-layer</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/community-attribution-layer</guid>
       <pubDate>Wed, 22 Jul 2026 09:00:00 GMT</pubDate>
       <description>A DevRel attribution schema you can actually build: four tables, an Apps Script to Looker Studio pipeline, and no engineering time required.</description>
     </item>
     <item>
       <title>I can't write production code. I shipped the internal tool in a week anyway.</title>
-      <link>https://kindavishal.js.org/writing/tubemonitor-vibe-coding</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/tubemonitor-vibe-coding</guid>
+      <link>https://kindavishal.dev/writing/tubemonitor-vibe-coding</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/tubemonitor-vibe-coding</guid>
       <pubDate>Thu, 16 Jul 2026 09:00:00 GMT</pubDate>
       <description>The third-party tracker was under-counting our creators. So I specced and shipped a replacement in a week — and the spec, not the code, was the hard part.</description>
     </item>
     <item>
       <title>The streak system that never punishes creators</title>
-      <link>https://kindavishal.js.org/writing/creator-streak-system</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/creator-streak-system</guid>
+      <link>https://kindavishal.dev/writing/creator-streak-system</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/creator-streak-system</guid>
       <pubDate>Fri, 10 Jul 2026 09:00:00 GMT</pubDate>
       <description>Most streak mechanics take something away when you stop. This one pauses instead — four states, nothing lost, and a re-entry path that stays open.</description>
     </item>
     <item>
       <title>Why I paid creators for the video, not the views</title>
-      <link>https://kindavishal.js.org/writing/creator-payout-design</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/creator-payout-design</guid>
+      <link>https://kindavishal.dev/writing/creator-payout-design</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/creator-payout-design</guid>
       <pubDate>Tue, 30 Jun 2026 09:00:00 GMT</pubDate>
       <description>Per-view and per-signup payouts both quietly ruin the content. The flat-fee and points structure I used instead, and how to define the content types.</description>
     </item>
     <item>
       <title>How I designed a five-tier ambassador program that 4x'd creator referrals</title>
-      <link>https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system</guid>
+      <link>https://kindavishal.dev/writing/firecrawl-ambassador-tier-system</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/firecrawl-ambassador-tier-system</guid>
       <pubDate>Wed, 17 Jun 2026 09:00:00 GMT</pubDate>
       <description>A developer ambassador program built from zero: why tier is one rolling number, not follower count, and how ten creators became a 4x lift in referrals.</description>
     </item>
     <item>
       <title>How I automated 40 hours of weekly busywork out of a 300-partner program</title>
-      <link>https://kindavishal.js.org/writing/apps-script-partner-automation</link>
-      <guid isPermaLink="true">https://kindavishal.js.org/writing/apps-script-partner-automation</guid>
+      <link>https://kindavishal.dev/writing/apps-script-partner-automation</link>
+      <guid isPermaLink="true">https://kindavishal.dev/writing/apps-script-partner-automation</guid>
       <pubDate>Wed, 11 Feb 2026 09:00:00 GMT</pubDate>
       <description>Google Apps Script, Sheets and Looker Studio, built by the person who needed them. The rule that made it work: automate the handoffs, never the judgment.</description>
     </item>

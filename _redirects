@@ -1,7 +1,7 @@
-# kindavishal.js.org is the canonical host. The Netlify subdomain serves the
+# kindavishal.dev is the canonical host. The Netlify subdomain serves the
 # same content, so it is folded in to stop it competing as a duplicate.
-https://kindavishal.netlify.app/*  https://kindavishal.js.org/:splat  301!
-http://kindavishal.netlify.app/*   https://kindavishal.js.org/:splat  301!
+https://kindavishal.netlify.app/*  https://kindavishal.dev/:splat  301!
+http://kindavishal.netlify.app/*   https://kindavishal.dev/:splat  301!
 
 # Retired essays. These are not coming back — 301 so the equity consolidates.
 # Retarget an individual line once a new post supersedes it.

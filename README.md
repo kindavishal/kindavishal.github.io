@@ -2,7 +2,7 @@
 
 A lightweight, static portfolio website showcasing my experience as a Developer Community & Program Manager.
 
-**Live Site:** [kindavishal.js.org](https://kindavishal.js.org/)
+**Live Site:** [kindavishal.dev](https://kindavishal.dev/)
 
 ## Tech Stack
 
@@ -61,7 +61,7 @@ Then `npm run build`. Deleting or drafting a post removes its generated HTML.
 - `npm run build`: Render posts and regenerate the sitemap, feed, and OG images
 - `npm start`: Build, then serve on port 8080
 
-Netlify runs `npm run build` on deploy (see `netlify.toml`). `sharp` generates the
+The host (Vercel) runs `npm run build` on deploy. `sharp` generates the
 per-post OG cards; if it is unavailable the build still succeeds and posts fall back to
 the shared preview card.
 

@@ -4,26 +4,26 @@
 
 ## Pages
 
-- [Home](https://kindavishal.js.org/): Background, work, and career
-- [Writing](https://kindavishal.js.org/writing): All posts on developer community programs, creator economics, and program management
+- [Home](https://kindavishal.dev/): Background, work, and career
+- [Writing](https://kindavishal.dev/writing): All posts on developer community programs, creator economics, and program management
 
 ## Writing
 
-- [How I mobilized 2,000 developers into a Guinness record in one day](https://kindavishal.js.org/writing/agentic-ai-day-mobilization)
-- [Why 41% of Dev Library authors came back for a second byline](https://kindavishal.js.org/writing/dev-library-return-rate)
-- [Making Educators a first-class program at Google for Developers](https://kindavishal.js.org/writing/educators-first-class-program)
-- [How I rolled new safety rules to 300 partners with zero incidents](https://kindavishal.js.org/writing/safety-rollout-zero-incidents)
-- [60,000 Gemini API adoptions came from a partner network, not a campaign](https://kindavishal.js.org/writing/gemini-adoption-partner-network)
-- [Almost nobody has actually tried this yet](https://kindavishal.js.org/writing/ai-adoption-gap-operators)
-- [More members won't fix an engagement problem](https://kindavishal.js.org/writing/growth-amplifies-what-exists)
-- [Two numbers per source is most of community attribution](https://kindavishal.js.org/writing/two-metric-attribution-audit)
-- [Leaving community doubles your odds of getting promoted](https://kindavishal.js.org/writing/community-career-ceiling)
-- [Why DevRel gets cut first](https://kindavishal.js.org/writing/why-devrel-gets-cut-first)
-- [Your creator program is training the models that recommend you](https://kindavishal.js.org/writing/share-of-model-creator-content)
-- [The community metrics that survive a budget review](https://kindavishal.js.org/writing/community-metrics-budget-review)
-- [How to prove what your developer community returned, without engineering help](https://kindavishal.js.org/writing/community-attribution-layer)
-- [I can't write production code. I shipped the internal tool in a week anyway.](https://kindavishal.js.org/writing/tubemonitor-vibe-coding)
-- [The streak system that never punishes creators](https://kindavishal.js.org/writing/creator-streak-system)
-- [Why I paid creators for the video, not the views](https://kindavishal.js.org/writing/creator-payout-design)
-- [How I designed a five-tier ambassador program that 4x'd creator referrals](https://kindavishal.js.org/writing/firecrawl-ambassador-tier-system)
-- [How I automated 40 hours of weekly busywork out of a 300-partner program](https://kindavishal.js.org/writing/apps-script-partner-automation)
+- [How I mobilized 2,000 developers into a Guinness record in one day](https://kindavishal.dev/writing/agentic-ai-day-mobilization)
+- [Why 41% of Dev Library authors came back for a second byline](https://kindavishal.dev/writing/dev-library-return-rate)
+- [Making Educators a first-class program at Google for Developers](https://kindavishal.dev/writing/educators-first-class-program)
+- [How I rolled new safety rules to 300 partners with zero incidents](https://kindavishal.dev/writing/safety-rollout-zero-incidents)
+- [60,000 Gemini API adoptions came from a partner network, not a campaign](https://kindavishal.dev/writing/gemini-adoption-partner-network)
+- [Almost nobody has actually tried this yet](https://kindavishal.dev/writing/ai-adoption-gap-operators)
+- [More members won't fix an engagement problem](https://kindavishal.dev/writing/growth-amplifies-what-exists)
+- [Two numbers per source is most of community attribution](https://kindavishal.dev/writing/two-metric-attribution-audit)
+- [Leaving community doubles your odds of getting promoted](https://kindavishal.dev/writing/community-career-ceiling)
+- [Why DevRel gets cut first](https://kindavishal.dev/writing/why-devrel-gets-cut-first)
+- [Your creator program is training the models that recommend you](https://kindavishal.dev/writing/share-of-model-creator-content)
+- [The community metrics that survive a budget review](https://kindavishal.dev/writing/community-metrics-budget-review)
+- [How to prove what your developer community returned, without engineering help](https://kindavishal.dev/writing/community-attribution-layer)
+- [I can't write production code. I shipped the internal tool in a week anyway.](https://kindavishal.dev/writing/tubemonitor-vibe-coding)
+- [The streak system that never punishes creators](https://kindavishal.dev/writing/creator-streak-system)
+- [Why I paid creators for the video, not the views](https://kindavishal.dev/writing/creator-payout-design)
+- [How I designed a five-tier ambassador program that 4x'd creator referrals](https://kindavishal.dev/writing/firecrawl-ambassador-tier-system)
+- [How I automated 40 hours of weekly busywork out of a 300-partner program](https://kindavishal.dev/writing/apps-script-partner-automation)
