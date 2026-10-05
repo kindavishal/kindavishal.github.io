@@ -54,6 +54,14 @@ svg *{transition:fill .35s ease,stroke .35s ease}
 
 /* buttons */
 .cta{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 26px;border-radius:14px;background:var(--a2);color:var(--ink);font-size:18px;font-weight:700;text-decoration:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.wl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;max-width:520px}
+.wl input[type=email]{flex:1 1 220px;min-height:56px;padding:0 18px;border-radius:14px;border:1px solid rgba(244,241,234,.28);background:rgba(255,255,255,.06);color:var(--cream);font:inherit;font-size:18px}
+.wl input[type=email]::placeholder{color:var(--dim)}
+.wl button.cta{border:0;cursor:pointer;font-family:inherit}
+.wl button[disabled]{opacity:.6;cursor:wait}
+.wl-msg{flex-basis:100%;margin:0;min-height:1.4em;font-size:15px;color:var(--cream)}
 .cta:hover{opacity:1;filter:brightness(1.06)}
 .ghost{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 24px;border-radius:14px;border:1px solid rgba(244,241,234,.28);color:var(--cream);font-size:18px;font-weight:600;text-decoration:none}
 .ghost:hover{opacity:1;background:rgba(255,255,255,.06)}
@@ -243,7 +251,7 @@ html{scroll-behavior:auto}
 </a>
 <nav class="nav" aria-label="Main">
 <a href="#how">How it works</a><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a>
-<a class="dl" href="Yaprr.dmg" download>Download</a>
+<a class="dl" href="#top">Join waitlist</a>
 </nav>
 </div>
 </header>
@@ -253,11 +261,11 @@ html{scroll-behavior:auto}
 <section class="hero dark" id="top">
 <div class="wrap">
 <div>
-<span class="eyebrow pill-tag">free · for your Mac</span>
+<span class="eyebrow pill-tag">free · coming soon for Mac</span>
 <h1>Your keyboard's about to get jealous.</h1>
 <p class="sub">Hold a key. Say it messy. Clean text lands right where your cursor is, in any app on your Mac.</p>
 <div class="ctas">
-<a class="cta" href="Yaprr.dmg" download><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 V13 M5.5 8.5 L10 13 L14.5 8.5 M4 17 H16"/></svg>Download for Mac</a>
+<form class="wl" data-waitlist novalidate><label class="sr" for="wl-hero">Email address</label><input id="wl-hero" type="email" name="email" placeholder="you@email.com" autocomplete="email" required maxlength="254"><input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="cta" type="submit">Join the waitlist</button><p class="wl-msg" role="status" aria-live="polite"></p></form>
 <a class="ghost" href="#how">See how it works</a>
 </div>
 <div class="meta">
@@ -416,7 +424,7 @@ html{scroll-behavior:auto}
 <div style="display:flex;flex-direction:column;gap:18px"><h2 class="h2">Stop typing.<br>Start yapping.</h2><span class="mono" style="font-size:13px;color:var(--dim)">free · macOS 26+ · Apple silicon and Intel · powered by Alpie Seed</span></div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:18px">
 <svg width="120" height="120" viewBox="0 0 100 100" aria-hidden="true"><rect class="side d3" x="11" y="41" width="8" height="18" rx="4" style="fill:var(--a1)"/><rect class="side d2" x="27" y="31" width="8" height="38" rx="4" style="fill:var(--a1)"/><rect x="44.5" y="18" width="11" height="64" rx="5.5" style="fill:var(--a2)"/><rect class="side d2" x="65" y="31" width="8" height="38" rx="4" style="fill:var(--a1)"/><rect class="side d3" x="81" y="41" width="8" height="18" rx="4" style="fill:var(--a1)"/></svg>
-<a class="cta" href="Yaprr.dmg" download>Download for Mac</a>
+<form class="wl" data-waitlist novalidate><label class="sr" for="wl-final">Email address</label><input id="wl-final" type="email" name="email" placeholder="you@email.com" autocomplete="email" required maxlength="254"><input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="cta" type="submit">Join the waitlist</button><p class="wl-msg" role="status" aria-live="polite"></p></form>
 </div>
 </div>
 </div>
@@ -426,7 +434,7 @@ html{scroll-behavior:auto}
 <footer>
 <div class="wrap">
 <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><svg width="26" height="26" viewBox="0 0 100 100" aria-hidden="true"><rect x="11" y="41" width="8" height="18" rx="4" style="fill:var(--deep)"/><rect x="27" y="31" width="8" height="38" rx="4" style="fill:var(--deep)"/><rect x="44.5" y="18" width="11" height="64" rx="5.5" style="fill:var(--ink)"/><rect x="65" y="31" width="8" height="38" rx="4" style="fill:var(--deep)"/><rect x="81" y="41" width="8" height="18" rx="4" style="fill:var(--deep)"/></svg><span style="font-size:22px;font-weight:800;letter-spacing:-.05em;color:var(--ink);padding-bottom:3px">yappr</span><span style="margin-left:12px">© <span id="yr">2026</span> Vishal Das · Apache 2.0 · Powered by Alpie Seed</span></div>
-<nav aria-label="Footer"><a href="Yaprr.dmg" download>Download</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a></nav>
+<nav aria-label="Footer"><a href="#top">Join waitlist</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a></nav>
 </div>
 <p class="wrap tm">App names are trademarks of their owners. Yappr works with them but isn't affiliated with or endorsed by them.</p>
 </footer>
@@ -455,6 +463,25 @@ html{scroll-behavior:auto}
     b.addEventListener('click', function(){ var x = b.getAttribute('data-set-motion'); apply('data-motion','data-set-motion',x); set('yaprr-motion',x); });
   });
   var y = document.getElementById('yr'); if (y) y.textContent = new Date().getFullYear();
+})();
+
+(function(){
+var URL_="https://kzhpspcazbrcvepjzbfu.supabase.co/rest/v1/waitlist",KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6aHBzcGNhemJyY3ZlcGp6YmZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA3ODQwNzgsImV4cCI6MjEwNjM2MDA3OH0.uNKxQZry8xOwndHXiQEcX6cCAGdyMiaExFP7XIu8UeY";
+document.querySelectorAll('[data-waitlist]').forEach(function(f){
+f.addEventListener('submit',function(e){
+e.preventDefault();
+var m=f.querySelector('.wl-msg'),b=f.querySelector('button'),em=f.email.value.trim();
+if(f.company.value){m.textContent="You're on the list. Thank you!";return;}
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){m.textContent="That email doesn't look right. Try again?";return;}
+b.disabled=true;m.textContent="Adding you…";
+fetch(URL_,{method:"POST",headers:{"apikey":KEY,"Authorization":"Bearer "+KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({email:em})})
+.then(function(r){
+if(r.ok||r.status===409){m.textContent=r.ok?"You're on the list. We'll email you when Yappr is ready.":"You're already on the list. We'll email you when Yappr is ready.";f.reset();document.querySelectorAll('[data-waitlist]').forEach(function(o){o.querySelector('button').textContent="You're on the list";});}
+else{throw 0;}
+}).catch(function(){m.textContent="Something went wrong. Please try again in a moment.";})
+.finally(function(){b.disabled=false;});
+});
+});
 })();
 </script>
 </body>
