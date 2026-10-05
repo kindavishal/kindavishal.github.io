@@ -1,0 +1,5 @@
+# Netlify only (Vercel ignores this file): send the old hosts to the canonical domain.
+https://kindavishal.js.org/*       https://kindavishal.dev/:splat  301!
+http://kindavishal.js.org/*        https://kindavishal.dev/:splat  301!
+https://kindavishal.netlify.app/*  https://kindavishal.dev/:splat  301!
+http://kindavishal.netlify.app/*   https://kindavishal.dev/:splat  301!

@@ -1,0 +1,8 @@
+# kindavishal.js.org still points at the old Netlify site. kindavishal.dev is served by Vercel (see vercel.json);
+# this file only keeps the old host alive long enough to redirect it. Vercel ignores it.
+[build]
+  command = "npm run build"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "20"
